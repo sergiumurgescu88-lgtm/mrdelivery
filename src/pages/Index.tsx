@@ -3,8 +3,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
-import { PulsingBadge } from '@/components/PulsingBadge';
 import { FoodBackground } from '@/components/FoodBackground';
+import { HeroBanner } from '@/components/HeroBanner';
+import { ModularBanner } from '@/components/ModularBanner';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import {
   Zap,
@@ -37,21 +38,7 @@ const Index = () => {
 
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 relative z-10">
         {/* Hero Section */}
-        <header className="text-center mb-8 sm:mb-10 relative pt-16">
-          <div className="inline-block relative mb-3 sm:mb-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary">
-              {t.siteName}
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-semibold px-2 max-w-2xl mx-auto">
-            {t.tagline}
-          </p>
-          <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2">
-            <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
-            <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
-            <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
-          </div>
-        </header>
+        <HeroBanner />
 
         {/* Tab Navigation */}
         <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
@@ -365,10 +352,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* Modular Note */}
-            <div className="bg-gradient-to-r from-success/10 to-primary/10 p-4 rounded-xl border border-success/20">
-              <h3 className="text-base font-bold text-foreground mb-2">{t.aiServices.modular}</h3>
-              <p className="text-sm text-muted-foreground">{t.aiServices.modularDesc}</p>
-            </div>
+            <ModularBanner />
           </main>
         )}
 
