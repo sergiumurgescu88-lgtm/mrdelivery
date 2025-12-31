@@ -35,6 +35,7 @@ export const translations = {
       aiAgents: {
         title: 'AI Agents - Intelligent Virtual Assistant',
         price: '€499/month',
+        subtitle: 'Never miss a call or message – 24/7 automated customer service',
         badge: '24/7 Conversational AI Agent',
         phone: {
           title: '📞 Phone Answering',
@@ -69,6 +70,7 @@ export const translations = {
       video: {
         title: 'Premium Video Service with VEO3',
         price: '€599/month (only with Standard Package €399)',
+        subtitle: 'Viral content for TikTok, Instagram Reels & YouTube Shorts',
         badge: 'Viral Video Content',
         videosTitle: '🎬 16 Videos/Month',
         videoDesc: 'Each 24-second video:',
@@ -97,6 +99,7 @@ export const translations = {
       premium: {
         title: 'Premium Package: Efficiency and Innovation',
         price: '€600 - €2,500/month',
+        subtitle: 'Complete digital transformation – Apps, Automation & Social Media',
         badge: 'All-Inclusive Package',
         automation: {
           title: '🎯 Automation and Customer Database',
@@ -227,6 +230,7 @@ export const translations = {
       aiAgents: {
         title: 'Agentes IA - Asistente Virtual Inteligente',
         price: '499 €/mes',
+        subtitle: 'Nunca pierdas una llamada o mensaje – Atención al cliente 24/7 automatizada',
         badge: 'Agente IA Conversacional 24/7',
         phone: {
           title: '📞 Contestador Automático',
@@ -261,6 +265,7 @@ export const translations = {
       video: {
         title: 'Servicio de Vídeo Premium con VEO3',
         price: '599 €/mes (solo con Paquete Estándar 399 €)',
+        subtitle: 'Contenido viral para TikTok, Instagram Reels y YouTube Shorts',
         badge: 'Contenido de Vídeo Viral',
         videosTitle: '🎬 16 Vídeos/Mes',
         videoDesc: 'Cada vídeo de 24 segundos:',
@@ -289,6 +294,7 @@ export const translations = {
       premium: {
         title: 'Paquete Premium: Eficiencia e Innovación',
         price: '600 - 2.500 €/mes',
+        subtitle: 'Transformación digital completa – Apps, Automatización y Redes Sociales',
         badge: 'Paquete Todo Incluido',
         automation: {
           title: '🎯 Automatización y Base de Datos de Clientes',
@@ -419,6 +425,7 @@ export const translations = {
       aiAgents: {
         title: 'AI Agents - Asistent Virtual Inteligent',
         price: '2.000 RON/lună',
+        subtitle: 'Nu mai pierzi niciun apel sau mesaj – Suport clienți automatizat 24/7',
         badge: 'Agent AI Conversațional 24/7',
         phone: {
           title: '📞 Răspunde la Telefon',
@@ -453,6 +460,7 @@ export const translations = {
       video: {
         title: 'Serviciu Video Premium cu VEO3',
         price: '1.500 RON/lună (doar cu Pachetul Standard de 1.500 RON)',
+        subtitle: 'Conținut viral pentru TikTok, Instagram Reels și YouTube Shorts',
         badge: 'Conținut Video Viral',
         videosTitle: '🎬 16 Videoclipuri/Lună',
         videoDesc: 'Fiecare video de 24 secunde:',
@@ -481,6 +489,7 @@ export const translations = {
       premium: {
         title: 'Pachet Premium: Eficiență și Inovație',
         price: '2.500 RON/lună',
+        subtitle: 'Transformare digitală completă – Aplicații, Automatizare și Social Media',
         badge: 'Pachet All-Inclusive',
         automation: {
           title: '🎯 Automatizare și Bază de Date Clienți',
