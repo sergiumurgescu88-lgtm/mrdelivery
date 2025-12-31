@@ -187,7 +187,7 @@ export const translations = {
     footer: {
       title: 'Ready to transform your restaurant?',
       subtitle: 'Contact us for a free consultation',
-      website: 'Website',
+      whatsapp: 'WhatsApp',
       call: 'Call Now'
     }
   },
@@ -377,7 +377,7 @@ export const translations = {
     footer: {
       title: '¿Listo para transformar tu restaurante?',
       subtitle: 'Contáctanos para una consulta gratuita',
-      website: 'Sitio Web',
+      whatsapp: 'WhatsApp',
       call: 'Llámanos'
     }
   },
@@ -567,26 +567,16 @@ export const translations = {
     footer: {
       title: 'Gata să îți transformi restaurantul?',
       subtitle: 'Contactează-ne pentru o consultație gratuită',
-      website: 'Website',
+      whatsapp: 'WhatsApp',
       call: 'Sună Acum'
     }
   }
 };
 
-export const getWebsiteUrl = (lang: Language) => {
-  const urls = {
-    en: 'https://mrdelivery.com',
-    es: 'https://mrdelivery.es',
-    ro: 'https://mrdelivery.ro'
-  };
-  return urls[lang];
+export const getWhatsAppUrl = () => {
+  return 'https://wa.me/40768676141';
 };
 
-export const getPhoneUrl = (lang: Language) => {
-  const urls = {
-    en: 'tel:+1',
-    es: 'tel:+34',
-    ro: 'tel:+40'
-  };
-  return urls[lang];
+export const getPhoneUrl = () => {
+  return 'tel:+40768676141';
 };

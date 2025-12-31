@@ -4,7 +4,7 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
-import { getWebsiteUrl, getPhoneUrl } from '@/i18n/translations';
+import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import {
   Zap,
   Sparkles,
@@ -381,15 +381,17 @@ const Index = () => {
           <p className="text-sm sm:text-base mb-5 opacity-90">{t.footer.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href={getWebsiteUrl(language)}
-              className="bg-card text-primary px-6 py-3 rounded-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2"
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-success text-success-foreground px-6 py-3 rounded-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2"
             >
-              <Globe className="w-4 h-4" />
-              {t.footer.website}
+              <MessageSquare className="w-4 h-4" />
+              {t.footer.whatsapp}
             </a>
             <a
-              href={getPhoneUrl(language)}
-              className="bg-primary/80 text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 border border-primary-foreground/20"
+              href={getPhoneUrl()}
+              className="bg-card text-primary px-6 py-3 rounded-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4" />
               {t.footer.call}
