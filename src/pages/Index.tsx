@@ -46,7 +46,7 @@ const Index = () => {
           <div className="flex flex-col items-center gap-2 px-2 max-w-2xl mx-auto">
             {t.taglineItems.map((item, index) => (
               <p key={index} className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
-                • {item.emoji} {item.text}
+                • {item.text} {item.emoji}
               </p>
             ))}
           </div>
