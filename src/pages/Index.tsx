@@ -44,15 +44,11 @@ const Index = () => {
             </h1>
           </div>
           <div className="flex flex-col items-center gap-2 px-2 max-w-2xl mx-auto">
-            <p className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
-              • 🚀 Marketing Management
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
-              • 🤖 AI Chatbots & Voice Agents
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
-              • 🎬 Viral Video Content
-            </p>
+            {t.taglineItems.map((item, index) => (
+              <p key={index} className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
+                • {item.emoji} {item.text}
+              </p>
+            ))}
           </div>
           <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2">
             <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>

@@ -4,6 +4,11 @@ export const translations = {
   en: {
     siteName: 'MrDelivery.com',
     tagline: '🚀 Marketing Management • AI Chatbots & Voice Agents • Viral Video Content',
+    taglineItems: [
+      { emoji: '🚀', text: 'Marketing Management' },
+      { emoji: '🤖', text: 'AI Chatbots & Voice Agents' },
+      { emoji: '🎬', text: 'Viral Video Content' }
+    ],
     subtitle: 'Dominate Uber Eats, DoorDash & Grubhub with our all-in-one restaurant marketing solutions',
     badges: {
       ai: '✨ AI-Powered',
@@ -206,6 +211,11 @@ export const translations = {
   es: {
     siteName: 'MrDelivery.es',
     tagline: '🚀 Gestión de Marketing • Chatbots IA & Agentes de Voz • Contenido de Vídeo Viral',
+    taglineItems: [
+      { emoji: '🚀', text: 'Gestión de Marketing' },
+      { emoji: '🤖', text: 'Chatbots IA & Agentes de Voz' },
+      { emoji: '🎬', text: 'Contenido de Vídeo Viral' }
+    ],
     subtitle: 'Domina Glovo, Uber Eats y Just Eat con nuestras soluciones integrales de marketing para restaurantes',
     badges: {
       ai: '✨ Con IA',
@@ -408,6 +418,11 @@ export const translations = {
   ro: {
     siteName: 'MrDelivery.ro',
     tagline: '🚀 Management Marketing • Chatboți AI & Agenți Vocali • Conținut Video Viral',
+    taglineItems: [
+      { emoji: '🚀', text: 'Management Marketing' },
+      { emoji: '🤖', text: 'Chatboți AI & Agenți Vocali' },
+      { emoji: '🎬', text: 'Conținut Video Viral' }
+    ],
     subtitle: 'Domină Wolt, Glovo și Bolt Food cu soluțiile noastre complete de marketing pentru restaurante',
     badges: {
       ai: '✨ AI-Powered',
