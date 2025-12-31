@@ -4,6 +4,7 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
+import { SpaceBackground } from '@/components/SpaceBackground';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import {
   Zap,
@@ -29,23 +30,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
-      {/* Space Video Background */}
-      <div className="fixed inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/857195/857195-hd_1920_1080_25fps.mp4"
-            type="video/mp4"
-          />
-        </video>
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]"></div>
-      </div>
+      {/* Interactive Space Background */}
+      <SpaceBackground />
 
       <LanguageSwitcher />
 
