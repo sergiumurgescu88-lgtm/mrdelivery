@@ -18,6 +18,7 @@ export const translations = {
       standard: {
         title: 'Standard Package',
         price: '€399/month',
+        subtitle: 'All services on Uber Eats, DoorDash & Grubhub',
         support: '24/7 Support via WhatsApp',
         items: [
           'Detailed menu presentation with professional images and complete allergen information',
@@ -209,6 +210,7 @@ export const translations = {
       standard: {
         title: 'Paquete Estándar',
         price: '399 €/mes',
+        subtitle: 'Todos los servicios en Glovo, Uber Eats & Just Eat',
         support: 'Soporte 24/7 por WhatsApp',
         items: [
           'Presentación detallada del menú con imágenes profesionales e información completa sobre alérgenos',
@@ -400,6 +402,7 @@ export const translations = {
       standard: {
         title: 'Pachet Standard',
         price: '1.500 RON/lună',
+        subtitle: 'Toate serviciile pe Wolt, Glovo & Bolt Food',
         support: 'Suport 24/7 pe WhatsApp',
         items: [
           'Prezentarea detaliată a meniului cu imagini profesionale și informații complete despre alergeni',
