@@ -425,7 +425,7 @@ export const translations = {
       aiAgents: {
         title: 'AI Agents - Asistent Virtual Inteligent',
         price: '2.000 RON/lună',
-        subtitle: 'Nu mai pierzi niciun apel sau mesaj – Suport clienți automatizat 24/7',
+        subtitle: 'Nu mai pierzi nici un apel sau mesaj – Suport clienți automatizat 24/7',
         badge: 'Agent AI Conversațional 24/7',
         phone: {
           title: '📞 Răspunde la Telefon',
@@ -489,7 +489,7 @@ export const translations = {
       premium: {
         title: 'Pachet Premium: Eficiență și Inovație',
         price: '2.500 RON/lună',
-        subtitle: 'Transformare digitală completă – Aplicații, Automatizare și Social Media',
+        subtitle: 'Transformare digitală completă – Aplicații Android/iOS, Automatizare și Social Media',
         badge: 'Pachet All-Inclusive',
         automation: {
           title: '🎯 Automatizare și Bază de Date Clienți',
