@@ -396,7 +396,7 @@ export const translations = {
     services: {
       standard: {
         title: 'Pachet Standard',
-        price: '700 - 1.500 RON/lună',
+        price: '1.500 RON/lună',
         support: 'Suport 24/7 pe WhatsApp',
         items: [
           'Prezentarea detaliată a meniului cu imagini profesionale și informații complete despre alergeni',
@@ -412,7 +412,7 @@ export const translations = {
       },
       aiAgents: {
         title: 'AI Agents - Asistent Virtual Inteligent',
-        price: '800 - 1.200 RON/lună',
+        price: '2.000 RON/lună',
         badge: 'Agent AI Conversațional 24/7',
         phone: {
           title: '📞 Răspunde la Telefon',
@@ -446,7 +446,7 @@ export const translations = {
       },
       video: {
         title: 'Serviciu Video Premium cu VEO3',
-        price: '1.500 RON/lună (doar cu Pachet Standard 1.500 RON)',
+        price: '1.500 RON/lună (doar cu Pachetul Standard de 1.500 RON)',
         badge: 'Conținut Video Viral',
         videosTitle: '🎬 16 Videoclipuri/Lună',
         videoDesc: 'Fiecare video de 24 secunde:',
@@ -474,7 +474,7 @@ export const translations = {
       },
       premium: {
         title: 'Pachet Premium: Eficiență și Inovație',
-        price: '2.500 - 10.000 RON/lună',
+        price: '2.500 RON/lună',
         badge: 'Pachet All-Inclusive',
         automation: {
           title: '🎯 Automatizare și Bază de Date Clienți',
