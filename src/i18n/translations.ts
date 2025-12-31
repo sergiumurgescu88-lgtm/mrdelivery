@@ -69,7 +69,10 @@ export const translations = {
       },
       video: {
         title: 'Premium Video Service with VEO3',
-        price: '€599/month (only with Standard Package €399)',
+        price: '€798/month',
+        originalPrice: '€998/month',
+        discount: '20% OFF',
+        discountNote: 'Package 1 + Package 2 combined',
         subtitle: 'Viral content for TikTok, Instagram Reels & YouTube Shorts',
         badge: 'Viral Video Content',
         videosTitle: '🎬 16 Videos/Month',
@@ -98,7 +101,10 @@ export const translations = {
       },
       premium: {
         title: 'Premium Package: Efficiency and Innovation',
-        price: '€699/month',
+        price: '€454/month',
+        originalPrice: '€699/month',
+        discount: '35% OFF',
+        discountNote: 'When purchasing Packages 1, 2 and 3',
         subtitle: 'Complete digital transformation – Apps, Automation & Social Media',
         badge: 'All-Inclusive Package',
         automation: {
@@ -264,7 +270,10 @@ export const translations = {
       },
       video: {
         title: 'Servicio de Vídeo Premium con VEO3',
-        price: '599 €/mes (solo con Paquete Estándar 399 €)',
+        price: '798 €/mes',
+        originalPrice: '998 €/mes',
+        discount: '20% DESCUENTO',
+        discountNote: 'Paquete 1 + Paquete 2 combinados',
         subtitle: 'Contenido viral para TikTok, Instagram Reels y YouTube Shorts',
         badge: 'Contenido de Vídeo Viral',
         videosTitle: '🎬 16 Vídeos/Mes',
@@ -293,7 +302,10 @@ export const translations = {
       },
       premium: {
         title: 'Paquete Premium: Eficiencia e Innovación',
-        price: '699 €/mes',
+        price: '454 €/mes',
+        originalPrice: '699 €/mes',
+        discount: '35% DESCUENTO',
+        discountNote: 'Al adquirir los Paquetes 1, 2 y 3',
         subtitle: 'Transformación digital completa – Apps, Automatización y Redes Sociales',
         badge: 'Paquete Todo Incluido',
         automation: {
@@ -459,7 +471,10 @@ export const translations = {
       },
       video: {
         title: 'Serviciu Video Premium cu VEO3',
-        price: '1.500 RON/lună (doar cu Pachetul Standard de 1.500 RON)',
+        price: '2.800 RON/lună',
+        originalPrice: '3.500 RON/lună',
+        discount: '20% REDUCERE',
+        discountNote: 'Pachetul 1 + Pachetul 2 combinate',
         subtitle: 'Conținut viral pentru TikTok, Instagram Reels și YouTube Shorts',
         badge: 'Conținut Video Viral',
         videosTitle: '🎬 16 Videoclipuri/Lună',
@@ -488,7 +503,10 @@ export const translations = {
       },
       premium: {
         title: 'Pachet Premium: Eficiență și Inovație',
-        price: '2.500 RON/lună',
+        price: '1.625 RON/lună',
+        originalPrice: '2.500 RON/lună',
+        discount: '35% REDUCERE',
+        discountNote: 'La achiziționarea Pachetelor 1, 2 și 3',
         subtitle: 'Transformare digitală completă – Aplicații Android/iOS, Automatizare și Social Media',
         badge: 'Pachet All-Inclusive',
         automation: {

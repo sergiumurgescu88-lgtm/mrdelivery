@@ -172,7 +172,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* Video Premium */}
-            <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} subtitle={t.services.video.subtitle} highlight>
+            <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} originalPrice={t.services.video.originalPrice} discount={t.services.video.discount} discountNote={t.services.video.discountNote} subtitle={t.services.video.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Video className="w-5 h-5 text-accent" />
@@ -257,7 +257,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* Premium Package */}
-            <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} subtitle={t.services.premium.subtitle} highlight>
+            <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} originalPrice={t.services.premium.originalPrice} discount={t.services.premium.discount} discountNote={t.services.premium.discountNote} subtitle={t.services.premium.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Star className="w-5 h-5 text-warning" />
