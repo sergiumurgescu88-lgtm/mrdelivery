@@ -6,11 +6,14 @@ interface ServiceCardProps {
   icon: LucideIcon;
   children: ReactNode;
   price?: string;
+  originalPrice?: string;
+  discount?: string;
+  discountNote?: string;
   subtitle?: string;
   highlight?: boolean;
 }
 
-export const ServiceCard = ({ title, icon: Icon, children, price, subtitle, highlight = false }: ServiceCardProps) => {
+export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice, discount, discountNote, subtitle, highlight = false }: ServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -52,15 +55,38 @@ export const ServiceCard = ({ title, icon: Icon, children, price, subtitle, high
                   {subtitle}
                 </p>
               )}
-              {price && (
-                <div
-                  className={`inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold ${
-                    highlight ? 'bg-card text-primary' : 'bg-primary/10 text-primary'
-                  }`}
-                >
-                  <Star className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="break-words">{price}</span>
+              {(price || originalPrice || discount) && (
+                <div className="flex flex-wrap items-center gap-2 mt-1">
+                  {discount && (
+                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold ${
+                      highlight ? 'bg-green-500 text-white' : 'bg-green-500 text-white'
+                    }`}>
+                      {discount}
+                    </span>
+                  )}
+                  {originalPrice && (
+                    <span className={`text-xs sm:text-sm line-through ${
+                      highlight ? 'text-primary-foreground/50' : 'text-muted-foreground'
+                    }`}>
+                      {originalPrice}
+                    </span>
+                  )}
+                  {price && (
+                    <div
+                      className={`inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold ${
+                        highlight ? 'bg-card text-primary' : 'bg-primary/10 text-primary'
+                      }`}
+                    >
+                      <Star className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span className="break-words">{price}</span>
+                    </div>
+                  )}
                 </div>
+              )}
+              {discountNote && (
+                <p className={`text-xs mt-1 ${highlight ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
+                  {discountNote}
+                </p>
               )}
             </div>
           </div>
