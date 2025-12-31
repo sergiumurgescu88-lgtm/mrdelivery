@@ -7,8 +7,8 @@ export const FoodBackground = () => {
         className="w-full h-full bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${foodBackground})` }}
       />
-      {/* Overlay for better text readability - no blur */}
-      <div className="absolute inset-0 bg-background/50"></div>
+      {/* Very subtle overlay for minimal text readability help */}
+      <div className="absolute inset-0 bg-background/30"></div>
     </div>
   );
 };
