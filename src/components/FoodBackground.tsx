@@ -1,4 +1,5 @@
 import foodVideo from '@/assets/food-background.mp4';
+import { MagneticParticles } from './MagneticParticles';
 
 export const FoodBackground = () => {
   return (
@@ -12,8 +13,10 @@ export const FoodBackground = () => {
       >
         <source src={foodVideo} type="video/mp4" />
       </video>
-      {/* Very subtle overlay for minimal text readability help */}
-      <div className="absolute inset-0 bg-background/30"></div>
+      {/* Very subtle overlay for text readability */}
+      <div className="absolute inset-0 bg-background/20"></div>
+      {/* Interactive magnetic particles */}
+      <MagneticParticles />
     </div>
   );
 };
