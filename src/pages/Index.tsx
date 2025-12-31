@@ -43,9 +43,17 @@ const Index = () => {
               {t.siteName}
             </h1>
           </div>
-          <p className="text-base sm:text-lg md:text-xl text-white font-semibold px-2 max-w-2xl mx-auto drop-shadow-md">
-            {t.tagline}
-          </p>
+          <div className="flex flex-col items-center gap-2 px-2 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
+              • 🚀 Marketing Management
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
+              • 🤖 AI Chatbots & Voice Agents
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-white font-semibold drop-shadow-md">
+              • 🎬 Viral Video Content
+            </p>
+          </div>
           <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2">
             <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
             <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
