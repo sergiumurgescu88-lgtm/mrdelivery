@@ -12,8 +12,8 @@ export const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="fixed top-4 right-4 z-50">
-      <div className="flex items-center gap-1 bg-card/90 backdrop-blur-sm rounded-full p-1 shadow-lg border border-border">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+      <div className="flex items-center gap-1 bg-card/90 backdrop-blur-md rounded-full p-1 shadow-lg border border-border/50">
         <Globe className="w-4 h-4 text-muted-foreground ml-2" />
         {languages.map((lang) => (
           <button
@@ -22,7 +22,7 @@ export const LanguageSwitcher = () => {
             className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
               language === lang.code
                 ? 'bg-gradient-primary text-primary-foreground shadow-md'
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/80'
             }`}
           >
             <span className="mr-1">{lang.flag}</span>
