@@ -113,7 +113,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* AI Agents */}
-            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price}>
+            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} subtitle={t.services.aiAgents.subtitle}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary/10 to-accent/10 px-4 py-2 rounded-full">
                   <Sparkles className="w-4 h-4 text-secondary" />
@@ -172,7 +172,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* Video Premium */}
-            <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} highlight>
+            <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} subtitle={t.services.video.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Video className="w-5 h-5 text-accent" />
@@ -257,7 +257,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* Premium Package */}
-            <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} highlight>
+            <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} subtitle={t.services.premium.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Star className="w-5 h-5 text-warning" />
