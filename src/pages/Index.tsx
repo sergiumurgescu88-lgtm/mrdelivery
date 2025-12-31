@@ -113,7 +113,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* AI Agents */}
-            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} subtitle={t.services.aiAgents.subtitle}>
+            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} originalPrice={t.services.aiAgents.originalPrice} discount={t.services.aiAgents.discount} discountNote={t.services.aiAgents.discountNote} subtitle={t.services.aiAgents.subtitle}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary/10 to-accent/10 px-4 py-2 rounded-full">
                   <Sparkles className="w-4 h-4 text-secondary" />
