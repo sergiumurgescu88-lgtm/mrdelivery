@@ -1,15 +1,11 @@
-import servicesRainVideo from '@/assets/services-rain-video.mp4';
+import darkTechBackground from '@/assets/dark-tech-background.jpg';
 
 export const FoodBackground = () => {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-black">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="w-full h-full object-cover"
-        src={servicesRainVideo}
+      <div 
+        className="w-full h-full bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${darkTechBackground})` }}
       />
     </div>
   );
