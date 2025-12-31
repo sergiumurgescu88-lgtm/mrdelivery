@@ -6,10 +6,11 @@ interface ServiceCardProps {
   icon: LucideIcon;
   children: ReactNode;
   price?: string;
+  subtitle?: string;
   highlight?: boolean;
 }
 
-export const ServiceCard = ({ title, icon: Icon, children, price, highlight = false }: ServiceCardProps) => {
+export const ServiceCard = ({ title, icon: Icon, children, price, subtitle, highlight = false }: ServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -46,6 +47,11 @@ export const ServiceCard = ({ title, icon: Icon, children, price, highlight = fa
               >
                 {title}
               </h3>
+              {subtitle && (
+                <p className={`text-xs sm:text-sm mb-2 ${highlight ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+                  {subtitle}
+                </p>
+              )}
               {price && (
                 <div
                   className={`inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold ${

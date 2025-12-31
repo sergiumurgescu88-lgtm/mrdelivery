@@ -96,7 +96,7 @@ const Index = () => {
         {activeTab === 'existente' && (
           <main className="space-y-5 px-2">
             {/* Standard Package */}
-            <ServiceCard title={t.services.standard.title} icon={TrendingUp} price={t.services.standard.price}>
+            <ServiceCard title={t.services.standard.title} icon={TrendingUp} price={t.services.standard.price} subtitle={t.services.standard.subtitle}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full mb-4">
                   <Clock className="w-4 h-4 text-primary" />
