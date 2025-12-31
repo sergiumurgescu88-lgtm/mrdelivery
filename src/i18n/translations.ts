@@ -488,7 +488,7 @@ export const translations = {
       },
       premium: {
         title: 'Pachet Premium: Eficiență și Inovație',
-        price: '699 €/lună',
+        price: '2.500 RON/lună',
         subtitle: 'Transformare digitală completă – Aplicații Android/iOS, Automatizare și Social Media',
         badge: 'Pachet All-Inclusive',
         automation: {
