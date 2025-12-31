@@ -1,4 +1,4 @@
-import foodCommunityVideo from '@/assets/food-community-video.mp4';
+import spaceBackgroundVideo from '@/assets/space-background-video.mp4';
 
 export const FoodBackground = () => {
   return (
@@ -9,10 +9,10 @@ export const FoodBackground = () => {
         loop
         playsInline
         className="w-full h-full object-cover"
-        src={foodCommunityVideo}
+        src={spaceBackgroundVideo}
       />
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-background/50"></div>
+      <div className="absolute inset-0 bg-background/40"></div>
     </div>
   );
 };
