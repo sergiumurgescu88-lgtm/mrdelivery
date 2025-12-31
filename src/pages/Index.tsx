@@ -4,7 +4,7 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
-import { SpaceBackground } from '@/components/SpaceBackground';
+import { FoodBackground } from '@/components/FoodBackground';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import {
   Zap,
@@ -30,8 +30,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
-      {/* Interactive Space Background */}
-      <SpaceBackground />
+      {/* Food Background with Miniature Chefs */}
+      <FoodBackground />
 
       <LanguageSwitcher />
 
