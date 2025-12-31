@@ -28,19 +28,30 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState<'existente' | 'ai'>('existente');
 
   return (
-    <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-secondary/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-        <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-accent/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+    <div className="min-h-screen relative overflow-hidden bg-background">
+      {/* Space Video Background */}
+      <div className="fixed inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/857195/857195-hd_1920_1080_25fps.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]"></div>
       </div>
 
       <LanguageSwitcher />
 
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 relative z-10">
         {/* Hero Section */}
-        <header className="text-center mb-8 sm:mb-10 relative pt-12">
+        <header className="text-center mb-8 sm:mb-10 relative pt-16">
           <div className="inline-block relative mb-3 sm:mb-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary">
               {t.siteName}
