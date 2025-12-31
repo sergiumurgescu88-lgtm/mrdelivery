@@ -3,7 +3,8 @@ export type Language = 'en' | 'es' | 'ro';
 export const translations = {
   en: {
     siteName: 'MrDelivery.com',
-    tagline: '🚀 Complete services for restaurant success on delivery platforms',
+    tagline: '🚀 Marketing Management • AI Chatbots & Voice Agents • Viral Video Content',
+    subtitle: 'Dominate Uber Eats, DoorDash & Grubhub with our all-in-one restaurant marketing solutions',
     badges: {
       ai: '✨ AI-Powered',
       apps: '📱 Apps & Web',
@@ -193,7 +194,8 @@ export const translations = {
   },
   es: {
     siteName: 'MrDelivery.es',
-    tagline: '🚀 Servicios completos para el éxito de restaurantes en plataformas de delivery',
+    tagline: '🚀 Gestión de Marketing • Chatbots IA & Agentes de Voz • Contenido de Vídeo Viral',
+    subtitle: 'Domina Glovo, Uber Eats y Just Eat con nuestras soluciones integrales de marketing para restaurantes',
     badges: {
       ai: '✨ Con IA',
       apps: '📱 Apps & Web',
@@ -383,7 +385,8 @@ export const translations = {
   },
   ro: {
     siteName: 'MrDelivery.ro',
-    tagline: '🚀 Servicii complete pentru succesul restaurantelor pe platformele de livrare',
+    tagline: '🚀 Management Marketing • Chatboți AI & Agenți Vocali • Conținut Video Viral',
+    subtitle: 'Domină Wolt, Glovo și Bolt Food cu soluțiile noastre complete de marketing pentru restaurante',
     badges: {
       ai: '✨ AI-Powered',
       apps: '📱 Apps & Web',
