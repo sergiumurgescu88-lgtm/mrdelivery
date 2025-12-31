@@ -34,9 +34,9 @@ export const translations = {
       },
       aiAgents: {
         title: 'AI Agents - Intelligent Virtual Assistant',
-        price: '€424/month',
+        price: '€374/month',
         originalPrice: '€499/month',
-        discount: '15% OFF',
+        discount: '25% OFF',
         subtitle: 'Never miss a call or message – 24/7 automated customer service',
         badge: '24/7 Conversational AI Agent',
         phone: {
@@ -71,9 +71,9 @@ export const translations = {
       },
       video: {
         title: 'Premium Video Service with VEO3',
-        price: '€449/month',
+        price: '€389/month',
         originalPrice: '€599/month',
-        discount: '25% OFF',
+        discount: '35% OFF',
         subtitle: 'Viral content for TikTok, Instagram Reels & YouTube Shorts',
         badge: 'Viral Video Content',
         videosTitle: '🎬 16 Videos/Month',
@@ -102,10 +102,10 @@ export const translations = {
       },
       premium: {
         title: 'Premium Package: Efficiency and Innovation',
-        price: '€454/month',
+        price: '€384/month',
         originalPrice: '€699/month',
-        discount: '35% OFF',
-        discountNote: '35% off if you purchase Packages 1, 2 and 3 together',
+        discount: '45% OFF',
+        discountNote: '45% off if you purchase Packages 1 and 3 together',
         subtitle: 'Complete digital transformation – Apps, Automation & Social Media',
         badge: 'All-Inclusive Package',
         automation: {
@@ -236,9 +236,9 @@ export const translations = {
       },
       aiAgents: {
         title: 'Agentes IA - Asistente Virtual Inteligente',
-        price: '424 €/mes',
+        price: '374 €/mes',
         originalPrice: '499 €/mes',
-        discount: '15% DESCUENTO',
+        discount: '25% DESCUENTO',
         subtitle: 'Nunca pierdas una llamada o mensaje – Atención al cliente 24/7 automatizada',
         badge: 'Agente IA Conversacional 24/7',
         phone: {
@@ -273,9 +273,9 @@ export const translations = {
       },
       video: {
         title: 'Servicio de Vídeo Premium con VEO3',
-        price: '449 €/mes',
+        price: '389 €/mes',
         originalPrice: '599 €/mes',
-        discount: '25% DESCUENTO',
+        discount: '35% DESCUENTO',
         subtitle: 'Contenido viral para TikTok, Instagram Reels y YouTube Shorts',
         badge: 'Contenido de Vídeo Viral',
         videosTitle: '🎬 16 Vídeos/Mes',
@@ -304,10 +304,10 @@ export const translations = {
       },
       premium: {
         title: 'Paquete Premium: Eficiencia e Innovación',
-        price: '454 €/mes',
+        price: '384 €/mes',
         originalPrice: '699 €/mes',
-        discount: '35% DESCUENTO',
-        discountNote: '35% de descuento al adquirir los Paquetes 1, 2 y 3 juntos',
+        discount: '45% DESCUENTO',
+        discountNote: '45% de descuento al adquirir los Paquetes 1 y 3 juntos',
         subtitle: 'Transformación digital completa – Apps, Automatización y Redes Sociales',
         badge: 'Paquete Todo Incluido',
         automation: {
@@ -438,9 +438,9 @@ export const translations = {
       },
       aiAgents: {
         title: 'AI Agents - Asistent Virtual Inteligent',
-        price: '1.700 RON/lună',
+        price: '1.500 RON/lună',
         originalPrice: '2.000 RON/lună',
-        discount: '15% REDUCERE',
+        discount: '25% REDUCERE',
         subtitle: 'Nu mai pierzi nici un apel sau mesaj – Suport clienți automatizat 24/7',
         badge: 'Agent AI Conversațional 24/7',
         phone: {
@@ -475,9 +475,9 @@ export const translations = {
       },
       video: {
         title: 'Serviciu Video Premium cu VEO3',
-        price: '1.875 RON/lună',
+        price: '1.625 RON/lună',
         originalPrice: '2.500 RON/lună',
-        discount: '25% REDUCERE',
+        discount: '35% REDUCERE',
         subtitle: 'Conținut viral pentru TikTok, Instagram Reels și YouTube Shorts',
         badge: 'Conținut Video Viral',
         videosTitle: '🎬 16 Videoclipuri/Lună',
@@ -506,10 +506,10 @@ export const translations = {
       },
       premium: {
         title: 'Pachet Premium: Eficiență și Inovație',
-        price: '1.625 RON/lună',
+        price: '1.375 RON/lună',
         originalPrice: '2.500 RON/lună',
-        discount: '35% REDUCERE',
-        discountNote: '35% reducere la achiziționarea Pachetelor 1, 2 și 3 împreună',
+        discount: '45% REDUCERE',
+        discountNote: '45% reducere la achiziționarea Pachetelor 1 și 3 împreună',
         subtitle: 'Transformare digitală completă – Aplicații Android/iOS, Automatizare și Social Media',
         badge: 'Pachet All-Inclusive',
         automation: {
