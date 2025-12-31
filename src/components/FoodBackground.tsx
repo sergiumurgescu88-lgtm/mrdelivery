@@ -1,4 +1,4 @@
-import foodRainVideo from '@/assets/food-rain-video.mp4';
+import servicesRainVideo from '@/assets/services-rain-video.mp4';
 
 export const FoodBackground = () => {
   return (
@@ -9,7 +9,7 @@ export const FoodBackground = () => {
         loop
         playsInline
         className="w-full h-full object-cover"
-        src={foodRainVideo}
+        src={servicesRainVideo}
       />
     </div>
   );
