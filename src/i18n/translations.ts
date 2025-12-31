@@ -34,7 +34,10 @@ export const translations = {
       },
       aiAgents: {
         title: 'AI Agents - Intelligent Virtual Assistant',
-        price: '€499/month',
+        price: '€424/month',
+        originalPrice: '€499/month',
+        discount: '15% OFF',
+        discountNote: '15% off when purchased as Package 2',
         subtitle: 'Never miss a call or message – 24/7 automated customer service',
         badge: '24/7 Conversational AI Agent',
         phone: {
@@ -69,10 +72,10 @@ export const translations = {
       },
       video: {
         title: 'Premium Video Service with VEO3',
-        price: '€798/month',
+        price: '€749/month',
         originalPrice: '€998/month',
-        discount: '20% OFF',
-        discountNote: 'Includes the Standard Package (€399) – 20% off because the Standard Package is included',
+        discount: '25% OFF',
+        discountNote: 'Includes the Standard Package (€399) – 25% off because the Standard Package is included',
         subtitle: 'Viral content for TikTok, Instagram Reels & YouTube Shorts',
         badge: 'Viral Video Content',
         videosTitle: '🎬 16 Videos/Month',
@@ -235,7 +238,10 @@ export const translations = {
       },
       aiAgents: {
         title: 'Agentes IA - Asistente Virtual Inteligente',
-        price: '499 €/mes',
+        price: '424 €/mes',
+        originalPrice: '499 €/mes',
+        discount: '15% DESCUENTO',
+        discountNote: '15% de descuento al adquirirlo como Paquete 2',
         subtitle: 'Nunca pierdas una llamada o mensaje – Atención al cliente 24/7 automatizada',
         badge: 'Agente IA Conversacional 24/7',
         phone: {
@@ -270,10 +276,10 @@ export const translations = {
       },
       video: {
         title: 'Servicio de Vídeo Premium con VEO3',
-        price: '798 €/mes',
+        price: '749 €/mes',
         originalPrice: '998 €/mes',
-        discount: '20% DESCUENTO',
-        discountNote: 'Incluye el Paquete Estándar (399 €) – 20% de descuento porque el Paquete Estándar está incluido',
+        discount: '25% DESCUENTO',
+        discountNote: 'Incluye el Paquete Estándar (399 €) – 25% de descuento porque el Paquete Estándar está incluido',
         subtitle: 'Contenido viral para TikTok, Instagram Reels y YouTube Shorts',
         badge: 'Contenido de Vídeo Viral',
         videosTitle: '🎬 16 Vídeos/Mes',
@@ -436,7 +442,10 @@ export const translations = {
       },
       aiAgents: {
         title: 'AI Agents - Asistent Virtual Inteligent',
-        price: '2.000 RON/lună',
+        price: '1.700 RON/lună',
+        originalPrice: '2.000 RON/lună',
+        discount: '15% REDUCERE',
+        discountNote: '15% reducere la achiziționarea ca Pachet 2',
         subtitle: 'Nu mai pierzi nici un apel sau mesaj – Suport clienți automatizat 24/7',
         badge: 'Agent AI Conversațional 24/7',
         phone: {
@@ -471,10 +480,10 @@ export const translations = {
       },
       video: {
         title: 'Serviciu Video Premium cu VEO3',
-        price: '2.800 RON/lună',
+        price: '2.625 RON/lună',
         originalPrice: '3.500 RON/lună',
-        discount: '20% REDUCERE',
-        discountNote: 'Include Pachetul Standard (1.500 RON) – 20% reducere deoarece Pachetul Standard este inclus',
+        discount: '25% REDUCERE',
+        discountNote: 'Include Pachetul Standard (1.500 RON) – 25% reducere deoarece Pachetul Standard este inclus',
         subtitle: 'Conținut viral pentru TikTok, Instagram Reels și YouTube Shorts',
         badge: 'Conținut Video Viral',
         videosTitle: '🎬 16 Videoclipuri/Lună',
