@@ -1,22 +1,14 @@
-import foodVideo from '@/assets/food-background.mp4';
-import { MagneticParticles } from './MagneticParticles';
+import foodBackground from '@/assets/food-background.jpg';
 
 export const FoodBackground = () => {
   return (
     <div className="fixed inset-0 z-0">
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline
-        className="w-full h-full object-cover"
-      >
-        <source src={foodVideo} type="video/mp4" />
-      </video>
-      {/* Very subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-background/20"></div>
-      {/* Interactive magnetic particles */}
-      <MagneticParticles />
+      <div 
+        className="w-full h-full bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${foodBackground})` }}
+      />
+      {/* Overlay for better text readability - no blur */}
+      <div className="absolute inset-0 bg-background/50"></div>
     </div>
   );
 };
