@@ -38,18 +38,20 @@ const Index = () => {
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 relative z-10">
         {/* Hero Section */}
         <header className="text-center mb-8 sm:mb-10 relative pt-16">
-          <div className="inline-block relative mb-3 sm:mb-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary">
-              {t.siteName}
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-semibold px-2 max-w-2xl mx-auto">
-            {t.tagline}
-          </p>
-          <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2">
-            <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
-            <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
-            <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
+          <div className="bg-background/80 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-2xl border border-border/50">
+            <div className="inline-block relative mb-3 sm:mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
+                {t.siteName}
+              </h1>
+            </div>
+            <p className="text-base sm:text-lg md:text-xl text-foreground font-semibold px-2 max-w-2xl mx-auto drop-shadow-md">
+              {t.tagline}
+            </p>
+            <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2">
+              <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
+              <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
+              <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
+            </div>
           </div>
         </header>
 
@@ -365,9 +367,9 @@ const Index = () => {
             </ServiceCard>
 
             {/* Modular Note */}
-            <div className="bg-gradient-to-r from-success/10 to-primary/10 p-4 rounded-xl border border-success/20">
-              <h3 className="text-base font-bold text-foreground mb-2">{t.aiServices.modular}</h3>
-              <p className="text-sm text-muted-foreground">{t.aiServices.modularDesc}</p>
+            <div className="bg-background/80 backdrop-blur-md p-6 rounded-2xl border-2 border-success/30 shadow-2xl">
+              <h3 className="text-lg font-bold text-foreground mb-3 drop-shadow-md">{t.aiServices.modular}</h3>
+              <p className="text-base text-foreground font-medium drop-shadow-sm">{t.aiServices.modularDesc}</p>
             </div>
           </main>
         )}
