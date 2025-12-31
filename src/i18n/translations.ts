@@ -34,7 +34,9 @@ export const translations = {
       },
       aiAgents: {
         title: 'AI Agents - Intelligent Virtual Assistant',
-        price: '€499/month',
+        price: '€424/month',
+        originalPrice: '€499/month',
+        discount: '15% OFF',
         subtitle: 'Never miss a call or message – 24/7 automated customer service',
         badge: '24/7 Conversational AI Agent',
         phone: {
@@ -72,7 +74,6 @@ export const translations = {
         price: '€449/month',
         originalPrice: '€599/month',
         discount: '25% OFF',
-        discountNote: 'Includes the Standard Package (€399)',
         subtitle: 'Viral content for TikTok, Instagram Reels & YouTube Shorts',
         badge: 'Viral Video Content',
         videosTitle: '🎬 16 Videos/Month',
@@ -235,7 +236,9 @@ export const translations = {
       },
       aiAgents: {
         title: 'Agentes IA - Asistente Virtual Inteligente',
-        price: '499 €/mes',
+        price: '424 €/mes',
+        originalPrice: '499 €/mes',
+        discount: '15% DESCUENTO',
         subtitle: 'Nunca pierdas una llamada o mensaje – Atención al cliente 24/7 automatizada',
         badge: 'Agente IA Conversacional 24/7',
         phone: {
@@ -273,7 +276,6 @@ export const translations = {
         price: '449 €/mes',
         originalPrice: '599 €/mes',
         discount: '25% DESCUENTO',
-        discountNote: 'Incluye el Paquete Estándar (399 €)',
         subtitle: 'Contenido viral para TikTok, Instagram Reels y YouTube Shorts',
         badge: 'Contenido de Vídeo Viral',
         videosTitle: '🎬 16 Vídeos/Mes',
@@ -436,7 +438,9 @@ export const translations = {
       },
       aiAgents: {
         title: 'AI Agents - Asistent Virtual Inteligent',
-        price: '2.000 RON/lună',
+        price: '1.700 RON/lună',
+        originalPrice: '2.000 RON/lună',
+        discount: '15% REDUCERE',
         subtitle: 'Nu mai pierzi nici un apel sau mesaj – Suport clienți automatizat 24/7',
         badge: 'Agent AI Conversațional 24/7',
         phone: {
@@ -474,7 +478,6 @@ export const translations = {
         price: '1.875 RON/lună',
         originalPrice: '2.500 RON/lună',
         discount: '25% REDUCERE',
-        discountNote: 'Include Pachetul Standard (1.500 RON)',
         subtitle: 'Conținut viral pentru TikTok, Instagram Reels și YouTube Shorts',
         badge: 'Conținut Video Viral',
         videosTitle: '🎬 16 Videoclipuri/Lună',
