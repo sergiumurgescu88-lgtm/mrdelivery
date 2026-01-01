@@ -7,7 +7,7 @@ export const translations = {
     taglineItems: [
       { emoji: '🚀', text: 'Training Staff - Management and Marketing' },
       { emoji: '🤖', text: 'AI Chatbots & Voice Agents' },
-      { emoji: '🎬', text: 'Viral Video Content' }
+      { emoji: '🎬', text: 'Viral Video Content - daily posting' }
     ],
     subtitle: 'Dominate Uber Eats, DoorDash & Grubhub with our all-in-one restaurant marketing solutions',
     badges: {
@@ -214,7 +214,7 @@ export const translations = {
     taglineItems: [
       { emoji: '🚀', text: 'Formación de Personal - Gestión y Marketing' },
       { emoji: '🤖', text: 'Chatbots IA & Agentes de Voz' },
-      { emoji: '🎬', text: 'Contenido de Vídeo Viral' }
+      { emoji: '🎬', text: 'Contenido de Vídeo Viral - publicación diaria' }
     ],
     subtitle: 'Domina Glovo, Uber Eats y Just Eat con nuestras soluciones integrales de marketing para restaurantes',
     badges: {
@@ -421,7 +421,7 @@ export const translations = {
     taglineItems: [
       { emoji: '🚀', text: 'Instruire Personal - Management și Marketing' },
       { emoji: '🤖', text: 'Chatboți AI & Agenți Vocali' },
-      { emoji: '🎬', text: 'Conținut Video Viral' }
+      { emoji: '🎬', text: 'Conținut Video Viral - postare zilnică' }
     ],
     subtitle: 'Domină Wolt, Glovo și Bolt Food cu soluțiile noastre complete de marketing pentru restaurante',
     badges: {
