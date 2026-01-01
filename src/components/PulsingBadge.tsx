@@ -19,7 +19,7 @@ export const PulsingBadge = ({ children, color = 'blue' }: PulsingBadgeProps) =>
         className={`absolute inset-0 bg-gradient-to-r ${colorClasses[color]} rounded-full blur-md opacity-50 animate-pulse`}
       ></div>
       <div
-        className={`relative bg-gradient-to-r ${colorClasses[color]} text-primary-foreground px-4 py-2 rounded-full text-xs font-bold shadow-lg`}
+        className={`relative bg-gradient-to-r ${colorClasses[color]} text-primary-foreground px-2 sm:px-4 py-1 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold shadow-lg`}
       >
         {children}
       </div>

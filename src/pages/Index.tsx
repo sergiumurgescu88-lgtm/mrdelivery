@@ -38,19 +38,19 @@ const Index = () => {
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 relative z-10">
         {/* Hero Section */}
         <header className="text-center mb-8 sm:mb-10 relative pt-16">
-          <div className="inline-block relative mb-3 sm:mb-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
+          <div className="inline-block relative mb-2 sm:mb-4">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
               {t.siteName}
             </h1>
           </div>
-          <div className="flex flex-col items-center gap-2 px-2 max-w-2xl mx-auto">
+          <div className="flex flex-col items-center gap-1 sm:gap-2 px-2 max-w-2xl mx-auto">
             {t.taglineItems.map((item, index) => (
-              <p key={index} className="text-lg sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
+              <p key={index} className="text-sm sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
                 • {item.text} {item.emoji}
               </p>
             ))}
           </div>
-          <div className="flex justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2">
+          <div className="flex justify-center gap-1.5 sm:gap-3 mt-2 sm:mt-4 flex-wrap px-2">
             <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
             <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
             <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
@@ -312,11 +312,11 @@ const Index = () => {
         {activeTab === 'ai' && (
           <main className="space-y-5 px-2">
             {/* Header Banner */}
-            <div className="bg-gradient-primary text-primary-foreground p-8 rounded-3xl mb-6 shadow-2xl relative overflow-hidden">
+            <div className="bg-gradient-primary text-primary-foreground p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-card/10 animate-pulse"></div>
               <div className="relative z-10">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-2">{t.aiServices.header}</h2>
-                <p className="text-base opacity-95 text-center font-semibold">{t.aiServices.subtitle}</p>
+                <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-center mb-1 sm:mb-2">{t.aiServices.header}</h2>
+                <p className="text-xs sm:text-base opacity-95 text-center font-semibold">{t.aiServices.subtitle}</p>
               </div>
             </div>
 
@@ -369,30 +369,30 @@ const Index = () => {
             </ServiceCard>
 
             {/* Modular Note */}
-            <div className="bg-background/80 backdrop-blur-md p-6 rounded-2xl border-2 border-success/30 shadow-2xl">
-              <h3 className="text-lg font-bold text-foreground mb-3 drop-shadow-md">{t.aiServices.modular}</h3>
-              <p className="text-base text-foreground font-medium drop-shadow-sm">{t.aiServices.modularDesc}</p>
+            <div className="bg-background/80 backdrop-blur-md p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-success/30 shadow-2xl">
+              <h3 className="text-sm sm:text-lg font-bold text-foreground mb-2 sm:mb-3 drop-shadow-md">{t.aiServices.modular}</h3>
+              <p className="text-xs sm:text-base text-foreground font-medium drop-shadow-sm">{t.aiServices.modularDesc}</p>
             </div>
           </main>
         )}
 
         {/* Footer CTA */}
-        <footer className="mt-8 bg-gradient-primary text-primary-foreground p-6 rounded-xl text-center mx-2">
-          <h2 className="text-xl sm:text-2xl font-bold mb-2">{t.footer.title}</h2>
-          <p className="text-sm sm:text-base mb-5 opacity-90">{t.footer.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
+          <h2 className="text-base sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
+          <p className="text-xs sm:text-sm md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-success text-success-foreground px-6 py-3 rounded-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2"
+              className="bg-success text-success-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2"
             >
               <MessageSquare className="w-4 h-4" />
               {t.footer.whatsapp}
             </a>
             <a
               href={getPhoneUrl()}
-              className="bg-card text-primary px-6 py-3 rounded-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2"
+              className="bg-card text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4" />
               {t.footer.call}
