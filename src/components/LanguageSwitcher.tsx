@@ -26,22 +26,22 @@ export const LanguageSwitcher = () => {
   }, [lastScrollY]);
 
   return (
-    <div className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+    <div className={`fixed top-2 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
     }`}>
-      <div className="flex items-center gap-1 bg-card/90 backdrop-blur-md rounded-full p-1 shadow-lg border border-border/50">
-        <Globe className="w-4 h-4 text-muted-foreground ml-2" />
+      <div className="flex items-center gap-0.5 bg-card/80 backdrop-blur-md rounded-full px-1 py-0.5 shadow-md border border-border/30">
+        <Globe className="w-3 h-3 text-muted-foreground ml-1.5" />
         {languages.map((lang) => (
           <button
             key={lang.code}
             onClick={() => setLanguage(lang.code)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-2 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
               language === lang.code
-                ? 'bg-gradient-primary text-primary-foreground shadow-md'
+                ? 'bg-gradient-primary text-primary-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground hover:bg-muted/80'
             }`}
           >
-            <span className="mr-1">{lang.flag}</span>
+            <span className="mr-0.5">{lang.flag}</span>
             {lang.label}
           </button>
         ))}
