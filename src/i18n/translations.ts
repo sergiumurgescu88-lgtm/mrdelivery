@@ -5,7 +5,7 @@ export const translations = {
     siteName: 'MrDelivery.com',
     tagline: '🚀 Marketing Management • AI Chatbots & Voice Agents • Viral Video Content',
     taglineItems: [
-      { emoji: '🚀', text: 'Marketing Management' },
+      { emoji: '🚀', text: 'Management Staff & Marketing' },
       { emoji: '🤖', text: 'AI Chatbots & Voice Agents' },
       { emoji: '🎬', text: 'Viral Video Content' }
     ],
@@ -212,7 +212,7 @@ export const translations = {
     siteName: 'MrDelivery.es',
     tagline: '🚀 Gestión de Marketing • Chatbots IA & Agentes de Voz • Contenido de Vídeo Viral',
     taglineItems: [
-      { emoji: '🚀', text: 'Gestión de Marketing' },
+      { emoji: '🚀', text: 'Personal de Gestión & Marketing' },
       { emoji: '🤖', text: 'Chatbots IA & Agentes de Voz' },
       { emoji: '🎬', text: 'Contenido de Vídeo Viral' }
     ],
@@ -419,7 +419,7 @@ export const translations = {
     siteName: 'MrDelivery.ro',
     tagline: '🚀 Management Marketing • Chatboți AI & Agenți Vocali • Conținut Video Viral',
     taglineItems: [
-      { emoji: '🚀', text: 'Management Marketing' },
+      { emoji: '🚀', text: 'Personal de Management & Marketing' },
       { emoji: '🤖', text: 'Chatboți AI & Agenți Vocali' },
       { emoji: '🎬', text: 'Conținut Video Viral' }
     ],
