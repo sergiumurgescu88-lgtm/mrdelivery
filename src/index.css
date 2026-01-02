@@ -149,4 +149,27 @@
       transform: translateY(-20px);
     }
   }
+
+  .animate-flicker {
+    animation: flicker 2s ease-in-out infinite;
+  }
+
+  @keyframes flicker {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 15px currentColor;
+    }
+    25% {
+      opacity: 0.85;
+      box-shadow: 0 0 10px currentColor;
+    }
+    50% {
+      opacity: 1;
+      box-shadow: 0 0 20px currentColor;
+    }
+    75% {
+      opacity: 0.9;
+      box-shadow: 0 0 12px currentColor;
+    }
+  }
 }

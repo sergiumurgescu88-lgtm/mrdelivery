@@ -4,6 +4,7 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
+import { PodcastPlayer } from '@/components/PodcastPlayer';
 import { FoodBackground } from '@/components/FoodBackground';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import {
@@ -55,6 +56,9 @@ const Index = () => {
             <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
           </div>
         </header>
+
+        {/* Podcast Audio Boxes - Sticky */}
+        <PodcastPlayer />
 
         {/* Tab Navigation */}
         <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
