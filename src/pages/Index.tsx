@@ -36,7 +36,7 @@ const Index = () => {
 
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 relative z-10">
         {/* Hero Section */}
-        <header className="text-center mb-8 sm:mb-10 relative pt-8">
+        <header className="text-center mb-8 sm:mb-10 relative pt-2">
           <LanguageSwitcher />
           <div className="inline-block relative mb-2 sm:mb-4">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
