@@ -172,16 +172,21 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
             </div>
           </div>
           
-          {/* Progress bar - clickable to seek */}
-          <div className="w-full">
+          {/* Progress bar - fully seekable timeline */}
+          <div className="w-full py-2">
             <Slider
               value={[currentTime]}
               max={duration || 100}
               step={0.1}
               onValueChange={handleSeek}
-              className="w-full cursor-pointer [&_[data-slot=track]]:h-2 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-4 [&_[data-slot=thumb]]:h-4 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0 [&_[data-slot=thumb]]:shadow-md"
+              className="w-full cursor-pointer touch-pan-x [&_[data-slot=track]]:h-3 [&_[data-slot=track]]:bg-white/20 [&_[data-slot=track]]:rounded-full [&_[data-slot=range]]:bg-white [&_[data-slot=range]]:rounded-full [&_[data-slot=thumb]]:w-5 [&_[data-slot=thumb]]:h-5 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-2 [&_[data-slot=thumb]]:border-white/50 [&_[data-slot=thumb]]:shadow-lg [&_[data-slot=thumb]]:transition-transform [&_[data-slot=thumb]]:hover:scale-125 [&_[data-slot=thumb]]:active:scale-110 [&_[data-slot=thumb]]:focus-visible:ring-2 [&_[data-slot=thumb]]:focus-visible:ring-white/50"
+              aria-label="Seek timeline"
+              aria-valuemin={0}
+              aria-valuemax={duration}
+              aria-valuenow={currentTime}
+              aria-valuetext={`${formatTime(currentTime)} of ${formatTime(duration)}`}
             />
-            <div className="flex justify-between text-xs text-white/70 mt-1">
+            <div className="flex justify-between text-xs text-white/80 mt-2 font-medium">
               <span>{formatTime(currentTime)}</span>
               <span>{formatTime(duration)}</span>
             </div>
