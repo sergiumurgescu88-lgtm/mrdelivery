@@ -92,9 +92,15 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
   };
 
   const handleSeek = (value: number[]) => {
+    const newTime = value[0];
+    setCurrentTime(newTime);
+  };
+
+  const handleSeekCommit = (value: number[]) => {
     if (audioRef.current) {
-      audioRef.current.currentTime = value[0];
-      setCurrentTime(value[0]);
+      const newTime = value[0];
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
     }
   };
 
@@ -179,6 +185,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
               max={duration || 100}
               step={0.1}
               onValueChange={handleSeek}
+              onValueCommit={handleSeekCommit}
               className="w-full cursor-pointer touch-pan-x [&_[data-slot=track]]:h-3 [&_[data-slot=track]]:bg-white/20 [&_[data-slot=track]]:rounded-full [&_[data-slot=range]]:bg-white [&_[data-slot=range]]:rounded-full [&_[data-slot=thumb]]:w-5 [&_[data-slot=thumb]]:h-5 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-2 [&_[data-slot=thumb]]:border-white/50 [&_[data-slot=thumb]]:shadow-lg [&_[data-slot=thumb]]:transition-transform [&_[data-slot=thumb]]:hover:scale-125 [&_[data-slot=thumb]]:active:scale-110 [&_[data-slot=thumb]]:focus-visible:ring-2 [&_[data-slot=thumb]]:focus-visible:ring-white/50"
               aria-label="Seek timeline"
               aria-valuemin={0}
