@@ -3,9 +3,9 @@ import { Language } from '@/i18n/translations';
 import { Globe } from 'lucide-react';
 
 const languages: { code: Language; label: string; flag: string }[] = [
-  { code: 'en', label: 'EN', flag: '🇺🇸' },
-  { code: 'es', label: 'ES', flag: '🇪🇸' },
   { code: 'ro', label: 'RO', flag: '🇷🇴' },
+  { code: 'es', label: 'ES', flag: '🇪🇸' },
+  { code: 'en', label: 'EN', flag: '🇺🇸' },
 ];
 
 export const LanguageSwitcher = () => {
