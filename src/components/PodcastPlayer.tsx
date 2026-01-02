@@ -79,7 +79,7 @@ const PodcastBox = ({ label, flag, audioSrc, color }: PodcastBoxProps) => {
 export const PodcastPlayer = () => {
   return (
     <div className="sticky top-2 z-40 py-2 px-2 mb-4">
-      <div className="flex justify-center gap-2 sm:gap-3">
+      <div className="flex flex-row justify-center gap-2 sm:gap-3">
         <PodcastBox
           label="Podcast în Română"
           flag="🇷🇴"
