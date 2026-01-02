@@ -112,10 +112,10 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
 
   return (
     <div
-      className={`relative bg-gradient-to-br ${colors.bg} backdrop-blur-md bg-opacity-60 rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
+      className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md bg-opacity-60 rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
         isActive && isPlaying
-          ? 'absolute left-1/2 -translate-x-1/2 top-0 w-[calc(100%-1rem)] max-w-md z-50 p-4'
-          : 'p-2 sm:p-3 hover:scale-105'
+          ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[100] p-4'
+          : 'relative p-2 sm:p-3 hover:scale-105'
       }`}
     >
       <audio ref={audioRef} src={audioSrc} onEnded={handleEnded} />
@@ -151,6 +151,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
             <button
               onClick={skipBack}
               className={`w-10 h-10 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+              aria-label="Skip back 10 seconds"
             >
               <SkipBack className="w-5 h-5 text-white" />
             </button>
@@ -167,6 +168,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
             <button
               onClick={skipForward}
               className={`w-10 h-10 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+              aria-label="Skip forward 10 seconds"
             >
               <SkipForward className="w-5 h-5 text-white" />
             </button>
