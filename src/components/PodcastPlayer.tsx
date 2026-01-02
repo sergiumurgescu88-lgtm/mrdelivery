@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { Play, Pause, Volume2, SkipBack, SkipForward } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import podcastEnglish from '@/assets/podcast-english.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
@@ -53,6 +53,8 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
+  const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -108,6 +110,29 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
     }
   };
 
+  const handleVolumeChange = (value: number[]) => {
+    const newVolume = value[0];
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+    if (newVolume > 0 && isMuted) {
+      setIsMuted(false);
+    }
+  };
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      if (isMuted) {
+        audioRef.current.volume = volume;
+        setIsMuted(false);
+      } else {
+        audioRef.current.volume = 0;
+        setIsMuted(true);
+      }
+    }
+  };
+
   const colors = colorClasses[color];
 
   return (
@@ -128,17 +153,33 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
               <span className="text-2xl">{flag}</span>
               <span className="text-white font-medium text-sm">{label}</span>
             </div>
-            <Volume2 className="w-4 h-4 text-white animate-pulse" />
+            {/* Volume control */}
+            <div className="flex items-center gap-2">
+              <button onClick={toggleMute} className="p-1">
+                {isMuted || volume === 0 ? (
+                  <VolumeX className="w-4 h-4 text-white" />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-white animate-pulse" />
+                )}
+              </button>
+              <Slider
+                value={[isMuted ? 0 : volume]}
+                max={1}
+                step={0.01}
+                onValueChange={handleVolumeChange}
+                className="w-16 [&_[data-slot=track]]:h-1 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-2.5 [&_[data-slot=thumb]]:h-2.5 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0"
+              />
+            </div>
           </div>
           
-          {/* Progress bar */}
+          {/* Progress bar - clickable to seek */}
           <div className="w-full">
             <Slider
               value={[currentTime]}
               max={duration || 100}
               step={0.1}
               onValueChange={handleSeek}
-              className="w-full [&_[data-slot=track]]:h-1.5 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-3 [&_[data-slot=thumb]]:h-3 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0"
+              className="w-full cursor-pointer [&_[data-slot=track]]:h-2 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-4 [&_[data-slot=thumb]]:h-4 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0 [&_[data-slot=thumb]]:shadow-md"
             />
             <div className="flex justify-between text-xs text-white/70 mt-1">
               <span>{formatTime(currentTime)}</span>
