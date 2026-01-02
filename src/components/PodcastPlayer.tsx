@@ -55,22 +55,22 @@ const PodcastBox = ({ label, flag, audioSrc, color }: PodcastBoxProps) => {
 
   return (
     <div
-      className={`relative bg-gradient-to-br ${colors.bg} rounded-xl p-2 sm:p-3 border ${colors.border} ${colors.glow} animate-flicker transition-all duration-300 hover:scale-105`}
+      className={`relative bg-gradient-to-br ${colors.bg} backdrop-blur-md bg-opacity-60 rounded-xl p-3 sm:p-4 border ${colors.border} ${colors.glow} animate-flicker transition-all duration-300 hover:scale-105`}
     >
       <audio ref={audioRef} src={audioSrc} onEnded={handleEnded} />
-      <div className="flex items-center gap-2">
-        <span className="text-xl sm:text-2xl">{flag}</span>
+      <div className="flex items-center gap-3">
+        <span className="text-2xl sm:text-3xl">{flag}</span>
         <button
           onClick={togglePlay}
-          className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full ${colors.button} flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
         >
           {isPlaying ? (
-            <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           ) : (
-            <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-0.5" />
+            <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-0.5" />
           )}
         </button>
-        <Volume2 className={`w-3 h-3 sm:w-4 sm:h-4 ${isPlaying ? 'text-white animate-pulse' : 'text-white/60'}`} />
+        <Volume2 className={`w-4 h-4 sm:w-5 sm:h-5 ${isPlaying ? 'text-white animate-pulse' : 'text-white/60'}`} />
       </div>
     </div>
   );
