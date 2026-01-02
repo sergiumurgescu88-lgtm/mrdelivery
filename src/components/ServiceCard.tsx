@@ -11,18 +11,19 @@ interface ServiceCardProps {
   discountNote?: string;
   subtitle?: string;
   highlight?: boolean;
+  packageNumber?: number;
 }
 
-export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice, discount, discountNote, subtitle, highlight = false }: ServiceCardProps) => {
+export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice, discount, discountNote, subtitle, highlight = false, packageNumber }: ServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+      className={`border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
         highlight
-          ? 'border-primary shadow-2xl bg-gradient-to-br from-primary/5 via-card to-accent/10'
-          : 'border-border hover:shadow-xl bg-card'
+          ? 'border-primary shadow-2xl bg-gradient-to-br from-primary/5 via-card/85 to-accent/10'
+          : 'border-border hover:shadow-xl bg-card/85'
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -35,6 +36,13 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
       >
         <div className="flex items-start justify-between gap-2 sm:gap-3 relative z-10">
           <div className="flex items-start gap-2 sm:gap-4 flex-1 min-w-0">
+            {packageNumber && (
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg sm:text-xl ${
+                highlight ? 'bg-card text-primary shadow-lg' : 'bg-primary text-primary-foreground'
+              }`}>
+                {packageNumber}
+              </div>
+            )}
             <div
               className={`p-2 sm:p-3 rounded-xl flex-shrink-0 transition-all duration-300 ${
                 highlight ? 'bg-card shadow-lg' : 'bg-gradient-primary'
