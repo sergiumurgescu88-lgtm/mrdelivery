@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Play, Pause, Volume2, Headphones } from 'lucide-react';
+import { Play, Pause, Volume2 } from 'lucide-react';
 import podcastEnglish from '@/assets/podcast-english.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
@@ -55,26 +55,22 @@ const PodcastBox = ({ label, flag, audioSrc, color }: PodcastBoxProps) => {
 
   return (
     <div
-      className={`relative bg-gradient-to-br ${colors.bg} backdrop-blur-md rounded-2xl p-3 sm:p-4 border-2 ${colors.border} ${colors.glow} animate-flicker transition-all duration-300 hover:scale-105`}
+      className={`relative bg-gradient-to-br ${colors.bg} rounded-xl p-2 sm:p-3 border ${colors.border} ${colors.glow} animate-flicker transition-all duration-300 hover:scale-105`}
     >
       <audio ref={audioRef} src={audioSrc} onEnded={handleEnded} />
-      <div className="flex flex-col items-center gap-2">
-        <div className="flex items-center gap-1.5">
-          <Headphones className={`w-4 h-4 sm:w-5 sm:h-5 text-white ${isPlaying ? 'animate-pulse' : ''}`} />
-          <span className="text-lg sm:text-xl">{flag}</span>
-        </div>
-        <span className="text-[10px] sm:text-xs font-bold text-white text-center leading-tight">{label}</span>
+      <div className="flex items-center gap-2">
+        <span className="text-xl sm:text-2xl">{flag}</span>
         <button
           onClick={togglePlay}
-          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${colors.button} flex items-center justify-center transition-all duration-200 shadow-lg border border-white/30`}
+          className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full ${colors.button} flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
         >
           {isPlaying ? (
-            <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           ) : (
-            <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-0.5" />
+            <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-0.5" />
           )}
         </button>
-        <Volume2 className={`w-4 h-4 ${isPlaying ? 'text-white animate-pulse' : 'text-white/60'}`} />
+        <Volume2 className={`w-3 h-3 sm:w-4 sm:h-4 ${isPlaying ? 'text-white animate-pulse' : 'text-white/60'}`} />
       </div>
     </div>
   );
@@ -82,13 +78,13 @@ const PodcastBox = ({ label, flag, audioSrc, color }: PodcastBoxProps) => {
 
 export const PodcastPlayer = () => {
   return (
-    <div className="sticky top-0 z-40 py-3 px-2 mb-4 bg-background/80 backdrop-blur-md">
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto">
+    <div className="sticky top-2 z-40 py-2 px-2 mb-4">
+      <div className="flex justify-center gap-2 sm:gap-3">
         <PodcastBox
-          label="Podcast in English"
-          flag="🇬🇧"
-          audioSrc={podcastEnglish}
-          color="blue"
+          label="Podcast în Română"
+          flag="🇷🇴"
+          audioSrc={podcastRomanian}
+          color="orange"
         />
         <PodcastBox
           label="Podcast en Español"
@@ -97,10 +93,10 @@ export const PodcastPlayer = () => {
           color="green"
         />
         <PodcastBox
-          label="Podcast în Română"
-          flag="🇷🇴"
-          audioSrc={podcastRomanian}
-          color="orange"
+          label="Podcast in English"
+          flag="🇺🇸"
+          audioSrc={podcastEnglish}
+          color="blue"
         />
       </div>
     </div>
