@@ -22,8 +22,8 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
     <div
       className={`border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
         highlight
-          ? 'border-primary shadow-2xl bg-gradient-to-br from-primary/5 via-card/85 to-accent/10'
-          : 'border-border hover:shadow-xl bg-card/85'
+          ? 'border-primary shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
+          : 'border-border hover:shadow-xl bg-card/70'
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -36,19 +36,21 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
       >
         <div className="flex items-start justify-between gap-2 sm:gap-3 relative z-10">
           <div className="flex items-start gap-2 sm:gap-4 flex-1 min-w-0">
-            {packageNumber && (
-              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg sm:text-xl ${
-                highlight ? 'bg-card text-primary shadow-lg' : 'bg-primary text-primary-foreground'
-              }`}>
-                {packageNumber}
+            <div className="flex flex-col items-center gap-1 flex-shrink-0">
+              <div
+                className={`p-2 sm:p-3 rounded-xl transition-all duration-300 ${
+                  highlight ? 'bg-card shadow-lg' : 'bg-gradient-primary'
+                } ${isHovered ? 'scale-110 rotate-3' : ''}`}
+              >
+                <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${highlight ? 'text-primary' : 'text-primary-foreground'}`} />
               </div>
-            )}
-            <div
-              className={`p-2 sm:p-3 rounded-xl flex-shrink-0 transition-all duration-300 ${
-                highlight ? 'bg-card shadow-lg' : 'bg-gradient-primary'
-              } ${isHovered ? 'scale-110 rotate-3' : ''}`}
-            >
-              <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${highlight ? 'text-primary' : 'text-primary-foreground'}`} />
+              {packageNumber && (
+                <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center font-bold text-sm sm:text-base ${
+                  highlight ? 'bg-card text-primary shadow-lg' : 'bg-primary text-primary-foreground'
+                }`}>
+                  {packageNumber}
+                </div>
+              )}
             </div>
             <div className="flex-1 min-w-0">
               <h3
