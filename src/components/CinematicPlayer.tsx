@@ -1,9 +1,18 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { Language as AppLanguage } from '@/i18n/translations';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
 import podcastEnglish from '@/assets/podcast-english.wav';
+
+// Map app language to podcast language
+const languageToPodcast: Record<AppLanguage, Language> = {
+  ro: 'ro',
+  es: 'es',
+  en: 'us',
+};
 
 const formatTime = (seconds: number) => {
   const mins = Math.floor(seconds / 60);
@@ -230,13 +239,14 @@ const SinglePlayer = ({
 };
 
 export const CinematicPlayer = () => {
+  const { language: appLanguage } = useLanguage();
   const audioRefs = useRef<{ [key in Language]: HTMLAudioElement | null }>({
     ro: null,
     es: null,
     us: null,
   });
   
-  const [activePlayer, setActivePlayer] = useState<Language>('ro');
+  const [activePlayer, setActivePlayer] = useState<Language>(() => languageToPodcast[appLanguage]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -245,6 +255,35 @@ export const CinematicPlayer = () => {
   const [waitingForInteraction, setWaitingForInteraction] = useState(true);
   const [isExpanded, setIsExpanded] = useState(false);
   const hasStarted = useRef(false);
+
+  // Sync podcast with language changes
+  useEffect(() => {
+    const newPodcastLang = languageToPodcast[appLanguage];
+    if (newPodcastLang === activePlayer) return;
+
+    // Stop current player
+    const currentAudio = audioRefs.current[activePlayer];
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+
+    // Reset state
+    setCurrentTime(0);
+    setIsPlaying(false);
+    setActivePlayer(newPodcastLang);
+
+    // If user already interacted, auto-play the new language
+    if (!waitingForInteraction) {
+      const newAudio = audioRefs.current[newPodcastLang];
+      if (newAudio) {
+        newAudio.currentTime = 0;
+        newAudio.play().then(() => {
+          setIsPlaying(true);
+        }).catch(err => console.log('Autoplay failed:', err));
+      }
+    }
+  }, [appLanguage]);
 
   // Handle user interaction to start/unmute
   const handleUserInteraction = useCallback(async () => {
