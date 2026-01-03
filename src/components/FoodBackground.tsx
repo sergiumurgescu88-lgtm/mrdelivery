@@ -33,8 +33,8 @@ export const FoodBackground = () => {
         height: `${Math.random() * 2.5 + 1}px`,
         opacity: Math.random() * 0.6 + 0.4,
       },
-      delay: Math.random() * 5,
-      duration: Math.random() * 3 + 2,
+      delay: Math.random() * 8,
+      duration: Math.random() * 4 + 5, // Slower: 5-9 seconds per cycle
       parallaxFactor: Math.random() * 0.15 + 0.05, // Different depth for each star
     }));
   }, []);
