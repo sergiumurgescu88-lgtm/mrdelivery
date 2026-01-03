@@ -421,7 +421,7 @@ export const translations = {
     taglineItems: [
       { emoji: '🚀', text: 'Instruire Personal - Management și Marketing' },
       { emoji: '🤖', text: 'Chatboți AI & Agenți Vocali' },
-      { emoji: '🎬', text: 'Conținut Video Viral - Postare Zilnică' }
+      { emoji: '🎬', text: 'Conținut Video Viral - postări zilnice' }
     ],
     subtitle: 'Domină Wolt, Glovo și Bolt Food cu soluțiile noastre complete de marketing pentru restaurante',
     badges: {
