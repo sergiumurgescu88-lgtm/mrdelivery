@@ -57,8 +57,6 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
-  const [showUnmutePrompt, setShowUnmutePrompt] = useState(false);
-  const [autoPlayFailed, setAutoPlayFailed] = useState(false);
   const hasAutoPlayed = useRef(false);
 
   useEffect(() => {
@@ -77,62 +75,27 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
     };
   }, []);
 
-  // Auto-play effect on mount - starts muted to bypass browser restrictions
+  // Auto-play effect based on geolocation
   useEffect(() => {
     if (autoPlay && !hasAutoPlayed.current && audioRef.current) {
       hasAutoPlayed.current = true;
-      
-      // Immediately attempt to play muted on mount
-      const attemptAutoplay = async () => {
-        const audio = audioRef.current;
-        if (!audio) return;
-        
-        // Ensure audio is muted before playing
-        audio.muted = true;
-        
-        try {
-          await audio.play();
-          setIsPlaying(true);
-          setIsMuted(true);
-          setShowUnmutePrompt(true);
-          onActivate();
-        } catch (error) {
-          console.log('Autoplay was prevented by browser:', error);
-          // Show fallback play button
-          setAutoPlayFailed(true);
+      // Small delay to ensure everything is loaded
+      const timer = setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play()
+            .then(() => {
+              setIsPlaying(true);
+              onActivate();
+            })
+            .catch((error) => {
+              console.log('Autoplay was prevented by browser:', error);
+              // Browser blocked autoplay - user will need to click
+            });
         }
-      };
-      
-      // Small delay to ensure DOM is ready
-      const timer = setTimeout(attemptAutoplay, 100);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [autoPlay, onActivate]);
-
-  // Handle manual play when autoplay fails
-  const handleManualPlay = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = true;
-      audioRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-          setIsMuted(true);
-          setAutoPlayFailed(false);
-          setShowUnmutePrompt(true);
-          onActivate();
-        })
-        .catch(console.error);
-    }
-  };
-
-  const handleUnmute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = false;
-      audioRef.current.volume = volume;
-      setIsMuted(false);
-      setShowUnmutePrompt(false);
-    }
-  };
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -204,53 +167,17 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
   const colors = colorClasses[color];
 
   return (
-    <>
-      {/* Fallback play button when autoplay is blocked */}
-      {autoPlayFailed && !isPlaying && (
-        <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fade-in">
-          <button
-            onClick={handleManualPlay}
-            className={`flex flex-col items-center gap-4 p-8 rounded-2xl bg-gradient-to-br ${colors.bg} ${colors.glow} border-2 ${colors.border} animate-pulse hover:animate-none hover:scale-105 transition-transform`}
-          >
-            <Play className="w-16 h-16 text-white" />
-            <span className="text-white text-xl font-bold">▶️ Tap to Play</span>
-            <span className="text-white/80 text-sm">{flag} {label}</span>
-          </button>
-        </div>
-      )}
-
-      {/* Unmute prompt overlay */}
-      {showUnmutePrompt && isPlaying && (
-        <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fade-in">
-          <button
-            onClick={handleUnmute}
-            className={`flex flex-col items-center gap-4 p-8 rounded-2xl bg-gradient-to-br ${colors.bg} ${colors.glow} border-2 ${colors.border} animate-pulse hover:animate-none hover:scale-105 transition-transform`}
-          >
-            <Volume2 className="w-16 h-16 text-white" />
-            <span className="text-white text-xl font-bold">🔊 Tap to Unmute</span>
-            <span className="text-white/80 text-sm">{flag} {label}</span>
-          </button>
-        </div>
-      )}
+    <div
+      className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md bg-opacity-60 rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
+        isActive && isPlaying
+          ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[100] p-4'
+          : 'relative p-2 sm:p-3 hover:scale-105'
+      }`}
+    >
+      <audio ref={audioRef} src={audioSrc} onEnded={handleEnded} />
       
-      <div
-        className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md bg-opacity-60 rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
-          isActive && isPlaying
-            ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[100] p-4'
-            : 'relative p-2 sm:p-3 hover:scale-105'
-        }`}
-      >
-        <audio 
-          ref={audioRef} 
-          src={audioSrc} 
-          onEnded={handleEnded}
-          muted={autoPlay}
-          autoPlay={autoPlay}
-          playsInline
-        />
-        
-        {isActive && isPlaying ? (
-          // Expanded player view
+      {isActive && isPlaying ? (
+        // Expanded player view
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -342,8 +269,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
           <Volume2 className={`w-3 h-3 sm:w-4 sm:h-4 ${isPlaying ? 'text-white animate-pulse' : 'text-white/60'}`} />
         </div>
       )}
-      </div>
-    </>
+    </div>
   );
 };
 

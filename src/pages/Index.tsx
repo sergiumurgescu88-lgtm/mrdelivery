@@ -5,7 +5,6 @@ import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
 import { PodcastPlayer } from '@/components/PodcastPlayer';
-import { HeroVideoPlayer } from '@/components/HeroVideoPlayer';
 import { FoodBackground } from '@/components/FoodBackground';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import {
@@ -57,9 +56,6 @@ const Index = () => {
             <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
           </div>
         </header>
-
-        {/* Hero Video Player - Full width, pushes content down */}
-        <HeroVideoPlayer />
 
         {/* Podcast Audio Boxes - Sticky */}
         <PodcastPlayer />
