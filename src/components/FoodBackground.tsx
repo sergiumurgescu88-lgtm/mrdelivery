@@ -42,10 +42,16 @@ export const FoodBackground = () => {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden">
       <div 
-        className="w-full h-[110%] bg-cover bg-center bg-no-repeat will-change-transform transition-transform duration-100 ease-out"
+        className="w-full h-[120%] bg-cover bg-center bg-no-repeat will-change-transform"
         style={{ 
           backgroundImage: `url(${deliveryBackground})`,
-          transform: `translateY(${scrollY * -0.05}px)`,
+          transform: `
+            translateY(${scrollY * -0.08}px) 
+            translateX(${Math.sin(scrollY * 0.002) * 8}px)
+            scale(${1 + scrollY * 0.0001})
+            rotate(${scrollY * 0.003}deg)
+          `,
+          transformOrigin: 'center center',
         }}
       />
       {/* Animated twinkling stars overlay with parallax */}
