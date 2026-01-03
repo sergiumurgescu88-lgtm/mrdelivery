@@ -18,23 +18,27 @@ export const CinematicPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
-  const [waitingForInteraction, setWaitingForInteraction] = useState(false);
+  const [waitingForInteraction, setWaitingForInteraction] = useState(true);
   const hasStarted = useRef(false);
 
-  // Handle user interaction to unmute
-  const handleUserInteraction = useCallback(() => {
-    if (waitingForInteraction && audioRef.current && isMuted) {
-      audioRef.current.muted = false;
+  // Handle user interaction to start/unmute
+  const handleUserInteraction = useCallback(async () => {
+    if (!waitingForInteraction) return;
+    
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      audio.muted = false;
+      audio.currentTime = 0;
+      await audio.play();
+      setIsPlaying(true);
       setIsMuted(false);
       setWaitingForInteraction(false);
-      
-      // Remove all listeners once unmuted
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('touchstart', handleUserInteraction);
-      document.removeEventListener('scroll', handleUserInteraction);
-      document.removeEventListener('keydown', handleUserInteraction);
+    } catch (error) {
+      console.log('Play failed:', error);
     }
-  }, [waitingForInteraction, isMuted]);
+  }, [waitingForInteraction]);
 
   // Set up global interaction listeners
   useEffect(() => {
@@ -70,44 +74,14 @@ export const CinematicPlayer = () => {
     };
   }, []);
 
-  // Auto-start and expand on page load
+  // Start expansion animation on page load
   useEffect(() => {
     if (hasStarted.current) return;
     hasStarted.current = true;
 
-    const startPlayback = async () => {
-      const audio = audioRef.current;
-      if (!audio) return;
-
-      // Start expansion animation immediately
-      setTimeout(() => {
-        setIsExpanded(true);
-      }, 100);
-
-      // Try unmuted first
-      try {
-        audio.muted = false;
-        await audio.play();
-        setIsPlaying(true);
-        setIsMuted(false);
-      } catch (error) {
-        // Autoplay blocked - try muted
-        console.log('Unmuted autoplay blocked, trying muted...');
-        try {
-          audio.muted = true;
-          await audio.play();
-          setIsPlaying(true);
-          setIsMuted(true);
-          setWaitingForInteraction(true);
-        } catch (mutedError) {
-          console.log('Autoplay completely blocked:', mutedError);
-        }
-      }
-    };
-
-    // Small delay to ensure everything is mounted
-    const timer = setTimeout(startPlayback, 300);
-    return () => clearTimeout(timer);
+    setTimeout(() => {
+      setIsExpanded(true);
+    }, 100);
   }, []);
 
   const togglePlay = () => {
@@ -197,8 +171,13 @@ export const CinematicPlayer = () => {
       
       {/* Waiting for interaction indicator */}
       {waitingForInteraction && (
-        <div className="absolute top-2 right-2 z-10 bg-black/50 text-white text-xs px-2 py-1 rounded-full animate-pulse">
-          🔇 Tap anywhere for sound
+        <div 
+          onClick={handleUserInteraction}
+          className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 rounded-2xl cursor-pointer"
+        >
+          <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-white font-bold text-lg animate-pulse border border-white/30 shadow-xl">
+            🔊 Tap anywhere to start audio
+          </div>
         </div>
       )}
 
