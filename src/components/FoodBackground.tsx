@@ -1,4 +1,4 @@
-import deliveryBackground from '@/assets/delivery-astronauts-background.png';
+import deliveryBackground from '@/assets/new-delivery-background.png';
 import { useMemo, useEffect, useState } from 'react';
 
 const Star = ({ style, delay, duration, parallaxFactor }: { style: React.CSSProperties; delay: number; duration: number; parallaxFactor: number }) => (
@@ -42,16 +42,16 @@ export const FoodBackground = () => {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden">
       <div 
-        className="w-full h-[120%] bg-cover bg-center bg-no-repeat will-change-transform"
+        className="w-full h-full bg-no-repeat will-change-transform"
         style={{ 
           backgroundImage: `url(${deliveryBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
           transform: `
-            translateY(${scrollY * -0.08}px) 
-            translateX(${Math.sin(scrollY * 0.002) * 8}px)
-            scale(${1 + scrollY * 0.0001})
-            rotate(${scrollY * 0.003}deg)
+            translateY(${scrollY * -0.05}px) 
+            scale(${1 + scrollY * 0.00005})
           `,
-          transformOrigin: 'center center',
+          transformOrigin: 'center top',
         }}
       />
       {/* Animated twinkling stars overlay with parallax */}
