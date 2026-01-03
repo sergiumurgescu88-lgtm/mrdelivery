@@ -11,29 +11,6 @@ const Star = ({ style, delay, duration }: { style: React.CSSProperties; delay: n
   />
 );
 
-const ShootingStar = ({ delay, startX, startY, angle }: { delay: number; startX: number; startY: number; angle: number }) => (
-  <div
-    className="absolute w-[2px] h-[2px] bg-white rounded-full"
-    style={{
-      left: `${startX}%`,
-      top: `${startY}%`,
-      transform: `rotate(${angle}deg)`,
-      animation: `shootingStar 1.5s ease-out ${delay}s infinite`,
-      boxShadow: '0 0 6px 2px rgba(255, 255, 255, 0.6)',
-    }}
-  >
-    <div 
-      className="absolute h-[1px] bg-gradient-to-r from-white via-white/50 to-transparent"
-      style={{ 
-        width: '80px',
-        right: '100%',
-        top: '50%',
-        transform: 'translateY(-50%)',
-      }}
-    />
-  </div>
-);
-
 export const FoodBackground = () => {
   const stars = useMemo(() => {
     return Array.from({ length: 60 }, (_, i) => ({
@@ -50,16 +27,6 @@ export const FoodBackground = () => {
     }));
   }, []);
 
-  const shootingStars = useMemo(() => {
-    return Array.from({ length: 4 }, (_, i) => ({
-      id: i,
-      delay: i * 4 + Math.random() * 3,
-      startX: Math.random() * 60 + 20,
-      startY: Math.random() * 30,
-      angle: 35 + Math.random() * 20,
-    }));
-  }, []);
-
   return (
     <div className="fixed inset-0 z-0 overflow-hidden">
       <div 
@@ -70,12 +37,6 @@ export const FoodBackground = () => {
       <div className="absolute inset-0 pointer-events-none">
         {stars.map((star) => (
           <Star key={star.id} style={star.style} delay={star.delay} duration={star.duration} />
-        ))}
-      </div>
-      {/* Shooting stars */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {shootingStars.map((star) => (
-          <ShootingStar key={star.id} delay={star.delay} startX={star.startX} startY={star.startY} angle={star.angle} />
         ))}
       </div>
       {/* Subtle overlay for text readability */}
