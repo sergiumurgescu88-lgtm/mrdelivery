@@ -58,7 +58,9 @@ const Index = () => {
           </div>
           
           {/* Cinematic Auto-Expanding Player - Positioned below badges */}
-          <CinematicPlayer />
+          <div className="mt-4 sm:mt-6 mb-6 sm:mb-8">
+            <CinematicPlayer />
+          </div>
         </header>
 
         {/* Tab Navigation */}
