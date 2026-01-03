@@ -92,22 +92,30 @@ const SinglePlayer = ({
   onToggleMute,
   onInteraction,
 }: SinglePlayerProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
       onClick={!isActive ? onActivate : undefined}
+      onMouseEnter={() => !isActive && setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className={`
         relative overflow-hidden
         bg-gradient-to-br ${config.gradient}
         border-2 ${config.borderColor}
-        transition-all duration-700 ease-in-out
+        transition-all duration-500 ease-in-out
         ${isActive 
-          ? 'w-full rounded-2xl p-5 cursor-default' 
-          : 'flex-1 min-w-[120px] rounded-xl p-3 cursor-pointer hover:scale-105'
+          ? 'w-full rounded-2xl p-5 cursor-default opacity-100' 
+          : `w-16 sm:w-20 rounded-xl p-2 cursor-pointer ${isHovered ? 'opacity-100 scale-110' : 'opacity-50 scale-100'}`
         }
       `}
       style={{
-        boxShadow: `0 0 ${isActive ? '40px' : '20px'} ${config.shadowColor}`,
-        minHeight: isActive ? '180px' : '80px',
+        boxShadow: isActive 
+          ? `0 0 40px ${config.shadowColor}` 
+          : isHovered 
+            ? `0 0 25px ${config.shadowColor}` 
+            : `0 0 10px ${config.shadowColor}`,
+        minHeight: isActive ? '180px' : '60px',
       }}
     >
       {/* Waiting for interaction overlay - only on active player */}
@@ -122,15 +130,19 @@ const SinglePlayer = ({
         </div>
       )}
 
-      {/* Inactive compact state */}
+      {/* Inactive thumbnail state */}
       {!isActive && (
-        <div className="flex items-center justify-center gap-2 h-full">
-          <span className="text-2xl">{config.flag}</span>
-          <div className="flex flex-col items-start">
-            <span className="text-white font-semibold text-sm truncate max-w-[100px]">
-              {config.label.split(' ')[0]}
-            </span>
-            <span className="text-white/70 text-xs">Tap to play</span>
+        <div className="flex flex-col items-center justify-center gap-1 h-full relative">
+          <span className="text-xl sm:text-2xl">{config.flag}</span>
+          {/* Play hint on hover */}
+          <div className={`
+            absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl
+            transition-opacity duration-300
+            ${isHovered ? 'opacity-100' : 'opacity-0'}
+          `}>
+            <div className="bg-white/30 backdrop-blur-sm px-2 py-1 rounded-full">
+              <span className="text-white text-xs font-bold">▶ Play</span>
+            </div>
           </div>
         </div>
       )}
@@ -413,7 +425,7 @@ export const CinematicPlayer = () => {
   return (
     <div 
       className={`
-        mx-auto mb-6 px-4 max-w-xl
+        mx-auto mb-6 mt-4 px-4 max-w-xl
         transition-all duration-[2000ms] ease-in-out
         ${isExpanded ? 'opacity-100' : 'opacity-0 translate-y-4'}
       `}
@@ -429,53 +441,56 @@ export const CinematicPlayer = () => {
         />
       ))}
 
-      {/* Active player on top */}
-      <div className="mb-3 transition-all duration-700">
-        <SinglePlayer
-          config={orderedPodcasts[0]}
-          isActive={true}
-          isPlaying={isPlaying}
-          currentTime={currentTime}
-          duration={duration}
-          volume={volume}
-          isMuted={isMuted}
-          waitingForInteraction={waitingForInteraction}
-          onActivate={() => {}}
-          onTogglePlay={togglePlay}
-          onSeek={handleSeek}
-          onSeekCommit={handleSeekCommit}
-          onSkipBack={skipBack}
-          onSkipForward={skipForward}
-          onVolumeChange={handleVolumeChange}
-          onToggleMute={toggleMute}
-          onInteraction={handleUserInteraction}
-        />
-      </div>
-
-      {/* Inactive players below - side by side on desktop, stacked on mobile */}
-      <div className="flex flex-col sm:flex-row gap-3 transition-all duration-700">
-        {orderedPodcasts.slice(1).map((podcast) => (
+      {/* Layout: Active player full width, inactive thumbnails in a row */}
+      <div className="flex flex-col gap-3">
+        {/* Active player - full width */}
+        <div className="transition-all duration-700">
           <SinglePlayer
-            key={podcast.id}
-            config={podcast}
-            isActive={false}
-            isPlaying={false}
-            currentTime={0}
-            duration={0}
+            config={orderedPodcasts[0]}
+            isActive={true}
+            isPlaying={isPlaying}
+            currentTime={currentTime}
+            duration={duration}
             volume={volume}
             isMuted={isMuted}
-            waitingForInteraction={false}
-            onActivate={() => handleActivate(podcast.id)}
-            onTogglePlay={() => {}}
-            onSeek={() => {}}
-            onSeekCommit={() => {}}
-            onSkipBack={() => {}}
-            onSkipForward={() => {}}
-            onVolumeChange={() => {}}
-            onToggleMute={() => {}}
-            onInteraction={() => {}}
+            waitingForInteraction={waitingForInteraction}
+            onActivate={() => {}}
+            onTogglePlay={togglePlay}
+            onSeek={handleSeek}
+            onSeekCommit={handleSeekCommit}
+            onSkipBack={skipBack}
+            onSkipForward={skipForward}
+            onVolumeChange={handleVolumeChange}
+            onToggleMute={toggleMute}
+            onInteraction={handleUserInteraction}
           />
-        ))}
+        </div>
+
+        {/* Inactive players - compact horizontal row */}
+        <div className="flex justify-center gap-2 transition-all duration-700">
+          {orderedPodcasts.slice(1).map((podcast) => (
+            <SinglePlayer
+              key={podcast.id}
+              config={podcast}
+              isActive={false}
+              isPlaying={false}
+              currentTime={0}
+              duration={0}
+              volume={volume}
+              isMuted={isMuted}
+              waitingForInteraction={false}
+              onActivate={() => handleActivate(podcast.id)}
+              onTogglePlay={() => {}}
+              onSeek={() => {}}
+              onSeekCommit={() => {}}
+              onSkipBack={() => {}}
+              onSkipForward={() => {}}
+              onVolumeChange={() => {}}
+              onToggleMute={() => {}}
+              onInteraction={() => {}}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
