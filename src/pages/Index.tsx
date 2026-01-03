@@ -39,9 +39,6 @@ const Index = () => {
         <header className="text-center mb-8 sm:mb-10 relative pt-2">
           <LanguageSwitcher />
           
-          {/* Cinematic Auto-Expanding Player - Now positioned right below language bar */}
-          <CinematicPlayer />
-          
           <div className="inline-block relative mb-2 sm:mb-4">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
               {t.siteName}
@@ -59,6 +56,9 @@ const Index = () => {
             <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
             <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
           </div>
+          
+          {/* Cinematic Auto-Expanding Player - Positioned below badges */}
+          <CinematicPlayer />
         </header>
 
         {/* Tab Navigation */}
