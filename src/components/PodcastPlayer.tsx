@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
+import { useGeoLocation } from '@/hooks/useGeoLocation';
 import podcastEnglish from '@/assets/podcast-english.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
@@ -13,6 +14,7 @@ interface PodcastBoxProps {
   isActive: boolean;
   onActivate: () => void;
   onDeactivate: () => void;
+  autoPlay?: boolean;
 }
 
 const colorClasses = {
@@ -48,13 +50,14 @@ const formatTime = (seconds: number) => {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
-const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeactivate }: PodcastBoxProps) => {
+const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeactivate, autoPlay = false }: PodcastBoxProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
+  const hasAutoPlayed = useRef(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -71,6 +74,28 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
       audio.removeEventListener('loadedmetadata', updateDuration);
     };
   }, []);
+
+  // Auto-play effect based on geolocation
+  useEffect(() => {
+    if (autoPlay && !hasAutoPlayed.current && audioRef.current) {
+      hasAutoPlayed.current = true;
+      // Small delay to ensure everything is loaded
+      const timer = setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play()
+            .then(() => {
+              setIsPlaying(true);
+              onActivate();
+            })
+            .catch((error) => {
+              console.log('Autoplay was prevented by browser:', error);
+              // Browser blocked autoplay - user will need to click
+            });
+        }
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [autoPlay, onActivate]);
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -250,6 +275,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
 
 export const PodcastPlayer = () => {
   const [activePlayer, setActivePlayer] = useState<string | null>(null);
+  const { countryCode, isLoading } = useGeoLocation();
 
   return (
     <div className="sticky top-2 z-40 py-2 px-2 mb-4">
@@ -262,6 +288,7 @@ export const PodcastPlayer = () => {
           isActive={activePlayer === 'ro'}
           onActivate={() => setActivePlayer('ro')}
           onDeactivate={() => setActivePlayer(null)}
+          autoPlay={!isLoading && countryCode === 'ro'}
         />
         <PodcastBox
           label="Podcast en Español"
@@ -271,6 +298,7 @@ export const PodcastPlayer = () => {
           isActive={activePlayer === 'es'}
           onActivate={() => setActivePlayer('es')}
           onDeactivate={() => setActivePlayer(null)}
+          autoPlay={!isLoading && countryCode === 'es'}
         />
         <PodcastBox
           label="Podcast in English"
@@ -280,6 +308,7 @@ export const PodcastPlayer = () => {
           isActive={activePlayer === 'en'}
           onActivate={() => setActivePlayer('en')}
           onDeactivate={() => setActivePlayer(null)}
+          autoPlay={!isLoading && countryCode === 'en'}
         />
       </div>
     </div>
