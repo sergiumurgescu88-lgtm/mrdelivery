@@ -236,7 +236,7 @@ export const CinematicPlayer = () => {
           <div className="flex items-center gap-3">
             <span className="text-3xl animate-pulse">🇷🇴</span>
             <div>
-              <span className="text-white font-bold text-lg">Podcast în Română</span>
+              <span className="text-white font-bold text-lg">Podcast cu Sergiu</span>
               <p className="text-white/70 text-sm">MrDelivery.ro</p>
             </div>
           </div>
