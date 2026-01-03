@@ -281,7 +281,7 @@ export const PodcastPlayer = () => {
     <div className="sticky top-2 z-40 py-2 px-2 mb-4">
       <div className="relative flex flex-row justify-center gap-2 sm:gap-3 min-h-[48px]">
         <PodcastBox
-          label="Podcast în Română"
+          label="Podcast cu Sergiu"
           flag="🇷🇴"
           audioSrc={podcastRomanian}
           color="orange"
@@ -291,7 +291,7 @@ export const PodcastPlayer = () => {
           autoPlay={!isLoading && countryCode === 'ro'}
         />
         <PodcastBox
-          label="Podcast en Español"
+          label="Podcast con Sergiu"
           flag="🇪🇸"
           audioSrc={podcastSpanish}
           color="green"
@@ -301,7 +301,7 @@ export const PodcastPlayer = () => {
           autoPlay={!isLoading && countryCode === 'es'}
         />
         <PodcastBox
-          label="Podcast in English"
+          label="Podcast with Sergiu"
           flag="🇺🇸"
           audioSrc={podcastEnglish}
           color="blue"
