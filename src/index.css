@@ -172,4 +172,17 @@
       box-shadow: 0 0 12px currentColor;
     }
   }
+
+  @keyframes twinkle {
+    0%, 100% { 
+      opacity: 0.4;
+      transform: scale(1);
+      box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1.3);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.4);
+    }
+  }
 }
