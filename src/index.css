@@ -185,4 +185,21 @@
       box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.4);
     }
   }
+
+  @keyframes shootingStar {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0);
+    }
+    5% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(150px, 120px);
+    }
+  }
 }
