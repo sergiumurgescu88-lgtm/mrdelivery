@@ -26,7 +26,7 @@ interface PodcastConfig {
 const podcasts: PodcastConfig[] = [
   {
     id: 'ro',
-    label: 'Podcast cu Sergiu',
+    label: 'Podcast',
     flag: '🇷🇴',
     src: podcastRomanian,
     gradient: 'from-warning via-orange-500 to-amber-600',
@@ -35,7 +35,7 @@ const podcasts: PodcastConfig[] = [
   },
   {
     id: 'es',
-    label: 'Podcast con Sergiu',
+    label: 'Podcast',
     flag: '🇪🇸',
     src: podcastSpanish,
     gradient: 'from-emerald-500 via-green-500 to-teal-600',
@@ -44,7 +44,7 @@ const podcasts: PodcastConfig[] = [
   },
   {
     id: 'us',
-    label: 'Podcast with Sergiu',
+    label: 'Podcast',
     flag: '🇺🇸',
     src: podcastEnglish,
     gradient: 'from-blue-500 via-indigo-500 to-blue-700',
@@ -94,135 +94,138 @@ const SinglePlayer = ({
 }: SinglePlayerProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Mobile compact pill style (50-60px height)
+  if (!isActive) {
+    return (
+      <div
+        onClick={onActivate}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => setIsHovered(true)}
+        onTouchEnd={() => setIsHovered(false)}
+        className={`
+          relative overflow-hidden cursor-pointer
+          bg-gradient-to-r ${config.gradient}
+          border ${config.borderColor}
+          rounded-full px-3 py-1.5 h-[50px] sm:h-[56px]
+          flex items-center gap-2
+          transition-all duration-300 ease-out
+          ${isHovered ? 'opacity-100 scale-105' : 'opacity-40'}
+        `}
+        style={{
+          boxShadow: isHovered ? `0 0 20px ${config.shadowColor}` : 'none',
+        }}
+      >
+        <span className="text-base sm:text-lg">{config.flag}</span>
+        <span className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
+          {config.label}
+        </span>
+        {/* Play hint on hover */}
+        <div className={`
+          ml-auto flex items-center justify-center
+          transition-opacity duration-200
+          ${isHovered ? 'opacity-100' : 'opacity-0'}
+        `}>
+          <Play className="w-4 h-4 text-white" fill="white" />
+        </div>
+      </div>
+    );
+  }
+
+  // Active player - also compact on mobile (small bar style)
   return (
     <div
-      onClick={!isActive ? onActivate : undefined}
-      onMouseEnter={() => !isActive && setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className={`
         relative overflow-hidden
-        bg-gradient-to-br ${config.gradient}
-        border-2 ${config.borderColor}
+        bg-gradient-to-r ${config.gradient}
+        border ${config.borderColor}
+        rounded-2xl sm:rounded-2xl
         transition-all duration-500 ease-in-out
-        ${isActive 
-          ? 'w-full rounded-2xl p-5 cursor-default opacity-100' 
-          : `w-16 sm:w-20 rounded-xl p-2 cursor-pointer ${isHovered ? 'opacity-100 scale-110' : 'opacity-50 scale-100'}`
-        }
+        opacity-40 hover:opacity-100
+        ${waitingForInteraction ? '' : 'opacity-100'}
       `}
       style={{
-        boxShadow: isActive 
-          ? `0 0 40px ${config.shadowColor}` 
-          : isHovered 
-            ? `0 0 25px ${config.shadowColor}` 
-            : `0 0 10px ${config.shadowColor}`,
-        minHeight: isActive ? '180px' : '60px',
+        boxShadow: `0 0 25px ${config.shadowColor}`,
       }}
     >
-      {/* Waiting for interaction overlay - only on active player */}
-      {isActive && waitingForInteraction && (
+      {/* Waiting for interaction overlay */}
+      {waitingForInteraction && (
         <div 
           onClick={onInteraction}
-          className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 rounded-2xl cursor-pointer"
+          className="absolute inset-0 z-20 flex items-center justify-center bg-black/30 rounded-2xl cursor-pointer"
         >
-          <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-white font-bold text-lg animate-pulse border border-white/30 shadow-xl">
-            🔊 Tap anywhere to start audio
+          <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white font-semibold text-sm sm:text-base animate-pulse border border-white/30">
+            🔊 Tap to play
           </div>
         </div>
       )}
 
-      {/* Inactive thumbnail state */}
-      {!isActive && (
-        <div className="flex flex-col items-center justify-center gap-1 h-full relative">
-          <span className="text-xl sm:text-2xl">{config.flag}</span>
-          {/* Play hint on hover */}
-          <div className={`
-            absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl
-            transition-opacity duration-300
-            ${isHovered ? 'opacity-100' : 'opacity-0'}
-          `}>
-            <div className="bg-white/30 backdrop-blur-sm px-2 py-1 rounded-full">
-              <span className="text-white text-xs font-bold">▶ Play</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Active expanded state */}
-      {isActive && (
-        <div className="flex flex-col gap-4">
-          {/* Header */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl animate-pulse">{config.flag}</span>
-              <div>
-                <span className="text-white font-bold text-lg">{config.label}</span>
-                <p className="text-white/70 text-sm">MrDelivery.ro</p>
-              </div>
-            </div>
-            {/* Volume control */}
-            <div className="flex items-center gap-2">
-              <button onClick={onToggleMute} className="p-2 hover:bg-white/10 rounded-full transition-colors">
-                {isMuted || volume === 0 ? (
-                  <VolumeX className="w-5 h-5 text-white" />
-                ) : (
-                  <Volume2 className="w-5 h-5 text-white animate-pulse" />
-                )}
-              </button>
-              <Slider
-                value={[isMuted ? 0 : volume]}
-                max={1}
-                step={0.01}
-                onValueChange={onVolumeChange}
-                className="w-20 [&_[data-slot=track]]:h-1.5 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-3 [&_[data-slot=thumb]]:h-3 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0"
-              />
-            </div>
+      {/* Compact mobile layout */}
+      <div className="p-3 sm:p-4">
+        {/* Header row */}
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-lg sm:text-xl">{config.flag}</span>
+            <span className="text-white font-semibold text-sm sm:text-base truncate">
+              {config.label}
+            </span>
           </div>
           
-          {/* Progress bar */}
-          <div className="w-full">
-            <Slider
-              value={[currentTime]}
-              max={duration || 100}
-              step={0.1}
-              onValueChange={onSeek}
-              onValueCommit={onSeekCommit}
-              className="w-full cursor-pointer touch-pan-x [&_[data-slot=track]]:h-3 [&_[data-slot=track]]:bg-white/20 [&_[data-slot=track]]:rounded-full [&_[data-slot=range]]:bg-white [&_[data-slot=range]]:rounded-full [&_[data-slot=thumb]]:w-5 [&_[data-slot=thumb]]:h-5 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-2 [&_[data-slot=thumb]]:border-white/50 [&_[data-slot=thumb]]:shadow-lg [&_[data-slot=thumb]]:transition-transform [&_[data-slot=thumb]]:hover:scale-125"
-            />
-            <div className="flex justify-between text-sm text-white/80 mt-2 font-medium">
-              <span>{formatTime(currentTime)}</span>
-              <span>{formatTime(duration)}</span>
-            </div>
-          </div>
-          
-          {/* Controls */}
-          <div className="flex items-center justify-center gap-6">
+          {/* Controls row - compact */}
+          <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
             <button
               onClick={onSkipBack}
-              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-lg border border-white/30 hover:scale-110"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
               aria-label="Skip back 10 seconds"
             >
-              <SkipBack className="w-6 h-6 text-white" />
+              <SkipBack className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </button>
             <button
               onClick={onTogglePlay}
-              className="w-16 h-16 rounded-full bg-white/30 hover:bg-white/40 backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-xl border-2 border-white/50 hover:scale-110"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/30 hover:bg-white/40 flex items-center justify-center transition-all shadow-lg border border-white/40"
             >
               {isPlaying ? (
-                <Pause className="w-8 h-8 text-white" />
+                <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               ) : (
-                <Play className="w-8 h-8 text-white ml-1" />
+                <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-0.5" />
               )}
             </button>
             <button
               onClick={onSkipForward}
-              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-lg border border-white/30 hover:scale-110"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
               aria-label="Skip forward 10 seconds"
             >
-              <SkipForward className="w-6 h-6 text-white" />
+              <SkipForward className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+            </button>
+            <button 
+              onClick={onToggleMute} 
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
+            >
+              {isMuted || volume === 0 ? (
+                <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+              ) : (
+                <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+              )}
             </button>
           </div>
         </div>
-      )}
+        
+        {/* Progress bar - slim */}
+        <div className="w-full">
+          <Slider
+            value={[currentTime]}
+            max={duration || 100}
+            step={0.1}
+            onValueChange={onSeek}
+            onValueCommit={onSeekCommit}
+            className="w-full cursor-pointer touch-pan-x [&_[data-slot=track]]:h-2 [&_[data-slot=track]]:bg-white/20 [&_[data-slot=track]]:rounded-full [&_[data-slot=range]]:bg-white [&_[data-slot=range]]:rounded-full [&_[data-slot=thumb]]:w-4 [&_[data-slot=thumb]]:h-4 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0 [&_[data-slot=thumb]]:shadow-lg"
+          />
+          <div className="flex justify-between text-xs text-white/70 mt-1 font-medium">
+            <span>{formatTime(currentTime)}</span>
+            <span>{formatTime(duration)}</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -425,9 +428,9 @@ export const CinematicPlayer = () => {
   return (
     <div 
       className={`
-        mx-auto mb-6 mt-4 px-4 max-w-xl
-        transition-all duration-[2000ms] ease-in-out
-        ${isExpanded ? 'opacity-100' : 'opacity-0 translate-y-4'}
+        mx-auto mb-2 mt-1 px-2 sm:px-4 max-w-lg
+        transition-all duration-1000 ease-in-out
+        ${isExpanded ? 'opacity-100' : 'opacity-0 translate-y-2'}
       `}
     >
       {/* Hidden audio elements */}
@@ -441,33 +444,31 @@ export const CinematicPlayer = () => {
         />
       ))}
 
-      {/* Layout: Active player full width, inactive thumbnails in a row */}
-      <div className="flex flex-col gap-3">
-        {/* Active player - full width */}
-        <div className="transition-all duration-700">
-          <SinglePlayer
-            config={orderedPodcasts[0]}
-            isActive={true}
-            isPlaying={isPlaying}
-            currentTime={currentTime}
-            duration={duration}
-            volume={volume}
-            isMuted={isMuted}
-            waitingForInteraction={waitingForInteraction}
-            onActivate={() => {}}
-            onTogglePlay={togglePlay}
-            onSeek={handleSeek}
-            onSeekCommit={handleSeekCommit}
-            onSkipBack={skipBack}
-            onSkipForward={skipForward}
-            onVolumeChange={handleVolumeChange}
-            onToggleMute={toggleMute}
-            onInteraction={handleUserInteraction}
-          />
-        </div>
+      {/* Layout: All players in compact format */}
+      <div className="flex flex-col gap-1.5 sm:gap-2">
+        {/* Active player - compact bar */}
+        <SinglePlayer
+          config={orderedPodcasts[0]}
+          isActive={true}
+          isPlaying={isPlaying}
+          currentTime={currentTime}
+          duration={duration}
+          volume={volume}
+          isMuted={isMuted}
+          waitingForInteraction={waitingForInteraction}
+          onActivate={() => {}}
+          onTogglePlay={togglePlay}
+          onSeek={handleSeek}
+          onSeekCommit={handleSeekCommit}
+          onSkipBack={skipBack}
+          onSkipForward={skipForward}
+          onVolumeChange={handleVolumeChange}
+          onToggleMute={toggleMute}
+          onInteraction={handleUserInteraction}
+        />
 
-        {/* Inactive players - compact horizontal row */}
-        <div className="flex justify-center gap-2 transition-all duration-700">
+        {/* Inactive players - horizontal pill row */}
+        <div className="flex justify-center gap-1.5 sm:gap-2">
           {orderedPodcasts.slice(1).map((podcast) => (
             <SinglePlayer
               key={podcast.id}
