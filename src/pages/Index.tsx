@@ -163,45 +163,46 @@ const Index = () => {
               ))}
 
 
-              {/* UGC Example Videos Section */}
-              <div className="p-4 sm:p-6 bg-gradient-to-br from-card via-card/95 to-card/90 rounded-2xl border-2 border-accent/30 shadow-2xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-warning rounded-lg">
-                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground" />
-                  </div>
-                  🎬 Content Examples
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                    <video
-                      src={ugcExample1}
-                      controls
-                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                      preload="metadata"
-                    />
-                  </div>
-                  <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                    <video
-                      src={ugcExample2}
-                      controls
-                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                      preload="metadata"
-                    />
-                  </div>
-                  <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                    <video
-                      src={ugcExample3}
-                      controls
-                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                      preload="metadata"
-                    />
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
-                  {t.services.ugc.examples}
-                </p>
-              </div>
             </ServiceCard>
+            
+            {/* UGC Example Videos - Separate Box */}
+            <div className="mt-4 p-4 sm:p-6 bg-gradient-to-br from-card via-card/95 to-card/90 rounded-2xl border-2 border-accent/30 shadow-2xl">
+              <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
+                <div className="p-2 bg-gradient-warning rounded-lg">
+                  <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground" />
+                </div>
+                🎬 Content Examples
+              </h4>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                  <video
+                    src={ugcExample1}
+                    controls
+                    className="w-full h-auto aspect-[9/16] object-contain bg-black"
+                    preload="metadata"
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                  <video
+                    src={ugcExample2}
+                    controls
+                    className="w-full h-auto aspect-[9/16] object-contain bg-black"
+                    preload="metadata"
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                  <video
+                    src={ugcExample3}
+                    controls
+                    className="w-full h-auto aspect-[9/16] object-contain bg-black"
+                    preload="metadata"
+                  />
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
+                {t.services.ugc.examples}
+              </p>
+            </div>
           </div>
           
           {/* Cinematic Auto-Expanding Player - Positioned below UGC */}
