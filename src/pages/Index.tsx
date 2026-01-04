@@ -204,28 +204,28 @@ const Index = () => {
               </div>
             </ServiceCard>
 
-            {/* AI Agents (Third) - Purple styled like VEO3 */}
+            {/* AI Agents (Third) - Styled like VEO3 with same colors */}
             <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} originalPrice={t.services.aiAgents.originalPrice} discount={t.services.aiAgents.discount} subtitle={t.services.aiAgents.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
-                  <Sparkles className="w-5 h-5 text-purple-500" />
+                  <Sparkles className="w-5 h-5 text-accent" />
                   <span className="text-sm font-bold text-gradient-primary">{t.services.aiAgents.badge}</span>
                 </div>
               </div>
 
-              {/* Phone Section - Purple theme */}
-              <div className="bg-gradient-to-br from-purple-500/5 via-purple-400/5 to-violet-500/5 p-6 rounded-2xl mb-5 border-2 border-purple-500/30 shadow-2xl">
+              {/* Main AI Agent Panel - Same structure as VEO3 */}
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
                 <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg">
-                    <Phone className="w-6 h-6 text-white" />
+                  <div className="p-2 bg-gradient-primary rounded-lg">
+                    <MessageSquare className="w-6 h-6 text-primary-foreground" />
                   </div>
                   {t.services.aiAgents.phone.title}
                 </h4>
                 <div className="pl-4 space-y-3">
                   {t.services.aiAgents.phone.items.map((item, index) => (
                     <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-4 h-4 text-white" />
+                      <div className="w-8 h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <Zap className="w-4 h-4 text-destructive-foreground" />
                       </div>
                       <span className="text-sm text-foreground">{item}</span>
                     </div>
@@ -233,19 +233,19 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* WhatsApp Section - Purple theme */}
-              <div className="bg-gradient-to-br from-purple-500/5 via-violet-400/5 to-purple-600/5 p-6 rounded-2xl mb-5 border-2 border-purple-500/30 shadow-2xl">
+              {/* WhatsApp Section - Same colors as VEO3 */}
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
                 <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg">
-                    <MessageSquare className="w-6 h-6 text-white" />
+                  <div className="p-2 bg-gradient-primary rounded-lg">
+                    <MessageSquare className="w-6 h-6 text-primary-foreground" />
                   </div>
                   {t.services.aiAgents.whatsapp.title}
                 </h4>
                 <div className="pl-4 space-y-3">
                   {t.services.aiAgents.whatsapp.items.map((item, index) => (
                     <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Star className="w-4 h-4 text-white" />
+                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Star className="w-4 h-4 text-primary-foreground" />
                       </div>
                       <span className="text-sm text-foreground">{item}</span>
                     </div>
@@ -253,19 +253,19 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Reservations Section - Purple theme */}
-              <div className="bg-gradient-to-br from-violet-500/5 via-purple-400/5 to-purple-500/5 p-6 rounded-2xl mb-5 border-2 border-purple-500/30 shadow-2xl">
+              {/* Reservations Section - Same colors as VEO3 */}
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
                 <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg">
-                    <Calendar className="w-6 h-6 text-white" />
+                  <div className="p-2 bg-gradient-primary rounded-lg">
+                    <Calendar className="w-6 h-6 text-primary-foreground" />
                   </div>
                   {t.services.aiAgents.reservations.title}
                 </h4>
                 <div className="pl-4 space-y-3">
                   {t.services.aiAgents.reservations.items.map((item, index) => (
                     <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Heart className="w-4 h-4 text-white" />
+                      <div className="w-8 h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
+                        <Heart className="w-4 h-4 text-success-foreground" />
                       </div>
                       <span className="text-sm text-foreground">{item}</span>
                     </div>
@@ -273,12 +273,30 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Benefits - Purple accent */}
-              <div className="p-4 bg-gradient-to-r from-purple-500/20 to-violet-600/20 rounded-2xl border-2 border-purple-500/30 shadow-lg">
+              {/* Feature cards - Same grid style as VEO3 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                    <h5 className="font-bold text-sm text-foreground">24/7 AI</h5>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Never miss a call or message with intelligent automation</p>
+                </div>
+                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Award className="w-5 h-5 text-success" />
+                    <h5 className="font-bold text-sm text-foreground">Smart Integration</h5>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Seamlessly connects with Google Calendar and WhatsApp</p>
+                </div>
+              </div>
+
+              {/* Benefits - Same style as VEO3 examples box */}
+              <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
                 <div className="flex items-start gap-3">
-                  <Award className="w-6 h-6 text-purple-400 flex-shrink-0 mt-1 animate-pulse" />
-                  <p className="text-sm text-foreground font-medium">
-                    <strong>Benefits:</strong> {t.services.aiAgents.benefits}
+                  <Award className="w-6 h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
+                  <p className="text-sm text-warning-foreground font-medium">
+                    <strong>🤖 Benefits:</strong> {t.services.aiAgents.benefits}
                   </p>
                 </div>
               </div>
