@@ -102,82 +102,21 @@ const Index = () => {
         {/* Current Services Tab */}
         {activeTab === 'existente' && (
           <main className="space-y-5 px-2">
-            {/* Standard Package - Styled like VEO3/Premium */}
+            {/* Standard Package */}
             <ServiceCard title={t.services.standard.title} icon={TrendingUp} price={t.services.standard.price} subtitle={t.services.standard.subtitle}>
               <div className="mb-4">
-                <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
-                  <Clock className="w-5 h-5 text-accent" />
-                  <span className="text-sm font-bold text-gradient-primary">{t.services.standard.support}</span>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full mb-4">
+                  <Clock className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-bold text-foreground">{t.services.standard.support}</span>
                 </div>
               </div>
-
-              {/* Main Services Panel - Same structure as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <TrendingUp className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  🚀 Core Services
-                </h4>
-                <div className="pl-4 space-y-3">
-                  {t.services.standard.items.slice(0, 4).map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-4 h-4 text-destructive-foreground" />
-                      </div>
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Marketing & Support Panel */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Megaphone className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  📈 Marketing & Support
-                </h4>
-                <div className="pl-4 space-y-3">
-                  {t.services.standard.items.slice(4).map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Star className="w-4 h-4 text-primary-foreground" />
-                      </div>
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Feature cards - Same grid style as VEO3 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    <h5 className="font-bold text-sm text-foreground">Multi-Platform</h5>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Uber Eats, DoorDash & Grubhub optimization</p>
-                </div>
-                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Award className="w-5 h-5 text-success" />
-                    <h5 className="font-bold text-sm text-foreground">24/7 Support</h5>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Constant WhatsApp & phone support</p>
-                </div>
-              </div>
-
-              {/* Footer box - Same style as VEO3 */}
-              <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
-                <div className="flex items-start gap-3">
-                  <Clock className="w-6 h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
-                  <p className="text-sm text-warning-foreground font-medium">
-                    <strong>⚡ Fast Implementation:</strong> Campaigns live within 6 hours of decision
-                  </p>
-                </div>
-              </div>
+              {t.services.standard.items.map((item, index) => (
+                <ServiceItem
+                  key={index}
+                  text={item}
+                  icon={[ShoppingBag, Calendar, TrendingUp, Zap, Award, Megaphone, Clock, Globe, MessageSquare][index]}
+                />
+              ))}
             </ServiceCard>
 
             {/* Video Premium - VEO3 Services (Second) */}
@@ -363,101 +302,52 @@ const Index = () => {
               </div>
             </ServiceCard>
 
-            {/* Premium Package - Same style as VEO3 */}
+            {/* Premium Package */}
             <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} originalPrice={t.services.premium.originalPrice} discount={t.services.premium.discount} discountNote={t.services.premium.discountNote} subtitle={t.services.premium.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
-                  <Star className="w-5 h-5 text-accent" />
+                  <Star className="w-5 h-5 text-warning" />
                   <span className="text-sm font-bold text-gradient-primary">{t.services.premium.badge}</span>
                 </div>
               </div>
 
-              {/* Automation Section - Same structure as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Users className="w-6 h-6 text-primary-foreground" />
+              {/* Automation Section */}
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-2xl mb-4 border-2 border-primary/30 shadow-xl">
+                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
+                  <div className="p-2 bg-primary rounded-lg">
+                    <Users className="w-5 h-5 text-primary-foreground" />
                   </div>
                   {t.services.premium.automation.title}
                 </h4>
-                <div className="pl-4 space-y-3">
-                  {t.services.premium.automation.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-4 h-4 text-destructive-foreground" />
-                      </div>
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
+                {t.services.premium.automation.items.map((item, index) => (
+                  <ServiceItem key={index} text={item} />
+                ))}
               </div>
 
-              {/* App Development Section - Same structure as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Globe className="w-6 h-6 text-primary-foreground" />
+              {/* App Development Section */}
+              <div className="bg-gradient-to-br from-success/5 to-success/10 p-5 rounded-2xl mb-4 border-2 border-success/30 shadow-xl">
+                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
+                  <div className="p-2 bg-success rounded-lg">
+                    <Globe className="w-5 h-5 text-success-foreground" />
                   </div>
                   {t.services.premium.app.title}
                 </h4>
-                <div className="pl-4 space-y-3">
-                  {t.services.premium.app.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Star className="w-4 h-4 text-primary-foreground" />
-                      </div>
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
+                {t.services.premium.app.items.map((item, index) => (
+                  <ServiceItem key={index} text={item} />
+                ))}
               </div>
 
-              {/* Social Media Section - Same structure as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Megaphone className="w-6 h-6 text-primary-foreground" />
+              {/* Social Media Section */}
+              <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 p-5 rounded-2xl border-2 border-secondary/30 shadow-xl">
+                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
+                  <div className="p-2 bg-secondary rounded-lg">
+                    <Megaphone className="w-5 h-5 text-secondary-foreground" />
                   </div>
                   {t.services.premium.social.title}
                 </h4>
-                <div className="pl-4 space-y-3">
-                  {t.services.premium.social.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                        <Heart className="w-4 h-4 text-success-foreground" />
-                      </div>
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Feature cards - Same grid style as VEO3 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    <h5 className="font-bold text-sm text-foreground">All-In-One</h5>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Complete digital transformation package</p>
-                </div>
-                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Award className="w-5 h-5 text-success" />
-                    <h5 className="font-bold text-sm text-foreground">45% Savings</h5>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Best value when bundled together</p>
-                </div>
-              </div>
-
-              {/* Footer box - Same style as VEO3 */}
-              <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
-                <div className="flex items-start gap-3">
-                  <Sparkles className="w-6 h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
-                  <p className="text-sm text-warning-foreground font-medium">
-                    <strong>✨ Premium Benefits:</strong> Complete management from concept to launch with continuous updates
-                  </p>
-                </div>
+                {t.services.premium.social.items.map((item, index) => (
+                  <ServiceItem key={index} text={item} />
+                ))}
               </div>
             </ServiceCard>
 
