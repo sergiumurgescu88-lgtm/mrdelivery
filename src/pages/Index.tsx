@@ -62,7 +62,7 @@ const Index = () => {
           
           {/* UGC Content Generator - Above CinematicPlayer */}
           <div className="mt-4 sm:mt-6 mb-4 sm:mb-6 px-2">
-            <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight>
+            <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Image className="w-5 h-5 text-accent" />
@@ -94,7 +94,7 @@ const Index = () => {
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
                       <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Image className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
+                        <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
                       </div>
                       <span className="text-sm sm:text-base text-foreground">
                         <strong>{t.services.ugc.step2}</strong> - {t.services.ugc.step2Desc}
@@ -102,7 +102,7 @@ const Index = () => {
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
                       <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
+                        <Image className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
                       </div>
                       <span className="text-sm sm:text-base text-foreground">
                         <strong>{t.services.ugc.step3}</strong> - {t.services.ugc.step3Desc}
@@ -131,7 +131,7 @@ const Index = () => {
                 </div>
                 <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
-                    <Award className="w-5 h-5 text-success" />
+                    <Users className="w-5 h-5 text-success" />
                     <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.ugc.format}</h5>
                   </div>
                   <p className="text-sm sm:text-sm text-muted-foreground">{t.services.ugc.formatDesc}</p>
@@ -142,7 +142,7 @@ const Index = () => {
                 <ServiceItem
                   key={index}
                   text={item}
-                  icon={[Upload, Image, Star, Video, Zap, Globe][index]}
+                  icon={[MessageSquare, Sparkles, Image, Video, Zap, Globe][index]}
                 />
               ))}
 
