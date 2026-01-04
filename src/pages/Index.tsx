@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ServiceCard } from '@/components/ServiceCard';
@@ -6,6 +5,7 @@ import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
 import { CinematicPlayer } from '@/components/CinematicPlayer';
 import { FoodBackground } from '@/components/FoodBackground';
+import { FullscreenVideo } from '@/components/FullscreenVideo';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import ugcExample1 from '@/assets/ugc-example-1.mp4';
 import ugcExample2 from '@/assets/ugc-example-2.mp4';
@@ -35,6 +35,7 @@ import {
   Send,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 const Index = () => {
   const { language, t } = useLanguage();
@@ -178,25 +179,15 @@ const Index = () => {
               </h4>
               <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-2 sm:mb-4">
                 {[ugcExample1, ugcExample2, ugcExample3].map((video, index) => (
-                  <div key={index} className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                    <video
-                      src={video}
-                      controls
-                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                      preload="metadata"
-                    />
+                  <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                    <FullscreenVideo src={video} />
                   </div>
                 ))}
               </div>
               <div className="grid grid-cols-3 gap-2 sm:gap-4">
                 {[ugcExample4, ugcExample5, ugcExample6].map((video, index) => (
-                  <div key={index} className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                    <video
-                      src={video}
-                      controls
-                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                      preload="metadata"
-                    />
+                  <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                    <FullscreenVideo src={video} />
                   </div>
                 ))}
               </div>
