@@ -172,21 +172,14 @@ const Index = () => {
             
             {/* UGC Example Videos - Separate Box */}
             <div className="mt-4 p-4 sm:p-6 bg-gradient-to-br from-card via-card/95 to-card/90 rounded-2xl border-2 border-accent/30 shadow-2xl">
-              <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
+              <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
                 <div className="p-2 bg-gradient-warning rounded-lg">
                   <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground" />
                 </div>
                 🎬 Content Examples
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 mb-4 sm:mb-4">
-                {[ugcExample1, ugcExample2, ugcExample3].map((video, index) => (
-                  <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                    <FullscreenVideo src={video} />
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4">
-                {[ugcExample4, ugcExample5, ugcExample6].map((video, index) => (
+              <div className="grid grid-cols-2 gap-4">
+                {[ugcExample1, ugcExample2].map((video, index) => (
                   <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                     <FullscreenVideo src={video} />
                   </div>
@@ -198,7 +191,7 @@ const Index = () => {
                 </p>
                 <VideoGallery 
                   videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
-                  buttonText="View All Videos"
+                  buttonText="View All Videos (+4 more)"
                 />
               </div>
             </div>
