@@ -12,9 +12,10 @@ interface ServiceCardProps {
   subtitle?: string;
   highlight?: boolean;
   packageNumber?: number;
+  telegramButton?: ReactNode;
 }
 
-export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice, discount, discountNote, subtitle, highlight = false, packageNumber }: ServiceCardProps) => {
+export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice, discount, discountNote, subtitle, highlight = false, packageNumber, telegramButton }: ServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -65,7 +66,7 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
                   {subtitle}
                 </p>
               )}
-              {(price || originalPrice || discount) && (
+              {(price || originalPrice || discount || telegramButton) && (
                 <div className="flex flex-wrap items-center gap-2 mt-1">
                   {discount && (
                     <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-sm font-bold ${
@@ -89,6 +90,11 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
                     >
                       <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       <span className="break-words">{price}</span>
+                    </div>
+                  )}
+                  {telegramButton && (
+                    <div className="flex-shrink-0">
+                      {telegramButton}
                     </div>
                   )}
                 </div>

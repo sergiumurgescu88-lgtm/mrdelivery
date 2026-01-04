@@ -64,7 +64,18 @@ const Index = () => {
           
           {/* UGC Content Generator - Above CinematicPlayer */}
           <div className="mt-4 sm:mt-6 mb-4 sm:mb-6 px-2">
-            <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight>
+            <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight telegramButton={
+              <a
+                href="https://t.me/SergiuBot007bot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-2 px-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 text-sm flex items-center gap-2">
+                  <Send className="w-4 h-4" />
+                  {t.services.ugc.telegramButton}
+                </Button>
+              </a>
+            }>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Image className="w-5 h-5 text-accent" />
@@ -148,20 +159,6 @@ const Index = () => {
                 />
               ))}
 
-              {/* Telegram Button */}
-              <div className="mt-5 mb-5">
-                <a
-                  href="https://t.me/SergiuBot007bot"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full"
-                >
-                  <Button className="w-full bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-4 px-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 text-base sm:text-lg flex items-center justify-center gap-3">
-                    <Send className="w-5 h-5 sm:w-6 sm:h-6" />
-                    {t.services.ugc.telegramButton}
-                  </Button>
-                </a>
-              </div>
 
               {/* Examples box */}
               <div className="p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
