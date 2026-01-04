@@ -178,7 +178,7 @@ const Index = () => {
                 </div>
                 🎬 Content Examples
               </h4>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 {[ugcExample1, ugcExample2].map((video, index) => (
                   <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                     <FullscreenVideo src={video} />
