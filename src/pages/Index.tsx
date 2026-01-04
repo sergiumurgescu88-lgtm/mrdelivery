@@ -177,14 +177,14 @@ const Index = () => {
                 </div>
                 🎬 Content Examples
               </h4>
-              <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-2 sm:mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 mb-4 sm:mb-4">
                 {[ugcExample1, ugcExample2, ugcExample3].map((video, index) => (
                   <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                     <FullscreenVideo src={video} />
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-3 gap-2 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4">
                 {[ugcExample4, ugcExample5, ugcExample6].map((video, index) => (
                   <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                     <FullscreenVideo src={video} />

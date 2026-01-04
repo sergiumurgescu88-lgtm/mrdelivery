@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Global state to track currently playing video
 let currentlyPlayingVideo: HTMLVideoElement | null = null;
@@ -13,11 +14,14 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobileActive, setIsMobileActive] = useState(false);
+  const isMobile = useIsMobile();
   const thumbnailRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const fullscreenVideoRef = useRef<HTMLVideoElement>(null);
 
   const handleMouseEnter = () => {
+    if (isMobile) return;
     setIsHovering(true);
     if (videoRef.current) {
       // Stop any other playing video
@@ -32,6 +36,7 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
   };
 
   const handleMouseLeave = () => {
+    if (isMobile) return;
     setIsHovering(false);
     if (videoRef.current) {
       videoRef.current.pause();
@@ -43,14 +48,27 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
   };
 
   const handleClick = () => {
-    if (!isFullscreen) {
-      setIsAnimating(true);
-      setIsFullscreen(true);
-      // Pause the thumbnail video
-      if (videoRef.current) {
-        videoRef.current.pause();
-        if (currentlyPlayingVideo === videoRef.current) {
-          currentlyPlayingVideo = null;
+    if (isMobile) {
+      // On mobile, toggle inline player mode
+      setIsMobileActive(!isMobileActive);
+      if (!isMobileActive && videoRef.current) {
+        // Stop any other playing video
+        if (currentlyPlayingVideo && currentlyPlayingVideo !== videoRef.current) {
+          currentlyPlayingVideo.pause();
+          currentlyPlayingVideo.currentTime = 0;
+        }
+        currentlyPlayingVideo = videoRef.current;
+      }
+    } else {
+      // On desktop, open fullscreen
+      if (!isFullscreen) {
+        setIsAnimating(true);
+        setIsFullscreen(true);
+        if (videoRef.current) {
+          videoRef.current.pause();
+          if (currentlyPlayingVideo === videoRef.current) {
+            currentlyPlayingVideo = null;
+          }
         }
       }
     }
@@ -66,7 +84,6 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
 
   useEffect(() => {
     if (isFullscreen && fullscreenVideoRef.current) {
-      // Small delay to allow animation to start, then play
       const timeout = setTimeout(() => {
         fullscreenVideoRef.current?.play();
         setIsAnimating(false);
@@ -97,7 +114,7 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
 
   return (
     <>
-      {/* Thumbnail Video */}
+      {/* Video Container */}
       <div 
         ref={thumbnailRef}
         className={`cursor-pointer ${className}`}
@@ -110,19 +127,23 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
           src={src}
           className="w-full h-auto aspect-[9/16] object-contain bg-black"
           preload="metadata"
-          muted
+          muted={!isMobileActive}
           playsInline
           loop
+          controls={isMobile && isMobileActive}
         />
-        <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-            <div className="w-0 h-0 border-l-[16px] sm:border-l-[20px] border-l-primary border-t-[10px] sm:border-t-[12px] border-t-transparent border-b-[10px] sm:border-b-[12px] border-b-transparent ml-1"></div>
+        {/* Play button overlay - hide on mobile when active */}
+        {!(isMobile && isMobileActive) && (
+          <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-0 h-0 border-l-[16px] sm:border-l-[20px] border-l-primary border-t-[10px] sm:border-t-[12px] border-t-transparent border-b-[10px] sm:border-b-[12px] border-b-transparent ml-1"></div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
-      {/* Fullscreen Overlay */}
-      {isFullscreen && (
+      {/* Fullscreen Overlay - Desktop Only */}
+      {!isMobile && isFullscreen && (
         <div 
           className={`fixed inset-0 z-50 bg-black/95 flex items-center justify-center transition-opacity duration-300 ${
             isAnimating ? 'opacity-0' : 'opacity-100'
