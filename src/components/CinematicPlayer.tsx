@@ -150,7 +150,7 @@ const SinglePlayer = ({
         border ${config.borderColor}
         rounded-2xl sm:rounded-2xl
         transition-all duration-500 ease-in-out
-        opacity-25 hover:opacity-100
+        ${isPlaying ? 'opacity-100' : 'opacity-25 hover:opacity-100'}
       `}
       style={{
         boxShadow: `0 0 25px ${config.shadowColor}`,
