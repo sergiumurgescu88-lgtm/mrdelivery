@@ -22,7 +22,7 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
     <div
       className={`border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
         highlight
-          ? 'border-primary shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
+          ? 'border-transparent shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10 animated-gradient-border'
           : 'border-border hover:shadow-xl bg-card/70'
       }`}
       onMouseEnter={() => setIsHovered(true)}
