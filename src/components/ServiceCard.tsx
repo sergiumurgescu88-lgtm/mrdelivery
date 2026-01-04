@@ -124,7 +124,7 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
           isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="p-4 sm:p-6 bg-card">{children}</div>
+        <div className="p-4 sm:p-6 bg-card text-left">{children}</div>
       </div>
     </div>
   );
