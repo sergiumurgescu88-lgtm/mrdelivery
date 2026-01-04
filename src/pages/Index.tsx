@@ -76,7 +76,7 @@ const Index = () => {
                 </Button>
               </a>
             }>
-              <div className="mb-4">
+              <div className="mb-4 text-left">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Image className="w-5 h-5 text-accent" />
                   <span className="text-sm font-bold text-gradient-primary">{t.services.ugc.badge}</span>

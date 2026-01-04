@@ -585,10 +585,10 @@ export const translations = {
       },
       ugc: {
         title: 'Generator Conținut UGC',
-        price: '€100',
+        price: '499 RON / 100 EUR',
         originalPrice: '',
         discount: '32 Videoclipuri',
-        subtitle: 'Încarcă imaginea produsului sau fă o poză nouă, și primește un videoclip uimitor de 24 secunde cu un influencer care îți promovează produsul',
+        subtitle: 'Încarcă imaginea produsului sau fă o poză nouă, și primește un videoclip uimitor de 24 secunde cu un influencer care îți promovează produsul.',
         badge: 'Creator UGC cu AI',
         stepsTitle: '🎬 Creare în 4 Pași',
         stepsDesc: 'Flux automatizat prin Telegram:',
