@@ -37,10 +37,12 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const Index = () => {
   const { language, t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'existente' | 'ai'>('existente');
+  const [showExamples, setShowExamples] = useState(false);
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
@@ -170,29 +172,55 @@ const Index = () => {
 
             </ServiceCard>
             
-            {/* UGC Example Videos - Separate Box */}
-            <div className="mt-4 p-4 sm:p-6 bg-gradient-to-br from-card via-card/95 to-card/90 rounded-2xl border-2 border-accent/30 shadow-2xl">
-              <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-                <div className="p-2 bg-gradient-warning rounded-lg">
-                  <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground" />
-                </div>
-                🎬 Content Examples
-              </h4>
-              <div className="grid grid-cols-1 gap-4">
-                {[ugcExample1, ugcExample2].map((video, index) => (
-                  <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                    <FullscreenVideo src={video} />
+            {/* UGC Example Videos - Collapsible Box */}
+            <div className="mt-4 bg-gradient-to-br from-card via-card/95 to-card/90 rounded-2xl border-2 border-accent/30 shadow-2xl overflow-hidden">
+              {/* Header - Clickable to toggle */}
+              <button 
+                onClick={() => setShowExamples(!showExamples)}
+                className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-accent/5 transition-colors"
+              >
+                <h4 className="font-bold text-base sm:text-lg text-foreground flex items-center gap-2">
+                  <div className="p-2 bg-gradient-warning rounded-lg">
+                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground" />
                   </div>
-                ))}
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
-                  {t.services.ugc.examples}
-                </p>
-                <VideoGallery 
-                  videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
-                  buttonText="View All Videos (+4 more)"
-                />
+                  🎬 Content Examples
+                </h4>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground font-medium">
+                    {showExamples ? 'Hide' : 'See More'}
+                  </span>
+                  <div className="p-1.5 bg-accent/20 rounded-full">
+                    {showExamples ? (
+                      <ChevronUp className="w-4 h-4 text-accent" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-accent" />
+                    )}
+                  </div>
+                </div>
+              </button>
+
+              {/* Collapsible Content */}
+              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                showExamples ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <div className="p-4 sm:p-6 pt-0">
+                  <div className="grid grid-cols-1 gap-4">
+                    {[ugcExample1, ugcExample2].map((video, index) => (
+                      <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                        <FullscreenVideo src={video} />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
+                      {t.services.ugc.examples}
+                    </p>
+                    <VideoGallery 
+                      videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
+                      buttonText="View All Videos (+4 more)"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
