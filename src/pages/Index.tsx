@@ -119,66 +119,7 @@ const Index = () => {
               ))}
             </ServiceCard>
 
-            {/* AI Agents */}
-            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} originalPrice={t.services.aiAgents.originalPrice} discount={t.services.aiAgents.discount} subtitle={t.services.aiAgents.subtitle}>
-              <div className="mb-4">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary/10 to-accent/10 px-4 py-2 rounded-full">
-                  <Sparkles className="w-4 h-4 text-secondary" />
-                  <span className="text-sm font-bold text-foreground">{t.services.aiAgents.badge}</span>
-                </div>
-              </div>
-
-              {/* Phone Section */}
-              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-2xl mb-4 border-2 border-primary/20 shadow-lg">
-                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
-                  <div className="p-2 bg-primary rounded-lg">
-                    <Phone className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  {t.services.aiAgents.phone.title}
-                </h4>
-                {t.services.aiAgents.phone.items.map((item, index) => (
-                  <ServiceItem key={index} text={item} />
-                ))}
-              </div>
-
-              {/* WhatsApp Section */}
-              <div className="bg-gradient-to-br from-success/5 to-success/10 p-5 rounded-2xl mb-4 border-2 border-success/20 shadow-lg">
-                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
-                  <div className="p-2 bg-success rounded-lg">
-                    <MessageSquare className="w-5 h-5 text-success-foreground" />
-                  </div>
-                  {t.services.aiAgents.whatsapp.title}
-                </h4>
-                {t.services.aiAgents.whatsapp.items.map((item, index) => (
-                  <ServiceItem key={index} text={item} />
-                ))}
-              </div>
-
-              {/* Reservations Section */}
-              <div className="bg-gradient-to-br from-secondary/5 to-accent/10 p-5 rounded-2xl mb-4 border-2 border-secondary/20 shadow-lg">
-                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
-                  <div className="p-2 bg-secondary rounded-lg">
-                    <Calendar className="w-5 h-5 text-secondary-foreground" />
-                  </div>
-                  {t.services.aiAgents.reservations.title}
-                </h4>
-                {t.services.aiAgents.reservations.items.map((item, index) => (
-                  <ServiceItem key={index} text={item} />
-                ))}
-              </div>
-
-              {/* Benefits */}
-              <div className="bg-gradient-warning p-4 rounded-2xl border-2 border-warning/30 shadow-md">
-                <div className="flex items-start gap-3">
-                  <Award className="w-6 h-6 text-warning-foreground flex-shrink-0 mt-1" />
-                  <p className="text-sm text-warning-foreground font-medium">
-                    <strong>Benefits:</strong> {t.services.aiAgents.benefits}
-                  </p>
-                </div>
-              </div>
-            </ServiceCard>
-
-            {/* Video Premium */}
+            {/* Video Premium - VEO3 Services (Second) */}
             <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} originalPrice={t.services.video.originalPrice} discount={t.services.video.discount} subtitle={t.services.video.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
@@ -263,6 +204,86 @@ const Index = () => {
               </div>
             </ServiceCard>
 
+            {/* AI Agents (Third) - Purple styled like VEO3 */}
+            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} originalPrice={t.services.aiAgents.originalPrice} discount={t.services.aiAgents.discount} subtitle={t.services.aiAgents.subtitle} highlight>
+              <div className="mb-4">
+                <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
+                  <Sparkles className="w-5 h-5 text-purple-500" />
+                  <span className="text-sm font-bold text-gradient-primary">{t.services.aiAgents.badge}</span>
+                </div>
+              </div>
+
+              {/* Phone Section - Purple theme */}
+              <div className="bg-gradient-to-br from-purple-500/5 via-purple-400/5 to-violet-500/5 p-6 rounded-2xl mb-5 border-2 border-purple-500/30 shadow-2xl">
+                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+                  <div className="p-2 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  {t.services.aiAgents.phone.title}
+                </h4>
+                <div className="pl-4 space-y-3">
+                  {t.services.aiAgents.phone.items.map((item, index) => (
+                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Zap className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* WhatsApp Section - Purple theme */}
+              <div className="bg-gradient-to-br from-purple-500/5 via-violet-400/5 to-purple-600/5 p-6 rounded-2xl mb-5 border-2 border-purple-500/30 shadow-2xl">
+                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+                  <div className="p-2 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg">
+                    <MessageSquare className="w-6 h-6 text-white" />
+                  </div>
+                  {t.services.aiAgents.whatsapp.title}
+                </h4>
+                <div className="pl-4 space-y-3">
+                  {t.services.aiAgents.whatsapp.items.map((item, index) => (
+                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Star className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Reservations Section - Purple theme */}
+              <div className="bg-gradient-to-br from-violet-500/5 via-purple-400/5 to-purple-500/5 p-6 rounded-2xl mb-5 border-2 border-purple-500/30 shadow-2xl">
+                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+                  <div className="p-2 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg">
+                    <Calendar className="w-6 h-6 text-white" />
+                  </div>
+                  {t.services.aiAgents.reservations.title}
+                </h4>
+                <div className="pl-4 space-y-3">
+                  {t.services.aiAgents.reservations.items.map((item, index) => (
+                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Heart className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Benefits - Purple accent */}
+              <div className="p-4 bg-gradient-to-r from-purple-500/20 to-violet-600/20 rounded-2xl border-2 border-purple-500/30 shadow-lg">
+                <div className="flex items-start gap-3">
+                  <Award className="w-6 h-6 text-purple-400 flex-shrink-0 mt-1 animate-pulse" />
+                  <p className="text-sm text-foreground font-medium">
+                    <strong>Benefits:</strong> {t.services.aiAgents.benefits}
+                  </p>
+                </div>
+              </div>
+            </ServiceCard>
+
             {/* Premium Package */}
             <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} originalPrice={t.services.premium.originalPrice} discount={t.services.premium.discount} discountNote={t.services.premium.discountNote} subtitle={t.services.premium.subtitle} highlight>
               <div className="mb-4">
@@ -311,6 +332,7 @@ const Index = () => {
                 ))}
               </div>
             </ServiceCard>
+
           </main>
         )}
 
