@@ -6,6 +6,7 @@ import { PulsingBadge } from '@/components/PulsingBadge';
 import { CinematicPlayer } from '@/components/CinematicPlayer';
 import { FoodBackground } from '@/components/FoodBackground';
 import { FullscreenVideo } from '@/components/FullscreenVideo';
+import { VideoGallery } from '@/components/VideoGallery';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import ugcExample1 from '@/assets/ugc-example-1.mp4';
 import ugcExample2 from '@/assets/ugc-example-2.mp4';
@@ -191,9 +192,15 @@ const Index = () => {
                   </div>
                 ))}
               </div>
-              <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
-                {t.services.ugc.examples}
-              </p>
+              <div className="flex flex-col items-center">
+                <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
+                  {t.services.ugc.examples}
+                </p>
+                <VideoGallery 
+                  videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
+                  buttonText="View All Videos"
+                />
+              </div>
             </div>
           </div>
           
