@@ -176,7 +176,7 @@ const Index = () => {
                     <video
                       src={ugcExample1}
                       controls
-                      className="w-full h-auto aspect-[9/16] object-cover bg-black"
+                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
                       preload="metadata"
                     />
                   </div>
@@ -184,7 +184,7 @@ const Index = () => {
                     <video
                       src={ugcExample2}
                       controls
-                      className="w-full h-auto aspect-[9/16] object-cover bg-black"
+                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
                       preload="metadata"
                     />
                   </div>
@@ -192,7 +192,7 @@ const Index = () => {
                     <video
                       src={ugcExample3}
                       controls
-                      className="w-full h-auto aspect-[9/16] object-cover bg-black"
+                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
                       preload="metadata"
                     />
                   </div>
