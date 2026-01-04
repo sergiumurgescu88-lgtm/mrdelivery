@@ -9,6 +9,7 @@ import { FoodBackground } from '@/components/FoodBackground';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import ugcExample1 from '@/assets/ugc-example-1.mp4';
 import ugcExample2 from '@/assets/ugc-example-2.mp4';
+import ugcExample3 from '@/assets/ugc-example-3.mp4';
 import {
   Zap,
   Sparkles,
@@ -170,7 +171,7 @@ const Index = () => {
                   </div>
                   🎬 Content Examples
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                     <video
                       src={ugcExample1}
@@ -182,6 +183,14 @@ const Index = () => {
                   <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                     <video
                       src={ugcExample2}
+                      controls
+                      className="w-full h-auto aspect-[9/16] object-cover bg-black"
+                      preload="metadata"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                    <video
+                      src={ugcExample3}
                       controls
                       className="w-full h-auto aspect-[9/16] object-cover bg-black"
                       preload="metadata"
