@@ -253,20 +253,65 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
           </div>
         </div>
       ) : (
-        // Compact view
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          <span className="text-lg sm:text-2xl">{flag}</span>
-          <button
-            onClick={togglePlay}
-            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
-          >
-            {isPlaying ? (
-              <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            ) : (
-              <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-0.5" />
-            )}
-          </button>
-          <Volume2 className={`w-3 h-3 sm:w-4 sm:h-4 ${isPlaying ? 'text-white animate-pulse' : 'text-white/60'}`} />
+        // Compact view with full controls
+        <div className="flex flex-col gap-2 p-1">
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-lg sm:text-2xl">{flag}</span>
+            <span className="text-white font-medium text-xs sm:text-sm hidden sm:block">{label}</span>
+          </div>
+          
+          {/* Playback controls */}
+          <div className="flex items-center justify-center gap-1 sm:gap-2">
+            <button
+              onClick={skipBack}
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+              aria-label="Skip back 10 seconds"
+            >
+              <SkipBack className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+            </button>
+            <button
+              onClick={togglePlay}
+              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+            >
+              {isPlaying ? (
+                <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              ) : (
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-0.5" />
+              )}
+            </button>
+            <button
+              onClick={skipForward}
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+              aria-label="Skip forward 10 seconds"
+            >
+              <SkipForward className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+            </button>
+          </div>
+          
+          {/* Volume control */}
+          <div className="flex items-center justify-center gap-2">
+            <button onClick={toggleMute} className="p-1">
+              {isMuted || volume === 0 ? (
+                <VolumeX className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+              ) : (
+                <Volume2 className={`w-3 h-3 sm:w-4 sm:h-4 ${isPlaying ? 'text-white animate-pulse' : 'text-white/60'}`} />
+              )}
+            </button>
+            <Slider
+              value={[isMuted ? 0 : volume]}
+              max={1}
+              step={0.01}
+              onValueChange={handleVolumeChange}
+              className="w-14 sm:w-20 [&_[data-slot=track]]:h-1 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-2 [&_[data-slot=thumb]]:h-2 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0"
+            />
+          </div>
+          
+          {/* Time display when playing */}
+          {isPlaying && (
+            <div className="text-center text-xs text-white/80">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </div>
+          )}
         </div>
       )}
     </div>
