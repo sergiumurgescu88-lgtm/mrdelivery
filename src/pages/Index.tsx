@@ -10,6 +10,9 @@ import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import ugcExample1 from '@/assets/ugc-example-1.mp4';
 import ugcExample2 from '@/assets/ugc-example-2.mp4';
 import ugcExample3 from '@/assets/ugc-example-3.mp4';
+import ugcExample4 from '@/assets/ugc-example-4.mp4';
+import ugcExample5 from '@/assets/ugc-example-5.mp4';
+import ugcExample6 from '@/assets/ugc-example-6.mp4';
 import {
   Zap,
   Sparkles,
@@ -173,31 +176,29 @@ const Index = () => {
                 </div>
                 🎬 Content Examples
               </h4>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-2 sm:mb-4">
+                {[ugcExample1, ugcExample2, ugcExample3].map((video, index) => (
+                  <div key={index} className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                    <video
+                      src={video}
+                      controls
+                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
+                      preload="metadata"
+                    />
+                  </div>
+                ))}
+              </div>
               <div className="grid grid-cols-3 gap-2 sm:gap-4">
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                  <video
-                    src={ugcExample1}
-                    controls
-                    className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                    preload="metadata"
-                  />
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                  <video
-                    src={ugcExample2}
-                    controls
-                    className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                    preload="metadata"
-                  />
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                  <video
-                    src={ugcExample3}
-                    controls
-                    className="w-full h-auto aspect-[9/16] object-contain bg-black"
-                    preload="metadata"
-                  />
-                </div>
+                {[ugcExample4, ugcExample5, ugcExample6].map((video, index) => (
+                  <div key={index} className="rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                    <video
+                      src={video}
+                      controls
+                      className="w-full h-auto aspect-[9/16] object-contain bg-black"
+                      preload="metadata"
+                    />
+                  </div>
+                ))}
               </div>
               <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
                 {t.services.ugc.examples}
