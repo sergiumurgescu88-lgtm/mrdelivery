@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
 
+// Global state to track currently playing video
+let currentlyPlayingVideo: HTMLVideoElement | null = null;
+
 interface FullscreenVideoProps {
   src: string;
   className?: string;
@@ -9,9 +12,35 @@ interface FullscreenVideoProps {
 export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const thumbnailRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const fullscreenVideoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    if (videoRef.current) {
+      // Stop any other playing video
+      if (currentlyPlayingVideo && currentlyPlayingVideo !== videoRef.current) {
+        currentlyPlayingVideo.pause();
+        currentlyPlayingVideo.currentTime = 0;
+      }
+      // Play this video
+      currentlyPlayingVideo = videoRef.current;
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      if (currentlyPlayingVideo === videoRef.current) {
+        currentlyPlayingVideo = null;
+      }
+    }
+  };
 
   const handleClick = () => {
     if (!isFullscreen) {
@@ -20,6 +49,9 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
       // Pause the thumbnail video
       if (videoRef.current) {
         videoRef.current.pause();
+        if (currentlyPlayingVideo === videoRef.current) {
+          currentlyPlayingVideo = null;
+        }
       }
     }
   };
@@ -54,6 +86,15 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
     return () => window.removeEventListener('keydown', handleEscape);
   }, [isFullscreen]);
 
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (currentlyPlayingVideo === videoRef.current) {
+        currentlyPlayingVideo = null;
+      }
+    };
+  }, []);
+
   return (
     <>
       {/* Thumbnail Video */}
@@ -61,6 +102,8 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
         ref={thumbnailRef}
         className={`cursor-pointer ${className}`}
         onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <video
           ref={videoRef}
@@ -69,8 +112,9 @@ export const FullscreenVideo = ({ src, className = '' }: FullscreenVideoProps) =
           preload="metadata"
           muted
           playsInline
+          loop
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300">
+        <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>
           <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
             <div className="w-0 h-0 border-l-[16px] sm:border-l-[20px] border-l-primary border-t-[10px] sm:border-t-[12px] border-t-transparent border-b-[10px] sm:border-b-[12px] border-b-transparent ml-1"></div>
           </div>
