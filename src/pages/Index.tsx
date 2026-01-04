@@ -50,7 +50,7 @@ const Index = () => {
 
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 relative z-10">
         {/* Hero Section */}
-        <header className="text-center mb-8 sm:mb-10 relative pt-2">
+        <header className="text-center mb-6 sm:mb-8 relative pt-2">
           <LanguageSwitcher />
           
           <div className="inline-block relative mb-2 sm:mb-4">
@@ -70,154 +70,14 @@ const Index = () => {
             <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
             <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
           </div>
-          
-          {/* UGC Content Generator - Above CinematicPlayer */}
-          <div className="mt-4 sm:mt-6 mb-4 sm:mb-6 px-2">
-            <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight telegramButton={
-              <a
-                href="https://t.me/SergiuBot007bot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-2 px-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 text-sm flex items-center gap-2">
-                  <Send className="w-4 h-4" />
-                  {t.services.ugc.telegramButton}
-                </Button>
-              </a>
-            }>
-              <div className="mb-4 text-left">
-                <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
-                  <Image className="w-5 h-5 text-accent" />
-                  <span className="text-sm font-bold text-gradient-primary">{t.services.ugc.badge}</span>
-                </div>
-              </div>
-
-              {/* 4-Step Workflow Panel */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-                  </div>
-                  {t.services.ugc.stepsTitle}
-                </h4>
-                <div className="mb-4">
-                  <p className="text-sm sm:text-base text-muted-foreground font-semibold mb-3 flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-secondary" />
-                    {t.services.ugc.stepsDesc}
-                  </p>
-                  <div className="pl-2 sm:pl-4 space-y-3">
-                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Upload className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground">
-                        <strong>{t.services.ugc.step1}</strong> - {t.services.ugc.step1Desc}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground">
-                        <strong>{t.services.ugc.step2}</strong> - {t.services.ugc.step2Desc}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                        <Image className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground">
-                        <strong>{t.services.ugc.step3}</strong> - {t.services.ugc.step3Desc}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-warning to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-warning-foreground" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground">
-                        <strong>{t.services.ugc.step4}</strong> - {t.services.ugc.step4Desc}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.ugc.ai}</h5>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{t.services.ugc.aiDesc}</p>
-                </div>
-                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Users className="w-5 h-5 text-success" />
-                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.ugc.format}</h5>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{t.services.ugc.formatDesc}</p>
-                </div>
-              </div>
-
-              {t.services.ugc.items.map((item, index) => (
-                <ServiceItem
-                  key={index}
-                  text={item}
-                  icon={[MessageSquare, Sparkles, Image, Video, Zap, Globe][index]}
-                />
-              ))}
-
-
-            </ServiceCard>
-            
-            {/* UGC Example Videos - Premium Gold Box */}
-            <div className="mt-4 bg-gradient-to-br from-amber-950/80 via-yellow-900/60 to-amber-950/80 rounded-2xl border-2 border-amber-400/50 shadow-2xl overflow-hidden relative">
-              {/* Premium gold glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
-              
-              {/* Header - Opens Video Gallery */}
-              <VideoGallery 
-                videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
-                buttonText=""
-                customTrigger={
-                  <button 
-                    className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10"
-                  >
-                    <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
-                      <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
-                        <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
-                      </div>
-                      <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
-                        🎬 Content Examples
-                      </span>
-                    </h4>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-amber-300 font-semibold tracking-wide">
-                        See All Videos
-                      </span>
-                      <div className="p-1.5 bg-amber-400/30 rounded-full border border-amber-400/50">
-                        <ChevronDown className="w-4 h-4 text-amber-300" />
-                      </div>
-                    </div>
-                  </button>
-                }
-              />
-              
-              {/* Premium badge */}
-              <div className="absolute top-2 right-2 px-2 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-[10px] font-bold text-amber-950 uppercase tracking-wider shadow-lg">
-                Premium
-              </div>
-            </div>
-          </div>
-          
-          {/* Cinematic Auto-Expanding Player - Positioned below UGC */}
-          <div className="mt-4 sm:mt-6 mb-6 sm:mb-8">
-            <CinematicPlayer />
-          </div>
         </header>
 
-        {/* Tab Navigation */}
+        {/* Podcast Player Section */}
+        <div className="mb-6 sm:mb-8 px-2">
+          <CinematicPlayer />
+        </div>
+
+        {/* Tab Navigation - Servicii existente / Servicii AI */}
         <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
           <button
             onClick={() => setActiveTab('existente')}
@@ -252,6 +112,144 @@ const Index = () => {
             </span>
           </button>
         </nav>
+
+        {/* UGC Section */}
+        <div className="mb-6 sm:mb-8 px-2">
+          <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight telegramButton={
+            <a
+              href="https://t.me/SergiuBot007bot"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-2 px-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 text-sm flex items-center gap-2">
+                <Send className="w-4 h-4" />
+                {t.services.ugc.telegramButton}
+              </Button>
+            </a>
+          }>
+            <div className="mb-4 text-left">
+              <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
+                <Image className="w-5 h-5 text-accent" />
+                <span className="text-sm font-bold text-gradient-primary">{t.services.ugc.badge}</span>
+              </div>
+            </div>
+
+            {/* 4-Step Workflow Panel */}
+            <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
+              <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
+                <div className="p-2 bg-gradient-primary rounded-lg">
+                  <Video className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                </div>
+                {t.services.ugc.stepsTitle}
+              </h4>
+              <div className="mb-4">
+                <p className="text-sm sm:text-base text-muted-foreground font-semibold mb-3 flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-secondary" />
+                  {t.services.ugc.stepsDesc}
+                </p>
+                <div className="pl-2 sm:pl-4 space-y-3">
+                  <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                      <Upload className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
+                    </div>
+                    <span className="text-sm sm:text-base text-foreground">
+                      <strong>{t.services.ugc.step1}</strong> - {t.services.ugc.step1Desc}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
+                    </div>
+                    <span className="text-sm sm:text-base text-foreground">
+                      <strong>{t.services.ugc.step2}</strong> - {t.services.ugc.step2Desc}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
+                      <Image className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
+                    </div>
+                    <span className="text-sm sm:text-base text-foreground">
+                      <strong>{t.services.ugc.step3}</strong> - {t.services.ugc.step3Desc}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-warning to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                      <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-warning-foreground" />
+                    </div>
+                    <span className="text-sm sm:text-base text-foreground">
+                      <strong>{t.services.ugc.step4}</strong> - {t.services.ugc.step4Desc}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="w-5 h-5 text-primary" />
+                  <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.ugc.ai}</h5>
+                </div>
+                <p className="text-sm text-muted-foreground">{t.services.ugc.aiDesc}</p>
+              </div>
+              <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
+                <div className="flex items-center gap-2 mb-2">
+                  <Users className="w-5 h-5 text-success" />
+                  <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.ugc.format}</h5>
+                </div>
+                <p className="text-sm text-muted-foreground">{t.services.ugc.formatDesc}</p>
+              </div>
+            </div>
+
+            {t.services.ugc.items.map((item, index) => (
+              <ServiceItem
+                key={index}
+                text={item}
+                icon={[MessageSquare, Sparkles, Image, Video, Zap, Globe][index]}
+              />
+            ))}
+          </ServiceCard>
+          
+          {/* Content Examples - Premium Gold Box */}
+          <div className="mt-4 bg-gradient-to-br from-amber-950/80 via-yellow-900/60 to-amber-950/80 rounded-2xl border-2 border-amber-400/50 shadow-2xl overflow-hidden relative">
+            {/* Premium gold glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
+            
+            {/* Header - Opens Video Gallery */}
+            <VideoGallery 
+              videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
+              buttonText=""
+              customTrigger={
+                <button 
+                  className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10"
+                >
+                  <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
+                    <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
+                      <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
+                    </div>
+                    <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
+                      🎬 Content Examples
+                    </span>
+                  </h4>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-amber-300 font-semibold tracking-wide">
+                      See All Videos
+                    </span>
+                    <div className="p-1.5 bg-amber-400/30 rounded-full border border-amber-400/50">
+                      <ChevronDown className="w-4 h-4 text-amber-300" />
+                    </div>
+                  </div>
+                </button>
+              }
+            />
+            
+            {/* Premium badge */}
+            <div className="absolute top-2 right-2 px-2 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-[10px] font-bold text-amber-950 uppercase tracking-wider shadow-lg">
+              Premium
+            </div>
+          </div>
+        </div>
 
         {/* Current Services Tab */}
         {activeTab === 'existente' && (
