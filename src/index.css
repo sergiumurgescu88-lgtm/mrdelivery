@@ -185,4 +185,46 @@
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.3);
     }
   }
+
+  @keyframes gradient-rotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animated-gradient-border {
+    position: relative;
+    z-index: 0;
+  }
+
+  .animated-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 1rem;
+    padding: 3px;
+    background: linear-gradient(
+      90deg,
+      hsl(220 90% 56%),
+      hsl(270 70% 55%),
+      hsl(280 70% 60%),
+      hsl(320 80% 55%),
+      hsl(270 70% 55%),
+      hsl(220 90% 56%)
+    );
+    background-size: 300% 100%;
+    animation: gradient-rotate 3s ease infinite;
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
 }

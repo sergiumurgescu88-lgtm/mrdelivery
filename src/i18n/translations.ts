@@ -110,7 +110,7 @@ export const translations = {
         price: '€384/month',
         originalPrice: '€699/month',
         discount: '45% OFF',
-        discountNote: '45% off if you purchase Packages 1 and 3 together',
+        discountNote: '45% off if you purchase Packages 1 and 2 together',
         subtitle: 'Complete digital transformation – Apps, Automation & Social Media',
         badge: 'All-Inclusive Package',
         automation: {
@@ -317,7 +317,7 @@ export const translations = {
         price: '384 €/mes',
         originalPrice: '699 €/mes',
         discount: '45% DESCUENTO',
-        discountNote: '45% de descuento al adquirir los Paquetes 1 y 3 juntos',
+        discountNote: '45% de descuento al adquirir los Paquetes 1 y 2 juntos',
         subtitle: 'Transformación digital completa – Apps, Automatización y Redes Sociales',
         badge: 'Paquete Todo Incluido',
         automation: {
@@ -524,7 +524,7 @@ export const translations = {
         price: '1.375 RON/lună',
         originalPrice: '2.500 RON/lună',
         discount: '45% REDUCERE',
-        discountNote: '45% reducere la achiziționarea Pachetelor 1 și 3 împreună',
+        discountNote: '45% reducere la achiziționarea Pachetelor 1 și 2 împreună',
         subtitle: 'Transformare digitală completă – Aplicații Android/iOS, Automatizare și Social Media',
         badge: 'Pachet All-Inclusive',
         automation: {
