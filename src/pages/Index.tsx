@@ -77,42 +77,6 @@ const Index = () => {
           <CinematicPlayer />
         </div>
 
-        {/* Tab Navigation - Servicii existente / Servicii AI */}
-        <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
-          <button
-            onClick={() => setActiveTab('existente')}
-            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
-              activeTab === 'existente'
-                ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
-                : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
-            }`}
-          >
-            {activeTab === 'existente' && (
-              <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
-            )}
-            <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
-              <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
-              {t.tabs.current}
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveTab('ai')}
-            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
-              activeTab === 'ai'
-                ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
-                : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
-            }`}
-          >
-            {activeTab === 'ai' && (
-              <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
-            )}
-            <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
-              {t.tabs.ai}
-            </span>
-          </button>
-        </nav>
-
         {/* UGC Section */}
         <div className="mb-6 sm:mb-8 px-2">
           <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight telegramButton={
@@ -250,6 +214,42 @@ const Index = () => {
             </div>
           </div>
         </div>
+
+        {/* Tab Navigation - Servicii existente / Servicii AI */}
+        <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
+          <button
+            onClick={() => setActiveTab('existente')}
+            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
+              activeTab === 'existente'
+                ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
+                : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
+            }`}
+          >
+            {activeTab === 'existente' && (
+              <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
+            )}
+            <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
+              {t.tabs.current}
+            </span>
+          </button>
+          <button
+            onClick={() => setActiveTab('ai')}
+            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
+              activeTab === 'ai'
+                ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
+                : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
+            }`}
+          >
+            {activeTab === 'ai' && (
+              <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
+            )}
+            <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+              {t.tabs.ai}
+            </span>
+          </button>
+        </nav>
 
         {/* Current Services Tab */}
         {activeTab === 'existente' && (
