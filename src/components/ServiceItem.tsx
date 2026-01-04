@@ -19,14 +19,14 @@ export const ServiceItem = ({ text, icon: Icon }: ServiceItemProps) => {
         isVisible ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
       }`}
     >
-      <div className="p-1 rounded-lg bg-gradient-success flex-shrink-0 mt-0.5">
+      <div className="p-1.5 rounded-lg bg-gradient-success flex-shrink-0 mt-0.5">
         {Icon ? (
-          <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-success-foreground" />
+          <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
         ) : (
-          <Check className="w-3 h-3 sm:w-4 sm:h-4 text-success-foreground" />
+          <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
         )}
       </div>
-      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{text}</p>
+      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{text}</p>
     </div>
   );
 };
