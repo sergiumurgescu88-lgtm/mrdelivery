@@ -9,9 +9,10 @@ let currentlyPlayingGalleryVideo: HTMLVideoElement | null = null;
 interface VideoGalleryProps {
   videos: string[];
   buttonText?: string;
+  customTrigger?: React.ReactNode;
 }
 
-export const VideoGallery = ({ videos, buttonText = "View All" }: VideoGalleryProps) => {
+export const VideoGallery = ({ videos, buttonText = "View All", customTrigger }: VideoGalleryProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const isMobile = useIsMobile();
@@ -90,15 +91,21 @@ export const VideoGallery = ({ videos, buttonText = "View All" }: VideoGalleryPr
 
   return (
     <>
-      {/* View All Button */}
-      <Button
-        onClick={handleOpen}
-        variant="outline"
-        className="mt-4 w-full sm:w-auto bg-gradient-to-r from-accent/20 to-primary/20 border-accent/50 hover:border-accent hover:bg-accent/30 transition-all duration-300"
-      >
-        <Grid className="w-4 h-4 mr-2" />
-        {buttonText}
-      </Button>
+      {/* Trigger - Custom or Default Button */}
+      {customTrigger ? (
+        <div onClick={handleOpen}>
+          {customTrigger}
+        </div>
+      ) : (
+        <Button
+          onClick={handleOpen}
+          variant="outline"
+          className="mt-4 w-full sm:w-auto bg-gradient-to-r from-accent/20 to-primary/20 border-accent/50 hover:border-accent hover:bg-accent/30 transition-all duration-300"
+        >
+          <Grid className="w-4 h-4 mr-2" />
+          {buttonText}
+        </Button>
+      )}
 
       {/* Gallery Modal */}
       {isOpen && (
