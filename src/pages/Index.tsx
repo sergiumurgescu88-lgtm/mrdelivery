@@ -26,7 +26,9 @@ import {
   Upload,
   Image,
   Check,
+  Send,
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const { language, t } = useLanguage();
@@ -146,8 +148,23 @@ const Index = () => {
                 />
               ))}
 
+              {/* Telegram Button */}
+              <div className="mt-5 mb-5">
+                <a
+                  href="https://t.me/SergiuBot007bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <Button className="w-full bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-4 px-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 text-base sm:text-lg flex items-center justify-center gap-3">
+                    <Send className="w-5 h-5 sm:w-6 sm:h-6" />
+                    {t.services.ugc.telegramButton}
+                  </Button>
+                </a>
+              </div>
+
               {/* Examples box */}
-              <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
+              <div className="p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
                 <div className="flex items-start gap-2 sm:gap-3">
                   <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
                   <p className="text-sm sm:text-base text-warning-foreground font-medium">
