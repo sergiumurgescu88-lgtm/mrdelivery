@@ -40,13 +40,13 @@ const Index = () => {
           <LanguageSwitcher />
           
           <div className="inline-block relative mb-2 sm:mb-4">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
               {t.siteName}
             </h1>
           </div>
-          <div className="flex flex-col items-center gap-1 sm:gap-2 px-2 max-w-2xl mx-auto">
+          <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-2 max-w-2xl mx-auto">
             {t.taglineItems.map((item, index) => (
-              <p key={index} className="text-sm sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
+              <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
                 {item.emoji} {item.text}
               </p>
             ))}
@@ -67,7 +67,7 @@ const Index = () => {
         <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
           <button
             onClick={() => setActiveTab('existente')}
-            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-sm sm:text-base transition-all duration-300 relative overflow-hidden ${
+            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
               activeTab === 'existente'
                 ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
                 : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
@@ -76,14 +76,14 @@ const Index = () => {
             {activeTab === 'existente' && (
               <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
             )}
-            <span className="relative flex items-center justify-center gap-1 sm:gap-2">
+            <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
               <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.tabs.current}
             </span>
           </button>
           <button
             onClick={() => setActiveTab('ai')}
-            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-sm sm:text-base transition-all duration-300 relative overflow-hidden ${
+            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
               activeTab === 'ai'
                 ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
                 : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
@@ -92,7 +92,7 @@ const Index = () => {
             {activeTab === 'ai' && (
               <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
             )}
-            <span className="relative flex items-center justify-center gap-1 sm:gap-2">
+            <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.tabs.ai}
             </span>
@@ -128,40 +128,40 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
                   <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Video className="w-6 h-6 text-primary-foreground" />
+                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                   </div>
                   {t.services.video.videosTitle}
                 </h4>
                 <div className="mb-4">
-                  <p className="text-sm text-muted-foreground font-semibold mb-3 flex items-center gap-2">
+                  <p className="text-sm sm:text-base text-muted-foreground font-semibold mb-3 flex items-center gap-2">
                     <Clock className="w-4 h-4 text-secondary" />
                     {t.services.video.videoDesc}
                   </p>
-                  <div className="pl-4 space-y-3">
-                    <div className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-4 h-4 text-destructive-foreground" />
+                  <div className="pl-2 sm:pl-4 space-y-3">
+                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
                       </div>
-                      <span className="text-sm text-foreground">
+                      <span className="text-sm sm:text-base text-foreground">
                         <strong>{t.services.video.hook}</strong> - {t.services.video.hookDesc}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Star className="w-4 h-4 text-primary-foreground" />
+                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
                       </div>
-                      <span className="text-sm text-foreground">
+                      <span className="text-sm sm:text-base text-foreground">
                         <strong>{t.services.video.action}</strong> - {t.services.video.actionDesc}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                        <Heart className="w-4 h-4 text-success-foreground" />
+                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
+                        <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
                       </div>
-                      <span className="text-sm text-foreground">
+                      <span className="text-sm sm:text-base text-foreground">
                         <strong>{t.services.video.cta}</strong> - {t.services.video.ctaDesc}
                       </span>
                     </div>
@@ -169,20 +169,20 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="w-5 h-5 text-primary" />
-                    <h5 className="font-bold text-sm text-foreground">{t.services.video.veo3}</h5>
+                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.video.veo3}</h5>
                   </div>
-                  <p className="text-xs text-muted-foreground">{t.services.video.veo3Desc}</p>
+                  <p className="text-sm sm:text-sm text-muted-foreground">{t.services.video.veo3Desc}</p>
                 </div>
                 <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
                     <Award className="w-5 h-5 text-success" />
-                    <h5 className="font-bold text-sm text-foreground">{t.services.video.format}</h5>
+                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.video.format}</h5>
                   </div>
-                  <p className="text-xs text-muted-foreground">{t.services.video.formatDesc}</p>
+                  <p className="text-sm sm:text-sm text-muted-foreground">{t.services.video.formatDesc}</p>
                 </div>
               </div>
 
@@ -195,9 +195,9 @@ const Index = () => {
               ))}
 
               <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
-                <div className="flex items-start gap-3">
-                  <Video className="w-6 h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
-                  <p className="text-sm text-warning-foreground font-medium">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
+                  <p className="text-sm sm:text-base text-warning-foreground font-medium">
                     <strong>🎥 Content examples:</strong> {t.services.video.examples}
                   </p>
                 </div>
@@ -214,88 +214,88 @@ const Index = () => {
               </div>
 
               {/* Main AI Agent Panel - Same structure as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
                   <div className="p-2 bg-gradient-primary rounded-lg">
-                    <MessageSquare className="w-6 h-6 text-primary-foreground" />
+                    <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                   </div>
                   {t.services.aiAgents.phone.title}
                 </h4>
-                <div className="pl-4 space-y-3">
+                <div className="pl-2 sm:pl-4 space-y-3">
                   {t.services.aiAgents.phone.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-4 h-4 text-destructive-foreground" />
+                    <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
                       </div>
-                      <span className="text-sm text-foreground">{item}</span>
+                      <span className="text-sm sm:text-base text-foreground">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* WhatsApp Section - Same colors as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
                   <div className="p-2 bg-gradient-primary rounded-lg">
-                    <MessageSquare className="w-6 h-6 text-primary-foreground" />
+                    <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                   </div>
                   {t.services.aiAgents.whatsapp.title}
                 </h4>
-                <div className="pl-4 space-y-3">
+                <div className="pl-2 sm:pl-4 space-y-3">
                   {t.services.aiAgents.whatsapp.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Star className="w-4 h-4 text-primary-foreground" />
+                    <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
                       </div>
-                      <span className="text-sm text-foreground">{item}</span>
+                      <span className="text-sm sm:text-base text-foreground">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Reservations Section - Same colors as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
                   <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Calendar className="w-6 h-6 text-primary-foreground" />
+                    <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                   </div>
                   {t.services.aiAgents.reservations.title}
                 </h4>
-                <div className="pl-4 space-y-3">
+                <div className="pl-2 sm:pl-4 space-y-3">
                   {t.services.aiAgents.reservations.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-8 h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                        <Heart className="w-4 h-4 text-success-foreground" />
+                    <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
+                        <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
                       </div>
-                      <span className="text-sm text-foreground">{item}</span>
+                      <span className="text-sm sm:text-base text-foreground">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Feature cards - Same grid style as VEO3 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="w-5 h-5 text-primary" />
-                    <h5 className="font-bold text-sm text-foreground">24/7 AI</h5>
+                    <h5 className="font-bold text-sm sm:text-base text-foreground">24/7 AI</h5>
                   </div>
-                  <p className="text-xs text-muted-foreground">Never miss a call or message with intelligent automation</p>
+                  <p className="text-sm sm:text-sm text-muted-foreground">Never miss a call or message with intelligent automation</p>
                 </div>
                 <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
                     <Award className="w-5 h-5 text-success" />
-                    <h5 className="font-bold text-sm text-foreground">Smart Integration</h5>
+                    <h5 className="font-bold text-sm sm:text-base text-foreground">Smart Integration</h5>
                   </div>
-                  <p className="text-xs text-muted-foreground">Seamlessly connects with Google Calendar and WhatsApp</p>
+                  <p className="text-sm sm:text-sm text-muted-foreground">Seamlessly connects with Google Calendar and WhatsApp</p>
                 </div>
               </div>
 
               {/* Benefits - Same style as VEO3 examples box */}
               <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
-                <div className="flex items-start gap-3">
-                  <Award className="w-6 h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
-                  <p className="text-sm text-warning-foreground font-medium">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
+                  <p className="text-sm sm:text-base text-warning-foreground font-medium">
                     <strong>🤖 Benefits:</strong> {t.services.aiAgents.benefits}
                   </p>
                 </div>
@@ -307,13 +307,13 @@ const Index = () => {
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Star className="w-5 h-5 text-warning" />
-                  <span className="text-sm font-bold text-gradient-primary">{t.services.premium.badge}</span>
+                  <span className="text-sm sm:text-base font-bold text-gradient-primary">{t.services.premium.badge}</span>
                 </div>
               </div>
 
               {/* Automation Section */}
-              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-5 rounded-2xl mb-4 border-2 border-primary/30 shadow-xl">
-                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 sm:p-5 rounded-2xl mb-4 border-2 border-primary/30 shadow-xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-3 flex items-center gap-2">
                   <div className="p-2 bg-primary rounded-lg">
                     <Users className="w-5 h-5 text-primary-foreground" />
                   </div>
@@ -325,8 +325,8 @@ const Index = () => {
               </div>
 
               {/* App Development Section */}
-              <div className="bg-gradient-to-br from-success/5 to-success/10 p-5 rounded-2xl mb-4 border-2 border-success/30 shadow-xl">
-                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 sm:p-5 rounded-2xl mb-4 border-2 border-success/30 shadow-xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-3 flex items-center gap-2">
                   <div className="p-2 bg-success rounded-lg">
                     <Globe className="w-5 h-5 text-success-foreground" />
                   </div>
@@ -338,8 +338,8 @@ const Index = () => {
               </div>
 
               {/* Social Media Section */}
-              <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 p-5 rounded-2xl border-2 border-secondary/30 shadow-xl">
-                <h4 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 p-4 sm:p-5 rounded-2xl border-2 border-secondary/30 shadow-xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-3 flex items-center gap-2">
                   <div className="p-2 bg-secondary rounded-lg">
                     <Megaphone className="w-5 h-5 text-secondary-foreground" />
                   </div>
@@ -361,8 +361,8 @@ const Index = () => {
             <div className="bg-gradient-primary text-primary-foreground p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-card/10 animate-pulse"></div>
               <div className="relative z-10">
-                <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-center mb-1 sm:mb-2">{t.aiServices.header}</h2>
-                <p className="text-xs sm:text-base opacity-95 text-center font-semibold">{t.aiServices.subtitle}</p>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-center mb-1 sm:mb-2">{t.aiServices.header}</h2>
+                <p className="text-sm sm:text-base opacity-95 text-center font-semibold">{t.aiServices.subtitle}</p>
               </div>
             </div>
 
@@ -416,31 +416,31 @@ const Index = () => {
 
             {/* Modular Note */}
             <div className="bg-background/80 backdrop-blur-md p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-success/30 shadow-2xl">
-              <h3 className="text-sm sm:text-lg font-bold text-foreground mb-2 sm:mb-3 drop-shadow-md">{t.aiServices.modular}</h3>
-              <p className="text-xs sm:text-base text-foreground font-medium drop-shadow-sm">{t.aiServices.modularDesc}</p>
+              <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3 drop-shadow-md">{t.aiServices.modular}</h3>
+              <p className="text-sm sm:text-base text-foreground font-medium drop-shadow-sm">{t.aiServices.modularDesc}</p>
             </div>
           </main>
         )}
 
         {/* Footer CTA */}
         <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
-          <h2 className="text-base sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
-          <p className="text-xs sm:text-sm md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
+          <p className="text-sm sm:text-base md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-success text-success-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2"
+              className="bg-success text-success-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2"
             >
-              <MessageSquare className="w-4 h-4" />
+              <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.footer.whatsapp}
             </a>
             <a
               href={getPhoneUrl()}
-              className="bg-card text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2"
+              className="bg-card text-primary px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.footer.call}
             </a>
           </div>
