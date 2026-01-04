@@ -105,6 +105,37 @@ export const translations = {
         ],
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Guess the Secret Ingredient, Boyfriend vs Girlfriend Battle and many more'
       },
+      ugc: {
+        title: 'UGC Content Generator',
+        price: '€299/month',
+        originalPrice: '€449/month',
+        discount: '33% OFF',
+        subtitle: 'Create authentic influencer-style content in minutes with AI',
+        badge: 'AI-Powered UGC',
+        stepsTitle: '🎬 4-Step Content Creation',
+        stepsDesc: 'Automated workflow:',
+        step1: 'Upload',
+        step1Desc: 'Upload your product or character image',
+        step2: 'Generate',
+        step2Desc: 'AI creates 2 UGC-style variations',
+        step3: 'Select',
+        step3Desc: 'Choose your favorite image',
+        step4: 'Video',
+        step4Desc: 'Generate 24-second viral video',
+        ai: 'Multi-AI Pipeline',
+        aiDesc: 'OpenAI, Claude & VEO3 working together',
+        format: 'UGC Style',
+        formatDesc: 'Authentic influencer-style content that converts',
+        items: [
+          'Upload product/character images for AI analysis',
+          '2 unique UGC-style image variations generated',
+          'Photo-realistic lifestyle scenes with natural lighting',
+          '3 connected video scenes (8 seconds each)',
+          '24-second viral-ready video output',
+          'Optimized for TikTok, Instagram & YouTube Shorts'
+        ],
+        examples: 'Product lifestyle shots, influencer-style unboxings, morning routines, street food scenes, authentic testimonials and more'
+      },
       premium: {
         title: 'Premium Package: Efficiency and Innovation',
         price: '€384/month',
@@ -312,6 +343,37 @@ export const translations = {
         ],
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Adivina el Ingrediente Secreto, Batalla Novio vs Novia y muchos más'
       },
+      ugc: {
+        title: 'Generador de Contenido UGC',
+        price: '299 €/mes',
+        originalPrice: '449 €/mes',
+        discount: '33% DESCUENTO',
+        subtitle: 'Crea contenido auténtico estilo influencer en minutos con IA',
+        badge: 'UGC con IA',
+        stepsTitle: '🎬 Creación en 4 Pasos',
+        stepsDesc: 'Flujo automatizado:',
+        step1: 'Subir',
+        step1Desc: 'Sube tu imagen de producto o personaje',
+        step2: 'Generar',
+        step2Desc: 'La IA crea 2 variaciones estilo UGC',
+        step3: 'Seleccionar',
+        step3Desc: 'Elige tu imagen favorita',
+        step4: 'Vídeo',
+        step4Desc: 'Genera vídeo viral de 24 segundos',
+        ai: 'Pipeline Multi-IA',
+        aiDesc: 'OpenAI, Claude y VEO3 trabajando juntos',
+        format: 'Estilo UGC',
+        formatDesc: 'Contenido auténtico estilo influencer que convierte',
+        items: [
+          'Sube imágenes de producto/personaje para análisis IA',
+          '2 variaciones únicas de imagen estilo UGC generadas',
+          'Escenas lifestyle fotorrealistas con iluminación natural',
+          '3 escenas de vídeo conectadas (8 segundos cada una)',
+          'Vídeo de 24 segundos listo para viralizar',
+          'Optimizado para TikTok, Instagram y YouTube Shorts'
+        ],
+        examples: 'Fotos lifestyle de productos, unboxings estilo influencer, rutinas matutinas, escenas de street food, testimonios auténticos y más'
+      },
       premium: {
         title: 'Paquete Premium: Eficiencia e Innovación',
         price: '384 €/mes',
@@ -518,6 +580,37 @@ export const translations = {
           'Livrare în format 16:9 și 9:16 pentru toate platformele'
         ],
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Ghicește Ingredientul Secret, Batalla Iubit vs Iubită și multe altele'
+      },
+      ugc: {
+        title: 'Generator Conținut UGC',
+        price: '1.249 RON/lună',
+        originalPrice: '1.875 RON/lună',
+        discount: '33% REDUCERE',
+        subtitle: 'Creează conținut autentic stil influencer în minute cu AI',
+        badge: 'UGC cu AI',
+        stepsTitle: '🎬 Creare în 4 Pași',
+        stepsDesc: 'Flux automatizat:',
+        step1: 'Încarcă',
+        step1Desc: 'Încarcă imaginea produsului sau personajului',
+        step2: 'Generează',
+        step2Desc: 'AI creează 2 variații stil UGC',
+        step3: 'Selectează',
+        step3Desc: 'Alege imaginea preferată',
+        step4: 'Video',
+        step4Desc: 'Generează video viral de 24 secunde',
+        ai: 'Pipeline Multi-AI',
+        aiDesc: 'OpenAI, Claude și VEO3 lucrând împreună',
+        format: 'Stil UGC',
+        formatDesc: 'Conținut autentic stil influencer care convertește',
+        items: [
+          'Încarcă imagini produs/personaj pentru analiză AI',
+          '2 variații unice de imagine stil UGC generate',
+          'Scene lifestyle foto-realiste cu iluminare naturală',
+          '3 scene video conectate (8 secunde fiecare)',
+          'Video de 24 secunde gata pentru viralizare',
+          'Optimizat pentru TikTok, Instagram și YouTube Shorts'
+        ],
+        examples: 'Fotografii lifestyle produse, unboxing-uri stil influencer, rutine de dimineață, scene street food, testimoniale autentice și multe altele'
       },
       premium: {
         title: 'Pachet Premium: Eficiență și Inovație',

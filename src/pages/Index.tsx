@@ -23,6 +23,9 @@ import {
   Users,
   Star,
   Heart,
+  Upload,
+  Image,
+  Check,
 } from 'lucide-react';
 
 const Index = () => {
@@ -57,7 +60,105 @@ const Index = () => {
             <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
           </div>
           
-          {/* Cinematic Auto-Expanding Player - Positioned below badges */}
+          {/* UGC Content Generator - Above CinematicPlayer */}
+          <div className="mt-4 sm:mt-6 mb-4 sm:mb-6 px-2">
+            <ServiceCard title={t.services.ugc.title} icon={Upload} price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} discount={t.services.ugc.discount} subtitle={t.services.ugc.subtitle} highlight>
+              <div className="mb-4">
+                <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
+                  <Image className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-bold text-gradient-primary">{t.services.ugc.badge}</span>
+                </div>
+              </div>
+
+              {/* 4-Step Workflow Panel */}
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
+                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
+                  <div className="p-2 bg-gradient-primary rounded-lg">
+                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                  </div>
+                  {t.services.ugc.stepsTitle}
+                </h4>
+                <div className="mb-4">
+                  <p className="text-sm sm:text-base text-muted-foreground font-semibold mb-3 flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-secondary" />
+                    {t.services.ugc.stepsDesc}
+                  </p>
+                  <div className="pl-2 sm:pl-4 space-y-3">
+                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <Upload className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
+                      </div>
+                      <span className="text-sm sm:text-base text-foreground">
+                        <strong>{t.services.ugc.step1}</strong> - {t.services.ugc.step1Desc}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Image className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
+                      </div>
+                      <span className="text-sm sm:text-base text-foreground">
+                        <strong>{t.services.ugc.step2}</strong> - {t.services.ugc.step2Desc}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
+                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
+                      </div>
+                      <span className="text-sm sm:text-base text-foreground">
+                        <strong>{t.services.ugc.step3}</strong> - {t.services.ugc.step3Desc}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-warning to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-warning-foreground" />
+                      </div>
+                      <span className="text-sm sm:text-base text-foreground">
+                        <strong>{t.services.ugc.step4}</strong> - {t.services.ugc.step4Desc}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.ugc.ai}</h5>
+                  </div>
+                  <p className="text-sm sm:text-sm text-muted-foreground">{t.services.ugc.aiDesc}</p>
+                </div>
+                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Award className="w-5 h-5 text-success" />
+                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.ugc.format}</h5>
+                  </div>
+                  <p className="text-sm sm:text-sm text-muted-foreground">{t.services.ugc.formatDesc}</p>
+                </div>
+              </div>
+
+              {t.services.ugc.items.map((item, index) => (
+                <ServiceItem
+                  key={index}
+                  text={item}
+                  icon={[Upload, Image, Star, Video, Zap, Globe][index]}
+                />
+              ))}
+
+              {/* Examples box */}
+              <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
+                  <p className="text-sm sm:text-base text-warning-foreground font-medium">
+                    <strong>🎬 Content examples:</strong> {t.services.ugc.examples}
+                  </p>
+                </div>
+              </div>
+            </ServiceCard>
+          </div>
+          
+          {/* Cinematic Auto-Expanding Player - Positioned below UGC */}
           <div className="mt-4 sm:mt-6 mb-6 sm:mb-8">
             <CinematicPlayer />
           </div>
