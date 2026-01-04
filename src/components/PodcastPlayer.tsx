@@ -168,9 +168,9 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
 
   return (
     <div
-      className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md bg-opacity-60 rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
+      className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
         isActive && isPlaying
-          ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[100] p-4'
+          ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[100] p-4 opacity-25'
           : 'relative p-2 sm:p-3 hover:scale-105'
       }`}
     >
