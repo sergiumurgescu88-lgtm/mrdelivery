@@ -37,12 +37,11 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Index = () => {
   const { language, t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'existente' | 'ai'>('existente');
-  const [showExamples, setShowExamples] = useState(false);
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
@@ -172,55 +171,42 @@ const Index = () => {
 
             </ServiceCard>
             
-            {/* UGC Example Videos - Collapsible Box */}
-            <div className="mt-4 bg-gradient-to-br from-card via-card/95 to-card/90 rounded-2xl border-2 border-accent/30 shadow-2xl overflow-hidden">
-              {/* Header - Clickable to toggle */}
-              <button 
-                onClick={() => setShowExamples(!showExamples)}
-                className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-accent/5 transition-colors"
-              >
-                <h4 className="font-bold text-base sm:text-lg text-foreground flex items-center gap-2">
-                  <div className="p-2 bg-gradient-warning rounded-lg">
-                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground" />
-                  </div>
-                  🎬 Content Examples
-                </h4>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground font-medium">
-                    {showExamples ? 'Hide' : 'See More'}
-                  </span>
-                  <div className="p-1.5 bg-accent/20 rounded-full">
-                    {showExamples ? (
-                      <ChevronUp className="w-4 h-4 text-accent" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-accent" />
-                    )}
-                  </div>
-                </div>
-              </button>
-
-              {/* Collapsible Content */}
-              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                showExamples ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                <div className="p-4 sm:p-6 pt-0">
-                  <div className="grid grid-cols-1 gap-4">
-                    {[ugcExample1, ugcExample2].map((video, index) => (
-                      <div key={index} className="relative rounded-xl overflow-hidden shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                        <FullscreenVideo src={video} />
+            {/* UGC Example Videos - Premium Gold Box */}
+            <div className="mt-4 bg-gradient-to-br from-amber-950/80 via-yellow-900/60 to-amber-950/80 rounded-2xl border-2 border-amber-400/50 shadow-2xl overflow-hidden relative">
+              {/* Premium gold glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
+              
+              {/* Header - Opens Video Gallery */}
+              <VideoGallery 
+                videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
+                buttonText=""
+                customTrigger={
+                  <button 
+                    className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10"
+                  >
+                    <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
+                      <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
+                        <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
                       </div>
-                    ))}
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <p className="text-sm text-muted-foreground mt-4 text-center font-medium">
-                      {t.services.ugc.examples}
-                    </p>
-                    <VideoGallery 
-                      videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
-                      buttonText="View All Videos (+4 more)"
-                    />
-                  </div>
-                </div>
+                      <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
+                        🎬 Content Examples
+                      </span>
+                    </h4>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-amber-300 font-semibold tracking-wide">
+                        See All Videos
+                      </span>
+                      <div className="p-1.5 bg-amber-400/30 rounded-full border border-amber-400/50">
+                        <ChevronDown className="w-4 h-4 text-amber-300" />
+                      </div>
+                    </div>
+                  </button>
+                }
+              />
+              
+              {/* Premium badge */}
+              <div className="absolute top-2 right-2 px-2 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-[10px] font-bold text-amber-950 uppercase tracking-wider shadow-lg">
+                Premium
               </div>
             </div>
           </div>
