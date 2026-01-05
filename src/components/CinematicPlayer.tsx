@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward } from 'lucide-react';
-import { Slider } from '@/components/ui/slider';
+import { Play, Pause, Volume2, VolumeX, Podcast } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language as AppLanguage } from '@/i18n/translations';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
@@ -27,312 +26,60 @@ interface PodcastConfig {
   label: string;
   flag: string;
   src: string;
-  gradient: string;
-  borderColor: string;
-  shadowColor: string;
 }
 
 const podcasts: PodcastConfig[] = [
-  {
-    id: 'ro',
-    label: 'Podcast',
-    flag: '🇷🇴',
-    src: podcastRomanian,
-    gradient: 'from-warning via-orange-500 to-amber-600',
-    borderColor: 'border-warning',
-    shadowColor: 'rgba(249,115,22,0.6)',
-  },
-  {
-    id: 'es',
-    label: 'Podcast',
-    flag: '🇪🇸',
-    src: podcastSpanish,
-    gradient: 'from-emerald-500 via-green-500 to-teal-600',
-    borderColor: 'border-emerald-500',
-    shadowColor: 'rgba(16,185,129,0.6)',
-  },
-  {
-    id: 'us',
-    label: 'Podcast',
-    flag: '🇺🇸',
-    src: podcastEnglish,
-    gradient: 'from-blue-500 via-indigo-500 to-blue-700',
-    borderColor: 'border-blue-500',
-    shadowColor: 'rgba(59,130,246,0.6)',
-  },
+  { id: 'ro', label: 'Română', flag: '🇷🇴', src: podcastRomanian },
+  { id: 'es', label: 'Español', flag: '🇪🇸', src: podcastSpanish },
+  { id: 'us', label: 'English', flag: '🇺🇸', src: podcastEnglish },
 ];
-
-interface SinglePlayerProps {
-  config: PodcastConfig;
-  isActive: boolean;
-  isPlaying: boolean;
-  currentTime: number;
-  duration: number;
-  volume: number;
-  isMuted: boolean;
-  waitingForInteraction: boolean;
-  onActivate: () => void;
-  onTogglePlay: () => void;
-  onSeek: (value: number[]) => void;
-  onSeekCommit: (value: number[]) => void;
-  onSkipBack: () => void;
-  onSkipForward: () => void;
-  onVolumeChange: (value: number[]) => void;
-  onToggleMute: () => void;
-  onInteraction: () => void;
-}
-
-const SinglePlayer = ({
-  config,
-  isActive,
-  isPlaying,
-  currentTime,
-  duration,
-  volume,
-  isMuted,
-  waitingForInteraction,
-  onActivate,
-  onTogglePlay,
-  onSeek,
-  onSeekCommit,
-  onSkipBack,
-  onSkipForward,
-  onVolumeChange,
-  onToggleMute,
-  onInteraction,
-}: SinglePlayerProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Mobile compact pill style (50-60px height)
-  if (!isActive) {
-    return (
-      <div
-        onClick={onActivate}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onTouchStart={() => setIsHovered(true)}
-        onTouchEnd={() => setIsHovered(false)}
-        className={`
-          relative overflow-hidden cursor-pointer
-          bg-gradient-to-r ${config.gradient}
-          border ${config.borderColor}
-          rounded-full px-3 py-1.5 h-[50px] sm:h-[56px]
-          flex items-center gap-2
-          transition-all duration-300 ease-out
-          ${isHovered ? 'opacity-100 scale-105' : 'opacity-40'}
-        `}
-        style={{
-          boxShadow: isHovered ? `0 0 20px ${config.shadowColor}` : 'none',
-        }}
-      >
-        <span className="text-base sm:text-lg">{config.flag}</span>
-        <span className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
-          {config.label}
-        </span>
-        {/* Play hint on hover */}
-        <div className={`
-          ml-auto flex items-center justify-center
-          transition-opacity duration-200
-          ${isHovered ? 'opacity-100' : 'opacity-0'}
-        `}>
-          <Play className="w-4 h-4 text-white" fill="white" />
-        </div>
-      </div>
-    );
-  }
-
-  // Active player - also compact on mobile (small bar style)
-  return (
-    <div
-      className={`
-        relative overflow-hidden
-        bg-gradient-to-r ${config.gradient}
-        border ${config.borderColor}
-        rounded-2xl sm:rounded-2xl
-        transition-all duration-500 ease-in-out
-        ${isPlaying ? 'opacity-100' : 'opacity-25 hover:opacity-100'}
-      `}
-      style={{
-        boxShadow: `0 0 25px ${config.shadowColor}`,
-      }}
-    >
-      {/* Waiting for interaction overlay */}
-      {waitingForInteraction && (
-        <div 
-          onClick={onInteraction}
-          className="absolute inset-0 z-20 flex items-center justify-center bg-black/30 rounded-2xl cursor-pointer"
-        >
-          <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white font-semibold text-sm sm:text-base animate-pulse border border-white/30">
-            🔊 Tap to play
-          </div>
-        </div>
-      )}
-
-      {/* Compact mobile layout */}
-      <div className="p-3 sm:p-4">
-        {/* Header row */}
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="text-lg sm:text-xl">{config.flag}</span>
-            <span className="text-white font-semibold text-sm sm:text-base truncate">
-              {config.label}
-            </span>
-          </div>
-          
-          {/* Controls row - compact */}
-          <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-            <button
-              onClick={onSkipBack}
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
-              aria-label="Skip back 10 seconds"
-            >
-              <SkipBack className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-            </button>
-            <button
-              onClick={onTogglePlay}
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/30 hover:bg-white/40 flex items-center justify-center transition-all shadow-lg border border-white/40"
-            >
-              {isPlaying ? (
-                <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              ) : (
-                <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-0.5" />
-              )}
-            </button>
-            <button
-              onClick={onSkipForward}
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
-              aria-label="Skip forward 10 seconds"
-            >
-              <SkipForward className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-            </button>
-            <button 
-              onClick={onToggleMute} 
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
-            >
-              {isMuted || volume === 0 ? (
-                <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-              ) : (
-                <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-              )}
-            </button>
-          </div>
-        </div>
-        
-        {/* Progress bar - slim */}
-        <div className="w-full">
-          <Slider
-            value={[currentTime]}
-            max={duration || 100}
-            step={0.1}
-            onValueChange={onSeek}
-            onValueCommit={onSeekCommit}
-            className="w-full cursor-pointer touch-pan-x [&_[data-slot=track]]:h-2 [&_[data-slot=track]]:bg-white/20 [&_[data-slot=track]]:rounded-full [&_[data-slot=range]]:bg-white [&_[data-slot=range]]:rounded-full [&_[data-slot=thumb]]:w-4 [&_[data-slot=thumb]]:h-4 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0 [&_[data-slot=thumb]]:shadow-lg"
-          />
-          <div className="flex justify-between text-xs text-white/70 mt-1 font-medium">
-            <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(duration)}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export const CinematicPlayer = () => {
   const { language: appLanguage } = useLanguage();
-  const audioRefs = useRef<{ [key in Language]: HTMLAudioElement | null }>({
-    ro: null,
-    es: null,
-    us: null,
-  });
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   
   const [activePlayer, setActivePlayer] = useState<Language>(() => languageToPodcast[appLanguage]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(70);
   const [isMuted, setIsMuted] = useState(false);
-  const [waitingForInteraction, setWaitingForInteraction] = useState(true);
   const [isExpanded, setIsExpanded] = useState(false);
   const hasStarted = useRef(false);
+
+  const currentPodcast = podcasts.find(p => p.id === activePlayer) || podcasts[0];
 
   // Sync podcast with language changes
   useEffect(() => {
     const newPodcastLang = languageToPodcast[appLanguage];
     if (newPodcastLang === activePlayer) return;
 
-    // Stop current player
-    const currentAudio = audioRefs.current[activePlayer];
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
     }
 
-    // Reset state
     setCurrentTime(0);
     setIsPlaying(false);
     setActivePlayer(newPodcastLang);
+  }, [appLanguage, activePlayer]);
 
-    // If user already interacted, auto-play the new language
-    if (!waitingForInteraction) {
-      const newAudio = audioRefs.current[newPodcastLang];
-      if (newAudio) {
-        newAudio.currentTime = 0;
-        newAudio.play().then(() => {
-          setIsPlaying(true);
-        }).catch(err => console.log('Autoplay failed:', err));
-      }
-    }
-  }, [appLanguage]);
-
-  // Handle user interaction to start/unmute
-  const handleUserInteraction = useCallback(async () => {
-    if (!waitingForInteraction) return;
-    
-    const audio = audioRefs.current[activePlayer];
-    if (!audio) return;
-
-    try {
-      audio.muted = false;
-      audio.currentTime = 0;
-      await audio.play();
-      setIsPlaying(true);
-      setIsMuted(false);
-      setWaitingForInteraction(false);
-    } catch (error) {
-      console.log('Play failed:', error);
-    }
-  }, [waitingForInteraction, activePlayer]);
-
-  // Set up global interaction listeners
+  // Audio event listeners
   useEffect(() => {
-    if (waitingForInteraction) {
-      document.addEventListener('click', handleUserInteraction);
-      document.addEventListener('touchstart', handleUserInteraction);
-      document.addEventListener('scroll', handleUserInteraction);
-      document.addEventListener('keydown', handleUserInteraction);
-      
-      return () => {
-        document.removeEventListener('click', handleUserInteraction);
-        document.removeEventListener('touchstart', handleUserInteraction);
-        document.removeEventListener('scroll', handleUserInteraction);
-        document.removeEventListener('keydown', handleUserInteraction);
-      };
-    }
-  }, [waitingForInteraction, handleUserInteraction]);
-
-  // Audio event listeners for active player
-  useEffect(() => {
-    const audio = audioRefs.current[activePlayer];
+    const audio = audioRef.current;
     if (!audio) return;
 
     const updateTime = () => setCurrentTime(audio.currentTime);
     const updateDuration = () => setDuration(audio.duration);
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setCurrentTime(0);
+    };
 
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('ended', handleEnded);
 
-    // Set initial duration if already loaded
     if (audio.duration) {
       setDuration(audio.duration);
     }
@@ -340,6 +87,7 @@ export const CinematicPlayer = () => {
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
+      audio.removeEventListener('ended', handleEnded);
     };
   }, [activePlayer]);
 
@@ -353,40 +101,8 @@ export const CinematicPlayer = () => {
     }, 100);
   }, []);
 
-  const handleActivate = async (language: Language) => {
-    if (language === activePlayer) return;
-
-    // Stop current player
-    const currentAudio = audioRefs.current[activePlayer];
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-    }
-
-    // Reset state
-    setCurrentTime(0);
-    setIsPlaying(false);
-
-    // Switch to new player
-    setActivePlayer(language);
-
-    // If user already interacted, auto-play the new selection
-    if (!waitingForInteraction) {
-      const newAudio = audioRefs.current[language];
-      if (newAudio) {
-        try {
-          newAudio.currentTime = 0;
-          await newAudio.play();
-          setIsPlaying(true);
-        } catch (error) {
-          console.log('Play failed:', error);
-        }
-      }
-    }
-  };
-
-  const togglePlay = () => {
-    const audio = audioRefs.current[activePlayer];
+  const togglePlay = useCallback(() => {
+    const audio = audioRef.current;
     if (audio) {
       if (isPlaying) {
         audio.pause();
@@ -396,141 +112,173 @@ export const CinematicPlayer = () => {
         setIsPlaying(true);
       }
     }
-  };
+  }, [isPlaying]);
 
-  const handleEnded = () => {
-    setIsPlaying(false);
-    setCurrentTime(0);
-  };
-
-  const handleSeek = (value: number[]) => {
-    setCurrentTime(value[0]);
-  };
-
-  const handleSeekCommit = (value: number[]) => {
-    const audio = audioRefs.current[activePlayer];
-    if (audio) {
-      audio.currentTime = value[0];
-      setCurrentTime(value[0]);
-    }
-  };
-
-  const skipBack = () => {
-    const audio = audioRefs.current[activePlayer];
-    if (audio) {
-      audio.currentTime = Math.max(0, audio.currentTime - 10);
-    }
-  };
-
-  const skipForward = () => {
-    const audio = audioRefs.current[activePlayer];
-    if (audio) {
-      audio.currentTime = Math.min(duration, audio.currentTime + 10);
-    }
-  };
-
-  const handleVolumeChange = (value: number[]) => {
-    const newVolume = value[0];
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseInt(e.target.value);
     setVolume(newVolume);
-    const audio = audioRefs.current[activePlayer];
-    if (audio) {
-      audio.volume = newVolume;
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100;
     }
     if (newVolume > 0 && isMuted) {
       setIsMuted(false);
-      if (audio) audio.muted = false;
+      if (audioRef.current) audioRef.current.muted = false;
+    }
+  };
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const bar = e.currentTarget;
+    const rect = bar.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+    const newTime = (clickX / width) * duration;
+    
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
     }
   };
 
   const toggleMute = () => {
-    const audio = audioRefs.current[activePlayer];
-    if (audio) {
+    if (audioRef.current) {
       if (isMuted) {
-        audio.muted = false;
-        audio.volume = volume;
+        audioRef.current.muted = false;
         setIsMuted(false);
-        setWaitingForInteraction(false);
       } else {
-        audio.muted = true;
+        audioRef.current.muted = true;
         setIsMuted(true);
       }
     }
   };
 
-  // Get ordered podcasts - active first, then others
-  const orderedPodcasts = [
-    podcasts.find(p => p.id === activePlayer)!,
-    ...podcasts.filter(p => p.id !== activePlayer),
-  ];
+  const progressPercent = duration ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div 
-      className={`
-        mx-auto mb-2 mt-1 px-2 sm:px-4 max-w-lg
-        transition-all duration-1000 ease-in-out
-        ${isExpanded ? 'opacity-100' : 'opacity-0 translate-y-2'}
-      `}
-    >
-      {/* Hidden audio elements */}
-      {podcasts.map((podcast) => (
-        <audio
-          key={podcast.id}
-          ref={(el) => { audioRefs.current[podcast.id] = el; }}
-          src={podcast.src}
-          onEnded={handleEnded}
-          preload="auto"
-        />
-      ))}
+    <>
+      {/* Audio element */}
+      <audio
+        ref={audioRef}
+        src={currentPodcast.src}
+        preload="metadata"
+      />
 
-      {/* Layout: All players in compact format */}
-      <div className="flex flex-col gap-1.5 sm:gap-2">
-        {/* Active player - compact bar */}
-        <SinglePlayer
-          config={orderedPodcasts[0]}
-          isActive={true}
-          isPlaying={isPlaying}
-          currentTime={currentTime}
-          duration={duration}
-          volume={volume}
-          isMuted={isMuted}
-          waitingForInteraction={waitingForInteraction}
-          onActivate={() => {}}
-          onTogglePlay={togglePlay}
-          onSeek={handleSeek}
-          onSeekCommit={handleSeekCommit}
-          onSkipBack={skipBack}
-          onSkipForward={skipForward}
-          onVolumeChange={handleVolumeChange}
-          onToggleMute={toggleMute}
-          onInteraction={handleUserInteraction}
-        />
+      {/* Fixed position audio player container */}
+      <div 
+        className={`
+          fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50
+          transition-all duration-300 ease-out
+          ${isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+        `}
+        style={{
+          width: 'min(320px, calc(100vw - 32px))',
+        }}
+      >
+        {/* Audio box with flicker/float animation */}
+        <div 
+          className={`
+            relative overflow-hidden rounded-[18px] p-6
+            ${isPlaying ? 'animate-float' : 'animate-flicker'}
+          `}
+          style={{
+            background: 'linear-gradient(145deg, #0c2036, #0a1a2d)',
+            boxShadow: '0 10px 40px rgba(12, 32, 54, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+          }}
+        >
+          {/* Subtle glow effect */}
+          <div 
+            className="absolute -inset-0.5 rounded-[20px] -z-10 opacity-50 blur-[10px]"
+            style={{
+              background: 'linear-gradient(45deg, #0c2036, #1e40af, #0c2036)',
+            }}
+          />
 
-        {/* Inactive players - horizontal pill row */}
-        <div className="flex justify-center gap-1.5 sm:gap-2">
-          {orderedPodcasts.slice(1).map((podcast) => (
-            <SinglePlayer
-              key={podcast.id}
-              config={podcast}
-              isActive={false}
-              isPlaying={false}
-              currentTime={0}
-              duration={0}
-              volume={volume}
-              isMuted={isMuted}
-              waitingForInteraction={false}
-              onActivate={() => handleActivate(podcast.id)}
-              onTogglePlay={() => {}}
-              onSeek={() => {}}
-              onSeekCommit={() => {}}
-              onSkipBack={() => {}}
-              onSkipForward={() => {}}
-              onVolumeChange={() => {}}
-              onToggleMute={() => {}}
-              onInteraction={() => {}}
-            />
-          ))}
+          {/* Player header */}
+          <div className="flex items-center mb-6">
+            <div 
+              className="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center mr-4"
+              style={{
+                background: 'linear-gradient(135deg, #f97316, #fb923c)',
+                boxShadow: '0 4px 12px rgba(249, 115, 22, 0.3)',
+              }}
+            >
+              <Podcast className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h3 className="text-[1.4rem] text-white font-semibold mb-1">
+                MrDelivery Podcast
+              </h3>
+              <p className="text-sm text-white/75 font-normal">
+                Always playing for you
+              </p>
+            </div>
+          </div>
+
+          {/* Controls */}
+          <div className="flex justify-between items-center mb-5">
+            <button
+              onClick={togglePlay}
+              className="w-[62px] h-[62px] rounded-[16px] border-none text-white text-3xl cursor-pointer transition-all duration-300 hover:scale-[1.08] active:scale-[0.96] flex items-center justify-center"
+              style={{
+                background: 'linear-gradient(135deg, #f97316, #fb923c)',
+                boxShadow: '0 6px 20px rgba(249, 115, 22, 0.3)',
+              }}
+            >
+              {isPlaying ? (
+                <Pause className="w-7 h-7" fill="white" />
+              ) : (
+                <Play className="w-7 h-7 ml-1" fill="white" />
+              )}
+            </button>
+
+            <div className="flex items-center text-white/90 text-xl">
+              <button onClick={toggleMute} className="mr-3 hover:text-white transition-colors">
+                {isMuted || volume === 0 ? (
+                  <VolumeX className="w-5 h-5" />
+                ) : (
+                  <Volume2 className="w-5 h-5" />
+                )}
+              </button>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={volume}
+                onChange={handleVolumeChange}
+                className="w-[100px] h-1.5 rounded-[3px] outline-none cursor-pointer appearance-none"
+                style={{
+                  background: `linear-gradient(to right, #f97316 0%, #f97316 ${volume}%, rgba(255, 255, 255, 0.15) ${volume}%, rgba(255, 255, 255, 0.15) 100%)`,
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Progress bar */}
+          <div className="mt-5">
+            <div 
+              className="w-full h-2 bg-white/10 rounded cursor-pointer mb-2"
+              onClick={handleProgressClick}
+            >
+              <div 
+                className="h-full rounded transition-[width] duration-100"
+                style={{
+                  width: `${progressPercent}%`,
+                  background: 'linear-gradient(90deg, #f97316, #fb923c)',
+                }}
+              />
+            </div>
+            <div className="flex justify-between text-white/80 text-[0.85rem] font-medium">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+          </div>
+
+          {/* Track info */}
+          <div className="text-center text-white/70 italic mt-4 text-[0.85rem] font-normal">
+            Now Playing: "{currentPodcast.label}" - MrDelivery Podcast
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
