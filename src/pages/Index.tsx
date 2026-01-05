@@ -583,13 +583,13 @@ const Index = () => {
         <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
           {/* Become a Creator Button */}
           <div className="mb-4 sm:mb-6 flex justify-center">
-            <Link to="/auth" className="block">
+            <a href="https://api.whatsapp.com/send/?phone=40768676141&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="block">
               <Button className="animate-flicker bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base flex items-center gap-2 w-full sm:w-auto justify-center">
                 <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>Become a Creator for Your Business</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
-            </Link>
+            </a>
           </div>
           
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
