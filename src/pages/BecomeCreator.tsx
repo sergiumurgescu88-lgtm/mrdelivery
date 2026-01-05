@@ -23,6 +23,7 @@ import {
   Send,
 } from 'lucide-react';
 import { useState } from 'react';
+import CreatorInterestForm from '@/components/CreatorInterestForm';
 
 const BecomeCreator = () => {
   const { t } = useLanguage();
@@ -290,6 +291,11 @@ const BecomeCreator = () => {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Interest Form */}
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <CreatorInterestForm />
         </section>
 
         {/* Pricing CTA */}
