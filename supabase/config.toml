@@ -1,1 +1,10 @@
 project_id = "pnfcndnufqjedrlbwgvr"
+
+[functions.generate-logo]
+verify_jwt = false
+
+[functions.generate-banner]
+verify_jwt = false
+
+[functions.generate-social-text]
+verify_jwt = false
