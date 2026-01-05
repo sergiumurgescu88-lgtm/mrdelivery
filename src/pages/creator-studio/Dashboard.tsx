@@ -19,18 +19,30 @@ import {
   Wand2
 } from 'lucide-react';
 
+// Import banner images
+import bannerFreeDelivery from '@/assets/banner-free-delivery.png';
+import bannerNewMenu from '@/assets/banner-new-menu.png';
+import bannerWeekendDeals from '@/assets/banner-weekend-deals.png';
+import bannerPizzaSpecial from '@/assets/banner-pizza-special.png';
+
+// Import logo images
+import logoFastFoodHub from '@/assets/logo-fast-food-hub.png';
+import logoQuickBites from '@/assets/logo-quick-bites.png';
+import logoGoldenFork from '@/assets/logo-golden-fork.png';
+import logoHeritageEats from '@/assets/logo-heritage-eats.png';
+
 const showcaseBanners = [
-  { title: 'Pizza Special', type: 'Facebook Post', size: '1200x630', gradient: 'from-orange-500 to-red-500' },
-  { title: 'Free Delivery', type: 'Story', size: '1024x1024', gradient: 'from-green-500 to-emerald-500' },
-  { title: 'Weekend Deals', type: 'Banner', size: '1024x1536', gradient: 'from-amber-500 to-yellow-500' },
-  { title: 'New Menu', type: 'Facebook Cover', size: '820x312', gradient: 'from-purple-500 to-pink-500' }
+  { title: 'Free Delivery', type: 'Story', size: '1024x1024', image: bannerFreeDelivery },
+  { title: 'New Menu', type: 'Facebook Cover', size: '820x312', image: bannerNewMenu },
+  { title: 'Weekend Deals', type: 'Banner', size: '1024x1536', image: bannerWeekendDeals },
+  { title: 'Pizza Special', type: 'Facebook Post', size: '1200x630', image: bannerPizzaSpecial }
 ];
 
 const showcaseLogos = [
-  { title: 'Fast Food Hub', style: '3D Logo', gradient: 'from-red-500 to-orange-500' },
-  { title: 'Fresh Kitchen', style: 'Modern Logo', gradient: 'from-green-500 to-emerald-500' },
-  { title: 'Quick Bites', style: 'Bold Logo', gradient: 'from-amber-500 to-yellow-500' },
-  { title: 'Gourmet Express', style: 'Professional', gradient: 'from-gray-600 to-gray-800' }
+  { title: 'Fast Food Hub', style: '3D Logo', image: logoFastFoodHub },
+  { title: 'Quick Bites', style: 'Bold Logo', image: logoQuickBites },
+  { title: 'Golden Fork', style: 'Modern Logo', image: logoGoldenFork },
+  { title: 'Heritage Eats', style: 'Professional', image: logoHeritageEats }
 ];
 
 const heroSlideButtonLinks = [
@@ -155,8 +167,12 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {showcaseBanners.map((banner, i) => (
             <div key={i} className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-all">
-              <div className={`bg-gradient-to-br ${banner.gradient} aspect-video flex items-center justify-center p-4`}>
-                <span className="text-primary-foreground font-bold text-lg text-center">{banner.title}</span>
+              <div className="aspect-video overflow-hidden">
+                <img 
+                  src={banner.image} 
+                  alt={banner.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-3 flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">{banner.type}</span>
@@ -179,8 +195,12 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {showcaseLogos.map((logo, i) => (
             <div key={i} className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-all">
-              <div className={`bg-gradient-to-br ${logo.gradient} aspect-square flex items-center justify-center p-4`}>
-                <span className="text-primary-foreground font-bold text-lg text-center">{logo.title}</span>
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={logo.image} 
+                  alt={logo.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-3">
                 <span className="text-sm text-muted-foreground">{logo.style}</span>
