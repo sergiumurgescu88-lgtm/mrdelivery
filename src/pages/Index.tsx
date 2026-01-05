@@ -8,6 +8,7 @@ import { FoodBackground } from '@/components/FoodBackground';
 import { FullscreenVideo } from '@/components/FullscreenVideo';
 import { VideoGallery } from '@/components/VideoGallery';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
+import { Link } from 'react-router-dom';
 import ugcExample1 from '@/assets/ugc-example-1.mp4';
 import ugcExample2 from '@/assets/ugc-example-2.mp4';
 import ugcExample3 from '@/assets/ugc-example-3.mp4';
@@ -34,6 +35,8 @@ import {
   Image,
   Check,
   Send,
+  Palette,
+  ArrowRight,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -58,6 +61,18 @@ const Index = () => {
               {t.siteName}
             </h1>
           </div>
+          
+          {/* Become a Creator Button */}
+          <div className="mb-4 sm:mb-6">
+            <Link to="/become-creator">
+              <Button className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base flex items-center gap-2 mx-auto">
+                <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>Become a Creator for Your Business</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
+            </Link>
+          </div>
+          
           <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-2 max-w-2xl mx-auto">
             {t.taglineItems.map((item, index) => (
               <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
