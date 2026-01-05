@@ -103,10 +103,10 @@ const AIBanner = () => {
               <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
                 <Image className="w-7 h-7 text-primary-foreground" />
               </div>
-              AI Banner Generator
+              MrDelivery Banner Generator
             </h1>
             <p className="text-muted-foreground">
-              Describe your vision and let AI create stunning banners for you
+              Describe your restaurant promotion and let AI create stunning banners for you
             </p>
           </div>
 
@@ -119,7 +119,7 @@ const AIBanner = () => {
               </Label>
               <Textarea
                 id="prompt"
-                placeholder="E.g., A vibrant summer sale banner with tropical colors, palm trees, and 50% OFF text in bold letters"
+                placeholder="E.g., A delicious pizza delivery banner with 20% OFF text, warm colors, and mouth-watering food imagery"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 className="min-h-[120px] bg-background"

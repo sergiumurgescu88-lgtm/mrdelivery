@@ -21,8 +21,8 @@ import {
 
 const heroSlides = [
   {
-    title: 'Create Stunning Banners with AI',
-    description: 'Generate professional-quality banners in minutes. Create any banner with amazing imagery and text by entering a single prompt or use our step by step guide.',
+    title: 'Create Stunning Banners for Your Restaurant',
+    description: 'Generate professional-quality promotional banners in minutes. Perfect for food delivery promotions, special offers, and restaurant marketing.',
     gradient: 'from-primary via-secondary to-accent',
     buttons: [
       { label: 'Start with AI', href: '/creator-studio/banner', primary: true },
@@ -31,16 +31,16 @@ const heroSlides = [
     ]
   },
   {
-    title: 'Create Stunning Logos with AI',
-    description: 'Design professional logos in minutes with AI-powered creativity. Perfect for startups, brands, and businesses of all sizes.',
+    title: 'Design Your Restaurant Logo with AI',
+    description: 'Create professional restaurant logos in minutes with AI-powered creativity. Perfect for new restaurants, rebranding, and delivery services.',
     gradient: 'from-secondary via-accent to-primary',
     buttons: [
       { label: 'Start with AI', href: '/creator-studio/logo', primary: true }
     ]
   },
   {
-    title: 'Build Your Complete Brand Identity',
-    description: 'Create professional business cards and establish your brand kit. Keep your branding consistent across all your marketing materials.',
+    title: 'Build Your Restaurant Brand Identity',
+    description: 'Create professional business cards and establish your brand kit. Keep your restaurant branding consistent across all marketing materials.',
     gradient: 'from-accent via-primary to-secondary',
     buttons: [
       { label: 'Business Cards', href: '/creator-studio/business-cards', primary: true },
@@ -48,8 +48,8 @@ const heroSlides = [
     ]
   },
   {
-    title: 'Create Social Media Graphics',
-    description: 'Design beautiful text graphics for Instagram, Facebook, and LinkedIn. Perfect for quotes, announcements, and promotional posts.',
+    title: 'Create Food Delivery Social Posts',
+    description: 'Design beautiful promotional graphics for Instagram, Facebook, and LinkedIn. Perfect for daily specials, menu highlights, and delivery promotions.',
     gradient: 'from-warning via-destructive to-accent',
     buttons: [
       { label: 'Create Social Post', href: '/creator-studio/social-posts', primary: true }
@@ -58,36 +58,36 @@ const heroSlides = [
 ];
 
 const showcaseBanners = [
-  { title: 'Amazing Rates', type: 'Facebook Post', size: '1200x630', gradient: 'from-blue-500 to-cyan-500' },
-  { title: 'Travel in Style', type: 'png', size: '1024x1024', gradient: 'from-orange-500 to-pink-500' },
-  { title: 'Pet Grooming', type: 'png', size: '1024x1536', gradient: 'from-amber-500 to-yellow-500' },
-  { title: 'Balloons', type: 'Facebook Cover', size: '820x312', gradient: 'from-purple-500 to-pink-500' }
+  { title: 'Pizza Special', type: 'Facebook Post', size: '1200x630', gradient: 'from-orange-500 to-red-500' },
+  { title: 'Free Delivery', type: 'Story', size: '1024x1024', gradient: 'from-green-500 to-emerald-500' },
+  { title: 'Weekend Deals', type: 'Banner', size: '1024x1536', gradient: 'from-amber-500 to-yellow-500' },
+  { title: 'New Menu', type: 'Facebook Cover', size: '820x312', gradient: 'from-purple-500 to-pink-500' }
 ];
 
 const showcaseLogos = [
-  { title: 'Disco Club Hire', style: '3D Logo', gradient: 'from-violet-500 to-purple-500' },
-  { title: 'HelloFresh', style: 'Modern Logo', gradient: 'from-green-500 to-emerald-500' },
-  { title: 'eToro', style: 'Bold Logo', gradient: 'from-cyan-500 to-blue-500' },
-  { title: 'Relic Entertainment', style: 'Professional', gradient: 'from-gray-600 to-gray-800' }
+  { title: 'Fast Food Hub', style: '3D Logo', gradient: 'from-red-500 to-orange-500' },
+  { title: 'Fresh Kitchen', style: 'Modern Logo', gradient: 'from-green-500 to-emerald-500' },
+  { title: 'Quick Bites', style: 'Bold Logo', gradient: 'from-amber-500 to-yellow-500' },
+  { title: 'Gourmet Express', style: 'Professional', gradient: 'from-gray-600 to-gray-800' }
 ];
 
 const testimonials = [
   {
-    quote: "Bannerman has completely transformed how we create social media content. What used to take hours now takes minutes, and the quality is consistently excellent.",
-    author: "Sarah Johnson",
-    role: "Marketing Director at TechStart Inc.",
+    quote: "MrDelivery Studio has completely transformed how we create promotional content. What used to take hours now takes minutes, and the quality is consistently excellent.",
+    author: "Maria Popescu",
+    role: "Restaurant Owner at Bucătăria Veche",
     rating: 5
   },
   {
-    quote: "As a freelancer, I need to work fast without sacrificing quality. Bannerman's AI-powered tools help me deliver professional banners to my clients in record time.",
-    author: "Michael Chen",
-    role: "Freelance Designer at Chen Creative",
+    quote: "As a small restaurant, we needed affordable marketing solutions. MrDelivery's AI-powered tools help us create professional banners without hiring a designer.",
+    author: "Ion Gheorghe",
+    role: "Owner at Pizza & Pasta Corner",
     rating: 5
   },
   {
-    quote: "The variety of templates and customization options is amazing. I can maintain our brand consistency across all platforms while still being creative.",
-    author: "Emma Rodriguez",
-    role: "Social Media Manager at GrowthCo",
+    quote: "The variety of templates for food delivery promotions is amazing. We can maintain our brand consistency across all platforms while promoting daily specials.",
+    author: "Ana Munteanu",
+    role: "Marketing Manager at FoodChain Delivery",
     rating: 5
   }
 ];
@@ -235,10 +235,10 @@ const Dashboard = () => {
       <section className="mb-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-foreground mb-2">
-            Loved by Creators Worldwide
+            Loved by Restaurant Owners
           </h2>
           <p className="text-muted-foreground">
-            Join thousands of marketers, designers, and content creators who trust Bannerman for their visual content needs
+            Join hundreds of restaurants and delivery partners who trust MrDelivery Studio for their marketing needs
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -263,7 +263,7 @@ const Dashboard = () => {
           ))}
         </div>
         <div className="text-center mt-6">
-          <p className="text-muted-foreground">⭐ Rated 4.9/5 from over 10,000+ happy users</p>
+          <p className="text-muted-foreground">⭐ Rated 4.9/5 from over 500+ happy restaurant partners</p>
         </div>
       </section>
 
@@ -271,7 +271,7 @@ const Dashboard = () => {
       <section className="mb-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-foreground mb-2">
-            Create your Brand using these Powerful Tools
+            Create Your Restaurant Brand with Powerful Tools
           </h2>
           <Link to="/creator-studio/credits">
             <Button variant="outline" className="mt-4">View Plans</Button>
@@ -283,43 +283,43 @@ const Dashboard = () => {
               <Sparkles className="w-7 h-7 text-primary-foreground" />
             </div>
             <h3 className="font-bold text-lg text-foreground mb-2">AI Logo Maker</h3>
-            <p className="text-muted-foreground text-sm">Answer a few questions and let Bannerman design a professional logo for your brand</p>
+            <p className="text-muted-foreground text-sm">Answer a few questions and let MrDelivery Studio design a professional logo for your restaurant</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4">
               <Palette className="w-7 h-7 text-primary-foreground" />
             </div>
             <h3 className="font-bold text-lg text-foreground mb-2">Brand Kit</h3>
-            <p className="text-muted-foreground text-sm">Save your brand colors, fonts, and logo to maintain consistency across all your designs</p>
+            <p className="text-muted-foreground text-sm">Save your restaurant colors, fonts, and logo to maintain consistency across all your marketing</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-to-br from-accent to-warning rounded-xl flex items-center justify-center mb-4">
               <CreditCard className="w-7 h-7 text-primary-foreground" />
             </div>
             <h3 className="font-bold text-lg text-foreground mb-2">Business Card Maker</h3>
-            <p className="text-muted-foreground text-sm">Design professional business cards with customizable templates and easy export options</p>
+            <p className="text-muted-foreground text-sm">Design professional business cards for your restaurant with customizable templates</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-4">
               <Image className="w-7 h-7 text-primary-foreground" />
             </div>
             <h3 className="font-bold text-lg text-foreground mb-2">AI Banner Generator</h3>
-            <p className="text-muted-foreground text-sm">Describe your vision and let Bannerman generate complete banners with images and copy</p>
+            <p className="text-muted-foreground text-sm">Describe your promotion and let MrDelivery Studio generate stunning banners with food imagery</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-to-br from-warning to-destructive rounded-xl flex items-center justify-center mb-4">
               <Type className="w-7 h-7 text-primary-foreground" />
             </div>
             <h3 className="font-bold text-lg text-foreground mb-2">Social Post Generator</h3>
-            <p className="text-muted-foreground text-sm">Create eye-catching text graphics for social media quotes, announcements, and promotional posts</p>
+            <p className="text-muted-foreground text-sm">Create eye-catching promotional graphics for daily specials, delivery deals, and menu updates</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all group cursor-pointer">
             <Link to="/creator-studio/logo" className="block">
               <div className="w-14 h-14 bg-gradient-to-br from-success to-primary rounded-xl flex items-center justify-center mb-4">
                 <Wand2 className="w-7 h-7 text-primary-foreground" />
               </div>
-              <h3 className="font-bold text-lg text-foreground mb-2">Need a professional logo?</h3>
-              <p className="text-muted-foreground text-sm mb-4">Create stunning AI-powered logos in seconds with our Logo Maker tool.</p>
+              <h3 className="font-bold text-lg text-foreground mb-2">Need a restaurant logo?</h3>
+              <p className="text-muted-foreground text-sm mb-4">Create stunning AI-powered logos for your restaurant in seconds.</p>
               <span className="text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
                 Try Logo Maker Now <ArrowRight className="w-4 h-4" />
               </span>

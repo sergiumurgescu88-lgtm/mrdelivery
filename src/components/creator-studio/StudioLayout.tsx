@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { 
-  Sparkles, 
+  Truck, 
   LayoutDashboard, 
   Image, 
   Palette, 
@@ -12,7 +12,9 @@ import {
   LogOut,
   Menu,
   X,
-  Coins
+  Coins,
+  ArrowLeft,
+  Sparkles
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -47,7 +49,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
         <div className="animate-marquee whitespace-nowrap flex">
           {[...Array(6)].map((_, i) => (
             <span key={i} className="mx-8 text-sm font-medium">
-              🎉 January Deals Now On! 🔥
+              🚀 MrDelivery Creator Studio - Design Your Brand! 🎨
             </span>
           ))}
         </div>
@@ -57,13 +59,21 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
       <nav className="bg-card border-b border-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/creator-studio" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-extrabold text-gradient-primary hidden sm:block">Bannerman</span>
-            </Link>
+            {/* Back Button + Logo */}
+            <div className="flex items-center gap-3">
+              <Link to="/">
+                <Button variant="ghost" size="sm" className="gap-2">
+                  <ArrowLeft className="w-4 h-4" />
+                  <span className="hidden sm:inline">Back</span>
+                </Button>
+              </Link>
+              <Link to="/creator-studio" className="flex items-center gap-2">
+                <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center">
+                  <Truck className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <span className="text-xl font-extrabold text-gradient-primary hidden sm:block">MrDelivery Studio</span>
+              </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
