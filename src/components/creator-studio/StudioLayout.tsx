@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { Button } from '@/components/ui/button';
 import { 
   Truck, 
@@ -22,20 +24,21 @@ interface StudioLayoutProps {
   children: React.ReactNode;
 }
 
-const navItems = [
-  { path: '/creator-studio', label: 'Dashboard', icon: LayoutDashboard },
-  { path: '/creator-studio/banner', label: 'AI Banner', icon: Image },
-  { path: '/creator-studio/logo', label: 'AI Logo', icon: Sparkles },
-  { path: '/creator-studio/business-cards', label: 'Business Cards', icon: CreditCardIcon },
-  { path: '/creator-studio/social-posts', label: 'Social Posts', icon: Type },
-  { path: '/creator-studio/credits', label: 'Credits', icon: Coins },
-];
-
 export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
   const { profile, signOut, user } = useAuth();
+  const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { path: '/creator-studio', label: t.creatorStudio.nav.dashboard, icon: LayoutDashboard },
+    { path: '/creator-studio/banner', label: t.creatorStudio.nav.banner, icon: Image },
+    { path: '/creator-studio/logo', label: t.creatorStudio.nav.logo, icon: Sparkles },
+    { path: '/creator-studio/business-cards', label: t.creatorStudio.nav.businessCards, icon: CreditCardIcon },
+    { path: '/creator-studio/social-posts', label: t.creatorStudio.nav.socialPosts, icon: Type },
+    { path: '/creator-studio/credits', label: t.creatorStudio.nav.credits, icon: Coins },
+  ];
 
   const handleSignOut = async () => {
     await signOut();
@@ -44,12 +47,17 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Language Switcher */}
+      <div className="pt-2">
+        <LanguageSwitcher />
+      </div>
+
       {/* Announcement Banner */}
       <div className="bg-gradient-primary text-primary-foreground py-2 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap flex">
           {[...Array(6)].map((_, i) => (
             <span key={i} className="mx-8 text-sm font-medium">
-              🚀 MrDelivery Creator Studio - Design Your Brand! 🎨
+              🚀 {t.creatorStudio.announcement} 🎨
             </span>
           ))}
         </div>
@@ -64,7 +72,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
               <Link to="/">
                 <Button variant="ghost" size="sm" className="gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  <span className="hidden sm:inline">Back</span>
+                  <span className="hidden sm:inline">{t.creatorStudio.nav.backToHome}</span>
                 </Button>
               </Link>
               <Link to="/creator-studio" className="flex items-center gap-2">
@@ -112,16 +120,16 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
                     className="hidden sm:flex gap-2"
                   >
                     <LogOut className="w-4 h-4" />
-                    Log Out
+                    {t.creatorStudio.nav.logOut}
                   </Button>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
                   <Link to="/auth">
-                    <Button variant="outline" size="sm">Log In</Button>
+                    <Button variant="outline" size="sm">{t.creatorStudio.nav.logIn}</Button>
                   </Link>
                   <Link to="/auth">
-                    <Button size="sm" className="bg-gradient-primary text-primary-foreground">Sign Up</Button>
+                    <Button size="sm" className="bg-gradient-primary text-primary-foreground">{t.creatorStudio.nav.signUp}</Button>
                   </Link>
                 </div>
               )}
@@ -165,7 +173,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
               {/* Mobile Credits */}
               <div className="flex items-center gap-2 px-4 py-2 mt-2 bg-muted rounded-lg">
                 <Coins className="w-5 h-5 text-warning" />
-                <span className="font-semibold">{profile?.credits ?? 0} Credits</span>
+                <span className="font-semibold">{profile?.credits ?? 0} {t.creatorStudio.credits.credits}</span>
               </div>
               
               {user && (
@@ -175,7 +183,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
                   onClick={handleSignOut}
                 >
                   <LogOut className="w-5 h-5" />
-                  Log Out
+                  {t.creatorStudio.nav.logOut}
                 </Button>
               )}
             </div>

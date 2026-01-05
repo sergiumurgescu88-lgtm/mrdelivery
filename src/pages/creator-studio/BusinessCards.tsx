@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { 
@@ -13,18 +14,9 @@ import {
   Globe, 
   Building2,
   User,
-  Download,
   Loader2,
-  RefreshCw,
   Save
 } from 'lucide-react';
-
-const templates = [
-  { id: 'classic', label: 'Classic', description: 'Traditional and professional' },
-  { id: 'modern', label: 'Modern', description: 'Clean and minimal' },
-  { id: 'bold', label: 'Bold', description: 'Eye-catching design' },
-  { id: 'creative', label: 'Creative', description: 'Unique and artistic' }
-];
 
 const colorSchemes = [
   { id: 'blue', primary: '#3B82F6', secondary: '#1E40AF', label: 'Blue' },
@@ -39,6 +31,7 @@ const colorSchemes = [
 
 const BusinessCards = () => {
   const { profile, user } = useAuth();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     title: '',
@@ -47,9 +40,16 @@ const BusinessCards = () => {
     phone: '',
     website: ''
   });
-  const [selectedTemplate, setSelectedTemplate] = useState(templates[0]);
+  const [selectedTemplate, setSelectedTemplate] = useState('classic');
   const [selectedColors, setSelectedColors] = useState(colorSchemes[0]);
   const [loading, setSaving] = useState(false);
+
+  const templates = [
+    { id: 'classic', label: t.creatorStudio.businessCards.templates.classic },
+    { id: 'modern', label: t.creatorStudio.businessCards.templates.modern },
+    { id: 'bold', label: t.creatorStudio.businessCards.templates.bold },
+    { id: 'creative', label: t.creatorStudio.businessCards.templates.creative }
+  ];
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -77,7 +77,7 @@ const BusinessCards = () => {
         email: formData.email,
         phone: formData.phone,
         website: formData.website,
-        template: selectedTemplate.id,
+        template: selectedTemplate,
         color_scheme: selectedColors.id
       });
 
@@ -101,10 +101,10 @@ const BusinessCards = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-accent to-warning rounded-xl flex items-center justify-center">
                 <CreditCard className="w-7 h-7 text-primary-foreground" />
               </div>
-              Business Card Maker
+              {t.creatorStudio.businessCards.title}
             </h1>
             <p className="text-muted-foreground">
-              Design professional business cards with customizable templates
+              {t.creatorStudio.businessCards.description}
             </p>
           </div>
 
@@ -113,7 +113,7 @@ const BusinessCards = () => {
               <div className="space-y-2">
                 <Label htmlFor="name" className="flex items-center gap-2">
                   <User className="w-4 h-4 text-primary" />
-                  Full Name
+                  {t.creatorStudio.businessCards.fullName}
                 </Label>
                 <Input
                   id="name"
@@ -124,7 +124,7 @@ const BusinessCards = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="title">Job Title</Label>
+                <Label htmlFor="title">{t.creatorStudio.businessCards.jobTitle}</Label>
                 <Input
                   id="title"
                   placeholder="Marketing Director"
@@ -138,7 +138,7 @@ const BusinessCards = () => {
             <div className="space-y-2">
               <Label htmlFor="company" className="flex items-center gap-2">
                 <Building2 className="w-4 h-4 text-primary" />
-                Company
+                {t.creatorStudio.businessCards.company}
               </Label>
               <Input
                 id="company"
@@ -153,7 +153,7 @@ const BusinessCards = () => {
               <div className="space-y-2">
                 <Label htmlFor="email" className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-primary" />
-                  Email
+                  {t.creatorStudio.businessCards.email}
                 </Label>
                 <Input
                   id="email"
@@ -167,7 +167,7 @@ const BusinessCards = () => {
               <div className="space-y-2">
                 <Label htmlFor="phone" className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-primary" />
-                  Phone
+                  {t.creatorStudio.businessCards.phone}
                 </Label>
                 <Input
                   id="phone"
@@ -182,7 +182,7 @@ const BusinessCards = () => {
             <div className="space-y-2">
               <Label htmlFor="website" className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-primary" />
-                Website
+                {t.creatorStudio.businessCards.website}
               </Label>
               <Input
                 id="website"
@@ -195,14 +195,14 @@ const BusinessCards = () => {
 
             {/* Template Selection */}
             <div className="space-y-2">
-              <Label>Template Style</Label>
+              <Label>{t.creatorStudio.businessCards.templateStyle}</Label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {templates.map((template) => (
                   <button
                     key={template.id}
-                    onClick={() => setSelectedTemplate(template)}
+                    onClick={() => setSelectedTemplate(template.id)}
                     className={`p-3 rounded-xl border-2 transition-all text-center ${
-                      selectedTemplate.id === template.id
+                      selectedTemplate === template.id
                         ? 'border-primary bg-primary/10'
                         : 'border-border hover:border-primary/50'
                     }`}
@@ -215,7 +215,7 @@ const BusinessCards = () => {
 
             {/* Color Scheme */}
             <div className="space-y-2">
-              <Label>Color Scheme</Label>
+              <Label>{t.creatorStudio.businessCards.colorScheme}</Label>
               <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
                 {colorSchemes.map((scheme) => (
                   <button
@@ -246,12 +246,12 @@ const BusinessCards = () => {
               {loading ? (
                 <span className="flex items-center gap-2">
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Saving...
+                  {t.creatorStudio.businessCards.saving}
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
                   <Save className="w-5 h-5" />
-                  Save Business Card
+                  {t.creatorStudio.businessCards.saveCard}
                 </span>
               )}
             </Button>
@@ -260,7 +260,7 @@ const BusinessCards = () => {
 
         {/* Right Column - Preview */}
         <div className="space-y-4">
-          <h2 className="text-xl font-bold text-foreground">Live Preview</h2>
+          <h2 className="text-xl font-bold text-foreground">{t.creatorStudio.businessCards.livePreview}</h2>
 
           <div className="bg-card rounded-2xl border border-border overflow-hidden p-6">
             {/* Business Card Preview */}
@@ -272,10 +272,10 @@ const BusinessCards = () => {
             >
               <div>
                 <h3 className="text-2xl font-bold text-white">
-                  {formData.name || 'Your Name'}
+                  {formData.name || t.creatorStudio.businessCards.yourName}
                 </h3>
                 <p className="text-white/80 text-sm mt-1">
-                  {formData.title || 'Job Title'}
+                  {formData.title || t.creatorStudio.businessCards.jobTitle}
                 </p>
               </div>
               
@@ -310,7 +310,7 @@ const BusinessCards = () => {
             >
               <div className="text-center">
                 <p className="text-3xl font-extrabold text-white">
-                  {formData.company || 'Company'}
+                  {formData.company || t.creatorStudio.businessCards.company}
                 </p>
               </div>
             </div>

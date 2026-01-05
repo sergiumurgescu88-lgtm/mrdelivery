@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { StudioLayout } from '@/components/creator-studio/StudioLayout';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { 
@@ -30,6 +30,7 @@ const sizePresets = [
 
 const AIBanner = () => {
   const { profile, refreshProfile } = useAuth();
+  const { t } = useLanguage();
   const [prompt, setPrompt] = useState('');
   const [selectedSize, setSelectedSize] = useState(sizePresets[0]);
   const [loading, setLoading] = useState(false);
@@ -103,10 +104,10 @@ const AIBanner = () => {
               <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
                 <Image className="w-7 h-7 text-primary-foreground" />
               </div>
-              MrDelivery Banner Generator
+              {t.creatorStudio.banner.title}
             </h1>
             <p className="text-muted-foreground">
-              Describe your restaurant promotion and let AI create stunning banners for you
+              {t.creatorStudio.banner.description}
             </p>
           </div>
 
@@ -115,11 +116,11 @@ const AIBanner = () => {
             <div className="space-y-2">
               <Label htmlFor="prompt" className="text-foreground font-semibold flex items-center gap-2">
                 <Wand2 className="w-4 h-4 text-primary" />
-                Describe your banner
+                {t.creatorStudio.banner.promptLabel}
               </Label>
               <Textarea
                 id="prompt"
-                placeholder="E.g., A delicious pizza delivery banner with 20% OFF text, warm colors, and mouth-watering food imagery"
+                placeholder={t.creatorStudio.banner.promptPlaceholder}
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 className="min-h-[120px] bg-background"
@@ -128,7 +129,7 @@ const AIBanner = () => {
 
             {/* Size Presets */}
             <div className="space-y-2">
-              <Label className="text-foreground font-semibold">Banner Size</Label>
+              <Label className="text-foreground font-semibold">{t.creatorStudio.banner.sizeLabel}</Label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {sizePresets.map((preset) => (
                   <button
@@ -157,18 +158,18 @@ const AIBanner = () => {
               {loading ? (
                 <span className="flex items-center gap-2">
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Generating...
+                  {t.creatorStudio.banner.generating}
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5" />
-                  Generate Banner (1 Credit)
+                  {t.creatorStudio.banner.generateBtn}
                 </span>
               )}
             </Button>
 
             <p className="text-sm text-center text-muted-foreground">
-              You have <span className="font-bold text-primary">{profile?.credits ?? 0}</span> credits remaining
+              {profile?.credits ?? 0} {t.creatorStudio.banner.creditsRemaining}
             </p>
           </div>
         </div>
@@ -176,16 +177,16 @@ const AIBanner = () => {
         {/* Right Column - Preview */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-foreground">Preview</h2>
+            <h2 className="text-xl font-bold text-foreground">{t.creatorStudio.banner.preview}</h2>
             {generatedImage && (
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" onClick={() => setGeneratedImage(null)}>
                   <RefreshCw className="w-4 h-4 mr-2" />
-                  Clear
+                  {t.creatorStudio.banner.clear}
                 </Button>
                 <Button size="sm" onClick={handleDownload} className="bg-gradient-primary text-primary-foreground">
                   <Download className="w-4 h-4 mr-2" />
-                  Download
+                  {t.creatorStudio.banner.download}
                 </Button>
               </div>
             )}
@@ -199,7 +200,7 @@ const AIBanner = () => {
               {loading ? (
                 <div className="text-center">
                   <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-                  <p className="text-muted-foreground">Creating your banner...</p>
+                  <p className="text-muted-foreground">{t.creatorStudio.banner.creating}</p>
                 </div>
               ) : generatedImage ? (
                 <img 
@@ -210,9 +211,9 @@ const AIBanner = () => {
               ) : (
                 <div className="text-center p-8">
                   <Image className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
-                  <p className="text-muted-foreground">Your generated banner will appear here</p>
+                  <p className="text-muted-foreground">{t.creatorStudio.banner.willAppear}</p>
                   <p className="text-sm text-muted-foreground/70 mt-2">
-                    Selected size: {selectedSize.width}x{selectedSize.height}
+                    {t.creatorStudio.banner.selectedSize}: {selectedSize.width}x{selectedSize.height}
                   </p>
                 </div>
               )}
