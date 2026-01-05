@@ -35,6 +35,13 @@ import logoQuickBites from '@/assets/logo-quick-bites.png';
 import logoGoldenFork from '@/assets/logo-golden-fork.png';
 import logoHeritageEats from '@/assets/logo-heritage-eats.png';
 
+// Import social media images
+import socialMeniuZilei1 from '@/assets/social-meniu-zilei-1.png';
+import socialMeniuZilei2 from '@/assets/social-meniu-zilei-2.jpg';
+import socialMeniuZilei3 from '@/assets/social-meniu-zilei-3.png';
+import socialMeniuZilei4 from '@/assets/social-meniu-zilei-4.png';
+import socialMeniuZilei5 from '@/assets/social-meniu-zilei-5.png';
+
 const showcaseBanners = [
   { title: 'Free Delivery', type: 'Story', size: '1024x1024', image: bannerStoryGallery },
   { title: 'New Menu', type: 'Facebook Cover', size: '820x312', image: bannerNewMenu },
@@ -47,6 +54,14 @@ const showcaseLogos = [
   { title: 'Quick Bites', style: 'Bold Logo', image: logoQuickBites },
   { title: 'Golden Fork', style: 'Modern Logo', image: logoGoldenFork },
   { title: 'Heritage Eats', style: 'Professional', image: logoHeritageEats }
+];
+
+const showcaseSocialMedia = [
+  { title: 'Meniul Zilei Luni', platform: 'Instagram', image: socialMeniuZilei1 },
+  { title: 'Meniul Zilei Marți', platform: 'Facebook', image: socialMeniuZilei2 },
+  { title: 'Meniul Zilei Miercuri', platform: 'Instagram', image: socialMeniuZilei3 },
+  { title: 'Meniul Zilei Joi', platform: 'Facebook', image: socialMeniuZilei4 },
+  { title: 'Meniul Zilei Vineri', platform: 'Story', image: socialMeniuZilei5 }
 ];
 
 const heroSlideButtonLinks = [
@@ -255,7 +270,34 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Social Media Showcase - Meniul Zilei Dum Dum Kebab */}
+      <section className="mb-12">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold flex items-center gap-2">
+            <MessageSquare className="w-6 h-6 text-success" />
+            <span className="text-gradient-primary">Galerie Social Media</span>
+          </h2>
+          <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full">Meniul Zilei - Dum Dum Kebab</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {showcaseSocialMedia.map((post, i) => (
+            <div key={i} className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-all">
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-3 flex justify-between items-center">
+                <span className="text-sm font-medium text-foreground">{post.title}</span>
+                <span className="text-xs text-muted-foreground">{post.platform}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mb-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-foreground mb-2">
