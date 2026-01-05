@@ -16,7 +16,11 @@ import {
   Star,
   ArrowRight,
   Coins,
-  Wand2
+  Wand2,
+  LayoutDashboard,
+  MessageSquare,
+  LogIn,
+  UserPlus
 } from 'lucide-react';
 
 // Import banner images
@@ -153,6 +157,47 @@ const Dashboard = () => {
             {t.creatorStudio.dashboard.freeCredits}
           </Button>
         </Link>
+      </section>
+
+      {/* Quick Navigation */}
+      <section className="mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+          {/* Service Links */}
+          <Link to="/creator-studio" className="bg-card rounded-xl border border-border p-4 hover:shadow-lg hover:border-primary/50 transition-all flex flex-col items-center gap-2 group">
+            <LayoutDashboard className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-foreground text-center">Dashboard</span>
+          </Link>
+          <Link to="/creator-studio/banner" className="bg-card rounded-xl border border-border p-4 hover:shadow-lg hover:border-primary/50 transition-all flex flex-col items-center gap-2 group">
+            <Image className="w-6 h-6 text-secondary group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-foreground text-center">AI Banner</span>
+          </Link>
+          <Link to="/creator-studio/logo" className="bg-card rounded-xl border border-border p-4 hover:shadow-lg hover:border-primary/50 transition-all flex flex-col items-center gap-2 group">
+            <Sparkles className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-foreground text-center">AI Logo</span>
+          </Link>
+          <Link to="/creator-studio/business-cards" className="bg-card rounded-xl border border-border p-4 hover:shadow-lg hover:border-primary/50 transition-all flex flex-col items-center gap-2 group">
+            <CreditCard className="w-6 h-6 text-warning group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-foreground text-center">Cards</span>
+          </Link>
+          <Link to="/creator-studio/social-posts" className="bg-card rounded-xl border border-border p-4 hover:shadow-lg hover:border-primary/50 transition-all flex flex-col items-center gap-2 group">
+            <MessageSquare className="w-6 h-6 text-success group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-foreground text-center">Social Posts</span>
+          </Link>
+          <Link to="/creator-studio/credits" className="bg-card rounded-xl border border-border p-4 hover:shadow-lg hover:border-primary/50 transition-all flex flex-col items-center gap-2 group">
+            <Coins className="w-6 h-6 text-destructive group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-foreground text-center">Credits</span>
+          </Link>
+          
+          {/* Auth Links */}
+          <Link to="/auth" className="bg-gradient-to-br from-primary to-secondary rounded-xl p-4 hover:shadow-lg transition-all flex flex-col items-center gap-2 group">
+            <LogIn className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-primary-foreground text-center">Log In</span>
+          </Link>
+          <Link to="/auth" className="bg-gradient-to-br from-accent to-warning rounded-xl p-4 hover:shadow-lg transition-all flex flex-col items-center gap-2 group">
+            <UserPlus className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-semibold text-primary-foreground text-center">Sign Up</span>
+          </Link>
+        </div>
       </section>
 
       {/* Banner Showcase */}
