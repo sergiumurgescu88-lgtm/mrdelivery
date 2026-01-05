@@ -14,7 +14,219 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      business_cards: {
+        Row: {
+          color_scheme: string | null
+          company: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          phone: string | null
+          template: string | null
+          title: string | null
+          updated_at: string
+          user_id: string
+          website: string | null
+        }
+        Insert: {
+          color_scheme?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          phone?: string | null
+          template?: string | null
+          title?: string | null
+          updated_at?: string
+          user_id: string
+          website?: string | null
+        }
+        Update: {
+          color_scheme?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          phone?: string | null
+          template?: string | null
+          title?: string | null
+          updated_at?: string
+          user_id?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
+      credit_transactions: {
+        Row: {
+          amount: number
+          created_at: string
+          description: string | null
+          id: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      generated_banners: {
+        Row: {
+          created_at: string
+          format: string | null
+          height: number | null
+          id: string
+          image_url: string | null
+          is_public: boolean | null
+          prompt: string
+          title: string | null
+          user_id: string
+          width: number | null
+        }
+        Insert: {
+          created_at?: string
+          format?: string | null
+          height?: number | null
+          id?: string
+          image_url?: string | null
+          is_public?: boolean | null
+          prompt: string
+          title?: string | null
+          user_id: string
+          width?: number | null
+        }
+        Update: {
+          created_at?: string
+          format?: string | null
+          height?: number | null
+          id?: string
+          image_url?: string | null
+          is_public?: boolean | null
+          prompt?: string
+          title?: string | null
+          user_id?: string
+          width?: number | null
+        }
+        Relationships: []
+      }
+      generated_logos: {
+        Row: {
+          company_name: string
+          created_at: string
+          id: string
+          image_url: string | null
+          is_public: boolean | null
+          prompt: string
+          style: string | null
+          user_id: string
+        }
+        Insert: {
+          company_name: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          is_public?: boolean | null
+          prompt: string
+          style?: string | null
+          user_id: string
+        }
+        Update: {
+          company_name?: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          is_public?: boolean | null
+          prompt?: string
+          style?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      generated_social_posts: {
+        Row: {
+          background_color: string | null
+          created_at: string
+          font_style: string | null
+          id: string
+          is_public: boolean | null
+          platform: string | null
+          prompt: string
+          text_content: string
+          user_id: string
+        }
+        Insert: {
+          background_color?: string | null
+          created_at?: string
+          font_style?: string | null
+          id?: string
+          is_public?: boolean | null
+          platform?: string | null
+          prompt: string
+          text_content: string
+          user_id: string
+        }
+        Update: {
+          background_color?: string | null
+          created_at?: string
+          font_style?: string | null
+          id?: string
+          is_public?: boolean | null
+          platform?: string | null
+          prompt?: string
+          text_content?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          credits: number
+          display_name: string | null
+          email: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          credits?: number
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          credits?: number
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

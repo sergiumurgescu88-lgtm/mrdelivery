@@ -4,28 +4,45 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import BecomeCreator from "./pages/BecomeCreator";
+import Auth from "./pages/Auth";
+import Dashboard from "./pages/creator-studio/Dashboard";
+import AIBanner from "./pages/creator-studio/AIBanner";
+import AILogo from "./pages/creator-studio/AILogo";
+import BusinessCards from "./pages/creator-studio/BusinessCards";
+import SocialPosts from "./pages/creator-studio/SocialPosts";
+import Credits from "./pages/creator-studio/Credits";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/become-creator" element={<BecomeCreator />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </LanguageProvider>
+    <AuthProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/become-creator" element={<BecomeCreator />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/creator-studio" element={<Dashboard />} />
+              <Route path="/creator-studio/banner" element={<AIBanner />} />
+              <Route path="/creator-studio/logo" element={<AILogo />} />
+              <Route path="/creator-studio/business-cards" element={<BusinessCards />} />
+              <Route path="/creator-studio/social-posts" element={<SocialPosts />} />
+              <Route path="/creator-studio/credits" element={<Credits />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </LanguageProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
