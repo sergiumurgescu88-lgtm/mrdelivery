@@ -105,7 +105,7 @@ const Auth = () => {
             <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
               <Sparkles className="w-7 h-7 text-primary-foreground" />
             </div>
-            <span className="text-2xl font-extrabold text-gradient-primary">Bannerman</span>
+            <span className="text-2xl font-extrabold text-gradient-primary">MrDelivery</span>
           </div>
           <h1 className="text-3xl font-extrabold text-foreground mb-2">
             {isLogin ? 'Welcome Back' : 'Create Account'}
