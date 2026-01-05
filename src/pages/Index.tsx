@@ -64,7 +64,7 @@ const Index = () => {
           
           {/* Become a Creator Button */}
           <div className="mb-4 sm:mb-6">
-            <Link to="/become-creator">
+            <Link to="/creator-studio">
               <Button className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base flex items-center gap-2 mx-auto">
                 <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>Become a Creator for Your Business</span>
