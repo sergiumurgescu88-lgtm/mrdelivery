@@ -110,6 +110,11 @@ const BecomeCreator = () => {
           <LanguageSwitcher />
         </nav>
 
+        {/* Interest Form - First Section */}
+        <section className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
+          <CreatorInterestForm />
+        </section>
+
         {/* Hero Section */}
         <header className="max-w-6xl mx-auto px-4 py-12 sm:py-20 text-center">
           <div className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
@@ -291,11 +296,6 @@ const BecomeCreator = () => {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* Interest Form */}
-        <section className="max-w-4xl mx-auto px-4 py-16">
-          <CreatorInterestForm />
         </section>
 
         {/* Pricing CTA */}
