@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import { StudioLayout } from '@/components/creator-studio/StudioLayout';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { 
   Type, 
   Wand2, 
-  Download, 
   Loader2,
-  RefreshCw,
   Instagram,
   Facebook,
   Linkedin,
@@ -46,6 +44,7 @@ const backgroundColors = [
 
 const SocialPosts = () => {
   const { profile, user } = useAuth();
+  const { t } = useLanguage();
   const [textContent, setTextContent] = useState('');
   const [selectedPlatform, setSelectedPlatform] = useState(platforms[0]);
   const [selectedFont, setSelectedFont] = useState(fontStyles[0]);
@@ -125,17 +124,17 @@ const SocialPosts = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-warning to-destructive rounded-xl flex items-center justify-center">
                 <Type className="w-7 h-7 text-primary-foreground" />
               </div>
-              Social Post Generator
+              {t.creatorStudio.socialPosts.title}
             </h1>
             <p className="text-muted-foreground">
-              Create beautiful text graphics for social media
+              {t.creatorStudio.socialPosts.description}
             </p>
           </div>
 
           <div className="bg-card rounded-2xl border border-border p-6 space-y-5">
             {/* Platform Selection */}
             <div className="space-y-2">
-              <Label>Platform</Label>
+              <Label>{t.creatorStudio.socialPosts.platform}</Label>
               <div className="grid grid-cols-3 gap-2">
                 {platforms.map((platform) => (
                   <button
@@ -159,7 +158,7 @@ const SocialPosts = () => {
               <div className="flex items-center justify-between">
                 <Label htmlFor="text" className="flex items-center gap-2">
                   <Wand2 className="w-4 h-4 text-primary" />
-                  Your Text
+                  {t.creatorStudio.socialPosts.yourText}
                 </Label>
                 <Button
                   variant="outline"
@@ -173,12 +172,12 @@ const SocialPosts = () => {
                   ) : (
                     <Sparkles className="w-4 h-4" />
                   )}
-                  AI Generate
+                  {t.creatorStudio.socialPosts.aiGenerate}
                 </Button>
               </div>
               <Textarea
                 id="text"
-                placeholder="Enter your quote, announcement, or promotional text..."
+                placeholder={t.creatorStudio.socialPosts.textPlaceholder}
                 value={textContent}
                 onChange={(e) => setTextContent(e.target.value)}
                 className="min-h-[100px] bg-background"
@@ -187,7 +186,7 @@ const SocialPosts = () => {
 
             {/* Font Style */}
             <div className="space-y-2">
-              <Label>Font Style</Label>
+              <Label>{t.creatorStudio.socialPosts.fontStyle}</Label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {fontStyles.map((font) => (
                   <button
@@ -209,7 +208,7 @@ const SocialPosts = () => {
 
             {/* Background Colors */}
             <div className="space-y-2">
-              <Label>Background</Label>
+              <Label>{t.creatorStudio.socialPosts.background}</Label>
               <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
                 {backgroundColors.map((bg) => (
                   <button
@@ -240,12 +239,12 @@ const SocialPosts = () => {
               {loading ? (
                 <span className="flex items-center gap-2">
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Saving...
+                  {t.creatorStudio.socialPosts.saving}
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
                   <Save className="w-5 h-5" />
-                  Save Post
+                  {t.creatorStudio.socialPosts.savePost}
                 </span>
               )}
             </Button>
@@ -255,7 +254,7 @@ const SocialPosts = () => {
         {/* Right Column - Preview */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-foreground">Preview</h2>
+            <h2 className="text-xl font-bold text-foreground">{t.creatorStudio.socialPosts.preview}</h2>
             <span className="text-sm text-muted-foreground">{selectedPlatform.size}</span>
           </div>
 
@@ -273,7 +272,7 @@ const SocialPosts = () => {
                   color: textColor
                 }}
               >
-                {textContent || 'Your text will appear here'}
+                {textContent || t.creatorStudio.socialPosts.yourTextWillAppear}
               </p>
             </div>
           </div>

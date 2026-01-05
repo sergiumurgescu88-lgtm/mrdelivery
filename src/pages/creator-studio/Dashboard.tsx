@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { StudioLayout } from '@/components/creator-studio/StudioLayout';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/integrations/supabase/client';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Sparkles, 
   Image, 
@@ -19,44 +19,6 @@ import {
   Wand2
 } from 'lucide-react';
 
-const heroSlides = [
-  {
-    title: 'Create Stunning Banners for Your Restaurant',
-    description: 'Generate professional-quality promotional banners in minutes. Perfect for food delivery promotions, special offers, and restaurant marketing.',
-    gradient: 'from-primary via-secondary to-accent',
-    buttons: [
-      { label: 'Start with AI', href: '/creator-studio/banner', primary: true },
-      { label: 'Browse Gallery', href: '#gallery', primary: false },
-      { label: 'How It Works', href: '#how-it-works', primary: false }
-    ]
-  },
-  {
-    title: 'Design Your Restaurant Logo with AI',
-    description: 'Create professional restaurant logos in minutes with AI-powered creativity. Perfect for new restaurants, rebranding, and delivery services.',
-    gradient: 'from-secondary via-accent to-primary',
-    buttons: [
-      { label: 'Start with AI', href: '/creator-studio/logo', primary: true }
-    ]
-  },
-  {
-    title: 'Build Your Restaurant Brand Identity',
-    description: 'Create professional business cards and establish your brand kit. Keep your restaurant branding consistent across all marketing materials.',
-    gradient: 'from-accent via-primary to-secondary',
-    buttons: [
-      { label: 'Business Cards', href: '/creator-studio/business-cards', primary: true },
-      { label: 'Brand Kit', href: '#brand-kit', primary: false }
-    ]
-  },
-  {
-    title: 'Create Food Delivery Social Posts',
-    description: 'Design beautiful promotional graphics for Instagram, Facebook, and LinkedIn. Perfect for daily specials, menu highlights, and delivery promotions.',
-    gradient: 'from-warning via-destructive to-accent',
-    buttons: [
-      { label: 'Create Social Post', href: '/creator-studio/social-posts', primary: true }
-    ]
-  }
-];
-
 const showcaseBanners = [
   { title: 'Pizza Special', type: 'Facebook Post', size: '1200x630', gradient: 'from-orange-500 to-red-500' },
   { title: 'Free Delivery', type: 'Story', size: '1024x1024', gradient: 'from-green-500 to-emerald-500' },
@@ -71,46 +33,43 @@ const showcaseLogos = [
   { title: 'Gourmet Express', style: 'Professional', gradient: 'from-gray-600 to-gray-800' }
 ];
 
-const testimonials = [
-  {
-    quote: "MrDelivery Studio has completely transformed how we create promotional content. What used to take hours now takes minutes, and the quality is consistently excellent.",
-    author: "Maria Popescu",
-    role: "Restaurant Owner at Bucătăria Veche",
-    rating: 5
-  },
-  {
-    quote: "As a small restaurant, we needed affordable marketing solutions. MrDelivery's AI-powered tools help us create professional banners without hiring a designer.",
-    author: "Ion Gheorghe",
-    role: "Owner at Pizza & Pasta Corner",
-    rating: 5
-  },
-  {
-    quote: "The variety of templates for food delivery promotions is amazing. We can maintain our brand consistency across all platforms while promoting daily specials.",
-    author: "Ana Munteanu",
-    role: "Marketing Manager at FoodChain Delivery",
-    rating: 5
-  }
+const heroSlideButtonLinks = [
+  ['/creator-studio/banner', '#gallery', '#how-it-works'],
+  ['/creator-studio/logo'],
+  ['/creator-studio/business-cards', '#brand-kit'],
+  ['/creator-studio/social-posts']
 ];
 
 const Dashboard = () => {
   const { profile } = useAuth();
+  const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroSlides = t.creatorStudio.dashboard.heroSlides;
+  const testimonials = t.creatorStudio.dashboard.testimonials;
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroSlides.length]);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+
+  const gradients = [
+    'from-primary via-secondary to-accent',
+    'from-secondary via-accent to-primary',
+    'from-accent via-primary to-secondary',
+    'from-warning via-destructive to-accent'
+  ];
 
   return (
     <StudioLayout>
       {/* Hero Carousel */}
       <section className="relative mb-12 rounded-3xl overflow-hidden">
-        <div className={`bg-gradient-to-br ${heroSlides[currentSlide].gradient} p-8 sm:p-12 lg:p-16 min-h-[400px] flex flex-col justify-center transition-all duration-500`}>
+        <div className={`bg-gradient-to-br ${gradients[currentSlide]} p-8 sm:p-12 lg:p-16 min-h-[400px] flex flex-col justify-center transition-all duration-500`}>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground mb-4 max-w-2xl">
             {heroSlides[currentSlide].title}
           </h1>
@@ -118,18 +77,18 @@ const Dashboard = () => {
             {heroSlides[currentSlide].description}
           </p>
           <div className="flex flex-wrap gap-3">
-            {heroSlides[currentSlide].buttons.map((btn, i) => (
-              <Link key={i} to={btn.href}>
+            {heroSlides[currentSlide].buttons.map((btnLabel: string, i: number) => (
+              <Link key={i} to={heroSlideButtonLinks[currentSlide]?.[i] || '#'}>
                 <Button 
-                  variant={btn.primary ? 'secondary' : 'outline'} 
+                  variant={i === 0 ? 'secondary' : 'outline'} 
                   size="lg"
-                  className={btn.primary 
+                  className={i === 0 
                     ? 'bg-card text-foreground hover:bg-card/90 font-bold gap-2' 
                     : 'border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-bold gap-2'
                   }
                 >
-                  {btn.primary && <Sparkles className="w-5 h-5" />}
-                  {btn.label}
+                  {i === 0 && <Sparkles className="w-5 h-5" />}
+                  {btnLabel}
                 </Button>
               </Link>
             ))}
@@ -137,7 +96,7 @@ const Dashboard = () => {
           
           {/* Carousel Navigation */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
-            {heroSlides.map((_, i) => (
+            {heroSlides.map((_: any, i: number) => (
               <button
                 key={i}
                 onClick={() => setCurrentSlide(i)}
@@ -172,14 +131,14 @@ const Dashboard = () => {
             <Sparkles className="w-5 h-5 text-primary-foreground" />
           </div>
           <div>
-            <span className="text-sm font-bold text-primary">Get Started</span>
-            <p className="text-foreground font-semibold">Start Creating for Free!</p>
+            <span className="text-sm font-bold text-primary">{t.creatorStudio.dashboard.getStarted}</span>
+            <p className="text-foreground font-semibold">{t.creatorStudio.dashboard.startCreating}</p>
           </div>
         </div>
         <Link to="/creator-studio/credits">
           <Button className="bg-gradient-primary text-primary-foreground font-bold gap-2">
             <Coins className="w-4 h-4" />
-            Free Credits
+            {t.creatorStudio.dashboard.freeCredits}
           </Button>
         </Link>
       </section>
@@ -189,9 +148,9 @@ const Dashboard = () => {
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold flex items-center gap-2">
             <Sparkles className="w-6 h-6 text-primary" />
-            <span className="text-gradient-primary">Banner</span> Showcase
+            <span className="text-gradient-primary">{t.creatorStudio.dashboard.bannerShowcase}</span>
           </h2>
-          <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full">Featured</span>
+          <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full">{t.creatorStudio.dashboard.featured}</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {showcaseBanners.map((banner, i) => (
@@ -213,9 +172,9 @@ const Dashboard = () => {
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold flex items-center gap-2">
             <Palette className="w-6 h-6 text-secondary" />
-            <span className="text-gradient-primary">Logo</span> Showcase
+            <span className="text-gradient-primary">{t.creatorStudio.dashboard.logoShowcase}</span>
           </h2>
-          <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full">Featured</span>
+          <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full">{t.creatorStudio.dashboard.featured}</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {showcaseLogos.map((logo, i) => (
@@ -235,18 +194,18 @@ const Dashboard = () => {
       <section className="mb-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-foreground mb-2">
-            Loved by Restaurant Owners
+            {t.creatorStudio.dashboard.lovedBy}
           </h2>
           <p className="text-muted-foreground">
-            Join hundreds of restaurants and delivery partners who trust MrDelivery Studio for their marketing needs
+            {t.creatorStudio.dashboard.lovedByDesc}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, i) => (
+          {testimonials.map((testimonial: any, i: number) => (
             <div key={i} className="bg-card rounded-2xl border border-border p-6">
               <p className="text-foreground mb-6 italic">"{testimonial.quote}"</p>
               <div className="flex gap-1 mb-3">
-                {[...Array(testimonial.rating)].map((_, j) => (
+                {[...Array(5)].map((_, j) => (
                   <Star key={j} className="w-4 h-4 text-warning fill-warning" />
                 ))}
               </div>
@@ -263,7 +222,7 @@ const Dashboard = () => {
           ))}
         </div>
         <div className="text-center mt-6">
-          <p className="text-muted-foreground">⭐ Rated 4.9/5 from over 500+ happy restaurant partners</p>
+          <p className="text-muted-foreground">⭐ {t.creatorStudio.dashboard.rating}</p>
         </div>
       </section>
 
@@ -271,10 +230,10 @@ const Dashboard = () => {
       <section className="mb-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-foreground mb-2">
-            Create Your Restaurant Brand with Powerful Tools
+            {t.creatorStudio.dashboard.features.title}
           </h2>
           <Link to="/creator-studio/credits">
-            <Button variant="outline" className="mt-4">View Plans</Button>
+            <Button variant="outline" className="mt-4">{t.creatorStudio.dashboard.features.viewPlans}</Button>
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -282,46 +241,46 @@ const Dashboard = () => {
             <div className="w-14 h-14 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center mb-4">
               <Sparkles className="w-7 h-7 text-primary-foreground" />
             </div>
-            <h3 className="font-bold text-lg text-foreground mb-2">AI Logo Maker</h3>
-            <p className="text-muted-foreground text-sm">Answer a few questions and let MrDelivery Studio design a professional logo for your restaurant</p>
+            <h3 className="font-bold text-lg text-foreground mb-2">{t.creatorStudio.dashboard.features.aiLogoMaker}</h3>
+            <p className="text-muted-foreground text-sm">{t.creatorStudio.dashboard.features.aiLogoMakerDesc}</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4">
               <Palette className="w-7 h-7 text-primary-foreground" />
             </div>
-            <h3 className="font-bold text-lg text-foreground mb-2">Brand Kit</h3>
-            <p className="text-muted-foreground text-sm">Save your restaurant colors, fonts, and logo to maintain consistency across all your marketing</p>
+            <h3 className="font-bold text-lg text-foreground mb-2">{t.creatorStudio.dashboard.features.brandKit}</h3>
+            <p className="text-muted-foreground text-sm">{t.creatorStudio.dashboard.features.brandKitDesc}</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-to-br from-accent to-warning rounded-xl flex items-center justify-center mb-4">
               <CreditCard className="w-7 h-7 text-primary-foreground" />
             </div>
-            <h3 className="font-bold text-lg text-foreground mb-2">Business Card Maker</h3>
-            <p className="text-muted-foreground text-sm">Design professional business cards for your restaurant with customizable templates</p>
+            <h3 className="font-bold text-lg text-foreground mb-2">{t.creatorStudio.dashboard.features.businessCardMaker}</h3>
+            <p className="text-muted-foreground text-sm">{t.creatorStudio.dashboard.features.businessCardMakerDesc}</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-4">
               <Image className="w-7 h-7 text-primary-foreground" />
             </div>
-            <h3 className="font-bold text-lg text-foreground mb-2">AI Banner Generator</h3>
-            <p className="text-muted-foreground text-sm">Describe your promotion and let MrDelivery Studio generate stunning banners with food imagery</p>
+            <h3 className="font-bold text-lg text-foreground mb-2">{t.creatorStudio.dashboard.features.aiBannerGenerator}</h3>
+            <p className="text-muted-foreground text-sm">{t.creatorStudio.dashboard.features.aiBannerGeneratorDesc}</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all">
             <div className="w-14 h-14 bg-gradient-to-br from-warning to-destructive rounded-xl flex items-center justify-center mb-4">
               <Type className="w-7 h-7 text-primary-foreground" />
             </div>
-            <h3 className="font-bold text-lg text-foreground mb-2">Social Post Generator</h3>
-            <p className="text-muted-foreground text-sm">Create eye-catching promotional graphics for daily specials, delivery deals, and menu updates</p>
+            <h3 className="font-bold text-lg text-foreground mb-2">{t.creatorStudio.dashboard.features.socialPostGenerator}</h3>
+            <p className="text-muted-foreground text-sm">{t.creatorStudio.dashboard.features.socialPostGeneratorDesc}</p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg transition-all group cursor-pointer">
             <Link to="/creator-studio/logo" className="block">
               <div className="w-14 h-14 bg-gradient-to-br from-success to-primary rounded-xl flex items-center justify-center mb-4">
                 <Wand2 className="w-7 h-7 text-primary-foreground" />
               </div>
-              <h3 className="font-bold text-lg text-foreground mb-2">Need a restaurant logo?</h3>
-              <p className="text-muted-foreground text-sm mb-4">Create stunning AI-powered logos for your restaurant in seconds.</p>
+              <h3 className="font-bold text-lg text-foreground mb-2">{t.creatorStudio.dashboard.features.needLogo}</h3>
+              <p className="text-muted-foreground text-sm mb-4">{t.creatorStudio.dashboard.features.needLogoDesc}</p>
               <span className="text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                Try Logo Maker Now <ArrowRight className="w-4 h-4" />
+                {t.creatorStudio.dashboard.features.tryLogoMaker} <ArrowRight className="w-4 h-4" />
               </span>
             </Link>
           </div>
