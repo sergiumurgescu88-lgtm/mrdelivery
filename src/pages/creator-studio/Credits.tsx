@@ -94,8 +94,8 @@ const Credits = () => {
             Choose Your Plan
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Get credits to generate banners, logos, and social content. 
-            All plans include access to all AI tools.
+            Get credits to generate restaurant banners, logos, and promotional content. 
+            All plans include access to all MrDelivery Studio AI tools.
           </p>
           
           {/* Current Credits */}

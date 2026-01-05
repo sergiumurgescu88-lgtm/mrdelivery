@@ -110,10 +110,10 @@ const AILogo = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center">
                 <Sparkles className="w-7 h-7 text-primary-foreground" />
               </div>
-              AI Logo Maker
+              MrDelivery Logo Maker
             </h1>
             <p className="text-muted-foreground">
-              Answer a few questions and let AI design a professional logo for your brand
+              Answer a few questions and let AI design a professional logo for your restaurant
             </p>
           </div>
 
@@ -122,11 +122,11 @@ const AILogo = () => {
             <div className="space-y-2">
               <Label htmlFor="companyName" className="text-foreground font-semibold flex items-center gap-2">
                 <Building2 className="w-4 h-4 text-primary" />
-                Company Name
+                Restaurant Name
               </Label>
               <Input
                 id="companyName"
-                placeholder="Enter your company or brand name"
+                placeholder="Enter your restaurant or delivery service name"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
                 className="bg-background"
@@ -137,11 +137,11 @@ const AILogo = () => {
             <div className="space-y-2">
               <Label htmlFor="description" className="text-foreground font-semibold flex items-center gap-2">
                 <Wand2 className="w-4 h-4 text-primary" />
-                Business Description (Optional)
+                Restaurant Description (Optional)
               </Label>
               <Textarea
                 id="description"
-                placeholder="E.g., A tech startup focused on sustainable energy solutions"
+                placeholder="E.g., A family Italian restaurant specializing in wood-fired pizzas and fresh pasta"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="min-h-[80px] bg-background"
