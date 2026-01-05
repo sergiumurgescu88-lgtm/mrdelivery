@@ -429,6 +429,37 @@ export const translations = {
             features: ['1000 AI generations', 'All features included', 'Custom templates', 'API access', 'Dedicated support', 'Team collaboration', 'White-label exports']
           }
         }
+      },
+      profile: {
+        title: 'My Profile',
+        subtitle: 'Manage your account and view your generated content',
+        loginRequired: 'Login Required',
+        loginRequiredDesc: 'Please log in to view your profile and generated content.',
+        settings: 'Settings',
+        banners: 'Banners',
+        logos: 'Logos',
+        posts: 'Posts',
+        cards: 'Cards',
+        accountInfo: 'Account Information',
+        email: 'Email',
+        emailCantChange: 'Email cannot be changed',
+        displayName: 'Display Name',
+        displayNamePlaceholder: 'Enter your display name',
+        saving: 'Saving...',
+        saveChanges: 'Save Changes',
+        profileUpdated: 'Profile updated successfully!',
+        updateFailed: 'Failed to update profile',
+        creditsSummary: 'Credits Summary',
+        generatedBanners: 'Generated Banners',
+        generatedLogos: 'Generated Logos',
+        savedPosts: 'Saved Social Posts',
+        savedCards: 'Saved Business Cards',
+        noBanners: 'No banners generated yet',
+        noLogos: 'No logos generated yet',
+        noPosts: 'No social posts saved yet',
+        noCards: 'No business cards saved yet',
+        itemDeleted: 'Item deleted successfully',
+        deleteFailed: 'Failed to delete item'
       }
     }
   },
@@ -860,6 +891,37 @@ export const translations = {
             features: ['1000 generaciones IA', 'Todas las funciones incluidas', 'Plantillas personalizadas', 'Acceso API', 'Soporte dedicado', 'Colaboración en equipo', 'Exportaciones sin marca']
           }
         }
+      },
+      profile: {
+        title: 'Mi Perfil',
+        subtitle: 'Administra tu cuenta y visualiza tu contenido generado',
+        loginRequired: 'Inicio de Sesión Requerido',
+        loginRequiredDesc: 'Por favor inicia sesión para ver tu perfil y contenido generado.',
+        settings: 'Configuración',
+        banners: 'Banners',
+        logos: 'Logos',
+        posts: 'Posts',
+        cards: 'Tarjetas',
+        accountInfo: 'Información de la Cuenta',
+        email: 'Correo Electrónico',
+        emailCantChange: 'El correo no puede ser cambiado',
+        displayName: 'Nombre para Mostrar',
+        displayNamePlaceholder: 'Ingresa tu nombre para mostrar',
+        saving: 'Guardando...',
+        saveChanges: 'Guardar Cambios',
+        profileUpdated: '¡Perfil actualizado exitosamente!',
+        updateFailed: 'Error al actualizar el perfil',
+        creditsSummary: 'Resumen de Créditos',
+        generatedBanners: 'Banners Generados',
+        generatedLogos: 'Logos Generados',
+        savedPosts: 'Posts Sociales Guardados',
+        savedCards: 'Tarjetas de Visita Guardadas',
+        noBanners: 'Aún no hay banners generados',
+        noLogos: 'Aún no hay logos generados',
+        noPosts: 'Aún no hay posts sociales guardados',
+        noCards: 'Aún no hay tarjetas de visita guardadas',
+        itemDeleted: 'Elemento eliminado exitosamente',
+        deleteFailed: 'Error al eliminar el elemento'
       }
     }
   },
@@ -1291,6 +1353,37 @@ export const translations = {
             features: ['1000 generări IA', 'Toate funcțiile incluse', 'Șabloane personalizate', 'Acces API', 'Suport dedicat', 'Colaborare în echipă', 'Exporturi fără brand']
           }
         }
+      },
+      profile: {
+        title: 'Profilul Meu',
+        subtitle: 'Administrează-ți contul și vizualizează conținutul generat',
+        loginRequired: 'Autentificare Necesară',
+        loginRequiredDesc: 'Te rugăm să te autentifici pentru a vedea profilul și conținutul generat.',
+        settings: 'Setări',
+        banners: 'Bannere',
+        logos: 'Logo-uri',
+        posts: 'Postări',
+        cards: 'Cărți',
+        accountInfo: 'Informații Cont',
+        email: 'Email',
+        emailCantChange: 'Email-ul nu poate fi schimbat',
+        displayName: 'Nume Afișat',
+        displayNamePlaceholder: 'Introdu numele tău afișat',
+        saving: 'Se salvează...',
+        saveChanges: 'Salvează Modificările',
+        profileUpdated: 'Profilul a fost actualizat cu succes!',
+        updateFailed: 'Actualizarea profilului a eșuat',
+        creditsSummary: 'Sumar Credite',
+        generatedBanners: 'Bannere Generate',
+        generatedLogos: 'Logo-uri Generate',
+        savedPosts: 'Postări Sociale Salvate',
+        savedCards: 'Cărți de Vizită Salvate',
+        noBanners: 'Încă nu ai generat bannere',
+        noLogos: 'Încă nu ai generat logo-uri',
+        noPosts: 'Încă nu ai salvat postări sociale',
+        noCards: 'Încă nu ai salvat cărți de vizită',
+        itemDeleted: 'Elementul a fost șters cu succes',
+        deleteFailed: 'Ștergerea elementului a eșuat'
       }
     }
   }

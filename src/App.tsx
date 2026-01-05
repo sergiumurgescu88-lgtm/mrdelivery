@@ -14,6 +14,7 @@ import AILogo from "./pages/creator-studio/AILogo";
 import BusinessCards from "./pages/creator-studio/BusinessCards";
 import SocialPosts from "./pages/creator-studio/SocialPosts";
 import Credits from "./pages/creator-studio/Credits";
+import Profile from "./pages/creator-studio/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/creator-studio/business-cards" element={<BusinessCards />} />
               <Route path="/creator-studio/social-posts" element={<SocialPosts />} />
               <Route path="/creator-studio/credits" element={<Credits />} />
+              <Route path="/creator-studio/profile" element={<Profile />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

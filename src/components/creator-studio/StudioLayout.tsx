@@ -16,7 +16,8 @@ import {
   X,
   Coins,
   ArrowLeft,
-  Sparkles
+  Sparkles,
+  User
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -113,6 +114,16 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
               {/* User Actions */}
               {user ? (
                 <div className="flex items-center gap-2">
+                  <Link to="/creator-studio/profile">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="hidden sm:flex gap-2"
+                    >
+                      <User className="w-4 h-4" />
+                      {t.creatorStudio.profile.title}
+                    </Button>
+                  </Link>
                   <Button
                     variant="outline"
                     size="sm"
@@ -177,14 +188,28 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
               </div>
               
               {user && (
-                <Button
-                  variant="outline"
-                  className="w-full justify-start gap-3 mt-2"
-                  onClick={handleSignOut}
-                >
-                  <LogOut className="w-5 h-5" />
-                  {t.creatorStudio.nav.logOut}
-                </Button>
+                <>
+                  <Link 
+                    to="/creator-studio/profile"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Button
+                      variant={location.pathname === '/creator-studio/profile' ? 'default' : 'ghost'}
+                      className={`w-full justify-start gap-3 mt-2 ${location.pathname === '/creator-studio/profile' ? 'bg-primary text-primary-foreground' : ''}`}
+                    >
+                      <User className="w-5 h-5" />
+                      {t.creatorStudio.profile.title}
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start gap-3 mt-2"
+                    onClick={handleSignOut}
+                  >
+                    <LogOut className="w-5 h-5" />
+                    {t.creatorStudio.nav.logOut}
+                  </Button>
+                </>
               )}
             </div>
           </div>
