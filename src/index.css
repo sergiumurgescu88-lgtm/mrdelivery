@@ -141,6 +141,10 @@
     animation: audio-float 6s ease-in-out infinite;
   }
 
+  .animate-audio-float {
+    animation: audio-float 6s ease-in-out infinite;
+  }
+
   @keyframes audio-float {
     0% {
       transform: translateY(0px) rotate(0deg);
@@ -160,6 +164,10 @@
   }
 
   .animate-flicker {
+    animation: audio-flicker 2.2s ease-in-out infinite alternate;
+  }
+
+  .animate-audio-flicker {
     animation: audio-flicker 2.2s ease-in-out infinite alternate;
   }
 
