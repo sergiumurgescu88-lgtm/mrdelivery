@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 
 // Import banner images
-import bannerFreeDelivery from '@/assets/banner-free-delivery.png';
+import bannerStoryGallery from '@/assets/banner-story-gallery.png';
 import bannerNewMenu from '@/assets/banner-new-menu.png';
 import bannerWeekendDeals from '@/assets/banner-weekend-deals.png';
 import bannerPizzaSpecial from '@/assets/banner-pizza-special.png';
@@ -36,7 +36,7 @@ import logoGoldenFork from '@/assets/logo-golden-fork.png';
 import logoHeritageEats from '@/assets/logo-heritage-eats.png';
 
 const showcaseBanners = [
-  { title: 'Free Delivery', type: 'Story', size: '1024x1024', image: bannerFreeDelivery },
+  { title: 'Free Delivery', type: 'Story', size: '1024x1024', image: bannerStoryGallery },
   { title: 'New Menu', type: 'Facebook Cover', size: '820x312', image: bannerNewMenu },
   { title: 'Weekend Deals', type: 'Banner', size: '1024x1536', image: bannerWeekendDeals },
   { title: 'Pizza Special', type: 'Facebook Post', size: '1200x630', image: bannerPizzaSpecial }
