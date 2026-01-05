@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { FoodBackground } from '@/components/FoodBackground';
 import { Button } from '@/components/ui/button';
 import { 
   Truck, 
@@ -47,14 +48,16 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative overflow-hidden bg-background">
+      {/* Space Background with Stars and Astronauts */}
+      <FoodBackground />
       {/* Language Switcher */}
-      <div className="pt-2">
+      <div className="pt-2 relative z-20">
         <LanguageSwitcher />
       </div>
 
       {/* Announcement Banner */}
-      <div className="bg-gradient-primary text-primary-foreground py-2 overflow-hidden">
+      <div className="bg-gradient-primary text-primary-foreground py-2 overflow-hidden relative z-10">
         <div className="animate-marquee whitespace-nowrap flex">
           {[...Array(6)].map((_, i) => (
             <span key={i} className="mx-8 text-sm font-medium">
@@ -65,7 +68,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-card border-b border-border sticky top-0 z-50">
+      <nav className="bg-card/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Back Button + Logo */}
@@ -217,7 +220,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = ({ children }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-4 py-8 relative z-10">
         {children}
       </main>
     </div>
