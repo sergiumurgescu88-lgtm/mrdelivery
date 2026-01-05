@@ -155,6 +155,34 @@ const Dashboard = () => {
         </div>
       </section>
 
+      {/* Social Media Showcase - Meniul Zilei Dum Dum Kebab */}
+      <section className="mb-12">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold flex items-center gap-2">
+            <MessageSquare className="w-6 h-6 text-success" />
+            <span className="text-gradient-primary">Galerie Social Media</span>
+          </h2>
+          <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full">Meniul Zilei - Dum Dum Kebab</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {showcaseSocialMedia.map((post, i) => (
+            <div key={i} className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-all">
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-3 flex justify-between items-center">
+                <span className="text-sm font-medium text-foreground">{post.title}</span>
+                <span className="text-xs text-muted-foreground">{post.platform}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Get Started Banner */}
       <section className="mb-12 bg-card rounded-2xl border border-border p-6 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -264,34 +292,6 @@ const Dashboard = () => {
               </div>
               <div className="p-3">
                 <span className="text-sm text-muted-foreground">{logo.style}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Social Media Showcase - Meniul Zilei Dum Dum Kebab */}
-      <section className="mb-12">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold flex items-center gap-2">
-            <MessageSquare className="w-6 h-6 text-success" />
-            <span className="text-gradient-primary">Galerie Social Media</span>
-          </h2>
-          <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full">Meniul Zilei - Dum Dum Kebab</span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {showcaseSocialMedia.map((post, i) => (
-            <div key={i} className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-all">
-              <div className="aspect-square overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-3 flex justify-between items-center">
-                <span className="text-sm font-medium text-foreground">{post.title}</span>
-                <span className="text-xs text-muted-foreground">{post.platform}</span>
               </div>
             </div>
           ))}
