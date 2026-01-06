@@ -106,7 +106,7 @@ export const translations = {
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Guess the Secret Ingredient, Boyfriend vs Girlfriend Battle and many more'
       },
       ugc: {
-        title: 'AI Video Generator for Business',
+        title: 'AI Video Generator',
         heroTitle: '32 Viral Videos',
         heroSubtitle: 'A real presenter promotes your product. You just send a photo on Telegram.',
         price: '€100 for 32 videos',
@@ -578,7 +578,7 @@ export const translations = {
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Adivina el Ingrediente Secreto, Batalla Novio vs Novia y muchos más'
       },
       ugc: {
-        title: 'AI Video Generator para Negocios',
+        title: 'AI Video Generator',
         heroTitle: '32 Vídeos Virales',
         heroSubtitle: 'Un presentador real promociona tu producto. Solo envías una foto por Telegram.',
         price: '€100 por 32 vídeos',
@@ -1050,7 +1050,7 @@ export const translations = {
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Ghicește Ingredientul Secret, Batalla Iubit vs Iubită și multe altele'
       },
       ugc: {
-        title: 'AI Video Generator pentru Business',
+        title: 'AI Video Generator',
         heroTitle: '32 de Videoclipuri Virale',
         heroSubtitle: 'Un prezentator real îți promovează produsul. Tu doar trimiți o poză pe Telegram.',
         price: '499 RON (100 EUR) pentru 32 de videoclipuri',
