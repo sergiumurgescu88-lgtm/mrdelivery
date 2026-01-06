@@ -7,6 +7,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { z } from 'zod';
 import { 
   CreditCard, 
   Mail, 
@@ -17,6 +18,16 @@ import {
   Loader2,
   Save
 } from 'lucide-react';
+
+// Input validation schema
+const businessCardSchema = z.object({
+  name: z.string().trim().min(1, 'Name is required').max(100, 'Name too long'),
+  title: z.string().trim().max(100, 'Title too long').optional(),
+  company: z.string().trim().max(100, 'Company name too long').optional(),
+  email: z.string().trim().email('Invalid email').max(255, 'Email too long').optional().or(z.literal('')),
+  phone: z.string().trim().max(30, 'Phone too long').regex(/^[+\d\s()-]*$/, 'Invalid phone format').optional().or(z.literal('')),
+  website: z.string().trim().max(255, 'Website too long').optional().or(z.literal(''))
+});
 
 const colorSchemes = [
   { id: 'blue', primary: '#3B82F6', secondary: '#1E40AF', label: 'Blue' },
@@ -56,27 +67,32 @@ const BusinessCards = () => {
   };
 
   const handleSave = async () => {
-    if (!formData.name.trim()) {
-      toast.error('Please enter your name');
-      return;
-    }
-    
     if (!user) {
       toast.error('Please log in to save your business card');
       return;
     }
+
+    // Validate input with zod
+    const validationResult = businessCardSchema.safeParse(formData);
+    if (!validationResult.success) {
+      const firstError = validationResult.error.errors[0];
+      toast.error(firstError.message);
+      return;
+    }
+
+    const validatedData = validationResult.data;
 
     setSaving(true);
 
     try {
       const { error } = await supabase.from('business_cards').insert({
         user_id: user.id,
-        name: formData.name,
-        title: formData.title,
-        company: formData.company,
-        email: formData.email,
-        phone: formData.phone,
-        website: formData.website,
+        name: validatedData.name,
+        title: validatedData.title || null,
+        company: validatedData.company || null,
+        email: validatedData.email || null,
+        phone: validatedData.phone || null,
+        website: validatedData.website || null,
         template: selectedTemplate,
         color_scheme: selectedColors.id
       });
@@ -121,6 +137,7 @@ const BusinessCards = () => {
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   className="bg-background"
+                  maxLength={100}
                 />
               </div>
               <div className="space-y-2">
@@ -131,6 +148,7 @@ const BusinessCards = () => {
                   value={formData.title}
                   onChange={(e) => handleInputChange('title', e.target.value)}
                   className="bg-background"
+                  maxLength={100}
                 />
               </div>
             </div>
@@ -146,6 +164,7 @@ const BusinessCards = () => {
                 value={formData.company}
                 onChange={(e) => handleInputChange('company', e.target.value)}
                 className="bg-background"
+                maxLength={100}
               />
             </div>
 
@@ -162,6 +181,7 @@ const BusinessCards = () => {
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   className="bg-background"
+                  maxLength={255}
                 />
               </div>
               <div className="space-y-2">
@@ -175,6 +195,7 @@ const BusinessCards = () => {
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
                   className="bg-background"
+                  maxLength={30}
                 />
               </div>
             </div>
@@ -190,6 +211,7 @@ const BusinessCards = () => {
                 value={formData.website}
                 onChange={(e) => handleInputChange('website', e.target.value)}
                 className="bg-background"
+                maxLength={255}
               />
             </div>
 

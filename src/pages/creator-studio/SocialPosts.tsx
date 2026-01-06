@@ -7,6 +7,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { z } from 'zod';
 import { 
   Type, 
   Wand2, 
@@ -17,6 +18,11 @@ import {
   Save,
   Sparkles
 } from 'lucide-react';
+
+// Input validation schema
+const socialPostSchema = z.object({
+  textContent: z.string().trim().min(1, 'Text is required').max(2000, 'Text too long (max 2000 characters)')
+});
 
 const platforms = [
   { id: 'instagram', label: 'Instagram', icon: Instagram, size: '1080x1080' },
@@ -80,23 +86,28 @@ const SocialPosts = () => {
   };
 
   const handleSave = async () => {
-    if (!textContent.trim()) {
-      toast.error('Please enter some text');
-      return;
-    }
-    
     if (!user) {
       toast.error('Please log in to save');
       return;
     }
+
+    // Validate input with zod
+    const validationResult = socialPostSchema.safeParse({ textContent });
+    if (!validationResult.success) {
+      const firstError = validationResult.error.errors[0];
+      toast.error(firstError.message);
+      return;
+    }
+
+    const validatedData = validationResult.data;
 
     setLoading(true);
 
     try {
       const { error } = await supabase.from('generated_social_posts').insert({
         user_id: user.id,
-        text_content: textContent,
-        prompt: textContent,
+        text_content: validatedData.textContent,
+        prompt: validatedData.textContent,
         background_color: selectedBg.colors[0],
         font_style: selectedFont.id,
         platform: selectedPlatform.id

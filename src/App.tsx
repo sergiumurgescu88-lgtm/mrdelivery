@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import BecomeCreator from "./pages/BecomeCreator";
 import Auth from "./pages/Auth";
@@ -31,13 +32,13 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/become-creator" element={<BecomeCreator />} />
               <Route path="/auth" element={<Auth />} />
-              <Route path="/creator-studio" element={<Dashboard />} />
-              <Route path="/creator-studio/banner" element={<AIBanner />} />
-              <Route path="/creator-studio/logo" element={<AILogo />} />
-              <Route path="/creator-studio/business-cards" element={<BusinessCards />} />
-              <Route path="/creator-studio/social-posts" element={<SocialPosts />} />
-              <Route path="/creator-studio/credits" element={<Credits />} />
-              <Route path="/creator-studio/profile" element={<Profile />} />
+              <Route path="/creator-studio" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/creator-studio/banner" element={<ProtectedRoute><AIBanner /></ProtectedRoute>} />
+              <Route path="/creator-studio/logo" element={<ProtectedRoute><AILogo /></ProtectedRoute>} />
+              <Route path="/creator-studio/business-cards" element={<ProtectedRoute><BusinessCards /></ProtectedRoute>} />
+              <Route path="/creator-studio/social-posts" element={<ProtectedRoute><SocialPosts /></ProtectedRoute>} />
+              <Route path="/creator-studio/credits" element={<ProtectedRoute><Credits /></ProtectedRoute>} />
+              <Route path="/creator-studio/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
