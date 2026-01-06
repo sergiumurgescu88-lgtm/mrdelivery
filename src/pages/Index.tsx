@@ -213,85 +213,61 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Main AI Agent Panel - Same structure as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-                  </div>
-                  {t.services.aiAgents.phone.title}
+              {/* 3-Column Grid for AI Agent Features */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-5">
+                {/* Column 1: Phone/Voice AI */}
+                <div className="bg-gradient-to-br from-destructive/5 to-destructive/10 p-4 sm:p-5 rounded-2xl border-2 border-destructive/30 shadow-xl h-full">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
+                    <div className="p-2 bg-destructive rounded-lg">
+                      <Phone className="w-5 h-5 text-destructive-foreground" />
+                    </div>
+                    {t.services.aiAgents.phone.title}
+                  </h4>
+                  <p className="text-sm text-destructive font-semibold mb-2">{t.services.aiAgents.phone.tagline}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.aiAgents.phone.intro}</p>
+                  {t.services.aiAgents.phone.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+                </div>
+
+                {/* Column 2: WhatsApp/Chat AI */}
+                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 sm:p-5 rounded-2xl border-2 border-success/30 shadow-xl h-full">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
+                    <div className="p-2 bg-success rounded-lg">
+                      <MessageSquare className="w-5 h-5 text-success-foreground" />
+                    </div>
+                    {t.services.aiAgents.whatsapp.title}
+                  </h4>
+                  <p className="text-sm text-success font-semibold mb-2">{t.services.aiAgents.whatsapp.tagline}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.aiAgents.whatsapp.intro}</p>
+                  {t.services.aiAgents.whatsapp.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+                </div>
+
+                {/* Column 3: Reservations/Calendar Sync */}
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 sm:p-5 rounded-2xl border-2 border-primary/30 shadow-xl h-full">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
+                    <div className="p-2 bg-primary rounded-lg">
+                      <Calendar className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    {t.services.aiAgents.reservations.title}
+                  </h4>
+                  <p className="text-sm text-primary font-semibold mb-2">{t.services.aiAgents.reservations.tagline}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.aiAgents.reservations.intro}</p>
+                  {t.services.aiAgents.reservations.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+                </div>
+              </div>
+
+              {/* Benefits Section */}
+              <div className="bg-gradient-warning p-4 sm:p-5 rounded-2xl border-2 border-warning/30 shadow-xl">
+                <h4 className="font-bold text-base sm:text-lg text-warning-foreground mb-3 flex items-center gap-2">
+                  <Award className="w-5 h-5" />
+                  {t.services.aiAgents.benefitsTitle}
                 </h4>
-                <div className="pl-2 sm:pl-4 space-y-3">
-                  {t.services.aiAgents.phone.items.map((item, index) => <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground">{item}</span>
-                    </div>)}
-                </div>
-              </div>
-
-              {/* WhatsApp Section - Same colors as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-                  </div>
-                  {t.services.aiAgents.whatsapp.title}
-                </h4>
-                <div className="pl-2 sm:pl-4 space-y-3">
-                  {t.services.aiAgents.whatsapp.items.map((item, index) => <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground">{item}</span>
-                    </div>)}
-                </div>
-              </div>
-
-              {/* Reservations Section - Same colors as VEO3 */}
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-                  </div>
-                  {t.services.aiAgents.reservations.title}
-                </h4>
-                <div className="pl-2 sm:pl-4 space-y-3">
-                  {t.services.aiAgents.reservations.items.map((item, index) => <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                        <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground">{item}</span>
-                    </div>)}
-                </div>
-              </div>
-
-              {/* Feature cards - Same grid style as VEO3 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    <h5 className="font-bold text-sm sm:text-base text-foreground">24/7 AI</h5>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Never miss a call or message with intelligent automation</p>
-                </div>
-                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Award className="w-5 h-5 text-success" />
-                    <h5 className="font-bold text-sm sm:text-base text-foreground">Smart Integration</h5>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Seamlessly connects with Google Calendar and WhatsApp</p>
-                </div>
-              </div>
-
-              {/* Benefits - Same style as VEO3 examples box */}
-              <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
-                <div className="flex items-start gap-2 sm:gap-3">
-                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
-                  <p className="text-sm sm:text-base text-warning-foreground font-medium">
-                    <strong>🤖 Benefits:</strong> {t.services.aiAgents.benefits}
-                  </p>
+                <div className="space-y-2">
+                  {t.services.aiAgents.benefitsList.map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-warning-foreground">{benefit}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </ServiceCard>
