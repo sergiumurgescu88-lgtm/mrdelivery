@@ -15,7 +15,7 @@ import ugcExample3 from '@/assets/ugc-example-3.mp4';
 import ugcExample4 from '@/assets/ugc-example-4.mp4';
 import ugcExample5 from '@/assets/ugc-example-5.mp4';
 import ugcExample6 from '@/assets/ugc-example-6.mp4';
-import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye } from 'lucide-react';
+import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -114,15 +114,99 @@ const Index = () => {
 
         {/* Current Services Tab */}
         {activeTab === 'existente' && <main className="space-y-5 px-2">
-            {/* Standard Package */}
-            <ServiceCard title={t.services.standard.title} icon={TrendingUp} price={t.services.standard.price} subtitle={t.services.standard.subtitle}>
+            {/* Standard Package - Delivery Platform Management */}
+            <ServiceCard title={t.services.standard.title} icon={Truck} price={t.services.standard.price} subtitle={t.services.standard.subtitle}>
               <div className="mb-4">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full mb-4">
-                  <Clock className="w-4 h-4 text-primary" />
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full">
+                  <Globe className="w-4 h-4 text-primary" />
                   <span className="text-sm font-bold text-foreground">{t.services.standard.support}</span>
                 </div>
               </div>
-              {t.services.standard.items.map((item, index) => <ServiceItem key={index} text={item} icon={[ShoppingBag, Calendar, TrendingUp, Zap, Award, Megaphone, Clock, Globe, MessageSquare][index]} />)}
+
+              {/* 3 Main Feature Cards */}
+              <div className="grid grid-cols-1 gap-4 mb-5">
+                {/* Card 1: Negotiation & Budgets */}
+                <div className="bg-gradient-to-br from-warning/10 via-warning/5 to-warning/10 p-4 sm:p-5 rounded-2xl border-2 border-warning/30 shadow-lg">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2.5 bg-gradient-warning rounded-xl shadow-lg">
+                      <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-base sm:text-lg text-foreground">{(t.services.standard as any).negotiation?.title || '💰 Negociere Comisioane și Bugete'}</h4>
+                      <span className="text-xs bg-warning/20 text-warning-foreground px-2 py-0.5 rounded-full font-semibold">{(t.services.standard as any).negotiation?.tagline || 'Economisești Bani'}</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">{(t.services.standard as any).negotiation?.intro || 'Nu lăsa profitul tău să dispară în comisioane uriașe.'}</p>
+                  <div className="space-y-2">
+                    {((t.services.standard as any).negotiation?.items || []).map((item: string, index: number) => (
+                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-warning/20">
+                        <Check className="w-4 h-4 text-warning flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Card 2: Active Menu */}
+                <div className="bg-gradient-to-br from-secondary/10 via-secondary/5 to-secondary/10 p-4 sm:p-5 rounded-2xl border-2 border-secondary/30 shadow-lg">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2.5 bg-gradient-primary rounded-xl shadow-lg">
+                      <UtensilsCrossed className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-base sm:text-lg text-foreground">{(t.services.standard as any).menu?.title || '🍽️ Meniu Optimizat pentru Vânzare'}</h4>
+                      <span className="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded-full font-semibold">{(t.services.standard as any).menu?.tagline || 'Vinzi Mai Mult'}</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">{(t.services.standard as any).menu?.intro || 'Un meniu care arată bine, vinde mai mult.'}</p>
+                  <div className="space-y-2">
+                    {((t.services.standard as any).menu?.items || []).map((item: string, index: number) => (
+                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-secondary/20">
+                        <Check className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Card 3: Support & Optimization */}
+                <div className="bg-gradient-to-br from-success/10 via-success/5 to-success/10 p-4 sm:p-5 rounded-2xl border-2 border-success/30 shadow-lg">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2.5 bg-gradient-success rounded-xl shadow-lg">
+                      <Headphones className="w-5 h-5 sm:w-6 sm:h-6 text-success-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-base sm:text-lg text-foreground">{(t.services.standard as any).support_card?.title || '📈 Suport și Logistică 24/7'}</h4>
+                      <span className="text-xs bg-success/20 text-success px-2 py-0.5 rounded-full font-semibold">{(t.services.standard as any).support_card?.tagline || 'WhatsApp 24/7'}</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">{(t.services.standard as any).support_card?.intro || 'Suntem „departamentul tău de livrări" disponibil oricând pe WhatsApp.'}</p>
+                  <div className="space-y-2">
+                    {((t.services.standard as any).support_card?.items || []).map((item: string, index: number) => (
+                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
+                        <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Why section */}
+              <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-4 rounded-2xl border-2 border-primary/20">
+                <h5 className="font-bold text-base text-foreground mb-3 flex items-center gap-2">
+                  <Award className="w-5 h-5 text-primary" />
+                  {(t.services.standard as any).whyTitle || 'De ce ai nevoie de acest management?'}
+                </h5>
+                <div className="space-y-2">
+                  {((t.services.standard as any).whyItems || []).map((item: string, index: number) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </ServiceCard>
 
             {/* Video Premium - VEO3 Services (Second) */}
