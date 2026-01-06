@@ -15,7 +15,7 @@ import ugcExample3 from '@/assets/ugc-example-3.mp4';
 import ugcExample4 from '@/assets/ugc-example-4.mp4';
 import ugcExample5 from '@/assets/ugc-example-5.mp4';
 import ugcExample6 from '@/assets/ugc-example-6.mp4';
-import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight } from 'lucide-react';
+import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -134,65 +134,93 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+              {/* 3 Main Feature Cards */}
+              <div className="grid grid-cols-1 gap-4 mb-5">
+                {/* Card 1: Premium Content */}
+                <div className="bg-gradient-to-br from-secondary/10 via-accent/5 to-secondary/10 p-4 sm:p-5 rounded-2xl border-2 border-secondary/30 shadow-lg">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2.5 bg-gradient-primary rounded-xl shadow-lg">
+                      <Video className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-base sm:text-lg text-foreground">{t.services.video.videosTitle}</h4>
+                      <span className="text-xs text-muted-foreground font-medium">{t.services.video.videoDesc}</span>
+                    </div>
                   </div>
-                  {t.services.video.videosTitle}
-                </h4>
-                <div className="mb-4">
-                  <p className="text-sm sm:text-base text-muted-foreground font-semibold mb-3 flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-secondary" />
-                    {t.services.video.videoDesc}
-                  </p>
-                  <div className="pl-2 sm:pl-4 space-y-3">
-                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="bg-card/50 p-3 rounded-xl border border-border/50">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Sparkles className="w-4 h-4 text-primary" />
+                        <span className="font-semibold text-sm text-foreground">{t.services.video.veo3}</span>
                       </div>
-                      <span className="text-sm sm:text-base text-foreground">
-                        <strong>{t.services.video.hook}</strong> - {t.services.video.hookDesc}
-                      </span>
+                      <p className="text-xs text-muted-foreground">{t.services.video.veo3Desc}</p>
                     </div>
-                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                        <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
+                    <div className="bg-card/50 p-3 rounded-xl border border-border/50">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Star className="w-4 h-4 text-warning" />
+                        <span className="font-semibold text-sm text-foreground">{t.services.video.format}</span>
                       </div>
-                      <span className="text-sm sm:text-base text-foreground">
-                        <strong>{t.services.video.action}</strong> - {t.services.video.actionDesc}
-                      </span>
+                      <p className="text-xs text-muted-foreground">{t.services.video.formatDesc}</p>
                     </div>
-                    <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                        <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
+                  </div>
+                </div>
+
+                {/* Card 2: Daily Posting Robot - PROMINENT */}
+                <div className="bg-gradient-to-br from-primary/15 via-primary/10 to-accent/15 p-4 sm:p-5 rounded-2xl border-2 border-primary/40 shadow-2xl relative overflow-hidden">
+                  {/* Animated glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 animate-pulse pointer-events-none" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2.5 bg-gradient-to-br from-primary to-accent rounded-xl shadow-lg shadow-primary/30">
+                        <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                       </div>
-                      <span className="text-sm sm:text-base text-foreground">
-                        <strong>{t.services.video.cta}</strong> - {t.services.video.ctaDesc}
-                      </span>
+                      <div>
+                        <h4 className="font-bold text-base sm:text-lg text-foreground">{(t.services.video as any).robot?.title || '🤖 Robot de Postare Zilnică'}</h4>
+                        <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-semibold">{(t.services.video as any).robot?.tagline || 'Automatizare'}</span>
+                      </div>
                     </div>
+                    <p className="text-sm text-muted-foreground mb-3">{(t.services.video as any).robot?.intro || 'Uită de grija postărilor manuale. Robotul nostru lucrează pentru tine.'}</p>
+                    <div className="space-y-2">
+                      {((t.services.video as any).robot?.items || [
+                        'Postare pe 4 Platforme: Clipul tău ajunge simultan pe TikTok, Instagram, Facebook și YouTube Shorts.',
+                        'Precizie Maximă: Postăm în fiecare zi, exact la aceeași oră, pentru a maximiza impactul.',
+                        'Fără Efort: Nu trebuie să intri în aplicații, să scrii descrieri sau să pui hashtag-uri. Noi automatizăm tot procesul.'
+                      ]).map((item: string, index: number) => (
+                        <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
+                          <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-foreground">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 3: Guaranteed Visibility */}
+                <div className="bg-gradient-to-br from-success/10 via-success/5 to-success/10 p-4 sm:p-5 rounded-2xl border-2 border-success/30 shadow-lg">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2.5 bg-gradient-success rounded-xl shadow-lg">
+                      <Eye className="w-5 h-5 sm:w-6 sm:h-6 text-success-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-base sm:text-lg text-foreground">{(t.services.video as any).visibility?.title || '📈 Vizibilitate Garantată din Prima Lună'}</h4>
+                      <span className="text-xs bg-success/20 text-success px-2 py-0.5 rounded-full font-semibold">{(t.services.video as any).visibility?.tagline || 'Algoritm Prietenos'}</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">{(t.services.video as any).visibility?.intro || 'Împrietenește-te cu Algoritmul: Algoritmii social media adoră consecvența.'}</p>
+                  <div className="space-y-2">
+                    {((t.services.video as any).visibility?.items || [
+                      'Impact Imediat: Vei vedea creșteri în vizibilitate, urmăritori și interacțiuni încă din primele 30 de zile.',
+                      'Constanță de Fier: Brandul tău rămâne în mintea clienților pentru că ești prezent sub ochii lor în fiecare zi.'
+                    ]).map((item: string, index: number) => (
+                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
+                        <TrendingUp className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.video.veo3}</h5>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{t.services.video.veo3Desc}</p>
-                </div>
-                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Award className="w-5 h-5 text-success" />
-                    <h5 className="font-bold text-sm sm:text-base text-foreground">{t.services.video.format}</h5>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{t.services.video.formatDesc}</p>
-                </div>
-              </div>
-
-              {t.services.video.items.map((item, index) => <ServiceItem key={index} text={item} icon={[Star, Users, Zap, Megaphone, Video, Award, TrendingUp, Globe][index]} />)}
 
               <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
                 <div className="flex items-start gap-2 sm:gap-3">
