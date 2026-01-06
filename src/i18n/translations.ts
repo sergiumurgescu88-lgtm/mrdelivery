@@ -148,37 +148,49 @@ export const translations = {
         examples: 'Influencer product showcases, restaurant food promotions, authentic testimonials, lifestyle unboxings, morning routines with your products'
       },
       premium: {
-        title: 'Premium Package: Efficiency and Innovation',
-        price: '€384/month',
-        originalPrice: '€699/month',
+        title: 'Business on Autopilot',
+        price: '€300/month',
+        originalPrice: '€550/month',
         discount: '45% OFF',
-        discountNote: '45% off if you purchase Packages 1 and 2 together',
-        subtitle: 'Complete digital transformation – Apps, Automation & Social Media',
+        discountNote: 'Save 45% by activating Digitalization and Marketing packages together',
+        subtitle: 'Everything you need to sell online, in one complete solution.',
         badge: 'All-Inclusive Package',
-        automation: {
-          title: '🎯 Automation and Customer Database',
+        app: {
+          title: 'Your Mobile App & Website',
+          tagline: 'Your own store',
+          intro: "Don't depend only on delivery platforms or social media.",
           items: [
-            'Collection and organization of database for personalized marketing',
-            'Scheduled notifications via WhatsApp/SMS',
-            'LAAS integration - delivery through partners without hiring couriers'
+            'Complete Launch: We create, test and launch your Android & iOS app and ordering website.',
+            'Worry-Free: We handle everything, from design to technical maintenance.',
+            'Smart Delivery: Integration with delivery partners (no need to hire your own couriers).'
           ]
         },
-        app: {
-          title: '📱 App Development (via TapTasty)',
+        automation: {
+          title: 'Automation & Loyalty',
+          tagline: 'Sell more to existing customers',
+          intro: 'Turn occasional visitors into loyal customers who return.',
           items: [
-            'Complete design, development, testing and launch of mobile apps and websites',
-            'Complete management from concept to launch',
-            'Continuous updates and maintenance'
+            'Database: We automatically collect customer data to send them offers.',
+            'Direct Messages: Send automatic notifications and promotions via WhatsApp or SMS.',
+            'Personalized Marketing: Right messages sent at the right time.'
           ]
         },
         social: {
-          title: '🎨 Social Media Management',
+          title: 'Social Media Management',
+          tagline: 'Maximum Visibility',
+          intro: 'Be present where your customers are, every day.',
           items: [
-            'Personalized content on Facebook, Instagram, TikTok',
-            'Strategies to increase engagement',
-            'Continuous monitoring and optimization'
+            'Viral Content: Posts and videos created especially for TikTok, Instagram and Facebook.',
+            'Growth Strategy: We don\'t just post, we bring new people to interact with your brand.',
+            'Monitoring: We analyze what works and constantly optimize for better results.'
           ]
-        }
+        },
+        whyChoose: 'Why choose this package?',
+        benefits: [
+          'Save time: We handle technology and posting, you focus on your business.',
+          'Reduced costs: Get an entire team (Developers, Marketers, Social Media) for the price of one subscription.',
+          'Total Control: Have your own sales channels, without huge commissions to third parties.'
+        ]
       }
     },
     aiServices: {
@@ -620,37 +632,49 @@ export const translations = {
         examples: 'Showcases de productos con influencers, promociones de comida de restaurante, testimonios auténticos, unboxings lifestyle, rutinas matutinas con tus productos'
       },
       premium: {
-        title: 'Paquete Premium: Eficiencia e Innovación',
-        price: '384 €/mes',
-        originalPrice: '699 €/mes',
+        title: 'Negocio en Piloto Automático',
+        price: '300 €/mes',
+        originalPrice: '550 €/mes',
         discount: '45% DESCUENTO',
-        discountNote: '45% de descuento al adquirir los Paquetes 1 y 2 juntos',
-        subtitle: 'Transformación digital completa – Apps, Automatización y Redes Sociales',
+        discountNote: 'Ahorra 45% activando los paquetes de Digitalización y Marketing juntos',
+        subtitle: 'Todo lo que necesitas para vender online, en una sola solución completa.',
         badge: 'Paquete Todo Incluido',
-        automation: {
-          title: '🎯 Automatización y Base de Datos de Clientes',
+        app: {
+          title: 'Tu App Móvil y Website',
+          tagline: 'Tu propia tienda',
+          intro: 'No dependas solo de plataformas de delivery o redes sociales.',
           items: [
-            'Recopilación y organización de base de datos para marketing personalizado',
-            'Notificaciones programadas por WhatsApp/SMS',
-            'Integración LAAS - entrega a través de partners sin contratar repartidores'
+            'Lanzamiento Completo: Creamos, probamos y lanzamos tu app de Android & iOS y website de pedidos.',
+            'Sin Preocupaciones: Nos encargamos de todo, desde el diseño hasta el mantenimiento técnico.',
+            'Entrega Inteligente: Integración con partners de entrega (no necesitas contratar repartidores).'
           ]
         },
-        app: {
-          title: '📱 Desarrollo de Aplicaciones (a través de TapTasty)',
+        automation: {
+          title: 'Automatización y Fidelización',
+          tagline: 'Vende más a clientes actuales',
+          intro: 'Transforma visitantes ocasionales en clientes fieles que vuelven.',
           items: [
-            'Diseño, desarrollo, pruebas y lanzamiento completo de apps móviles y website',
-            'Gestión completa desde el concepto hasta el lanzamiento',
-            'Actualizaciones y mantenimiento continuo'
+            'Base de Datos: Recopilamos automáticamente datos de clientes para enviarles ofertas.',
+            'Mensajes Directos: Envía notificaciones automáticas y promociones por WhatsApp o SMS.',
+            'Marketing Personalizado: Mensajes correctos enviados en el momento correcto.'
           ]
         },
         social: {
-          title: '🎨 Gestión de Redes Sociales',
+          title: 'Gestión de Redes Sociales',
+          tagline: 'Visibilidad Máxima',
+          intro: 'Estar presente donde están tus clientes, cada día.',
           items: [
-            'Contenido personalizado en Facebook, Instagram, TikTok',
-            'Estrategias para aumentar el engagement',
-            'Monitorización y optimización continua'
+            'Contenido Viral: Posts y vídeos creados especialmente para TikTok, Instagram y Facebook.',
+            'Estrategia de Crecimiento: No solo publicamos, traemos gente nueva para interactuar con tu marca.',
+            'Monitorización: Analizamos qué funciona y optimizamos constantemente para mejores resultados.'
           ]
-        }
+        },
+        whyChoose: '¿Por qué elegir este paquete?',
+        benefits: [
+          'Ahorra tiempo: Nos encargamos de tecnología y publicaciones, tú te enfocas en tu negocio.',
+          'Costes reducidos: Obtén un equipo completo (Desarrolladores, Marketers, Social Media) al precio de una suscripción.',
+          'Control Total: Ten tus propios canales de venta, sin comisiones enormes a terceros.'
+        ]
       }
     },
     aiServices: {
@@ -1092,37 +1116,49 @@ export const translations = {
         examples: 'Prezentări produse cu influenceri, promoții mâncare restaurant, testimoniale autentice, unboxing-uri lifestyle, rutine de dimineață cu produsele tale'
       },
       premium: {
-        title: 'Pachet Premium: Eficiență și Inovație',
+        title: 'Afacere pe Pilot Automat',
         price: '1.375 RON/lună',
         originalPrice: '2.500 RON/lună',
         discount: '45% REDUCERE',
-        discountNote: '45% reducere la achiziționarea Pachetelor 1 și 2 împreună',
-        subtitle: 'Transformare digitală completă – Aplicații Android/iOS, Automatizare și Social Media',
+        discountNote: 'Economisești 45% activând pachetele de Digitalizare și Marketing împreună',
+        subtitle: 'Tot ce ai nevoie pentru a vinde online, într-o singură soluție completă.',
         badge: 'Pachet All-Inclusive',
-        automation: {
-          title: '🎯 Automatizare și Bază de Date Clienți',
+        app: {
+          title: 'Aplicația Ta Mobilă și Website',
+          tagline: 'Propriul tău magazin',
+          intro: 'Nu mai depinde doar de platformele de livrare sau rețelele sociale.',
           items: [
-            'Colectarea și organizarea bazei de date pentru marketing personalizat',
-            'Notificări programate prin WhatsApp/SMS',
-            'Integrare LAAS - livrare prin parteneri fără angajarea curierilor'
+            'Lansare Completă: Creăm, testăm și lansăm aplicația ta de Android & iOS și website-ul de comenzi.',
+            'Fără Griji: Ne ocupăm noi de tot, de la design la mentenanță tehnică.',
+            'Livrare Inteligentă: Integrare cu parteneri de livrare (nu trebuie să angajezi tu curieri).'
           ]
         },
-        app: {
-          title: '📱 Dezvoltare Aplicații (prin TapTasty)',
+        automation: {
+          title: 'Automatizare și Fidelizare',
+          tagline: 'Vinde mai mult clienților actuali',
+          intro: 'Transformă vizitatorii ocazionali în clienți fideli care revin.',
           items: [
-            'Design, dezvoltare, testare și lansare completă de aplicații mobile și website',
-            'Management complet de la concept la lansare',
-            'Actualizări și mentenanță continuă'
+            'Bază de Date: Colectăm automat datele clienților tăi pentru a le putea trimite oferte.',
+            'Mesaje Directe: Trimite notificări automate și promoții prin WhatsApp sau SMS.',
+            'Marketing Personalizat: Mesaje potrivite trimise la momentul potrivit.'
           ]
         },
         social: {
-          title: '🎨 Management Social Media',
+          title: 'Management Social Media',
+          tagline: 'Vizibilitate Maximă',
+          intro: 'Fii prezent acolo unde sunt clienții tăi, în fiecare zi.',
           items: [
-            'Conținut personalizat pe Facebook, Instagram, TikTok',
-            'Strategii pentru creșterea engagement-ului',
-            'Monitorizare și optimizare continuă'
+            'Conținut Viral: Postări și clipuri create special pentru TikTok, Instagram și Facebook.',
+            'Strategie de Creștere: Nu doar postăm, ci aducem oameni noi care să interacționeze cu brandul tău.',
+            'Monitorizare: Analizăm ce funcționează și optimizăm constant pentru rezultate mai bune.'
           ]
-        }
+        },
+        whyChoose: 'De ce să alegi acest pachet?',
+        benefits: [
+          'Economisești timp: Noi ne ocupăm de tehnologie și postări, tu te ocupi de afacere.',
+          'Costuri reduse: Primești o întreagă echipă (Developeri, Marketeri, Social Media) la prețul unui singur abonament.',
+          'Control Total: Ai propriile tale canale de vânzare, fără comisioane uriașe către terți.'
+        ]
       }
     },
     aiServices: {
