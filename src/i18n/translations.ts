@@ -107,7 +107,7 @@ export const translations = {
       },
       ugc: {
         title: 'AI Video Generator for Business',
-        heroTitle: '32 Viral Videos for €100',
+        heroTitle: '32 Viral Videos',
         heroSubtitle: 'A real presenter promotes your product. You just send a photo on Telegram.',
         price: '€100 for 32 videos',
         originalPrice: '',
@@ -579,7 +579,7 @@ export const translations = {
       },
       ugc: {
         title: 'AI Video Generator para Negocios',
-        heroTitle: '32 Vídeos Virales por €100',
+        heroTitle: '32 Vídeos Virales',
         heroSubtitle: 'Un presentador real promociona tu producto. Solo envías una foto por Telegram.',
         price: '€100 por 32 vídeos',
         originalPrice: '',
@@ -1051,7 +1051,7 @@ export const translations = {
       },
       ugc: {
         title: 'AI Video Generator pentru Business',
-        heroTitle: '32 de Videoclipuri Virale, 100 Euro',
+        heroTitle: '32 de Videoclipuri Virale',
         heroSubtitle: 'Un prezentator real îți promovează produsul. Tu doar trimiți o poză pe Telegram.',
         price: '499 RON (100 EUR) pentru 32 de videoclipuri',
         originalPrice: '',
