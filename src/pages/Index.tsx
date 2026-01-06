@@ -15,39 +15,17 @@ import ugcExample3 from '@/assets/ugc-example-3.mp4';
 import ugcExample4 from '@/assets/ugc-example-4.mp4';
 import ugcExample5 from '@/assets/ugc-example-5.mp4';
 import ugcExample6 from '@/assets/ugc-example-6.mp4';
-import {
-  Zap,
-  Sparkles,
-  TrendingUp,
-  MessageSquare,
-  Video,
-  Clock,
-  ShoppingBag,
-  Calendar,
-  Award,
-  Megaphone,
-  Globe,
-  Phone,
-  Users,
-  Star,
-  Heart,
-  Upload,
-  Image,
-  Check,
-  Send,
-  Palette,
-  ArrowRight,
-} from 'lucide-react';
+import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
 const Index = () => {
-  const { language, t } = useLanguage();
+  const {
+    language,
+    t
+  } = useLanguage();
   const [activeTab, setActiveTab] = useState<'existente' | 'ai'>('existente');
-
-  return (
-    <div className="min-h-screen relative overflow-hidden bg-background">
+  return <div className="min-h-screen relative overflow-hidden bg-background">
       {/* Food Background with Miniature Chefs */}
       <FoodBackground />
 
@@ -64,11 +42,9 @@ const Index = () => {
           
           
           <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-2 max-w-2xl mx-auto">
-            {t.taglineItems.map((item, index) => (
-              <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
+            {t.taglineItems.map((item, index) => <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
                 {item.emoji} {item.text}
-              </p>
-            ))}
+              </p>)}
           </div>
           <div className="flex justify-center gap-1.5 sm:gap-3 mt-2 sm:mt-4 flex-wrap px-2">
             <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
@@ -91,9 +67,7 @@ const Index = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary-foreground mb-2">
                 {t.services.ugc.title}
               </h2>
-              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-foreground/90 mb-3">
-                {t.services.ugc.heroTitle}
-              </p>
+              
               <p className="text-base sm:text-lg text-primary-foreground/80 mb-4 max-w-xl mx-auto">
                 {t.services.ugc.heroSubtitle}
               </p>
@@ -110,11 +84,7 @@ const Index = () => {
               
               {/* Main CTA Button */}
               <div className="mt-4">
-                <a
-                  href="https://t.me/SergiuBot007bot"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://t.me/SergiuBot007bot" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-4 px-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg flex items-center gap-3 mx-auto">
                     <Send className="w-6 h-6" />
                     {t.services.ugc.telegramButton}
@@ -232,11 +202,7 @@ const Index = () => {
 
           {/* Final CTA */}
           <div className="text-center">
-            <a
-              href="https://t.me/SergiuBot007bot"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://t.me/SergiuBot007bot" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-bold py-4 px-10 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg flex items-center gap-3 mx-auto">
                 <ArrowRight className="w-6 h-6" />
                 {t.services.ugc.finalCta}
@@ -252,13 +218,7 @@ const Index = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
             
             {/* Header - Opens Video Gallery */}
-            <VideoGallery 
-              videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} 
-              buttonText=""
-              customTrigger={
-                <button 
-                  className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10"
-                >
+            <VideoGallery videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} buttonText="" customTrigger={<button className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10">
                   <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
                     <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
                       <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
@@ -275,9 +235,7 @@ const Index = () => {
                       <ChevronDown className="w-4 h-4 text-amber-300" />
                     </div>
                   </div>
-                </button>
-              }
-            />
+                </button>} />
             
             {/* Premium badge */}
             <div className="absolute top-2 right-2 px-2 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-[10px] font-bold text-amber-950 uppercase tracking-wider shadow-lg">
@@ -288,33 +246,15 @@ const Index = () => {
 
         {/* Tab Navigation - Servicii existente / Servicii AI */}
         <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
-          <button
-            onClick={() => setActiveTab('existente')}
-            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
-              activeTab === 'existente'
-                ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
-                : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
-            }`}
-          >
-            {activeTab === 'existente' && (
-              <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
-            )}
+          <button onClick={() => setActiveTab('existente')} className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${activeTab === 'existente' ? 'bg-gradient-primary text-primary-foreground shadow-2xl' : 'bg-card text-muted-foreground hover:shadow-lg border border-border'}`}>
+            {activeTab === 'existente' && <div className="absolute inset-0 bg-card/20 animate-pulse"></div>}
             <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
               <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.tabs.current}
             </span>
           </button>
-          <button
-            onClick={() => setActiveTab('ai')}
-            className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${
-              activeTab === 'ai'
-                ? 'bg-gradient-primary text-primary-foreground shadow-2xl'
-                : 'bg-card text-muted-foreground hover:shadow-lg border border-border'
-            }`}
-          >
-            {activeTab === 'ai' && (
-              <div className="absolute inset-0 bg-card/20 animate-pulse"></div>
-            )}
+          <button onClick={() => setActiveTab('ai')} className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${activeTab === 'ai' ? 'bg-gradient-primary text-primary-foreground shadow-2xl' : 'bg-card text-muted-foreground hover:shadow-lg border border-border'}`}>
+            {activeTab === 'ai' && <div className="absolute inset-0 bg-card/20 animate-pulse"></div>}
             <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.tabs.ai}
@@ -323,8 +263,7 @@ const Index = () => {
         </nav>
 
         {/* Current Services Tab */}
-        {activeTab === 'existente' && (
-          <main className="space-y-5 px-2">
+        {activeTab === 'existente' && <main className="space-y-5 px-2">
             {/* Standard Package */}
             <ServiceCard title={t.services.standard.title} icon={TrendingUp} price={t.services.standard.price} subtitle={t.services.standard.subtitle}>
               <div className="mb-4">
@@ -333,13 +272,7 @@ const Index = () => {
                   <span className="text-sm font-bold text-foreground">{t.services.standard.support}</span>
                 </div>
               </div>
-              {t.services.standard.items.map((item, index) => (
-                <ServiceItem
-                  key={index}
-                  text={item}
-                  icon={[ShoppingBag, Calendar, TrendingUp, Zap, Award, Megaphone, Clock, Globe, MessageSquare][index]}
-                />
-              ))}
+              {t.services.standard.items.map((item, index) => <ServiceItem key={index} text={item} icon={[ShoppingBag, Calendar, TrendingUp, Zap, Award, Megaphone, Clock, Globe, MessageSquare][index]} />)}
             </ServiceCard>
 
             {/* Video Premium - VEO3 Services (Second) */}
@@ -409,13 +342,7 @@ const Index = () => {
                 </div>
               </div>
 
-              {t.services.video.items.map((item, index) => (
-                <ServiceItem
-                  key={index}
-                  text={item}
-                  icon={[Star, Users, Zap, Megaphone, Video, Award, TrendingUp, Globe][index]}
-                />
-              ))}
+              {t.services.video.items.map((item, index) => <ServiceItem key={index} text={item} icon={[Star, Users, Zap, Megaphone, Video, Award, TrendingUp, Globe][index]} />)}
 
               <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg">
                 <div className="flex items-start gap-2 sm:gap-3">
@@ -445,14 +372,12 @@ const Index = () => {
                   {t.services.aiAgents.phone.title}
                 </h4>
                 <div className="pl-2 sm:pl-4 space-y-3">
-                  {t.services.aiAgents.phone.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                  {t.services.aiAgents.phone.items.map((item, index) => <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
                       <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-destructive to-accent rounded-full flex items-center justify-center flex-shrink-0">
                         <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-destructive-foreground" />
                       </div>
                       <span className="text-sm sm:text-base text-foreground">{item}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
@@ -465,14 +390,12 @@ const Index = () => {
                   {t.services.aiAgents.whatsapp.title}
                 </h4>
                 <div className="pl-2 sm:pl-4 space-y-3">
-                  {t.services.aiAgents.whatsapp.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                  {t.services.aiAgents.whatsapp.items.map((item, index) => <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
                       <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
                         <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
                       </div>
                       <span className="text-sm sm:text-base text-foreground">{item}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
@@ -485,14 +408,12 @@ const Index = () => {
                   {t.services.aiAgents.reservations.title}
                 </h4>
                 <div className="pl-2 sm:pl-4 space-y-3">
-                  {t.services.aiAgents.reservations.items.map((item, index) => (
-                    <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
+                  {t.services.aiAgents.reservations.items.map((item, index) => <div key={index} className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
                       <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
                         <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
                       </div>
                       <span className="text-sm sm:text-base text-foreground">{item}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
@@ -542,9 +463,7 @@ const Index = () => {
                   </div>
                   {t.services.premium.automation.title}
                 </h4>
-                {t.services.premium.automation.items.map((item, index) => (
-                  <ServiceItem key={index} text={item} />
-                ))}
+                {t.services.premium.automation.items.map((item, index) => <ServiceItem key={index} text={item} />)}
               </div>
 
               {/* App Development Section */}
@@ -555,9 +474,7 @@ const Index = () => {
                   </div>
                   {t.services.premium.app.title}
                 </h4>
-                {t.services.premium.app.items.map((item, index) => (
-                  <ServiceItem key={index} text={item} />
-                ))}
+                {t.services.premium.app.items.map((item, index) => <ServiceItem key={index} text={item} />)}
               </div>
 
               {/* Social Media Section */}
@@ -568,18 +485,14 @@ const Index = () => {
                   </div>
                   {t.services.premium.social.title}
                 </h4>
-                {t.services.premium.social.items.map((item, index) => (
-                  <ServiceItem key={index} text={item} />
-                ))}
+                {t.services.premium.social.items.map((item, index) => <ServiceItem key={index} text={item} />)}
               </div>
             </ServiceCard>
 
-          </main>
-        )}
+          </main>}
 
         {/* AI Services Tab */}
-        {activeTab === 'ai' && (
-          <main className="space-y-5 px-2">
+        {activeTab === 'ai' && <main className="space-y-5 px-2">
             {/* Header Banner */}
             <div className="bg-gradient-primary text-primary-foreground p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-card/10 animate-pulse"></div>
@@ -590,51 +503,35 @@ const Index = () => {
             </div>
 
             <ServiceCard title={t.aiServices.pricing} icon={TrendingUp}>
-              {t.aiServices.pricingItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[Zap, Star, Clock, TrendingUp][index]} />
-              ))}
+              {t.aiServices.pricingItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Zap, Star, Clock, TrendingUp][index]} />)}
             </ServiceCard>
 
             <ServiceCard title={t.aiServices.recommendations} icon={Users}>
-              {t.aiServices.recommendationsItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[Heart, ShoppingBag, Sparkles, TrendingUp][index]} />
-              ))}
+              {t.aiServices.recommendationsItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Heart, ShoppingBag, Sparkles, TrendingUp][index]} />)}
             </ServiceCard>
 
             <ServiceCard title={t.aiServices.chatbot} icon={MessageSquare}>
-              {t.aiServices.chatbotItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[Globe, Clock, Zap, Users][index]} />
-              ))}
+              {t.aiServices.chatbotItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Globe, Clock, Zap, Users][index]} />)}
             </ServiceCard>
 
             <ServiceCard title={t.aiServices.stock} icon={Calendar}>
-              {t.aiServices.stockItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[TrendingUp, Globe, Award, Zap][index]} />
-              ))}
+              {t.aiServices.stockItems.map((item, index) => <ServiceItem key={index} text={item} icon={[TrendingUp, Globe, Award, Zap][index]} />)}
             </ServiceCard>
 
             <ServiceCard title={t.aiServices.routes} icon={Globe}>
-              {t.aiServices.routesItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[Zap, Users, Clock, Star][index]} />
-              ))}
+              {t.aiServices.routesItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Zap, Users, Clock, Star][index]} />)}
             </ServiceCard>
 
             <ServiceCard title={t.aiServices.sentiment} icon={MessageSquare}>
-              {t.aiServices.sentimentItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[Globe, TrendingUp, MessageSquare, Star][index]} />
-              ))}
+              {t.aiServices.sentimentItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Globe, TrendingUp, MessageSquare, Star][index]} />)}
             </ServiceCard>
 
             <ServiceCard title={t.aiServices.content} icon={Sparkles}>
-              {t.aiServices.contentItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[Megaphone, Globe, MessageSquare, Star][index]} />
-              ))}
+              {t.aiServices.contentItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Megaphone, Globe, MessageSquare, Star][index]} />)}
             </ServiceCard>
 
             <ServiceCard title={t.aiServices.competitive} icon={TrendingUp}>
-              {t.aiServices.competitiveItems.map((item, index) => (
-                <ServiceItem key={index} text={item} icon={[Globe, Star, Award, Zap][index]} />
-              ))}
+              {t.aiServices.competitiveItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Globe, Star, Award, Zap][index]} />)}
             </ServiceCard>
 
             {/* Modular Note */}
@@ -642,8 +539,7 @@ const Index = () => {
               <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3 drop-shadow-md">{t.aiServices.modular}</h3>
               <p className="text-sm sm:text-base text-foreground font-medium drop-shadow-sm">{t.aiServices.modularDesc}</p>
             </div>
-          </main>
-        )}
+          </main>}
 
         {/* Footer CTA */}
         <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
@@ -661,27 +557,17 @@ const Index = () => {
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
           <p className="text-sm sm:text-base md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-success text-success-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2"
-            >
+            <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="bg-success text-success-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2">
               <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.footer.whatsapp}
             </a>
-            <a
-              href={getPhoneUrl()}
-              className="bg-card text-primary px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2"
-            >
+            <a href={getPhoneUrl()} className="bg-card text-primary px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2">
               <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.footer.call}
             </a>
           </div>
         </footer>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
