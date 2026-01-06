@@ -296,7 +296,7 @@ const Index = () => {
               </div>
             </ServiceCard>
 
-            {/* Premium Package */}
+            {/* Premium Package - Business on Autopilot */}
             <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} originalPrice={t.services.premium.originalPrice} discount={t.services.premium.discount} discountNote={t.services.premium.discountNote} subtitle={t.services.premium.subtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
@@ -305,37 +305,62 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Automation Section */}
-              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 sm:p-5 rounded-2xl mb-4 border-2 border-primary/30 shadow-xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-3 flex items-center gap-2">
-                  <div className="p-2 bg-primary rounded-lg">
-                    <Users className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  {t.services.premium.automation.title}
-                </h4>
-                {t.services.premium.automation.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+              {/* 3-Column Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-5">
+                {/* Column 1: App & Website */}
+                <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 sm:p-5 rounded-2xl border-2 border-success/30 shadow-xl h-full">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
+                    <div className="p-2 bg-success rounded-lg">
+                      <Globe className="w-5 h-5 text-success-foreground" />
+                    </div>
+                    {t.services.premium.app.title}
+                  </h4>
+                  <p className="text-sm text-success font-semibold mb-2">{t.services.premium.app.tagline}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.premium.app.intro}</p>
+                  {t.services.premium.app.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+                </div>
+
+                {/* Column 2: Automation & Loyalty */}
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 sm:p-5 rounded-2xl border-2 border-primary/30 shadow-xl h-full">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
+                    <div className="p-2 bg-primary rounded-lg">
+                      <Users className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    {t.services.premium.automation.title}
+                  </h4>
+                  <p className="text-sm text-primary font-semibold mb-2">{t.services.premium.automation.tagline}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.premium.automation.intro}</p>
+                  {t.services.premium.automation.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+                </div>
+
+                {/* Column 3: Social Media */}
+                <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 p-4 sm:p-5 rounded-2xl border-2 border-secondary/30 shadow-xl h-full">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
+                    <div className="p-2 bg-secondary rounded-lg">
+                      <Megaphone className="w-5 h-5 text-secondary-foreground" />
+                    </div>
+                    {t.services.premium.social.title}
+                  </h4>
+                  <p className="text-sm text-secondary font-semibold mb-2">{t.services.premium.social.tagline}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.premium.social.intro}</p>
+                  {t.services.premium.social.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+                </div>
               </div>
 
-              {/* App Development Section */}
-              <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 sm:p-5 rounded-2xl mb-4 border-2 border-success/30 shadow-xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-3 flex items-center gap-2">
-                  <div className="p-2 bg-success rounded-lg">
-                    <Globe className="w-5 h-5 text-success-foreground" />
-                  </div>
-                  {t.services.premium.app.title}
+              {/* Why Choose This Package */}
+              <div className="bg-gradient-warning p-4 sm:p-5 rounded-2xl border-2 border-warning/30 shadow-xl">
+                <h4 className="font-bold text-base sm:text-lg text-warning-foreground mb-3 flex items-center gap-2">
+                  <Award className="w-5 h-5" />
+                  {t.services.premium.whyChoose}
                 </h4>
-                {t.services.premium.app.items.map((item, index) => <ServiceItem key={index} text={item} />)}
-              </div>
-
-              {/* Social Media Section */}
-              <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 p-4 sm:p-5 rounded-2xl border-2 border-secondary/30 shadow-xl">
-                <h4 className="font-bold text-base sm:text-lg text-foreground mb-3 flex items-center gap-2">
-                  <div className="p-2 bg-secondary rounded-lg">
-                    <Megaphone className="w-5 h-5 text-secondary-foreground" />
-                  </div>
-                  {t.services.premium.social.title}
-                </h4>
-                {t.services.premium.social.items.map((item, index) => <ServiceItem key={index} text={item} />)}
+                <div className="space-y-2">
+                  {t.services.premium.benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-warning-foreground">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </ServiceCard>
 
