@@ -2,7 +2,7 @@ export type Language = 'en' | 'es' | 'ro';
 
 export const translations = {
   en: {
-    siteName: 'MrDelivery.com',
+    siteName: 'MrDelivery',
     tagline: '🚀 Marketing Management • AI Chatbots & Voice Agents • Viral Video Content',
     taglineItems: [
       { emoji: '🚀', text: 'Training Staff - Management and Marketing' },
@@ -538,7 +538,7 @@ export const translations = {
     }
   },
   es: {
-    siteName: 'MrDelivery.es',
+    siteName: 'MrDelivery',
     tagline: '🚀 Gestión de Marketing • Chatbots IA & Agentes de Voz • Contenido de Vídeo Viral',
     taglineItems: [
       { emoji: '🚀', text: 'Formación de Personal - Gestión y Marketing' },
@@ -1074,7 +1074,7 @@ export const translations = {
     }
   },
   ro: {
-    siteName: 'MrDelivery.ro',
+    siteName: 'MrDelivery',
     tagline: '🚀 Management Marketing • Chatboți AI & Agenți Vocali • Conținut Video Viral',
     taglineItems: [
       { emoji: '🚀', text: 'Instruire Personal - Management și Marketing' },
