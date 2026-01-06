@@ -21,20 +21,46 @@ export const translations = {
     },
     services: {
       standard: {
-        title: 'Standard Package',
+        title: 'Delivery Platform Management',
         price: '€399/month',
-        subtitle: 'All services on Uber Eats, DoorDash & Grubhub',
-        support: '24/7 Support via WhatsApp',
-        items: [
-          'Detailed menu presentation with professional images and complete allergen information',
-          'Daily menu updates for maximum variety and recurring customer attraction',
-          'Campaign performance tracking and marketing strategies to increase average order value',
-          'Implementation of upselling and cross-selling strategies through personalized suggestions',
-          'Periodic analysis and development strategies for dynamic market adaptation',
-          'Campaign management for maximum visibility on Uber Eats, DoorDash and Grubhub',
-          'Campaign implementation within 6 hours of decision',
-          'Delivery radius adaptation for maximum efficiency (own delivery)',
-          'Constant support via WhatsApp and phone for real-time resolution'
+        subtitle: 'We negotiate commissions and budgets for you on Uber Eats, DoorDash & Grubhub',
+        support: 'Available for Romania, Spain & USA',
+        badge: 'Multi-Platform Management',
+        negotiation: {
+          title: 'Negotiation & Budgets',
+          tagline: 'Save Money',
+          intro: "Don't let your profit disappear in huge commissions.",
+          items: [
+            'Lower Commissions: We negotiate directly with platforms (Uber Eats, DoorDash, Grubhub) to get the best rates for you.',
+            'Free Marketing Budgets: We obtain campaign budgets supported directly by platforms, so you get new customers on their money.',
+            'Fast Reaction: We activate any promotional campaign within 6 hours of decision.'
+          ]
+        },
+        menu: {
+          title: 'Active Menu',
+          tagline: 'Sell More',
+          intro: 'A menu that looks good, sells more.',
+          items: [
+            'Daily Menu: We update it daily for you, to keep customers loyal and curious.',
+            'Professional Photos & Details: We present products with correct images and complete information (allergens, ingredients).',
+            'Upselling: We structure the menu so customers always add a drink, sauce or dessert to their cart.'
+          ]
+        },
+        support_card: {
+          title: 'Support & Optimization',
+          tagline: '24/7 WhatsApp',
+          intro: 'We are your "delivery department" available anytime on WhatsApp.',
+          items: [
+            'Delivery Efficiency: We optimize delivery radius (for own delivery) to reach customers fast and cheap.',
+            'Monthly Analysis: We show you exactly how much you sold and how we can increase the average order.',
+            'Problem Solving: Any incident with an order or platform is resolved quickly through our dedicated support.'
+          ]
+        },
+        whyTitle: 'Why do you need this management?',
+        whyItems: [
+          'Recover Investment: By simply negotiating commissions, our package can pay for itself from the first month.',
+          'Maximum Visibility: We put you on the front line of delivery platforms, exactly where hungry customers are looking.',
+          'No Technical Headaches: You no longer need to enter tablets or complex control panels.'
         ]
       },
       aiAgents: {
@@ -531,20 +557,46 @@ export const translations = {
     },
     services: {
       standard: {
-        title: 'Paquete Estándar',
+        title: 'Gestión de Plataformas de Entrega',
         price: '399 €/mes',
-        subtitle: 'Todos los servicios en Glovo, Uber Eats & Just Eat',
-        support: 'Soporte 24/7 por WhatsApp',
-        items: [
-          'Presentación detallada del menú con imágenes profesionales e información completa sobre alérgenos',
-          'Modificación diaria del menú del día para máxima diversidad y atracción de clientes recurrentes',
-          'Seguimiento de resultados de campañas y aplicación de estrategias de marketing para aumentar el ticket medio',
-          'Implementación de estrategias de upselling y cross-selling mediante sugerencias personalizadas',
-          'Análisis periódicos y estrategias de desarrollo para adaptación dinámica al mercado',
-          'Gestión de campañas para máxima visibilidad en Glovo, Uber Eats y Just Eat',
-          'Implementación de campañas en máximo 6 horas desde la decisión',
-          'Adaptación de radios de entrega para máxima eficiencia (entrega propia)',
-          'Soporte constante por WhatsApp y teléfono para resolución en tiempo real'
+        subtitle: 'Negociamos comisiones y presupuestos para ti en Glovo, Uber Eats & Just Eat',
+        support: 'Disponible para Rumanía, España y USA',
+        badge: 'Gestión Multi-Plataforma',
+        negotiation: {
+          title: 'Negociación y Presupuestos',
+          tagline: 'Ahorra Dinero',
+          intro: 'No dejes que tu beneficio desaparezca en comisiones enormes.',
+          items: [
+            'Comisiones más Bajas: Negociamos directamente con las plataformas (Glovo, Uber Eats, Just Eat) para obtener las mejores tarifas para ti.',
+            'Presupuestos de Marketing Gratis: Obtenemos presupuestos de campaña apoyados directamente por las plataformas, para que consigas nuevos clientes con su dinero.',
+            'Reacción Rápida: Activamos cualquier campaña promocional en un máximo de 6 horas desde la decisión.'
+          ]
+        },
+        menu: {
+          title: 'Menú Activo',
+          tagline: 'Vende Más',
+          intro: 'Un menú que se ve bien, vende más.',
+          items: [
+            'Menú del Día: Lo actualizamos diariamente para ti, para mantener a los clientes fieles y curiosos.',
+            'Fotos y Detalles Profesionales: Presentamos los productos con imágenes correctas e información completa (alérgenos, ingredientes).',
+            'Upselling: Estructuramos el menú para que los clientes siempre añadan una bebida, salsa o postre al carrito.'
+          ]
+        },
+        support_card: {
+          title: 'Soporte y Optimización',
+          tagline: 'WhatsApp 24/7',
+          intro: 'Somos tu "departamento de entregas" disponible en cualquier momento por WhatsApp.',
+          items: [
+            'Eficiencia de Entrega: Optimizamos el radio de entrega (para entrega propia) para llegar a los clientes rápido y barato.',
+            'Análisis Mensual: Te mostramos exactamente cuánto has vendido y cómo podemos aumentar el pedido medio.',
+            'Resolución de Problemas: Cualquier incidente con un pedido o plataforma se resuelve rápidamente a través de nuestro soporte dedicado.'
+          ]
+        },
+        whyTitle: '¿Por qué necesitas esta gestión?',
+        whyItems: [
+          'Recupera la Inversión: Simplemente negociando comisiones, nuestro paquete puede pagarse solo desde el primer mes.',
+          'Visibilidad Máxima: Te ponemos en primera línea de las plataformas de entrega, exactamente donde los clientes hambrientos buscan.',
+          'Sin Dolores de Cabeza Técnicos: Ya no necesitas entrar en tablets o paneles de control complejos.'
         ]
       },
       aiAgents: {
@@ -1041,20 +1093,46 @@ export const translations = {
     },
     services: {
       standard: {
-        title: 'Pachet Standard',
+        title: 'Management Platforme de Livrare',
         price: '1.500 RON/lună',
-        subtitle: 'Toate serviciile pe Wolt, Glovo & Bolt Food',
-        support: 'Suport 24/7 pe WhatsApp',
-        items: [
-          'Prezentarea detaliată a meniului cu imagini profesionale și informații complete despre alergeni',
-          'Modificarea zilnică a meniului zilei pentru diversitate maximă și atragerea clienților recurenți',
-          'Urmărirea rezultatelor campaniilor și aplicarea strategiilor de marketing pentru creșterea comenzii medii',
-          'Implementarea strategiilor de upsell și cross-sell prin sugestii personalizate',
-          'Analize periodice și strategii de dezvoltare pentru adaptare dinamică la piață',
-          'Gestionarea campaniilor pentru vizibilitate maximă pe Wolt, Glovo și Bolt Food',
-          'Implementarea campaniilor în maxim 6 ore de la decizie',
-          'Adaptarea razelor de livrare pentru eficiență maximă (livrare proprie)',
-          'Suport constant prin WhatsApp și telefon pentru rezolvarea în timp real'
+        subtitle: 'Negociem comisioanele și bugetele pentru tine pe Glovo, Wolt și Bolt Food',
+        support: 'Disponibil pentru România, Spania și USA',
+        badge: 'Management Multi-Platformă',
+        negotiation: {
+          title: 'Negociere Comisioane și Bugete',
+          tagline: 'Economisești Bani',
+          intro: 'Nu lăsa profitul tău să dispară în comisioane uriașe.',
+          items: [
+            'Comisioane mai mici: Negociem direct cu platformele (Glovo, Wolt, Bolt) pentru a obține cele mai bune taxe pentru tine.',
+            'Bugete de Marketing Cadou: Obținem bugete de campanie susținute direct de platforme, ca să primești clienți noi pe banii lor.',
+            'Viteză de Reacție: Activăm orice campanie promoțională în maxim 6 ore de la decizie.'
+          ]
+        },
+        menu: {
+          title: 'Meniu Optimizat pentru Vânzare',
+          tagline: 'Vinzi Mai Mult',
+          intro: 'Un meniu care arată bine, vinde mai mult.',
+          items: [
+            'Meniul Zilei: Îl actualizăm zilnic pentru tine, ca să păstrezi clienții fideli și curioși.',
+            'Poze și Detalii Profesionale: Prezentăm produsele cu imagini corecte și informații complete (alergeni, ingrediente).',
+            'Vânzări Suplimentare (Upsell): Structurăm meniul astfel încât clienții să adauge mereu un suc, un sos sau un desert în coș.'
+          ]
+        },
+        support_card: {
+          title: 'Suport și Optimizare',
+          tagline: 'WhatsApp 24/7',
+          intro: 'Suntem „departamentul tău de livrări" disponibil oricând pe WhatsApp.',
+          items: [
+            'Eficientizarea Livrării: Optimizăm razele de livrare (pentru livrare proprie) ca să ajungi la clienți rapid și ieftin.',
+            'Analiză lunară: Îți arătăm exact cât ai vândut și cum putem crește comanda medie.',
+            'Rezolvare Probleme: Orice incident cu o comandă sau cu platforma se rezolvă rapid prin suportul nostru dedicat.'
+          ]
+        },
+        whyTitle: 'De ce ai nevoie de acest management?',
+        whyItems: [
+          'Recuperezi investiția: Prin simpla negociere a comisioanelor, pachetul nostru se poate plăti singur încă din prima lună.',
+          'Vizibilitate Maximă: Te punem în prima linie pe platformele de livrare, exact acolo unde clienții flămânzi caută.',
+          'Fără bătăi de cap tehnice: Tu nu mai trebuie să intri în tablete sau panouri de control complexe.'
         ]
       },
       aiAgents: {
