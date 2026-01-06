@@ -106,9 +106,9 @@ export const translations = {
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Guess the Secret Ingredient, Boyfriend vs Girlfriend Battle and many more'
       },
       ugc: {
-        title: 'AI Video Generator',
-        heroTitle: '32 Viral Videos',
-        heroSubtitle: 'A real presenter promotes your product. You just send a photo on Telegram.',
+        title: 'Your Brand, Your Voice: The Digital Avatar That Grows Your Business',
+        heroTitle: 'Your Brand, Your Voice',
+        heroSubtitle: "Don't depend on influencers anymore. Use your own face and voice to create viral content in seconds, at a fraction of the cost.",
         price: '€100 for 32 videos',
         originalPrice: '',
         discount: '32 Videos',
@@ -578,9 +578,9 @@ export const translations = {
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Adivina el Ingrediente Secreto, Batalla Novio vs Novia y muchos más'
       },
       ugc: {
-        title: 'AI Video Generator',
-        heroTitle: '32 Vídeos Virales',
-        heroSubtitle: 'Un presentador real promociona tu producto. Solo envías una foto por Telegram.',
+        title: 'Tu Marca, Tu Voz: El Avatar Digital que Hace Crecer tu Negocio',
+        heroTitle: 'Tu Marca, Tu Voz',
+        heroSubtitle: 'No dependas más de influencers. Usa tu propio rostro y voz para crear contenido viral en segundos, a una fracción del costo.',
         price: '€100 por 32 vídeos',
         originalPrice: '',
         discount: '32 Vídeos',
@@ -1050,9 +1050,9 @@ export const translations = {
         examples: 'Ultimate Burger Challenge, Street Food Confessions, Ghicește Ingredientul Secret, Batalla Iubit vs Iubită și multe altele'
       },
       ugc: {
-        title: 'AI Video Generator',
-        heroTitle: '32 de Videoclipuri Virale',
-        heroSubtitle: 'Un prezentator real îți promovează produsul. Tu doar trimiți o poză pe Telegram.',
+        title: 'Brandul tău, Vocea ta: Avatarul Digital care îți Crește Afacerea',
+        heroTitle: 'Brandul tău, Vocea ta',
+        heroSubtitle: 'Nu mai depinde de influenceri. Folosește-ți propriul chip și propria voce pentru a crea conținut viral în câteva secunde, la o fracțiune de cost.',
         price: '499 RON (100 EUR) pentru 32 de videoclipuri',
         originalPrice: '',
         discount: '32 Videoclipuri',
