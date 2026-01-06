@@ -82,24 +82,43 @@ export const translations = {
         ]
       },
       video: {
-        title: 'Premium Video Service with VEO3',
+        title: 'Video Production & Automatic Posting',
         price: '€389/month',
         originalPrice: '€599/month',
         discount: '35% OFF',
-        subtitle: 'Viral content for TikTok, Instagram Reels & YouTube Shorts',
+        subtitle: 'We create, we post. Your business grows daily on 4 platforms simultaneously',
         badge: 'Viral Video Content',
-        videosTitle: '🎬 16-20 Videoclips/Month',
-        videoDesc: 'Each 24-second video:',
+        videosTitle: '🎬 Premium Content (VEO3 AI)',
+        videoDesc: '16-20 Videoclips/Month:',
         hook: 'Hook (8s)',
         hookDesc: 'captures attention instantly',
         action: 'Action (8s)',
         actionDesc: 'presents the concept',
         cta: 'CTA (8s)',
         ctaDesc: 'powerful call-to-action',
-        veo3: 'VEO3 Technology',
-        veo3Desc: 'Cinematic AI production for maximum quality',
-        format: 'Optimized Format',
-        formatDesc: 'Perfect for TikTok, Instagram Reels and YouTube Shorts',
+        veo3: 'Cinematic Quality',
+        veo3Desc: 'Image and sound at cinema standards, with presenters that bring your brand to life',
+        format: 'Creative Variety',
+        formatDesc: 'Challenges, interviews and interactive clips that make people share',
+        robot: {
+          title: 'Daily Posting Robot',
+          tagline: 'Automation',
+          intro: 'Forget about manual posting. Our robot works for you.',
+          items: [
+            'Posting on 4 Platforms: Your clip reaches TikTok, Instagram, Facebook and YouTube Shorts simultaneously.',
+            'Maximum Precision: We post every day, at the exact same time, to maximize impact.',
+            'Zero Effort: No need to open apps, write descriptions or add hashtags. We automate the entire process.'
+          ]
+        },
+        visibility: {
+          title: 'Guaranteed Visibility from Month 1',
+          tagline: 'Algorithm Friendly',
+          intro: 'Make friends with the Algorithm: Social media algorithms love consistency.',
+          items: [
+            'Immediate Impact: You will see increases in visibility, followers and interactions from the first 30 days.',
+            'Iron Consistency: Your brand stays in customers minds because you are present every day.'
+          ]
+        },
         items: [
           '16 creative concepts per month with complete script',
           'Professional presenter representing MrDelivery',
@@ -573,24 +592,43 @@ export const translations = {
         ]
       },
       video: {
-        title: 'Servicio de Vídeo Premium con VEO3',
+        title: 'Producción de Vídeo y Publicación Automática',
         price: '389 €/mes',
         originalPrice: '599 €/mes',
         discount: '35% DESCUENTO',
-        subtitle: 'Contenido viral para TikTok, Instagram Reels y YouTube Shorts',
+        subtitle: 'Nosotros creamos, nosotros publicamos. Tu negocio crece diariamente en 4 plataformas simultáneamente',
         badge: 'Contenido de Vídeo Viral',
-        videosTitle: '🎬 16-20 Videoclips/Mes',
-        videoDesc: 'Cada vídeo de 24 segundos:',
+        videosTitle: '🎬 Contenido Premium (VEO3 AI)',
+        videoDesc: '16-20 Videoclips/Mes:',
         hook: 'Hook (8s)',
         hookDesc: 'capta la atención al instante',
         action: 'Acción (8s)',
         actionDesc: 'presenta el concepto',
         cta: 'CTA (8s)',
         ctaDesc: 'llamada a la acción potente',
-        veo3: 'Tecnología VEO3',
-        veo3Desc: 'Producción cinematográfica con IA para máxima calidad',
-        format: 'Formato Optimizado',
-        formatDesc: 'Perfecto para TikTok, Instagram Reels y YouTube Shorts',
+        veo3: 'Calidad Cinematográfica',
+        veo3Desc: 'Imagen y sonido con estándares de cine, con presentadores que dan vida a tu marca',
+        format: 'Variedad Creativa',
+        formatDesc: 'Retos, entrevistas y clips interactivos que hacen que la gente comparta',
+        robot: {
+          title: 'Robot de Publicación Diaria',
+          tagline: 'Automatización',
+          intro: 'Olvida las publicaciones manuales. Nuestro robot trabaja para ti.',
+          items: [
+            'Publicación en 4 Plataformas: Tu clip llega a TikTok, Instagram, Facebook y YouTube Shorts simultáneamente.',
+            'Precisión Máxima: Publicamos cada día, a la misma hora exacta, para maximizar el impacto.',
+            'Cero Esfuerzo: No necesitas abrir apps, escribir descripciones o añadir hashtags. Automatizamos todo el proceso.'
+          ]
+        },
+        visibility: {
+          title: 'Visibilidad Garantizada desde el Mes 1',
+          tagline: 'Amigo del Algoritmo',
+          intro: 'Hazte amigo del Algoritmo: Los algoritmos de redes sociales aman la consistencia.',
+          items: [
+            'Impacto Inmediato: Verás aumentos en visibilidad, seguidores e interacciones desde los primeros 30 días.',
+            'Consistencia de Hierro: Tu marca permanece en la mente de los clientes porque estás presente cada día.'
+          ]
+        },
         items: [
           '16 conceptos creativos al mes con guion completo',
           'Presentador profesional representando a MrDelivery',
@@ -1064,24 +1102,43 @@ export const translations = {
         ]
       },
       video: {
-        title: 'Serviciu Video Premium cu VEO3',
+        title: 'Producție Video & Postare Automată',
         price: '1.625 RON/lună',
         originalPrice: '2.500 RON/lună',
         discount: '35% REDUCERE',
-        subtitle: 'Conținut viral pentru TikTok, Instagram Reels și YouTube Shorts',
+        subtitle: 'Noi creăm, noi postăm. Afacerea ta crește zilnic pe 4 platforme simultan',
         badge: 'Conținut Video Viral',
-        videosTitle: '🎬 16-20 Videoclipuri/Lună',
-        videoDesc: 'Fiecare video de 24 secunde:',
+        videosTitle: '🎬 Conținut Premium (VEO3 AI)',
+        videoDesc: '16-20 Videoclipuri/Lună:',
         hook: 'Hook (8s)',
         hookDesc: 'captează atenția instant',
         action: 'Action (8s)',
         actionDesc: 'prezintă conceptul',
         cta: 'CTA (8s)',
         ctaDesc: 'call-to-action puternic',
-        veo3: 'Tehnologie VEO3',
-        veo3Desc: 'Producție cinematografică cu AI pentru calitate maximă',
-        format: 'Format Optimizat',
-        formatDesc: 'Perfect pentru TikTok, Instagram Reels și YouTube Shorts',
+        veo3: 'Calitate Cinematografică',
+        veo3Desc: 'Imagine și sunet la standarde de cinema, cu prezentatori care dau viață brandului tău',
+        format: 'Creativitate Continuă',
+        formatDesc: 'Provocări, interviuri și clipuri interactive care fac oamenii să dea Share',
+        robot: {
+          title: 'Robot de Postare Zilnică',
+          tagline: 'Automatizare',
+          intro: 'Uită de grija postărilor manuale. Robotul nostru lucrează pentru tine.',
+          items: [
+            'Postare pe 4 Platforme: Clipul tău ajunge simultan pe TikTok, Instagram, Facebook și YouTube Shorts.',
+            'Precizie Maximă: Postăm în fiecare zi, exact la aceeași oră, pentru a maximiza impactul.',
+            'Fără Efort: Nu trebuie să intri în aplicații, să scrii descrieri sau să pui hashtag-uri. Noi automatizăm tot procesul.'
+          ]
+        },
+        visibility: {
+          title: 'Vizibilitate Garantată din Prima Lună',
+          tagline: 'Algoritm Prietenos',
+          intro: 'Împrietenește-te cu Algoritmul: Algoritmii social media adoră consecvența.',
+          items: [
+            'Impact Imediat: Vei vedea creșteri în vizibilitate, urmăritori și interacțiuni încă din primele 30 de zile.',
+            'Constanță de Fier: Brandul tău rămâne în mintea clienților pentru că ești prezent sub ochii lor în fiecare zi.'
+          ]
+        },
         items: [
           '16 concepte creative pe lună cu scenariu complet',
           'Prezentator profesionist reprezentând MrDelivery',
