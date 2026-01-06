@@ -61,125 +61,6 @@ const Index = () => {
 
 
         
-        {/* AI Video Generator - Digital Avatar Package - MOVED ABOVE CONTENT EXAMPLES */}
-        <div className="mb-6 sm:mb-8 px-2">
-          <ServiceCard title={t.services.ugc.title} icon={Video} discount="32 videoclipuri" price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} subtitle={t.services.ugc.heroSubtitle} highlight>
-            <div className="mb-4">
-              <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
-                <Video className="w-5 h-5 text-accent" />
-                <span className="text-sm font-bold text-gradient-primary">{t.services.ugc.noSubscription}</span>
-              </div>
-            </div>
-
-            {/* How It Works Section */}
-            <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-              <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                <div className="p-2 bg-gradient-primary rounded-lg">
-                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-                </div>
-                {t.services.ugc.stepsTitle}
-              </h4>
-              <div className="pl-2 sm:pl-4 space-y-3">
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-bold text-primary-foreground">1</span>
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.step1}</strong> - {t.services.ugc.step1Desc}</span>
-                </div>
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-bold text-secondary-foreground">2</span>
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.step2}</strong> - {t.services.ugc.step2Desc}</span>
-                </div>
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-accent to-warning rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-bold text-accent-foreground">3</span>
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.step3}</strong> - {t.services.ugc.step3Desc}</span>
-                </div>
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-bold text-success-foreground">4</span>
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.step4}</strong> - {t.services.ugc.step4Desc}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Benefits Section */}
-            <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-4 sm:p-6 rounded-2xl mb-5 border-2 border-secondary/30 shadow-2xl">
-              <h4 className="font-bold text-base sm:text-lg text-foreground mb-4 flex items-center gap-2">
-                <div className="p-2 bg-gradient-primary rounded-lg">
-                  <Star className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-                </div>
-                {t.services.ugc.benefitsTitle}
-              </h4>
-              <div className="pl-2 sm:pl-4 space-y-3">
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-foreground" />
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.benefit1Title}</strong> - {t.services.ugc.benefit1Desc}</span>
-                </div>
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-success rounded-full flex items-center justify-center flex-shrink-0">
-                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success-foreground" />
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.benefit2Title}</strong> - {t.services.ugc.benefit2Desc}</span>
-                </div>
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-secondary-foreground" />
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.benefit3Title}</strong> - {t.services.ugc.benefit3Desc}</span>
-                </div>
-                <div className="flex items-center gap-2 sm:gap-3 bg-card p-3 rounded-xl shadow-md">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-accent to-warning rounded-full flex items-center justify-center flex-shrink-0">
-                    <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent-foreground" />
-                  </div>
-                  <span className="text-sm sm:text-base text-foreground"><strong>{t.services.ugc.benefit4Title}</strong> - {t.services.ugc.benefit4Desc}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Feature cards - Same grid style as VEO3 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
-              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 rounded-2xl border-2 border-primary/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="w-5 h-5 text-primary" />
-                  <h5 className="font-bold text-sm sm:text-base text-foreground">TikTok & Reels</h5>
-                </div>
-                <p className="text-sm text-muted-foreground">{t.services.ugc.deliverable}</p>
-              </div>
-              <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 rounded-2xl border-2 border-success/20 shadow-lg transform hover:scale-105 transition-all duration-300">
-                <div className="flex items-center gap-2 mb-2">
-                  <Award className="w-5 h-5 text-success" />
-                  <h5 className="font-bold text-sm sm:text-base text-foreground">YouTube Shorts</h5>
-                </div>
-                <p className="text-sm text-muted-foreground">{t.services.ugc.deliverable}</p>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="mt-5 p-4 bg-gradient-to-br from-[#0088cc]/20 to-[#0088cc]/10 rounded-2xl border-2 border-[#0088cc]/30 shadow-lg">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-start gap-2 sm:gap-3">
-                  <Send className="w-5 h-5 sm:w-6 sm:h-6 text-[#0088cc] flex-shrink-0 mt-1" />
-                  <p className="text-sm sm:text-base text-foreground font-medium">
-                    <strong>🚀 {t.services.ugc.finalCta}</strong>
-                  </p>
-                </div>
-                <a href="https://t.me/SergiuBot007bot" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                    <Send className="w-5 h-5" />
-                    {t.services.ugc.telegramButton}
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </ServiceCard>
-        </div>
 
         {/* Content Examples - Premium Gold Box */}
         <div className="mb-6 sm:mb-8 px-2">
@@ -568,6 +449,102 @@ const Index = () => {
                       <span className="text-sm text-warning-foreground">{benefit}</span>
                     </div>
                   ))}
+                </div>
+              </div>
+            </ServiceCard>
+
+            {/* AI Video Generator - Digital Avatar Package - MOVED TO BOTTOM */}
+            <ServiceCard title={t.services.ugc.title} icon={Video} discount="32 videoclipuri" price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} subtitle={t.services.ugc.heroSubtitle} highlight>
+              <div className="mb-4">
+                <div className="inline-flex items-center gap-2 bg-card px-3 py-1.5 rounded-full shadow-lg">
+                  <Video className="w-4 h-4 text-accent" />
+                  <span className="text-xs sm:text-sm font-bold text-gradient-primary">{t.services.ugc.noSubscription}</span>
+                </div>
+              </div>
+
+              {/* How It Works Section - Simplified for mobile */}
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-3 sm:p-5 rounded-xl mb-4 border border-secondary/30">
+                <h4 className="font-bold text-sm sm:text-base text-foreground mb-3 flex items-center gap-2">
+                  <div className="p-1.5 sm:p-2 bg-gradient-primary rounded-lg">
+                    <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+                  </div>
+                  {t.services.ugc.stepsTitle}
+                </h4>
+                <div className="space-y-2">
+                  {[
+                    { num: '1', text: t.services.ugc.step1, desc: t.services.ugc.step1Desc, colors: 'from-primary to-secondary' },
+                    { num: '2', text: t.services.ugc.step2, desc: t.services.ugc.step2Desc, colors: 'from-secondary to-accent' },
+                    { num: '3', text: t.services.ugc.step3, desc: t.services.ugc.step3Desc, colors: 'from-accent to-warning' },
+                    { num: '4', text: t.services.ugc.step4, desc: t.services.ugc.step4Desc, colors: 'bg-gradient-success' }
+                  ].map((step, index) => (
+                    <div key={index} className="flex items-start gap-2 bg-card/80 p-2 sm:p-2.5 rounded-lg">
+                      <div className={`w-6 h-6 bg-gradient-to-br ${step.colors} rounded-full flex items-center justify-center flex-shrink-0`}>
+                        <span className="text-xs font-bold text-primary-foreground">{step.num}</span>
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-sm text-foreground font-semibold">{step.text}</span>
+                        <p className="text-xs text-muted-foreground mt-0.5">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Benefits Section - Compact */}
+              <div className="bg-gradient-to-br from-secondary/5 via-accent/5 to-warning/5 p-3 sm:p-5 rounded-xl mb-4 border border-secondary/30">
+                <h4 className="font-bold text-sm sm:text-base text-foreground mb-3 flex items-center gap-2">
+                  <div className="p-1.5 sm:p-2 bg-gradient-primary rounded-lg">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+                  </div>
+                  {t.services.ugc.benefitsTitle}
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {[
+                    { icon: Zap, title: t.services.ugc.benefit1Title, desc: t.services.ugc.benefit1Desc, colors: 'from-primary to-secondary' },
+                    { icon: Star, title: t.services.ugc.benefit2Title, desc: t.services.ugc.benefit2Desc, colors: 'bg-gradient-success' },
+                    { icon: Check, title: t.services.ugc.benefit3Title, desc: t.services.ugc.benefit3Desc, colors: 'from-secondary to-accent' },
+                    { icon: Users, title: t.services.ugc.benefit4Title, desc: t.services.ugc.benefit4Desc, colors: 'from-accent to-warning' }
+                  ].map((benefit, index) => {
+                    const IconComponent = benefit.icon;
+                    return (
+                      <div key={index} className="flex items-start gap-2 bg-card/80 p-2 sm:p-2.5 rounded-lg">
+                        <div className={`w-6 h-6 bg-gradient-to-br ${benefit.colors} rounded-full flex items-center justify-center flex-shrink-0`}>
+                          <IconComponent className="w-3 h-3 text-primary-foreground" />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-sm text-foreground font-semibold">{benefit.title}</span>
+                          <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{benefit.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Platform badges - Compact */}
+              <div className="flex flex-wrap gap-2 mb-4 justify-center">
+                <div className="bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs font-semibold text-foreground">TikTok & Reels</span>
+                </div>
+                <div className="bg-success/10 px-3 py-1.5 rounded-full border border-success/20 flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5 text-success" />
+                  <span className="text-xs font-semibold text-foreground">YouTube Shorts</span>
+                </div>
+              </div>
+
+              {/* CTA Button - Compact */}
+              <div className="p-3 sm:p-4 bg-[#0088cc]/10 rounded-xl border border-[#0088cc]/30">
+                <div className="flex flex-col items-center gap-3">
+                  <p className="text-sm text-foreground font-medium text-center">
+                    🚀 {t.services.ugc.finalCta}
+                  </p>
+                  <a href="https://t.me/SergiuBot007bot" target="_blank" rel="noopener noreferrer">
+                    <Button className="bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-2.5 px-5 rounded-xl shadow-lg flex items-center gap-2 text-sm">
+                      <Send className="w-4 h-4" />
+                      {t.services.ugc.telegramButton}
+                    </Button>
+                  </a>
                 </div>
               </div>
             </ServiceCard>
