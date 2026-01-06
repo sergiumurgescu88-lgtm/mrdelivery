@@ -38,41 +38,48 @@ export const translations = {
         ]
       },
       aiAgents: {
-        title: 'AI Agents - Intelligent Virtual Assistant',
-        price: '€374/month',
-        originalPrice: '€499/month',
+        title: 'Intelligent Virtual Assistant',
+        price: '1,500 RON/month',
+        originalPrice: '2,000 RON/month',
         discount: '25% OFF',
-        subtitle: 'Never miss a call or message – 24/7 automated customer service',
+        subtitle: 'Your ideal employee: Never sleeps and responds instantly to any customer',
         badge: '24/7 Conversational AI Agent',
         phone: {
-          title: '📞 Phone Answering',
+          title: 'Answers Your Phone',
+          tagline: 'Voice AI',
+          intro: 'Never lose a customer because you were busy in the kitchen or in a meeting.',
           items: [
-            'Voice agent that automatically answers phone calls',
-            'Natural voice and fluent conversation in English',
-            'Complete knowledge of menu, prices and availability',
-            'Answers questions about allergens, ingredients and preparation'
+            'Natural Voice: Speaks fluently in English, just like a human.',
+            'Expert in Your Business: Knows everything about your menu, prices, ingredients or services.',
+            'No Missed Calls: Can handle dozens of calls simultaneously, 24/7.'
           ]
         },
         whatsapp: {
-          title: '💬 WhatsApp Chatbot',
+          title: 'WhatsApp Expert',
+          tagline: 'Chat AI',
+          intro: 'Customers want answers NOW. AI gives them instantly.',
           items: [
-            'Instant responses on WhatsApp Business',
-            'Menu presentation with images and detailed descriptions',
-            'Personalized recommendations based on preferences',
-            'Information about promotions and special offers'
+            'Digital Menu: Sends photos and product details directly on WhatsApp.',
+            'Active Selling: Recommends products and presents special offers intelligently.',
+            'Total Availability: Responds instantly, even in the middle of the night.'
           ]
         },
         reservations: {
-          title: '📅 Automated Reservations',
+          title: 'Automatic Reservations',
+          tagline: 'Calendar Sync',
+          intro: 'Forget the paper agenda and human errors.',
           items: [
-            'Takes reservations automatically via phone or WhatsApp',
-            'Checks availability in real-time',
-            'Enters reservations directly into Google Calendar',
-            'Sends automatic confirmations and reminders to customers',
-            'Manages reservation changes and cancellations'
+            'Direct Scheduling: Checks availability and puts the reservation directly in Google Calendar.',
+            'Confirmations & Reminders: Automatically sends messages to customers to ensure they show up.',
+            'Simple Management: Customers can cancel or move the reservation themselves, via chat or phone.'
           ]
         },
-        benefits: '24/7 availability, zero missed calls, reduced workload for staff, uniform customer experience, and increased conversion rate'
+        benefitsTitle: 'Why do you need an AI Agent?',
+        benefitsList: [
+          'Zero missed calls',
+          '24/7 availability',
+          'Less stress for the team'
+        ]
       },
       video: {
         title: 'Premium Video Service with VEO3',
@@ -522,41 +529,48 @@ export const translations = {
         ]
       },
       aiAgents: {
-        title: 'Agentes IA - Asistente Virtual Inteligente',
-        price: '374 €/mes',
-        originalPrice: '499 €/mes',
+        title: 'Asistente Virtual Inteligente',
+        price: '1.500 RON/mes',
+        originalPrice: '2.000 RON/mes',
         discount: '25% DESCUENTO',
-        subtitle: 'Nunca pierdas una llamada o mensaje – Atención al cliente 24/7 automatizada',
+        subtitle: 'Tu empleado ideal: Nunca duerme y responde al instante a cualquier cliente',
         badge: 'Agente IA Conversacional 24/7',
         phone: {
-          title: '📞 Contestador Automático',
+          title: 'Contesta el Teléfono',
+          tagline: 'Voice AI',
+          intro: 'Nunca pierdas un cliente porque estabas ocupado en la cocina o en una reunión.',
           items: [
-            'Agente vocal que responde automáticamente a llamadas telefónicas',
-            'Voz natural y conversación fluida en español',
-            'Conocimiento completo del menú, precios y disponibilidad',
-            'Respuestas a preguntas sobre alérgenos, ingredientes y preparación'
+            'Voz Natural: Habla con fluidez en español, como un humano.',
+            'Experto en Tu Negocio: Conoce todo sobre tu menú, precios, ingredientes o servicios.',
+            'Cero Llamadas Perdidas: Puede atender decenas de llamadas simultáneamente, 24/7.'
           ]
         },
         whatsapp: {
-          title: '💬 Chatbot WhatsApp',
+          title: 'Experto en WhatsApp',
+          tagline: 'Chat AI',
+          intro: 'Los clientes quieren respuestas AHORA. La IA se las da al instante.',
           items: [
-            'Respuestas instantáneas en WhatsApp Business',
-            'Presentación del menú con imágenes y descripciones detalladas',
-            'Recomendaciones personalizadas basadas en preferencias',
-            'Información sobre promociones y ofertas especiales'
+            'Menú Digital: Envía fotos y detalles de productos directamente por WhatsApp.',
+            'Venta Activa: Recomienda productos y presenta ofertas especiales de forma inteligente.',
+            'Disponibilidad Total: Responde al instante, incluso en mitad de la noche.'
           ]
         },
         reservations: {
-          title: '📅 Reservas Automáticas',
+          title: 'Reservas Automáticas',
+          tagline: 'Calendar Sync',
+          intro: 'Olvida la agenda de papel y los errores humanos.',
           items: [
-            'Gestiona reservas automáticamente por teléfono o WhatsApp',
-            'Verifica disponibilidad en tiempo real',
-            'Introduce reservas directamente en Google Calendar',
-            'Envía confirmaciones y recordatorios automáticos a clientes',
-            'Gestiona modificaciones y cancelaciones de reservas'
+            'Programación Directa: Verifica disponibilidad y pone la reserva directamente en Google Calendar.',
+            'Confirmaciones y Recordatorios: Envía automáticamente mensajes a los clientes para asegurar que asistan.',
+            'Gestión Simple: Los clientes pueden cancelar o mover la reserva ellos mismos, por chat o teléfono.'
           ]
         },
-        benefits: 'Disponibilidad 24/7, cero llamadas perdidas, reducción de carga de trabajo para el personal, experiencia uniforme para clientes y aumento de la tasa de conversión'
+        benefitsTitle: '¿Por qué necesitas un Agente IA?',
+        benefitsList: [
+          'Cero llamadas perdidas',
+          'Disponibilidad 24/7',
+          'Menos estrés para el equipo'
+        ]
       },
       video: {
         title: 'Servicio de Vídeo Premium con VEO3',
@@ -1006,41 +1020,48 @@ export const translations = {
         ]
       },
       aiAgents: {
-        title: 'AI Agents - Asistent Virtual Inteligent',
+        title: 'Asistent Virtual Inteligent',
         price: '1.500 RON/lună',
         originalPrice: '2.000 RON/lună',
         discount: '25% REDUCERE',
-        subtitle: 'Nu mai pierzi nici un apel sau mesaj – Suport clienți automatizat 24/7',
+        subtitle: 'Angajatul tău ideal: Nu doarme niciodată și răspunde instant oricărui client',
         badge: 'Agent AI Conversațional 24/7',
         phone: {
-          title: '📞 Răspunde la Telefon',
+          title: 'Răspunde la Telefon',
+          tagline: 'Voice AI',
+          intro: 'Nu mai pierde niciun client pentru că erai ocupat în bucătărie sau în ședință.',
           items: [
-            'Agent vocal care răspunde automat la apeluri telefonice',
-            'Voce naturală și conversație fluidă în limba română',
-            'Cunoaștere completă a meniului, prețurilor și disponibilității',
-            'Răspunsuri la întrebări despre alergeni, ingrediente și preparare'
+            'Voce Naturală: Vorbește fluid în limba română, exact ca un om.',
+            'Expert în Afacerea Ta: Știe totul despre meniul tău, prețuri, ingrediente sau servicii.',
+            'Fără Apeluri Pierdute: Poate prelua zeci de apeluri simultan, 24/7.'
           ]
         },
         whatsapp: {
-          title: '💬 Chatbot WhatsApp',
+          title: 'Expert pe WhatsApp',
+          tagline: 'Chat AI',
+          intro: 'Clienții vor răspunsuri ACUM. AI-ul i le oferă pe loc.',
           items: [
-            'Răspunsuri instant pe WhatsApp Business',
-            'Prezentare meniu cu imagini și descrieri detaliate',
-            'Recomandări personalizate bazate pe preferințe',
-            'Informații despre promoții și oferte speciale'
+            'Meniu Digital: Trimite poze și detalii despre produse direct pe WhatsApp.',
+            'Vânzare Activă: Recomandă produse și prezintă ofertele speciale în mod inteligent.',
+            'Disponibilitate Totală: Răspunde instant, chiar și în mijlocul nopții.'
           ]
         },
         reservations: {
-          title: '📅 Rezervări Automate',
+          title: 'Rezervări Automate',
+          tagline: 'Calendar Sync',
+          intro: 'Uită de agenda de hârtie și de erorile umane.',
           items: [
-            'Preia rezervări automat prin telefon sau WhatsApp',
-            'Verifică disponibilitatea în timp real',
-            'Introduce rezervările direct în Google Calendar',
-            'Trimite confirmări și reminder-uri automate clienților',
-            'Gestionează modificări și anulări de rezervări'
+            'Programare Directă: Verifică disponibilitatea și pune rezervarea direct în Google Calendar.',
+            'Confirmări și Reminder-uri: Trimite automat mesaje clienților ca să te asiguri că aceștia apar la programare.',
+            'Gestiune Simplă: Clienții pot anula sau muta rezervarea singuri, prin chat sau telefon.'
           ]
         },
-        benefits: 'Disponibilitate 24/7, zero apeluri pierdite, reducerea volumului de muncă pentru personal, experiență uniformă pentru clienți, și creșterea ratei de conversie'
+        benefitsTitle: 'De ce ai nevoie de un Agent AI?',
+        benefitsList: [
+          'Zero apeluri pierdute',
+          'Disponibilitate 24/7',
+          'Mai puțin stres pentru echipă'
+        ]
       },
       video: {
         title: 'Serviciu Video Premium cu VEO3',
