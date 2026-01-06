@@ -340,7 +340,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* AI Video Generator - Digital Avatar Package */}
-            <ServiceCard title={t.services.ugc.title} icon={Video} price={t.services.ugc.price} subtitle={t.services.ugc.heroSubtitle} highlight>
+            <ServiceCard title={t.services.ugc.title} icon={Video} price={<><span className="text-success">32 videoclipuri</span> <span className="text-primary-foreground">499 RON</span></>} subtitle={t.services.ugc.heroSubtitle} highlight>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Video className="w-5 h-5 text-accent" />

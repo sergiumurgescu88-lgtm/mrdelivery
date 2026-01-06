@@ -5,9 +5,9 @@ interface ServiceCardProps {
   title: string;
   icon: LucideIcon;
   children: ReactNode;
-  price?: string;
+  price?: ReactNode;
   originalPrice?: string;
-  discount?: string;
+  discount?: ReactNode;
   discountNote?: string;
   subtitle?: string;
   highlight?: boolean;
