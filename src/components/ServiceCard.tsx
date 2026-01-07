@@ -100,7 +100,7 @@ export const ServiceCard = ({
                     e.stopPropagation();
                     onPlayAudio(audioPackage);
                   }}
-                  className="mt-2 p-3 sm:p-4 rounded-full transition-all duration-300 hover:scale-110 bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-amber-950 shadow-lg shadow-amber-500/40 animate-[pulse_3s_ease-in-out_infinite] hover:animate-none hover:shadow-xl hover:shadow-amber-500/50"
+                  className="mt-2 p-3 sm:p-4 rounded-full transition-all duration-300 hover:scale-110 bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-amber-950 shadow-lg shadow-amber-500/40 animate-[pulse_6s_ease-in-out_infinite] hover:animate-none hover:shadow-xl hover:shadow-amber-500/50"
                   title="Ascultă prezentarea"
                 >
                   <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" />
