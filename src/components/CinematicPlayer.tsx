@@ -107,7 +107,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (audioSource.type === 'podcast') {
       return 'MrDelivery Podcast';
     } else {
-      return 'Pachet Audio';
+      return packageNames[audioSource.packageId];
     }
   };
 
@@ -115,7 +115,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (audioSource.type === 'podcast') {
       return 'Always playing for you';
     } else {
-      return packageNames[audioSource.packageId];
+      return null;
     }
   };
 
@@ -418,9 +418,11 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
                   <h3 className="text-[1.4rem] text-white font-semibold mb-1">
                     {getTitle()}
                   </h3>
-                  <p className="text-sm text-white/75 font-normal">
-                    {getSubtitle()}
-                  </p>
+                  {getSubtitle() && (
+                    <p className="text-sm text-white/75 font-normal">
+                      {getSubtitle()}
+                    </p>
+                  )}
                 </div>
               </div>
 
