@@ -276,18 +276,4 @@
       transform: translateX(-50%);
     }
   }
-
-  /* Pulse glow animation for audio buttons */
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.6);
-    }
-    50% {
-      box-shadow: 0 0 12px 4px hsl(var(--primary) / 0.4);
-    }
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
 }

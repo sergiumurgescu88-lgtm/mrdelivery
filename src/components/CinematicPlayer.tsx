@@ -107,7 +107,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (audioSource.type === 'podcast') {
       return 'MrDelivery Podcast';
     } else {
-      return packageNames[audioSource.packageId];
+      return 'Pachet Audio';
     }
   };
 
@@ -115,7 +115,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (audioSource.type === 'podcast') {
       return 'Always playing for you';
     } else {
-      return 'Ascultă prezentarea';
+      return packageNames[audioSource.packageId];
     }
   };
 
@@ -328,12 +328,10 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
           className={`
             relative overflow-hidden cursor-pointer
             transition-all duration-300 ease-out
-            ${isPlaying ? 'animate-audio-float opacity-50' : 'animate-audio-flicker'}
+            ${isPlaying ? 'animate-audio-float' : 'animate-audio-flicker'}
             ${isMinimized 
               ? 'w-[70px] h-[70px] rounded-full p-0 flex items-center justify-center' 
-              : isMobileExpanded 
-                ? 'w-[200px] h-[80px] rounded-[12px] p-3' 
-                : 'w-[320px] rounded-[18px] p-6'
+              : 'w-[320px] rounded-[18px] p-6'
             }
           `}
           style={{
