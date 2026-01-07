@@ -193,17 +193,17 @@ const Index = () => {
                 </div>
 
                 {/* Card 4: Training Staff & Management */}
-                <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 p-4 sm:p-5 rounded-2xl border-2 border-primary/30 shadow-lg">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2.5 bg-gradient-primary rounded-xl shadow-lg">
+                <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 p-3 sm:p-5 rounded-2xl border-2 border-primary/30 shadow-lg">
+                  <div className="flex items-start gap-2 sm:gap-3 mb-3">
+                    <div className="p-2 sm:p-2.5 bg-gradient-primary rounded-xl shadow-lg flex-shrink-0">
                       <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-base sm:text-lg text-foreground">{(t.services.standard as any).training?.title || '👥 Training Staff și Management'}</h4>
-                      <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-semibold">{(t.services.standard as any).training?.tagline || 'Echipă Instruită'}</span>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-bold text-sm sm:text-lg text-foreground leading-tight break-words">{(t.services.standard as any).training?.title || '👥 Training Staff și Management'}</h4>
+                      <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-semibold inline-block mt-1">{(t.services.standard as any).training?.tagline || 'Echipă Instruită'}</span>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">{(t.services.standard as any).training?.intro || 'Echipa ta învață să utilizeze platformele de livrare ca un profesionist.'}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-3 break-words">{(t.services.standard as any).training?.intro || 'Echipa ta învață să utilizeze platformele de livrare ca un profesionist.'}</p>
                   <div className="space-y-2">
                     {((t.services.standard as any).training?.items || [
                       'Instruire Completă: Învățăm personalul tău să folosească Glovo, Wolt și Bolt Food eficient - comenzi, tablete, confirmări.',
@@ -211,9 +211,9 @@ const Index = () => {
                       'Best Practices: Sfaturi și trucuri pentru reducerea timpului de preparare, îmbunătățirea ambalajului și evitarea recenziilor negative.',
                       'Suport Continuu: Echipa are acces direct la noi pe WhatsApp pentru orice întrebare sau problemă.'
                     ]).map((item: string, index: number) => (
-                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
+                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2 sm:p-2.5 rounded-lg border border-primary/20">
                         <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground">{item}</span>
+                        <span className="text-xs sm:text-sm text-foreground break-words leading-relaxed">{item}</span>
                       </div>
                     ))}
                   </div>
