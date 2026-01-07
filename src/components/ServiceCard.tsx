@@ -93,14 +93,14 @@ export const ServiceCard = ({
                   {packageNumber}
                 </div>
               )}
-              {/* Audio Button */}
+              {/* Audio Button with pulse animation */}
               {audioPackage && onPlayAudio && (
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     onPlayAudio(audioPackage);
                   }}
-                  className={`mt-1 p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                  className={`mt-1 p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-110 animate-pulse-glow ${
                     highlight ? 'bg-card/80 text-primary hover:bg-card' : 'bg-primary/20 text-primary hover:bg-primary/30'
                   }`}
                   title="Ascultă prezentarea"
