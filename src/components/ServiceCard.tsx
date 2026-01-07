@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, ReactNode } from 'react';
 import { ChevronDown, Star, Volume2, LucideIcon } from 'lucide-react';
-import type { PackageType } from './PackageAudioPlayer';
+import type { PackageType } from './CinematicPlayer';
 
 interface ServiceCardProps {
   title: string;

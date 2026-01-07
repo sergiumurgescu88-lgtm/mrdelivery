@@ -1,10 +1,15 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { Play, Pause, Volume2, VolumeX, Podcast, Maximize2, Minimize2 } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Podcast, Maximize2, Minimize2, Package } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language as AppLanguage } from '@/i18n/translations';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
 import podcastEnglish from '@/assets/podcast-english.wav';
+import audioAvatarDigital from '@/assets/audio-avatar-digital.wav';
+import audioPilotAutomat from '@/assets/audio-pilot-automat.wav';
+import audioAsistentVirtual from '@/assets/audio-asistent-virtual.wav';
+import audioProductieVideo from '@/assets/audio-productie-video.wav';
+import audioManagementPlatforme from '@/assets/audio-management-platforme.wav';
 
 // Map app language to podcast language
 const languageToPodcast: Record<AppLanguage, Language> = {
@@ -21,6 +26,13 @@ const formatTime = (seconds: number) => {
 
 type Language = 'ro' | 'es' | 'us';
 
+export type PackageType = 
+  | 'avatar-digital'
+  | 'pilot-automat'
+  | 'asistent-virtual'
+  | 'productie-video'
+  | 'management-platforme';
+
 interface PodcastConfig {
   id: Language;
   label: string;
@@ -34,11 +46,34 @@ const podcasts: PodcastConfig[] = [
   { id: 'us', label: 'English', flag: '🇺🇸', src: podcastEnglish },
 ];
 
-export const CinematicPlayer = () => {
+const packageAudioMap: Record<PackageType, string> = {
+  'avatar-digital': audioAvatarDigital,
+  'pilot-automat': audioPilotAutomat,
+  'asistent-virtual': audioAsistentVirtual,
+  'productie-video': audioProductieVideo,
+  'management-platforme': audioManagementPlatforme,
+};
+
+const packageNames: Record<PackageType, string> = {
+  'avatar-digital': 'Avatar Digital',
+  'pilot-automat': 'Afacere pe Pilot Automat',
+  'asistent-virtual': 'Asistent Virtual Inteligent',
+  'productie-video': 'Producție Video',
+  'management-platforme': 'Management Platforme',
+};
+
+type AudioSource = { type: 'podcast'; language: Language } | { type: 'package'; packageId: PackageType };
+
+interface CinematicPlayerProps {
+  activePackage?: PackageType | null;
+  onClearPackage?: () => void;
+}
+
+export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlayerProps) => {
   const { language: appLanguage } = useLanguage();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   
-  const [activePlayer, setActivePlayer] = useState<Language>(() => languageToPodcast[appLanguage]);
+  const [audioSource, setAudioSource] = useState<AudioSource>({ type: 'podcast', language: languageToPodcast[appLanguage] });
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -49,7 +84,40 @@ export const CinematicPlayer = () => {
   const [isMobile, setIsMobile] = useState(false);
   const hasStarted = useRef(false);
 
-  const currentPodcast = podcasts.find(p => p.id === activePlayer) || podcasts[0];
+  // Get current audio source
+  const getCurrentSrc = () => {
+    if (audioSource.type === 'podcast') {
+      const podcast = podcasts.find(p => p.id === audioSource.language) || podcasts[0];
+      return podcast.src;
+    } else {
+      return packageAudioMap[audioSource.packageId];
+    }
+  };
+
+  const getCurrentLabel = () => {
+    if (audioSource.type === 'podcast') {
+      const podcast = podcasts.find(p => p.id === audioSource.language) || podcasts[0];
+      return `${podcast.label} - MrDelivery Podcast`;
+    } else {
+      return packageNames[audioSource.packageId];
+    }
+  };
+
+  const getTitle = () => {
+    if (audioSource.type === 'podcast') {
+      return 'MrDelivery Podcast';
+    } else {
+      return 'Pachet Audio';
+    }
+  };
+
+  const getSubtitle = () => {
+    if (audioSource.type === 'podcast') {
+      return 'Always playing for you';
+    } else {
+      return packageNames[audioSource.packageId];
+    }
+  };
 
   // Check if mobile
   useEffect(() => {
@@ -62,10 +130,38 @@ export const CinematicPlayer = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Sync podcast with language changes
+  // Handle package audio activation
   useEffect(() => {
+    if (activePackage) {
+      // Stop current audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      
+      // Switch to package audio
+      setAudioSource({ type: 'package', packageId: activePackage });
+      setCurrentTime(0);
+      setIsPlaying(false);
+      setIsMobileExpanded(true); // Expand on mobile when package is selected
+      
+      // Play after source is set
+      setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play()
+            .then(() => setIsPlaying(true))
+            .catch(() => setIsPlaying(false));
+        }
+      }, 100);
+    }
+  }, [activePackage]);
+
+  // Sync podcast with language changes (only when in podcast mode)
+  useEffect(() => {
+    if (audioSource.type !== 'podcast') return;
+    
     const newPodcastLang = languageToPodcast[appLanguage];
-    if (newPodcastLang === activePlayer) return;
+    if (newPodcastLang === audioSource.language) return;
 
     if (audioRef.current) {
       audioRef.current.pause();
@@ -74,8 +170,8 @@ export const CinematicPlayer = () => {
 
     setCurrentTime(0);
     setIsPlaying(false);
-    setActivePlayer(newPodcastLang);
-  }, [appLanguage, activePlayer]);
+    setAudioSource({ type: 'podcast', language: newPodcastLang });
+  }, [appLanguage, audioSource]);
 
   // Audio event listeners
   useEffect(() => {
@@ -87,6 +183,11 @@ export const CinematicPlayer = () => {
     const handleEnded = () => {
       setIsPlaying(false);
       setCurrentTime(0);
+      // Return to podcast after package audio ends
+      if (audioSource.type === 'package') {
+        setAudioSource({ type: 'podcast', language: languageToPodcast[appLanguage] });
+        onClearPackage?.();
+      }
     };
 
     audio.addEventListener('timeupdate', updateTime);
@@ -102,7 +203,7 @@ export const CinematicPlayer = () => {
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [activePlayer]);
+  }, [audioSource, appLanguage, onClearPackage]);
 
   // Start expansion animation on page load
   useEffect(() => {
@@ -181,17 +282,31 @@ export const CinematicPlayer = () => {
     togglePlay();
   };
 
+  const handleBackToPodcast = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    setAudioSource({ type: 'podcast', language: languageToPodcast[appLanguage] });
+    setCurrentTime(0);
+    setIsPlaying(false);
+    onClearPackage?.();
+  };
+
   const progressPercent = duration ? (currentTime / duration) * 100 : 0;
   
   // Determine if player should be minimized (mobile and not expanded)
   const isMinimized = isMobile && !isMobileExpanded;
+
+  const isPodcast = audioSource.type === 'podcast';
 
   return (
     <>
       {/* Audio element */}
       <audio
         ref={audioRef}
-        src={currentPodcast.src}
+        src={getCurrentSrc()}
         preload="metadata"
       />
 
@@ -220,16 +335,24 @@ export const CinematicPlayer = () => {
             }
           `}
           style={{
-            background: 'linear-gradient(145deg, #0c2036, #0a1a2d)',
-            boxShadow: '0 10px 40px rgba(12, 32, 54, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            background: isPodcast 
+              ? 'linear-gradient(145deg, #0c2036, #0a1a2d)'
+              : 'linear-gradient(145deg, #1a1a2e, #16213e)',
+            boxShadow: isPodcast
+              ? '0 10px 40px rgba(12, 32, 54, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              : '0 10px 40px rgba(249, 115, 22, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+            border: isPodcast 
+              ? '1px solid rgba(255, 255, 255, 0.08)'
+              : '1px solid rgba(249, 115, 22, 0.3)',
           }}
         >
           {/* Subtle glow effect */}
           <div 
             className="absolute -inset-0.5 rounded-[20px] -z-10 opacity-50 blur-[10px]"
             style={{
-              background: 'linear-gradient(45deg, #0c2036, #1e40af, #0c2036)',
+              background: isPodcast 
+                ? 'linear-gradient(45deg, #0c2036, #1e40af, #0c2036)'
+                : 'linear-gradient(45deg, #f97316, #fb923c, #f97316)',
             }}
           />
 
@@ -256,7 +379,9 @@ export const CinematicPlayer = () => {
             <div 
               className="w-full h-full rounded-full flex items-center justify-center"
               style={{
-                background: 'linear-gradient(135deg, #f97316, #fb923c)',
+                background: isPodcast 
+                  ? 'linear-gradient(135deg, #f97316, #fb923c)'
+                  : 'linear-gradient(135deg, #8b5cf6, #a855f7)',
               }}
             >
               {isPlaying ? (
@@ -275,18 +400,26 @@ export const CinematicPlayer = () => {
                 <div 
                   className="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center mr-4"
                   style={{
-                    background: 'linear-gradient(135deg, #f97316, #fb923c)',
-                    boxShadow: '0 4px 12px rgba(249, 115, 22, 0.3)',
+                    background: isPodcast
+                      ? 'linear-gradient(135deg, #f97316, #fb923c)'
+                      : 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+                    boxShadow: isPodcast
+                      ? '0 4px 12px rgba(249, 115, 22, 0.3)'
+                      : '0 4px 12px rgba(139, 92, 246, 0.3)',
                   }}
                 >
-                  <Podcast className="w-7 h-7 text-white" />
+                  {isPodcast ? (
+                    <Podcast className="w-7 h-7 text-white" />
+                  ) : (
+                    <Package className="w-7 h-7 text-white" />
+                  )}
                 </div>
                 <div>
                   <h3 className="text-[1.4rem] text-white font-semibold mb-1">
-                    MrDelivery Podcast
+                    {getTitle()}
                   </h3>
                   <p className="text-sm text-white/75 font-normal">
-                    Always playing for you
+                    {getSubtitle()}
                   </p>
                 </div>
               </div>
@@ -297,8 +430,12 @@ export const CinematicPlayer = () => {
                   onClick={handlePlayButtonClick}
                   className="w-[62px] h-[62px] rounded-[16px] border-none text-white text-3xl cursor-pointer transition-all duration-300 hover:scale-[1.08] active:scale-[0.96] flex items-center justify-center pointer-events-auto"
                   style={{
-                    background: 'linear-gradient(135deg, #f97316, #fb923c)',
-                    boxShadow: '0 6px 20px rgba(249, 115, 22, 0.3)',
+                    background: isPodcast
+                      ? 'linear-gradient(135deg, #f97316, #fb923c)'
+                      : 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+                    boxShadow: isPodcast
+                      ? '0 6px 20px rgba(249, 115, 22, 0.3)'
+                      : '0 6px 20px rgba(139, 92, 246, 0.3)',
                   }}
                 >
                   {isPlaying ? (
@@ -328,7 +465,7 @@ export const CinematicPlayer = () => {
                     onClick={(e) => e.stopPropagation()}
                     className="w-[100px] h-1.5 rounded-[3px] outline-none cursor-pointer appearance-none pointer-events-auto"
                     style={{
-                      background: `linear-gradient(to right, #f97316 0%, #f97316 ${volume}%, rgba(255, 255, 255, 0.15) ${volume}%, rgba(255, 255, 255, 0.15) 100%)`,
+                      background: `linear-gradient(to right, ${isPodcast ? '#f97316' : '#8b5cf6'} 0%, ${isPodcast ? '#f97316' : '#8b5cf6'} ${volume}%, rgba(255, 255, 255, 0.15) ${volume}%, rgba(255, 255, 255, 0.15) 100%)`,
                     }}
                   />
                 </div>
@@ -344,7 +481,9 @@ export const CinematicPlayer = () => {
                     className="h-full rounded transition-[width] duration-100 pointer-events-none"
                     style={{
                       width: `${progressPercent}%`,
-                      background: 'linear-gradient(90deg, #f97316, #fb923c)',
+                      background: isPodcast
+                        ? 'linear-gradient(90deg, #f97316, #fb923c)'
+                        : 'linear-gradient(90deg, #8b5cf6, #a855f7)',
                     }}
                   />
                 </div>
@@ -356,8 +495,18 @@ export const CinematicPlayer = () => {
 
               {/* Track info */}
               <div className="text-center text-white/70 italic mt-4 text-[0.85rem] font-normal pointer-events-none">
-                Now Playing: "{currentPodcast.label}" - MrDelivery Podcast
+                Now Playing: "{getCurrentLabel()}"
               </div>
+
+              {/* Back to podcast button (only when playing package) */}
+              {!isPodcast && (
+                <button
+                  onClick={handleBackToPodcast}
+                  className="mt-3 w-full py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white/80 text-sm font-medium transition-colors pointer-events-auto"
+                >
+                  ← Înapoi la Podcast
+                </button>
+              )}
             </>
           )}
         </div>
