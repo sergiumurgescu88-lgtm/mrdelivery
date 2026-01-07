@@ -107,7 +107,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (audioSource.type === 'podcast') {
       return 'MrDelivery Podcast';
     } else {
-      return 'Pachet Audio';
+      return packageNames[audioSource.packageId];
     }
   };
 
@@ -115,7 +115,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (audioSource.type === 'podcast') {
       return 'Always playing for you';
     } else {
-      return packageNames[audioSource.packageId];
+      return 'Ascultă prezentarea';
     }
   };
 
