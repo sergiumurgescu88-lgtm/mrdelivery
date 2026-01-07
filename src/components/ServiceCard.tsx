@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, ReactNode } from 'react';
-import { ChevronDown, Star, LucideIcon } from 'lucide-react';
+import { ChevronDown, Star, Volume2, LucideIcon } from 'lucide-react';
+import type { PackageType } from './PackageAudioPlayer';
 
 interface ServiceCardProps {
   title: string;
@@ -13,6 +14,8 @@ interface ServiceCardProps {
   highlight?: boolean;
   packageNumber?: number;
   telegramButton?: ReactNode;
+  audioPackage?: PackageType;
+  onPlayAudio?: (pkg: PackageType) => void;
 }
 
 export const ServiceCard = ({
@@ -27,6 +30,8 @@ export const ServiceCard = ({
   highlight = false,
   packageNumber,
   telegramButton,
+  audioPackage,
+  onPlayAudio,
 }: ServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -87,6 +92,21 @@ export const ServiceCard = ({
                 >
                   {packageNumber}
                 </div>
+              )}
+              {/* Audio Button */}
+              {audioPackage && onPlayAudio && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onPlayAudio(audioPackage);
+                  }}
+                  className={`mt-1 p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                    highlight ? 'bg-card/80 text-primary hover:bg-card' : 'bg-primary/20 text-primary hover:bg-primary/30'
+                  }`}
+                  title="Ascultă prezentarea"
+                >
+                  <Volume2 className="w-4 h-4" />
+                </button>
               )}
             </div>
             <div className="flex-1 min-w-0">
@@ -153,7 +173,7 @@ export const ServiceCard = ({
         )}
       </div>
 
-      <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-none opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <div className="p-4 sm:p-6 bg-card text-left">{children}</div>
       </div>
     </div>
