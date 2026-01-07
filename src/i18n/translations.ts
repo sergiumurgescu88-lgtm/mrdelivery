@@ -56,6 +56,17 @@ export const translations = {
             'Problem Solving: Any incident with an order or platform is resolved quickly through our dedicated support.'
           ]
         },
+        training: {
+          title: 'Staff Training & Management',
+          tagline: 'Trained Team',
+          intro: 'Your team learns to use delivery platforms like a pro.',
+          items: [
+            'Complete Training: We teach your staff to use Uber Eats, DoorDash & Grubhub efficiently - orders, tablets, confirmations.',
+            'Order Issues: They learn to handle missing items, canceled orders, refund requests - everything solved fast.',
+            'Best Practices: Tips & tricks for reducing prep time, improving packaging, and avoiding bad reviews.',
+            'Continuous Support: The team has direct access to us on WhatsApp for any questions or issues.'
+          ]
+        },
         whyTitle: 'Why do you need this management?',
         whyItems: [
           'Recover Investment: By simply negotiating commissions, our package can pay for itself from the first month.',
@@ -592,6 +603,17 @@ export const translations = {
             'Resolución de Problemas: Cualquier incidente con un pedido o plataforma se resuelve rápidamente a través de nuestro soporte dedicado.'
           ]
         },
+        training: {
+          title: 'Formación de Personal y Gestión',
+          tagline: 'Equipo Formado',
+          intro: 'Tu equipo aprende a usar las plataformas de entrega como un profesional.',
+          items: [
+            'Formación Completa: Enseñamos a tu personal a usar Glovo, Uber Eats y Just Eat eficientemente - pedidos, tablets, confirmaciones.',
+            'Problemas de Pedidos: Aprenden a gestionar artículos faltantes, pedidos cancelados, solicitudes de reembolso - todo resuelto rápidamente.',
+            'Mejores Prácticas: Consejos y trucos para reducir el tiempo de preparación, mejorar el embalaje y evitar malas reseñas.',
+            'Soporte Continuo: El equipo tiene acceso directo a nosotros por WhatsApp para cualquier pregunta o problema.'
+          ]
+        },
         whyTitle: '¿Por qué necesitas esta gestión?',
         whyItems: [
           'Recupera la Inversión: Simplemente negociando comisiones, nuestro paquete puede pagarse solo desde el primer mes.',
@@ -1126,6 +1148,17 @@ export const translations = {
             'Eficientizarea Livrării: Optimizăm razele de livrare (pentru livrare proprie) ca să ajungi la clienți rapid și ieftin.',
             'Analiză lunară: Îți arătăm exact cât ai vândut și cum putem crește comanda medie.',
             'Rezolvare Probleme: Orice incident cu o comandă sau cu platforma se rezolvă rapid prin suportul nostru dedicat.'
+          ]
+        },
+        training: {
+          title: 'Training Staff și Management',
+          tagline: 'Echipă Instruită',
+          intro: 'Echipa ta învață să utilizeze platformele de livrare ca un profesionist.',
+          items: [
+            'Instruire Completă: Învățăm personalul tău să folosească Glovo, Wolt și Bolt Food eficient - comenzi, tablete, confirmări.',
+            'Probleme Comenzi: Învață să gestioneze produse lipsă, comenzi anulate, cereri de refund - totul rezolvat rapid.',
+            'Best Practices: Sfaturi și trucuri pentru reducerea timpului de preparare, îmbunătățirea ambalajului și evitarea recenziilor negative.',
+            'Suport Continuu: Echipa are acces direct la noi pe WhatsApp pentru orice întrebare sau problemă.'
           ]
         },
         whyTitle: 'De ce ai nevoie de acest management?',
