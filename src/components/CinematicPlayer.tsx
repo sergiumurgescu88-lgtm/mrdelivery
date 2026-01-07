@@ -197,11 +197,15 @@ export const CinematicPlayer = () => {
 
       {/* Fixed position audio player container */}
       <div 
-        className={`
-          fixed bottom-5 right-5 z-[1000]
-          transition-all duration-300 ease-out
-          ${isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-        `}
+        className={
+          isMobile && !isMinimized
+            ? `fixed inset-x-4 bottom-4 z-[1000] flex justify-center transition-all duration-300 ease-out ${
+                isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`
+            : `fixed bottom-5 right-5 z-[1000] transition-all duration-300 ease-out ${
+                isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`
+        }
       >
         {/* Audio box with flicker/float animation */}
         <div 

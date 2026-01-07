@@ -1,4 +1,4 @@
-import { useState, ReactNode } from 'react';
+import { useEffect, useRef, useState, ReactNode } from 'react';
 import { ChevronDown, Star, LucideIcon } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -15,12 +15,46 @@ interface ServiceCardProps {
   telegramButton?: ReactNode;
 }
 
-export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice, discount, discountNote, subtitle, highlight = false, packageNumber, telegramButton }: ServiceCardProps) => {
+export const ServiceCard = ({
+  title,
+  icon: Icon,
+  children,
+  price,
+  originalPrice,
+  discount,
+  discountNote,
+  subtitle,
+  highlight = false,
+  packageNumber,
+  telegramButton,
+}: ServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  // On mobile, when expanding a card, scroll it into view so the full content can be seen.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const isSmallScreen = window.matchMedia?.('(max-width: 640px)')?.matches;
+
+    if (!isSmallScreen) return;
+
+    // Wait for the expand transition/layout.
+    const id = window.setTimeout(() => {
+      cardRef.current?.scrollIntoView({
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    }, 50);
+
+    return () => window.clearTimeout(id);
+  }, [isOpen]);
 
   return (
     <div
+      ref={cardRef}
       className={`border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
         highlight
           ? 'border-transparent shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10 animated-gradient-border'
@@ -46,9 +80,11 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
                 <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${highlight ? 'text-primary' : 'text-primary-foreground'}`} />
               </div>
               {packageNumber && (
-                <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center font-bold text-sm sm:text-base ${
-                  highlight ? 'bg-card text-primary shadow-lg' : 'bg-primary text-primary-foreground'
-                }`}>
+                <div
+                  className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center font-bold text-sm sm:text-base ${
+                    highlight ? 'bg-card text-primary shadow-lg' : 'bg-primary text-primary-foreground'
+                  }`}
+                >
                   {packageNumber}
                 </div>
               )}
@@ -69,16 +105,20 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
               {(price || originalPrice || discount || telegramButton) && (
                 <div className="flex flex-wrap items-center gap-2 mt-1">
                   {discount && (
-                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-sm font-bold ${
-                      highlight ? 'bg-green-500 text-white' : 'bg-green-500 text-white'
-                    }`}>
+                    <span
+                      className={`inline-flex items-center px-2 py-0.5 rounded-full text-sm font-bold ${
+                        highlight ? 'bg-green-500 text-white' : 'bg-green-500 text-white'
+                      }`}
+                    >
                       {discount}
                     </span>
                   )}
                   {originalPrice && (
-                    <span className={`text-sm sm:text-base line-through ${
-                      highlight ? 'text-primary-foreground/50' : 'text-muted-foreground'
-                    }`}>
+                    <span
+                      className={`text-sm sm:text-base line-through ${
+                        highlight ? 'text-primary-foreground/50' : 'text-muted-foreground'
+                      }`}
+                    >
                       {originalPrice}
                     </span>
                   )}
@@ -92,17 +132,11 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
                       <span className="break-words">{price}</span>
                     </div>
                   )}
-                  {telegramButton && (
-                    <div className="flex-shrink-0">
-                      {telegramButton}
-                    </div>
-                  )}
+                  {telegramButton && <div className="flex-shrink-0">{telegramButton}</div>}
                 </div>
               )}
               {discountNote && (
-                <p className={`text-sm mt-1 ${highlight ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
-                  {discountNote}
-                </p>
+                <p className={`text-sm mt-1 ${highlight ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>{discountNote}</p>
               )}
             </div>
           </div>
@@ -119,13 +153,10 @@ export const ServiceCard = ({ title, icon: Icon, children, price, originalPrice,
         )}
       </div>
 
-      <div
-        className={`transition-all duration-500 ease-in-out overflow-hidden ${
-          isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
+      <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="p-4 sm:p-6 bg-card text-left">{children}</div>
       </div>
     </div>
   );
 };
+

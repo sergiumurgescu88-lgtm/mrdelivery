@@ -25,11 +25,11 @@ const Index = () => {
     t
   } = useLanguage();
   const [activeTab, setActiveTab] = useState<'existente' | 'ai'>('existente');
-  return <div className="min-h-screen relative overflow-hidden bg-background">
+  return <div className="min-h-screen relative overflow-x-hidden bg-background">
       {/* Food Background with Miniature Chefs */}
       <FoodBackground />
 
-      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 relative z-10">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 pt-6 pb-28 sm:py-8 relative z-10">
         {/* Hero Section */}
         <header className="text-center mb-6 sm:mb-8 relative pt-2">
           <LanguageSwitcher />
