@@ -3,11 +3,10 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
-import { CinematicPlayer } from '@/components/CinematicPlayer';
+import { CinematicPlayer, PackageType } from '@/components/CinematicPlayer';
 import { FoodBackground } from '@/components/FoodBackground';
 import { FullscreenVideo } from '@/components/FullscreenVideo';
 import { VideoGallery } from '@/components/VideoGallery';
-import { PackageAudioPlayer, PackageType } from '@/components/PackageAudioPlayer';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import { Link } from 'react-router-dom';
 import ugcExample1 from '@/assets/ugc-example-1.mp4';
@@ -55,10 +54,11 @@ const Index = () => {
           </div>
         </header>
 
-        {/* Podcast Player Section */}
-        <div className="mb-6 sm:mb-8 px-2">
-          <CinematicPlayer />
-        </div>
+        {/* Unified Audio Player - Podcast + Packages */}
+        <CinematicPlayer 
+          activePackage={activeAudioPackage}
+          onClearPackage={() => setActiveAudioPackage(null)}
+        />
 
 
 
@@ -657,11 +657,6 @@ const Index = () => {
           </div>
         </footer>
 
-        {/* Package Audio Player */}
-        <PackageAudioPlayer 
-          activePackage={activeAudioPackage} 
-          onClose={() => setActiveAudioPackage(null)} 
-        />
       </div>
     </div>;
 };
