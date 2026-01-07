@@ -332,7 +332,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
             ${isMinimized 
               ? 'w-[70px] h-[70px] rounded-full p-0 flex items-center justify-center' 
               : isMobileExpanded 
-                ? 'w-[160px] rounded-[12px] p-3' 
+                ? 'w-[280px] h-[70px] rounded-[12px] p-3' 
                 : 'w-[320px] rounded-[18px] p-6'
             }
           `}
