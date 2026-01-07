@@ -17,7 +17,8 @@ const getAllowedOrigins = () => {
 const getCorsHeaders = (req: Request) => {
   const origin = req.headers.get('Origin') || '';
   const allowedOrigins = getAllowedOrigins();
-  const isAllowed = allowedOrigins.some(allowed => origin.startsWith(allowed) || allowed === '*');
+  // Use exact match instead of startsWith to prevent subdomain bypass attacks
+  const isAllowed = allowedOrigins.includes(origin) || allowedOrigins.includes('*');
   
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : '',
