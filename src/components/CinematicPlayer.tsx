@@ -83,6 +83,8 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobileExpanded, setIsMobileExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(true);
+  const [bufferedPercent, setBufferedPercent] = useState(0);
   const hasStarted = useRef(false);
 
   // Get current audio source
@@ -180,7 +182,10 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (!audio) return;
 
     const updateTime = () => setCurrentTime(audio.currentTime);
-    const updateDuration = () => setDuration(audio.duration);
+    const updateDuration = () => {
+      setDuration(audio.duration);
+      setIsBuffering(false);
+    };
     const handleEnded = () => {
       setIsPlaying(false);
       setCurrentTime(0);
@@ -191,9 +196,33 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
       }
     };
 
+    // Handle buffering progress
+    const handleProgress = () => {
+      if (audio.buffered.length > 0 && audio.duration > 0) {
+        const bufferedEnd = audio.buffered.end(audio.buffered.length - 1);
+        const percent = (bufferedEnd / audio.duration) * 100;
+        setBufferedPercent(percent);
+        if (percent >= 95) {
+          setIsBuffering(false);
+        }
+      }
+    };
+
+    const handleCanPlayThrough = () => {
+      setIsBuffering(false);
+      setBufferedPercent(100);
+    };
+
+    const handleWaiting = () => setIsBuffering(true);
+    const handlePlaying = () => setIsBuffering(false);
+
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('progress', handleProgress);
+    audio.addEventListener('canplaythrough', handleCanPlayThrough);
+    audio.addEventListener('waiting', handleWaiting);
+    audio.addEventListener('playing', handlePlaying);
 
     if (audio.duration) {
       setDuration(audio.duration);
@@ -203,6 +232,10 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('progress', handleProgress);
+      audio.removeEventListener('canplaythrough', handleCanPlayThrough);
+      audio.removeEventListener('waiting', handleWaiting);
+      audio.removeEventListener('playing', handlePlaying);
     };
   }, [audioSource, appLanguage, onClearPackage]);
 
@@ -314,11 +347,11 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
 
   return (
     <>
-      {/* Audio element */}
+      {/* Audio element with full preloading for seekability */}
       <audio
         ref={audioRef}
         src={getCurrentSrc()}
-        preload="metadata"
+        preload="auto"
       />
 
       {/* Fixed position audio player container */}
@@ -504,14 +537,22 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
               </div>
 
               {/* Progress bar with full seekability */}
-              <div className="mt-5">
+              <div className="mt-5 relative">
+                {/* Buffer indicator */}
+                <div 
+                  className="absolute top-0 left-0 h-2 rounded-full pointer-events-none z-0"
+                  style={{
+                    width: `${bufferedPercent}%`,
+                    background: 'rgba(255, 255, 255, 0.08)',
+                  }}
+                />
                 <Slider
                   value={[currentTime]}
                   max={duration || 100}
                   step={0.1}
                   onValueChange={handleSeek}
                   onClick={(e) => e.stopPropagation()}
-                  className="w-full cursor-pointer"
+                  className="w-full cursor-pointer relative z-10"
                   style={{
                     '--slider-track-bg': 'rgba(255, 255, 255, 0.15)',
                     '--slider-range-bg': isPodcast
@@ -521,7 +562,14 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
                 />
                 <div className="flex justify-between text-white/80 text-[0.85rem] font-medium mt-2">
                   <span>{formatTime(currentTime)}</span>
-                  <span>{formatTime(duration)}</span>
+                  <div className="flex items-center gap-2">
+                    {isBuffering && (
+                      <span className="text-xs text-white/50 animate-pulse">
+                        Loading...
+                      </span>
+                    )}
+                    <span>{formatTime(duration)}</span>
+                  </div>
                 </div>
               </div>
 
