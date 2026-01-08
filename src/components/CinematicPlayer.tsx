@@ -18,6 +18,12 @@ import audioPilotAutomatEs from '@/assets/audio-pilot-automat-es.wav';
 import audioAsistentVirtualEs from '@/assets/audio-asistent-virtual-es.wav';
 import audioProductieVideoEs from '@/assets/audio-productie-video-es.wav';
 import audioManagementPlatformeEs from '@/assets/audio-management-platforme-es.wav';
+// English audio
+import audioBrandulTauEn from '@/assets/audio-brandul-tau-en.wav';
+import audioPilotAutomatEn from '@/assets/audio-pilot-automat-en.wav';
+import audioAsistentVirtualEn from '@/assets/audio-asistent-virtual-en.wav';
+import audioProductieVideoEn from '@/assets/audio-productie-video-en.wav';
+import audioManagementPlatformeEn from '@/assets/audio-management-platforme-en.wav';
 
 // Map app language to podcast language
 const languageToPodcast: Record<AppLanguage, Language> = {
@@ -56,11 +62,11 @@ const podcasts: PodcastConfig[] = [
 
 // Package audio per language
 const packageAudioMap: Record<PackageType, Record<'ro' | 'es' | 'en', string>> = {
-  'brandul-tau': { ro: audioBrandulTau, es: audioBrandulTauEs, en: audioBrandulTau },
-  'pilot-automat': { ro: audioPilotAutomat, es: audioPilotAutomatEs, en: audioPilotAutomat },
-  'asistent-virtual': { ro: audioAsistentVirtual, es: audioAsistentVirtualEs, en: audioAsistentVirtual },
-  'productie-video': { ro: audioProductieVideo, es: audioProductieVideoEs, en: audioProductieVideo },
-  'management-platforme': { ro: audioManagementPlatforme, es: audioManagementPlatformeEs, en: audioManagementPlatforme },
+  'brandul-tau': { ro: audioBrandulTau, es: audioBrandulTauEs, en: audioBrandulTauEn },
+  'pilot-automat': { ro: audioPilotAutomat, es: audioPilotAutomatEs, en: audioPilotAutomatEn },
+  'asistent-virtual': { ro: audioAsistentVirtual, es: audioAsistentVirtualEs, en: audioAsistentVirtualEn },
+  'productie-video': { ro: audioProductieVideo, es: audioProductieVideoEs, en: audioProductieVideoEn },
+  'management-platforme': { ro: audioManagementPlatforme, es: audioManagementPlatformeEs, en: audioManagementPlatformeEn },
 };
 
 const packageNames: Record<PackageType, string> = {
