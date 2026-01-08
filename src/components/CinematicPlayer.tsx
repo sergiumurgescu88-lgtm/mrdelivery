@@ -6,11 +6,18 @@ import { Language as AppLanguage } from '@/i18n/translations';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
 import podcastEnglish from '@/assets/podcast-english.wav';
+// Romanian audio (default)
 import audioBrandulTau from '@/assets/audio-brandul-tau.wav';
 import audioPilotAutomat from '@/assets/audio-pilot-automat.wav';
 import audioAsistentVirtual from '@/assets/audio-asistent-virtual.wav';
 import audioProductieVideo from '@/assets/audio-productie-video.wav';
 import audioManagementPlatforme from '@/assets/audio-management-platforme.wav';
+// Spanish audio
+import audioBrandulTauEs from '@/assets/audio-brandul-tau-es.wav';
+import audioPilotAutomatEs from '@/assets/audio-pilot-automat-es.wav';
+import audioAsistentVirtualEs from '@/assets/audio-asistent-virtual-es.wav';
+import audioProductieVideoEs from '@/assets/audio-productie-video-es.wav';
+import audioManagementPlatformeEs from '@/assets/audio-management-platforme-es.wav';
 
 // Map app language to podcast language
 const languageToPodcast: Record<AppLanguage, Language> = {
@@ -47,12 +54,13 @@ const podcasts: PodcastConfig[] = [
   { id: 'us', label: 'English', flag: '🇺🇸', src: podcastEnglish },
 ];
 
-const packageAudioMap: Record<PackageType, string> = {
-  'brandul-tau': audioBrandulTau,
-  'pilot-automat': audioPilotAutomat,
-  'asistent-virtual': audioAsistentVirtual,
-  'productie-video': audioProductieVideo,
-  'management-platforme': audioManagementPlatforme,
+// Package audio per language
+const packageAudioMap: Record<PackageType, Record<'ro' | 'es' | 'en', string>> = {
+  'brandul-tau': { ro: audioBrandulTau, es: audioBrandulTauEs, en: audioBrandulTau },
+  'pilot-automat': { ro: audioPilotAutomat, es: audioPilotAutomatEs, en: audioPilotAutomat },
+  'asistent-virtual': { ro: audioAsistentVirtual, es: audioAsistentVirtualEs, en: audioAsistentVirtual },
+  'productie-video': { ro: audioProductieVideo, es: audioProductieVideoEs, en: audioProductieVideo },
+  'management-platforme': { ro: audioManagementPlatforme, es: audioManagementPlatformeEs, en: audioManagementPlatforme },
 };
 
 const packageNames: Record<PackageType, string> = {
@@ -93,7 +101,9 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
       const podcast = podcasts.find(p => p.id === audioSource.language) || podcasts[0];
       return podcast.src;
     } else {
-      return packageAudioMap[audioSource.packageId];
+      // Get package audio based on app language
+      const langKey = appLanguage === 'es' ? 'es' : appLanguage === 'en' ? 'en' : 'ro';
+      return packageAudioMap[audioSource.packageId][langKey];
     }
   };
 
