@@ -5,7 +5,7 @@ import { Language as AppLanguage } from '@/i18n/translations';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
 import podcastEnglish from '@/assets/podcast-english.wav';
-import audioAvatarDigital from '@/assets/audio-avatar-digital.wav';
+import audioBrandulTau from '@/assets/audio-brandul-tau.wav';
 import audioPilotAutomat from '@/assets/audio-pilot-automat.wav';
 import audioAsistentVirtual from '@/assets/audio-asistent-virtual.wav';
 import audioProductieVideo from '@/assets/audio-productie-video.wav';
@@ -27,7 +27,7 @@ const formatTime = (seconds: number) => {
 type Language = 'ro' | 'es' | 'us';
 
 export type PackageType = 
-  | 'avatar-digital'
+  | 'brandul-tau'
   | 'pilot-automat'
   | 'asistent-virtual'
   | 'productie-video'
@@ -47,7 +47,7 @@ const podcasts: PodcastConfig[] = [
 ];
 
 const packageAudioMap: Record<PackageType, string> = {
-  'avatar-digital': audioAvatarDigital,
+  'brandul-tau': audioBrandulTau,
   'pilot-automat': audioPilotAutomat,
   'asistent-virtual': audioAsistentVirtual,
   'productie-video': audioProductieVideo,
@@ -55,7 +55,7 @@ const packageAudioMap: Record<PackageType, string> = {
 };
 
 const packageNames: Record<PackageType, string> = {
-  'avatar-digital': 'Avatar Digital',
+  'brandul-tau': 'Brandul Tău',
   'pilot-automat': 'Afacere pe Pilot Automat',
   'asistent-virtual': 'Asistent Virtual Inteligent',
   'productie-video': 'Producție Video',
