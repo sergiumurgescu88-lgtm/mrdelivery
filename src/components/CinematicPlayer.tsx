@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { Play, Pause, Volume2, VolumeX, Podcast, Maximize2, Minimize2, Package } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language as AppLanguage } from '@/i18n/translations';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
@@ -241,19 +242,13 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     }
   };
 
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    const bar = e.currentTarget;
-    const rect = bar.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const width = rect.width;
-    const newTime = (clickX / width) * duration;
-    
+  const handleSeek = useCallback((value: number[]) => {
+    const newTime = value[0];
+    setCurrentTime(newTime);
     if (audioRef.current) {
       audioRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
     }
-  };
+  }, []);
 
   const toggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -293,8 +288,6 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     setIsPlaying(false);
     onClearPackage?.();
   };
-
-  const progressPercent = duration ? (currentTime / duration) * 100 : 0;
   
   // Determine if player should be minimized (mobile and not expanded)
   const isMinimized = isMobile && !isMobileExpanded;
@@ -473,23 +466,23 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
                 </div>
               </div>
 
-              {/* Progress bar */}
-              <div className="mt-5 pointer-events-none">
-                <div 
-                  className="w-full h-2 bg-white/10 rounded cursor-pointer mb-2 pointer-events-auto"
-                  onClick={handleProgressClick}
-                >
-                  <div 
-                    className="h-full rounded transition-[width] duration-100 pointer-events-none"
-                    style={{
-                      width: `${progressPercent}%`,
-                      background: isPodcast
-                        ? 'linear-gradient(90deg, #f97316, #fb923c)'
-                        : 'linear-gradient(90deg, #8b5cf6, #a855f7)',
-                    }}
-                  />
-                </div>
-                <div className="flex justify-between text-white/80 text-[0.85rem] font-medium">
+              {/* Progress bar with full seekability */}
+              <div className="mt-5">
+                <Slider
+                  value={[currentTime]}
+                  max={duration || 100}
+                  step={0.1}
+                  onValueChange={handleSeek}
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-full cursor-pointer"
+                  style={{
+                    '--slider-track-bg': 'rgba(255, 255, 255, 0.15)',
+                    '--slider-range-bg': isPodcast
+                      ? 'linear-gradient(90deg, #f97316, #fb923c)'
+                      : 'linear-gradient(90deg, #8b5cf6, #a855f7)',
+                  } as React.CSSProperties}
+                />
+                <div className="flex justify-between text-white/80 text-[0.85rem] font-medium mt-2">
                   <span>{formatTime(currentTime)}</span>
                   <span>{formatTime(duration)}</span>
                 </div>
