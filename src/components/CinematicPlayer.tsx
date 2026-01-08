@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { Play, Pause, Volume2, VolumeX, Podcast, Maximize2, Minimize2, Package } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Podcast, Maximize2, Minimize2, Package, RotateCcw, RotateCw } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language as AppLanguage } from '@/i18n/translations';
@@ -250,6 +250,24 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     }
   }, []);
 
+  const skipBackward = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (audioRef.current) {
+      const newTime = Math.max(0, audioRef.current.currentTime - 10);
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  }, []);
+
+  const skipForward = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (audioRef.current) {
+      const newTime = Math.min(duration, audioRef.current.currentTime + 10);
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  }, [duration]);
+
   const toggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (audioRef.current) {
@@ -421,24 +439,43 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
 
               {/* Controls */}
               <div className="flex justify-between items-center mb-5 pointer-events-none">
-                <button
-                  onClick={handlePlayButtonClick}
-                  className="w-[62px] h-[62px] rounded-[16px] border-none text-white text-3xl cursor-pointer transition-all duration-300 hover:scale-[1.08] active:scale-[0.96] flex items-center justify-center pointer-events-auto"
-                  style={{
-                    background: isPodcast
-                      ? 'linear-gradient(135deg, #f97316, #fb923c)'
-                      : 'linear-gradient(135deg, #8b5cf6, #a855f7)',
-                    boxShadow: isPodcast
-                      ? '0 6px 20px rgba(249, 115, 22, 0.3)'
-                      : '0 6px 20px rgba(139, 92, 246, 0.3)',
-                  }}
-                >
-                  {isPlaying ? (
-                    <Pause className="w-7 h-7" fill="white" />
-                  ) : (
-                    <Play className="w-7 h-7 ml-1" fill="white" />
-                  )}
-                </button>
+                <div className="flex items-center gap-2">
+                  {/* Skip backward 10s */}
+                  <button
+                    onClick={skipBackward}
+                    className="w-[42px] h-[42px] rounded-full border-none text-white/80 cursor-pointer transition-all duration-300 hover:scale-[1.08] hover:text-white active:scale-[0.96] flex items-center justify-center pointer-events-auto bg-white/10 hover:bg-white/20"
+                  >
+                    <RotateCcw className="w-5 h-5" />
+                  </button>
+
+                  {/* Play/Pause button */}
+                  <button
+                    onClick={handlePlayButtonClick}
+                    className="w-[62px] h-[62px] rounded-[16px] border-none text-white text-3xl cursor-pointer transition-all duration-300 hover:scale-[1.08] active:scale-[0.96] flex items-center justify-center pointer-events-auto"
+                    style={{
+                      background: isPodcast
+                        ? 'linear-gradient(135deg, #f97316, #fb923c)'
+                        : 'linear-gradient(135deg, #8b5cf6, #a855f7)',
+                      boxShadow: isPodcast
+                        ? '0 6px 20px rgba(249, 115, 22, 0.3)'
+                        : '0 6px 20px rgba(139, 92, 246, 0.3)',
+                    }}
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-7 h-7" fill="white" />
+                    ) : (
+                      <Play className="w-7 h-7 ml-1" fill="white" />
+                    )}
+                  </button>
+
+                  {/* Skip forward 10s */}
+                  <button
+                    onClick={skipForward}
+                    className="w-[42px] h-[42px] rounded-full border-none text-white/80 cursor-pointer transition-all duration-300 hover:scale-[1.08] hover:text-white active:scale-[0.96] flex items-center justify-center pointer-events-auto bg-white/10 hover:bg-white/20"
+                  >
+                    <RotateCw className="w-5 h-5" />
+                  </button>
+                </div>
 
                 <div className="flex items-center text-white/90 text-xl">
                   <button 
