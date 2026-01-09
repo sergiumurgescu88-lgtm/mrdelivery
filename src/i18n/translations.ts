@@ -76,8 +76,8 @@ export const translations = {
       },
       aiAgents: {
         title: 'Intelligent Virtual Assistant',
-        price: '1,500 RON/month',
-        originalPrice: '2,000 RON/month',
+        price: '€300/month',
+        originalPrice: '€400/month',
         discount: '25% OFF',
         subtitle: 'Your ideal employee: Never sleeps and responds instantly to any customer',
         badge: '24/7 Conversational AI Agent',
@@ -623,8 +623,8 @@ export const translations = {
       },
       aiAgents: {
         title: 'Asistente Virtual Inteligente',
-        price: '1.500 RON/mes',
-        originalPrice: '2.000 RON/mes',
+        price: '€300/mes',
+        originalPrice: '€400/mes',
         discount: '25% DESCUENTO',
         subtitle: 'Tu empleado ideal: Nunca duerme y responde al instante a cualquier cliente',
         badge: 'Agente IA Conversacional 24/7',
