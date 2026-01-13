@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { 
   ArrowRight, 
   ArrowLeft,
@@ -38,7 +39,7 @@ const franchiseTranslations = {
       title: 'Build a Recurring Revenue Business with Restaurant Delivery Management',
       subtitle: 'Become a local partner managing restaurants on delivery platforms using our AI-powered systems, negotiation power, and proven methodology.',
       cta: 'Apply to Become a Partner',
-      secondaryCta: 'Schedule a Discovery Call'
+      secondaryCta: 'Schedule a Call'
     },
     whatIs: {
       title: 'What is the MrDelivery Franchise?',
@@ -161,7 +162,7 @@ const franchiseTranslations = {
         {
           number: '01',
           title: 'Application & Qualification',
-          description: 'Submit your application. We review your profile and schedule a discovery call.'
+          description: 'Submit your application. We review your profile and schedule a call to discuss the opportunity.'
         },
         {
           number: '02',
@@ -243,7 +244,7 @@ const franchiseTranslations = {
       title: 'Ready to Build Your Business?',
       subtitle: 'Take the first step toward building a recurring revenue business in the restaurant delivery industry.',
       primary: 'Apply to Become a Partner',
-      secondary: 'Schedule a Discovery Call',
+      secondary: 'Schedule a Call',
       note: 'Application does not guarantee acceptance. We carefully review each candidate to ensure mutual fit.'
     }
   },
@@ -252,54 +253,54 @@ const franchiseTranslations = {
       backToHome: 'Înapoi la Pagina Principală'
     },
     hero: {
-      badge: 'Program Franciză MrDelivery',
-      title: 'Construiește o Afacere cu Venituri Recurente în Managementul Livrărilor pentru Restaurante',
-      subtitle: 'Devino partener local care administrează restaurante pe platformele de livrare folosind sistemele noastre AI, puterea de negociere și metodologia dovedită.',
+      badge: 'Program de Parteneriat MrDelivery',
+      title: 'Construiește o Afacere cu Venituri Recurente în Managementul Livrărilor',
+      subtitle: 'Devino partener local și administrează restaurante pe platformele de livrare folosind sistemele noastre bazate pe inteligență artificială, puterea de negociere și metodologia testată.',
       cta: 'Aplică pentru Parteneriat',
-      secondaryCta: 'Programează un Call de Descoperire'
+      secondaryCta: 'Programează o Discuție'
     },
     whatIs: {
-      title: 'Ce este Franciza MrDelivery?',
-      subtitle: 'Un Parteneriat de Tehnologie + Management',
+      title: 'Ce înseamnă Parteneriatul MrDelivery?',
+      subtitle: 'Parteneriat de Tehnologie și Management',
       description: 'Aceasta NU este o franciză tradițională de restaurant. Nu gătești, nu livrezi. Administrezi restaurante pe platformele de livrare folosind sistemele noastre.',
       model: {
-        title: 'Modelul de Business',
+        title: 'Modelul de Afacere',
         items: [
-          'Devii partener local MrDelivery în teritoriul tău',
-          'Noi furnizăm sisteme AI, training și putere de negociere',
-          'Tu administrezi restaurante pe Uber Eats, Glovo, Tazz, Bolt Food',
-          'Restaurantele plătesc taxe lunare recurente pentru management',
-          'Tu câștigi venit lunar predictibil de la fiecare client'
+          'Devii partener local MrDelivery în zona ta',
+          'Îți oferim sisteme AI, instruire completă și putere de negociere',
+          'Administrezi restaurante pe Uber Eats, Glovo, Tazz, Bolt Food',
+          'Restaurantele plătesc taxe lunare recurente pentru administrare',
+          'Câștigi venit lunar predictibil de la fiecare client'
         ]
       },
       youGet: {
-        title: 'Ce Administrezi',
+        title: 'Ce Vei Administra',
         items: [
-          'Negocieri cu platformele (comisioane, bugete)',
-          'Optimizare meniu și actualizări zilnice',
+          'Negocieri cu platformele (comisioane, bugete de marketing)',
+          'Optimizarea meniului și actualizări zilnice',
           'Campanii de marketing și promoții',
-          'Suport clienți și rezolvare probleme',
-          'Analiză performanță și raportare'
+          'Suport pentru clienți și rezolvarea problemelor',
+          'Analiza performanței și raportare lunară'
         ]
       }
     },
     whoFor: {
-      title: 'Pentru Cine Este Potrivit',
-      subtitle: 'Profile Ideale de Parteneri',
+      title: 'Cui i se Adresează',
+      subtitle: 'Profiluri Ideale de Parteneri',
       profiles: [
         {
           icon: 'Building2',
           title: 'Antreprenori',
-          description: 'Care caută o oportunitate de business structurată cu potențial de venituri recurente și sisteme dovedite.'
+          description: 'Care caută o oportunitate de afacere structurată cu potențial de venituri recurente și sisteme deja funcționale.'
         },
         {
           icon: 'Users',
-          title: 'Consultanți Restaurante',
-          description: 'Care deja lucrează cu restaurante și vor să adauge un serviciu profitabil portofoliului lor.'
+          title: 'Consultanți HoReCa',
+          description: 'Care deja lucrează cu restaurante și doresc să adauge un serviciu profitabil în portofoliul lor.'
         },
         {
           icon: 'TrendingUp',
-          title: 'Specialiști Marketing Digital',
+          title: 'Specialiști în Marketing Digital',
           description: 'Cu experiență în marketing de performanță care vor să se specializeze în industria restaurantelor.'
         },
         {
@@ -308,161 +309,161 @@ const franchiseTranslations = {
           description: 'Cu rețele locale puternice care pot construi relații cu proprietarii de restaurante din zona lor.'
         }
       ],
-      note: 'Experiența în industria restaurantelor este utilă dar nu obligatorie. Ce contează este angajamentul, profesionalismul și abilitatea de a construi relații cu clienții.'
+      note: 'Experiența în industria restaurantelor este utilă, dar nu obligatorie. Ce contează este angajamentul, profesionalismul și capacitatea de a construi relații durabile cu clienții.'
     },
     whoNotFor: {
-      title: 'Pentru Cine NU Este Potrivit',
-      subtitle: 'Această oportunitate nu este pentru toată lumea',
+      title: 'Cui NU i se Adresează',
+      subtitle: 'Această oportunitate nu este potrivită pentru toată lumea',
       items: [
         {
           icon: 'XCircle',
-          title: 'Căutători de Bani Rapizi',
-          description: 'Aceasta este o afacere reală care necesită timp pentru a fi construită. Fără povești de succes peste noapte.'
+          title: 'Persoane care vor Bani Rapizi',
+          description: 'Aceasta este o afacere reală care necesită timp pentru a fi construită. Nu există povești de succes peste noapte.'
         },
         {
           icon: 'XCircle',
           title: 'Investitori Pasivi',
-          description: 'Trebuie să administrezi activ teritoriul și clienții. Nu este o investiție de tip set-and-forget.'
+          description: 'Trebuie să administrezi activ zona și clienții. Nu este o investiție de tip „setează și uită".'
         },
         {
           icon: 'XCircle',
           title: 'Freelanceri în Căutare de Proiecte',
-          description: 'Aceasta este o parteneriat de business pe termen lung, nu un proiect freelance sau contract pe termen scurt.'
+          description: 'Acesta este un parteneriat de afaceri pe termen lung, nu un proiect freelance sau un contract temporar.'
         },
         {
           icon: 'XCircle',
           title: 'Persoane fără Angajament',
-          description: 'Construirea unei baze de clienți necesită dedicare. Avem nevoie de parteneri care sunt aici pe termen lung.'
+          description: 'Construirea unei baze de clienți necesită dedicare. Căutăm parteneri care sunt implicați pe termen lung.'
         }
       ]
     },
     whatYouGet: {
       title: 'Ce Primești ca Partener',
-      subtitle: 'Business Complet Gata de Utilizare',
+      subtitle: 'Afacere Completă, Gata de Pornire',
       items: [
         {
           icon: 'Brain',
           title: 'Tehnologie AI',
-          description: 'Acces la sistemele noastre proprietare AI pentru optimizare meniu, asistenți vocali, chatboți și analiză.'
+          description: 'Acces la sistemele noastre de inteligență artificială pentru optimizarea meniului, asistenți vocali, chatboți și analiză.'
         },
         {
           icon: 'GraduationCap',
-          title: 'Training Complet',
-          description: 'Program de onboarding complet care acoperă vânzări, operațiuni, management platforme și succes client.'
+          title: 'Instruire Completă',
+          description: 'Program de onboarding care acoperă vânzări, operațiuni, managementul platformelor și succesul clienților.'
         },
         {
           icon: 'Handshake',
           title: 'Putere de Negociere',
-          description: 'Folosește relațiile noastre cu Uber Eats, Glovo, Tazz, Bolt Food pentru comisioane mai bune.'
+          description: 'Folosești relațiile noastre cu Uber Eats, Glovo, Tazz și Bolt Food pentru comisioane mai bune.'
         },
         {
           icon: 'Shield',
           title: 'Brand și Credibilitate',
-          description: 'Operează sub brandul MrDelivery cu reputație stabilită și materiale de marketing.'
+          description: 'Operezi sub brandul MrDelivery cu reputație stabilită și materiale de marketing gata de utilizare.'
         },
         {
           icon: 'Headphones',
-          title: 'Suport Continuu',
-          description: 'Acces 24/7 la echipa noastră de suport, call-uri de strategie și actualizări continue ale sistemelor.'
+          title: 'Suport Permanent',
+          description: 'Acces 24/7 la echipa noastră de suport, discuții de strategie și actualizări continue ale sistemelor.'
         },
         {
           icon: 'Users',
           title: 'Comunitate de Parteneri',
-          description: 'Alătură-te unei rețele de parteneri care împărtășesc bune practici, strategii și suport reciproc.'
+          description: 'Te alături unei rețele de parteneri care împărtășesc bune practici, strategii și se sprijină reciproc.'
         }
       ]
     },
     howItWorks: {
-      title: 'Cum Funcționează Business-ul',
-      subtitle: 'De la Partener la Operațiuni Profitabile',
+      title: 'Cum Funcționează Afacerea',
+      subtitle: 'De la Aplicație la Operațiuni Profitabile',
       steps: [
         {
           number: '01',
           title: 'Aplicație și Calificare',
-          description: 'Trimite aplicația ta. Analizăm profilul și programăm un call de descoperire.'
+          description: 'Trimite aplicația. Analizăm profilul tău și programăm o discuție pentru a afla mai multe detalii.'
         },
         {
           number: '02',
-          title: 'Onboarding și Training',
-          description: 'Completează programul nostru complet de training. Învață sistemele, vânzările și operațiunile.'
+          title: 'Onboarding și Instruire',
+          description: 'Parcurgi programul nostru complet de instruire. Înveți sistemele, vânzările și operațiunile.'
         },
         {
           number: '03',
-          title: 'Configurare Teritoriu',
-          description: 'Te ajutăm să îți configurezi teritoriul, materialele de marketing și strategia inițială de prospectare.'
+          title: 'Configurare Zonă',
+          description: 'Te ajutăm să îți configurezi zona, materialele de marketing și strategia inițială de prospectare.'
         },
         {
           number: '04',
           title: 'Achiziție Clienți',
-          description: 'Începe să abordezi restaurantele din zona ta. Te susținem cu instrumente de vânzare și ghidare.'
+          description: 'Începi să abordezi restaurantele din zona ta. Te susținem cu instrumente de vânzare și îndrumare.'
         },
         {
           number: '05',
           title: 'Operațiuni Recurente',
-          description: 'Administrează clienții lunar folosind sistemele noastre. Colectează taxe recurente și crește portofoliul.'
+          description: 'Administrezi clienții lunar folosind sistemele noastre. Colectezi taxe recurente și îți crești portofoliul.'
         }
       ]
     },
     revenue: {
       title: 'Oportunitatea de Venituri',
       subtitle: 'Construiește Venit Lunar Predictibil',
-      description: 'Modelul nostru se bazează pe taxe lunare recurente de la restaurantele administrate. Pe măsură ce îți construiești baza de clienți, venitul crește și devine din ce în ce mai predictibil.',
+      description: 'Modelul nostru se bazează pe taxe lunare recurente de la restaurantele administrate. Pe măsură ce îți construiești baza de clienți, venitul crește și devine din ce în ce mai stabil.',
       highlights: [
         {
           icon: 'DollarSign',
           title: 'Venituri Recurente',
-          description: 'Taxe lunare de management de la fiecare restaurant client'
+          description: 'Taxe lunare de administrare de la fiecare restaurant client'
         },
         {
           icon: 'TrendingUp',
           title: 'Creștere Scalabilă',
-          description: 'Adaugă mai multe restaurante pentru a crește venitul proporțional'
+          description: 'Adaugi mai multe restaurante și crești venitul proporțional'
         },
         {
           icon: 'BarChart3',
           title: 'Bonusuri de Performanță',
-          description: 'Câștiguri suplimentare pentru depășirea țintelor de creștere'
+          description: 'Câștiguri suplimentare pentru depășirea obiectivelor de creștere'
         },
         {
           icon: 'Clock',
           title: 'Valoare pe Termen Lung',
-          description: 'Relații cu clienții care durează ani, nu luni'
+          description: 'Relații cu clienții care durează ani de zile, nu luni'
         }
       ],
-      note: 'Potențialul specific de venituri depinde de teritoriu, nivelul de angajament și numărul de restaurante administrate. Detalii furnizate în procesul de calificare.'
+      note: 'Potențialul de venituri depinde de zonă, nivelul de angajament și numărul de restaurante administrate. Detaliile sunt furnizate în procesul de calificare.'
     },
     support: {
-      title: 'Suport și Training',
+      title: 'Suport și Instruire',
       subtitle: 'Suntem Alături de Tine la Fiecare Pas',
       items: [
         {
           title: 'Onboarding Inițial',
-          description: 'Program complet de training care acoperă toate aspectele business-ului: vânzări, operațiuni, tehnologie și management clienți.'
+          description: 'Program complet de instruire care acoperă toate aspectele afacerii: vânzări, operațiuni, tehnologie și managementul clienților.'
         },
         {
           title: 'Educație Continuă',
-          description: 'Actualizări regulate de training, tutoriale pentru funcții noi și bune practici din industrie împărtășite cu toți partenerii.'
+          description: 'Actualizări regulate de instruire, tutoriale pentru funcționalități noi și bune practici din industrie împărtășite cu toți partenerii.'
         },
         {
           title: 'Suport Dedicat',
-          description: 'Acces 24/7 pe WhatsApp la echipa noastră de suport. Call-uri de strategie disponibile pentru situații complexe.'
+          description: 'Acces 24/7 pe WhatsApp la echipa noastră de suport. Discuții de strategie disponibile pentru situații complexe.'
         },
         {
           title: 'Actualizări Sistem',
-          description: 'Îmbunătățiri continue ale sistemelor noastre AI și instrumentelor de management fără costuri suplimentare.'
+          description: 'Îmbunătățiri continue ale sistemelor noastre AI și instrumentelor de administrare fără costuri suplimentare.'
         },
         {
           title: 'Comunitate de Parteneri',
-          description: 'Comunitate privată de parteneri MrDelivery pentru networking, împărtășire strategii și suport reciproc.'
+          description: 'Comunitate privată de parteneri MrDelivery pentru networking, împărtășire de strategii și suport reciproc.'
         }
       ]
     },
     cta: {
-      title: 'Gata să Îți Construiești Afacerea?',
-      subtitle: 'Fă primul pas spre construirea unei afaceri cu venituri recurente în industria livrărilor pentru restaurante.',
+      title: 'Ești Pregătit să Îți Construiești Afacerea?',
+      subtitle: 'Fă primul pas către o afacere cu venituri recurente în industria livrărilor pentru restaurante.',
       primary: 'Aplică pentru Parteneriat',
-      secondary: 'Programează un Call de Descoperire',
-      note: 'Aplicația nu garantează acceptarea. Analizăm cu atenție fiecare candidat pentru a asigura potrivirea reciprocă.'
+      secondary: 'Programează o Discuție',
+      note: 'Aplicația nu garantează acceptarea. Analizăm cu atenție fiecare candidat pentru a ne asigura de potrivirea reciprocă.'
     }
   },
   es: {
@@ -471,23 +472,23 @@ const franchiseTranslations = {
     },
     hero: {
       badge: 'Programa de Franquicia MrDelivery',
-      title: 'Construye un Negocio con Ingresos Recurrentes en la Gestión de Entregas para Restaurantes',
-      subtitle: 'Conviértete en socio local gestionando restaurantes en plataformas de entrega usando nuestros sistemas de IA, poder de negociación y metodología probada.',
+      title: 'Construye un Negocio con Ingresos Recurrentes en Gestión de Entregas',
+      subtitle: 'Conviértete en socio local gestionando restaurantes en plataformas de entrega usando nuestros sistemas de IA, poder de negociación y metodología comprobada.',
       cta: 'Aplicar para ser Socio',
       secondaryCta: 'Programar una Llamada'
     },
     whatIs: {
       title: '¿Qué es la Franquicia MrDelivery?',
-      subtitle: 'Una Asociación de Tecnología + Gestión',
+      subtitle: 'Asociación de Tecnología + Gestión',
       description: 'Esto NO es una franquicia tradicional de restaurante. No cocinas, no entregas. Gestionas restaurantes en plataformas de entrega usando nuestros sistemas.',
       model: {
         title: 'El Modelo de Negocio',
         items: [
           'Te conviertes en socio local MrDelivery en tu territorio',
-          'Nosotros proporcionamos sistemas de IA, capacitación y poder de negociación',
-          'Tú gestionas restaurantes en Uber Eats, DoorDash, Grubhub',
+          'Te proporcionamos sistemas de IA, capacitación y poder de negociación',
+          'Gestionas restaurantes en Uber Eats, DoorDash, Grubhub',
           'Los restaurantes pagan tarifas mensuales recurrentes por la gestión',
-          'Tú ganas ingresos mensuales predecibles de cada cliente'
+          'Ganas ingresos mensuales predecibles de cada cliente'
         ]
       },
       youGet: {
@@ -502,7 +503,7 @@ const franchiseTranslations = {
       }
     },
     whoFor: {
-      title: 'Para Quién Es Esto',
+      title: 'Para Quién Es',
       subtitle: 'Perfiles Ideales de Socios',
       profiles: [
         {
@@ -529,7 +530,7 @@ const franchiseTranslations = {
       note: 'La experiencia en la industria restaurantera es útil pero no obligatoria. Lo que importa es el compromiso, el profesionalismo y la capacidad de construir relaciones con clientes.'
     },
     whoNotFor: {
-      title: 'Para Quién NO Es Esto',
+      title: 'Para Quién NO Es',
       subtitle: 'Esta oportunidad no es para todos',
       items: [
         {
@@ -545,7 +546,7 @@ const franchiseTranslations = {
         {
           icon: 'XCircle',
           title: 'Freelancers Buscando Proyectos',
-          description: 'Esta es una asociación de negocio a largo plazo, no un proyecto freelance o contrato a corto plazo.'
+          description: 'Esta es una asociación de negocio a largo plazo, no un proyecto freelance o contrato temporal.'
         },
         {
           icon: 'XCircle',
@@ -561,12 +562,12 @@ const franchiseTranslations = {
         {
           icon: 'Brain',
           title: 'Tecnología de IA',
-          description: 'Acceso a nuestros sistemas propietarios de IA para optimización de menú, agentes de voz, chatbots y análisis.'
+          description: 'Acceso a nuestros sistemas de IA para optimización de menú, agentes de voz, chatbots y análisis.'
         },
         {
           icon: 'GraduationCap',
           title: 'Capacitación Completa',
-          description: 'Programa de incorporación completo que cubre ventas, operaciones, gestión de plataformas y éxito del cliente.'
+          description: 'Programa de incorporación que cubre ventas, operaciones, gestión de plataformas y éxito del cliente.'
         },
         {
           icon: 'Handshake',
@@ -581,7 +582,7 @@ const franchiseTranslations = {
         {
           icon: 'Headphones',
           title: 'Soporte Continuo',
-          description: 'Acceso 24/7 a nuestro equipo de soporte, llamadas de estrategia y actualizaciones continuas del sistema.'
+          description: 'Acceso 24/7 a nuestro equipo de soporte, llamadas de estrategia y actualizaciones del sistema.'
         },
         {
           icon: 'Users',
@@ -597,7 +598,7 @@ const franchiseTranslations = {
         {
           number: '01',
           title: 'Aplicación y Calificación',
-          description: 'Envía tu aplicación. Revisamos tu perfil y programamos una llamada de descubrimiento.'
+          description: 'Envía tu aplicación. Revisamos tu perfil y programamos una llamada para discutir la oportunidad.'
         },
         {
           number: '02',
@@ -607,24 +608,24 @@ const franchiseTranslations = {
         {
           number: '03',
           title: 'Configuración de Territorio',
-          description: 'Te ayudamos a configurar tu territorio, materiales de marketing y estrategia inicial de prospección.'
+          description: 'Te ayudamos a configurar tu territorio, materiales de marketing y estrategia inicial.'
         },
         {
           number: '04',
           title: 'Adquisición de Clientes',
-          description: 'Comienza a acercarte a restaurantes en tu área. Te apoyamos con herramientas de venta y orientación.'
+          description: 'Comienza a acercarte a restaurantes en tu área. Te apoyamos con herramientas y orientación.'
         },
         {
           number: '05',
           title: 'Operaciones Recurrentes',
-          description: 'Gestiona tus clientes mensualmente usando nuestros sistemas. Cobra tarifas recurrentes y crece tu portafolio.'
+          description: 'Gestiona tus clientes mensualmente usando nuestros sistemas. Cobra tarifas recurrentes y crece.'
         }
       ]
     },
     revenue: {
       title: 'La Oportunidad de Ingresos',
       subtitle: 'Construye Ingresos Mensuales Predecibles',
-      description: 'Nuestro modelo se basa en tarifas mensuales recurrentes de restaurantes gestionados. A medida que construyes tu base de clientes, tus ingresos crecen y se vuelven cada vez más predecibles.',
+      description: 'Nuestro modelo se basa en tarifas mensuales recurrentes de restaurantes gestionados. A medida que construyes tu base de clientes, tus ingresos crecen y se vuelven más predecibles.',
       highlights: [
         {
           icon: 'DollarSign',
@@ -647,7 +648,7 @@ const franchiseTranslations = {
           description: 'Relaciones con clientes que duran años, no meses'
         }
       ],
-      note: 'El potencial de ingresos específico depende de tu territorio, nivel de compromiso y número de restaurantes gestionados. Detalles proporcionados durante el proceso de calificación.'
+      note: 'El potencial de ingresos depende de tu territorio, nivel de compromiso y número de restaurantes gestionados. Detalles proporcionados durante el proceso de calificación.'
     },
     support: {
       title: 'Soporte y Capacitación',
@@ -659,7 +660,7 @@ const franchiseTranslations = {
         },
         {
           title: 'Educación Continua',
-          description: 'Actualizaciones regulares de capacitación, tutoriales de nuevas funciones y mejores prácticas de la industria compartidas con todos los socios.'
+          description: 'Actualizaciones regulares de capacitación, tutoriales de nuevas funciones y mejores prácticas compartidas con todos los socios.'
         },
         {
           title: 'Soporte Dedicado',
@@ -677,7 +678,7 @@ const franchiseTranslations = {
     },
     cta: {
       title: '¿Listo para Construir tu Negocio?',
-      subtitle: 'Da el primer paso hacia la construcción de un negocio con ingresos recurrentes en la industria de entregas para restaurantes.',
+      subtitle: 'Da el primer paso hacia un negocio con ingresos recurrentes en la industria de entregas para restaurantes.',
       primary: 'Aplicar para ser Socio',
       secondary: 'Programar una Llamada',
       note: 'La aplicación no garantiza aceptación. Revisamos cuidadosamente cada candidato para asegurar un ajuste mutuo.'
@@ -708,7 +709,7 @@ const FranchisePage = () => {
   const getWhatsAppUrl = () => {
     const messages = {
       en: "Hello! I'm interested in the MrDelivery Franchise Partnership program. I would like to learn more about becoming a partner.",
-      ro: "Bună! Sunt interesat de programul de parteneriat franciză MrDelivery. Aș dori să aflu mai multe despre a deveni partener.",
+      ro: "Bună ziua! Sunt interesat de programul de parteneriat MrDelivery. Aș dori să aflu mai multe despre cum pot deveni partener.",
       es: "¡Hola! Estoy interesado en el programa de franquicia MrDelivery. Me gustaría saber más sobre cómo convertirme en socio."
     };
     return `https://api.whatsapp.com/send/?phone=40768676141&text=${encodeURIComponent(messages[language] || messages.en)}&type=phone_number&app_absent=0`;
@@ -725,6 +726,12 @@ const FranchisePage = () => {
               <span className="text-sm font-medium">{t.nav.backToHome}</span>
             </Link>
             <div className="text-xl font-bold text-primary">MrDelivery</div>
+            <div className="hidden sm:block">
+              <LanguageSwitcher />
+            </div>
+          </div>
+          <div className="sm:hidden mt-3">
+            <LanguageSwitcher />
           </div>
         </div>
       </nav>
