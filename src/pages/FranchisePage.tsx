@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { 
   ArrowRight, 
+  ArrowLeft,
   CheckCircle2, 
   XCircle, 
   Building2, 
@@ -12,7 +13,7 @@ import {
   Users, 
   TrendingUp, 
   Headphones, 
-  Sparkles,
+  Rocket,
   Target,
   Shield,
   Zap,
@@ -25,37 +26,25 @@ import {
   Handshake,
   DollarSign,
   Settings,
-  Phone,
-  Building,
-  Truck,
-  Video,
-  Bot,
-  Cog
+  Phone
 } from 'lucide-react';
 
 const franchiseTranslations = {
   en: {
     nav: {
-      home: 'Home',
-      partner: 'Become a Partner'
+      backToHome: 'Back to Home'
     },
     hero: {
-      badge: 'Franchise Opportunity',
-      title1: 'Become a Partner',
-      title2: 'MrDelivery',
-      subtitle: 'Build a profitable business in delivery and automation. You get AI technology, systems and support — you bring the clients.',
-      cta: 'Apply for Partnership',
+      badge: 'MrDelivery Franchise Program',
+      title: 'Build a Recurring Revenue Business with Restaurant Delivery Management',
+      subtitle: 'Become a local partner managing restaurants on delivery platforms using our AI-powered systems, negotiation power, and proven methodology.',
+      cta: 'Apply to Become a Partner',
       secondaryCta: 'Schedule a Call'
     },
-    stats: {
-      partners: 'Active Partners',
-      restaurants: 'Managed Restaurants',
-      countries: 'Countries'
-    },
     whatIs: {
-      title: 'What is the MrDelivery Partnership?',
-      subtitle: 'Technology + Management Partnership',
-      description: 'This is NOT a traditional restaurant franchise. You don\'t cook, you don\'t deliver. You manage restaurants on delivery platforms using our AI systems.',
+      title: 'What is the MrDelivery Franchise?',
+      subtitle: 'A Technology + Management Partnership',
+      description: 'This is NOT a traditional restaurant franchise. You don\'t cook, you don\'t deliver. You manage restaurants on delivery platforms using our systems.',
       model: {
         title: 'The Business Model',
         items: [
@@ -77,31 +66,6 @@ const franchiseTranslations = {
         ]
       }
     },
-    services: {
-      title: 'Main Services',
-      items: [
-        {
-          icon: 'Truck',
-          title: 'Delivery Management',
-          description: 'We negotiate commissions and budgets on Glovo, Wolt and Bolt Food.'
-        },
-        {
-          icon: 'Video',
-          title: 'AI Video Production',
-          description: 'We create and post video content daily on 4 platforms.'
-        },
-        {
-          icon: 'Bot',
-          title: 'AI Chatbots',
-          description: 'Virtual assistants that respond to customers 24/7.'
-        },
-        {
-          icon: 'Cog',
-          title: 'Complete Automation',
-          description: 'AI systems for marketing, orders and operations.'
-        }
-      ]
-    },
     whoFor: {
       title: 'Who This Is For',
       subtitle: 'Ideal Partner Profiles',
@@ -109,45 +73,49 @@ const franchiseTranslations = {
         {
           icon: 'Building2',
           title: 'Entrepreneurs',
-          description: 'Looking for a structured business opportunity with recurring revenue potential.'
+          description: 'Looking for a structured business opportunity with recurring revenue potential and proven systems.'
         },
         {
           icon: 'Users',
           title: 'Restaurant Consultants',
-          description: 'Already working with restaurants and want to add a profitable service.'
+          description: 'Already working with restaurants and want to add a profitable service to your portfolio.'
         },
         {
           icon: 'TrendingUp',
           title: 'Digital Marketers',
-          description: 'With performance marketing experience who want to specialize.'
+          description: 'With experience in performance marketing who want to specialize in the restaurant industry.'
         },
         {
           icon: 'Target',
           title: 'Local Operators',
-          description: 'With strong local networks who can build relationships with restaurants.'
+          description: 'With strong local networks who can build relationships with restaurant owners in their area.'
         }
       ],
-      note: 'Restaurant industry experience is helpful but not mandatory. What matters is commitment and professionalism.'
+      note: 'Experience in the restaurant industry is helpful but not mandatory. What matters is commitment, professionalism, and the ability to build client relationships.'
     },
     whoNotFor: {
       title: 'Who This Is NOT For',
       subtitle: 'This opportunity is not suitable for everyone',
       items: [
         {
+          icon: 'XCircle',
           title: 'Quick Money Seekers',
-          description: 'This is a real business that requires time to build.'
+          description: 'This is a real business that requires time to build. No overnight success stories.'
         },
         {
+          icon: 'XCircle',
           title: 'Passive Investors',
-          description: 'You need to actively manage your territory and clients.'
+          description: 'You need to actively manage your territory and clients. This is not a set-and-forget investment.'
         },
         {
+          icon: 'XCircle',
           title: 'Freelancers Looking for Gigs',
-          description: 'This is a long-term business partnership.'
+          description: 'This is a long-term business partnership, not a freelance project or short-term contract.'
         },
         {
+          icon: 'XCircle',
           title: 'People Without Commitment',
-          description: 'Building a client base takes dedication.'
+          description: 'Building a client base takes dedication. We need partners who are in it for the long run.'
         }
       ]
     },
@@ -157,64 +125,64 @@ const franchiseTranslations = {
       items: [
         {
           icon: 'Brain',
-          title: 'AI Technology',
-          description: 'Access to our proprietary AI systems for menu optimization, voice agents and chatbots.'
+          title: 'AI-Powered Technology',
+          description: 'Access to our proprietary AI systems for menu optimization, voice agents, chatbots, and analytics.'
         },
         {
           icon: 'GraduationCap',
           title: 'Comprehensive Training',
-          description: 'Complete onboarding covering sales, operations and client success.'
+          description: 'Complete onboarding program covering sales, operations, platform management, and client success.'
         },
         {
           icon: 'Handshake',
           title: 'Negotiation Power',
-          description: 'Leverage our platform relationships for better commission rates.'
+          description: 'Leverage our relationships with Uber Eats, DoorDash, and Grubhub for better commission rates.'
         },
         {
           icon: 'Shield',
           title: 'Brand & Credibility',
-          description: 'Operate under the MrDelivery brand with established reputation.'
+          description: 'Operate under the MrDelivery brand with established reputation and marketing materials.'
         },
         {
           icon: 'Headphones',
           title: 'Ongoing Support',
-          description: '24/7 access to our support team and strategy calls.'
+          description: '24/7 access to our support team, regular strategy calls, and continuous system updates.'
         },
         {
           icon: 'Users',
           title: 'Partner Community',
-          description: 'Join a network of partners sharing best practices.'
+          description: 'Join a network of partners sharing best practices, strategies, and mutual support.'
         }
       ]
     },
     howItWorks: {
-      title: 'How It Works',
+      title: 'How the Business Works',
       subtitle: 'From Partner to Profitable Operations',
       steps: [
         {
           number: '01',
           title: 'Application & Qualification',
-          description: 'Submit your application. We review your profile and schedule a call.'
+          description: 'Submit your application. We review your profile and schedule a call to discuss the opportunity.'
         },
         {
           number: '02',
           title: 'Onboarding & Training',
-          description: 'Complete our training program. Learn systems and operations.'
+          description: 'Complete our comprehensive training program. Learn systems, sales, and operations.'
         },
         {
           number: '03',
           title: 'Territory Setup',
-          description: 'We help you set up your territory and marketing materials.'
+          description: 'We help you set up your territory, marketing materials, and initial prospecting strategy.'
         },
         {
           number: '04',
           title: 'Client Acquisition',
-          description: 'Start approaching restaurants. We support with sales tools.'
+          description: 'Start approaching restaurants in your area. We support you with sales tools and guidance.'
         },
         {
           number: '05',
           title: 'Recurring Operations',
-          description: 'Manage clients monthly. Collect recurring fees and grow.'
+          description: 'Manage your clients monthly using our systems. Collect recurring fees and grow your portfolio.'
         }
       ]
     },
@@ -226,25 +194,25 @@ const franchiseTranslations = {
         {
           icon: 'DollarSign',
           title: 'Recurring Revenue',
-          description: 'Monthly management fees from each client'
+          description: 'Monthly management fees from each restaurant client'
         },
         {
           icon: 'TrendingUp',
           title: 'Scalable Growth',
-          description: 'Add more restaurants to grow proportionally'
+          description: 'Add more restaurants to grow your income proportionally'
         },
         {
           icon: 'BarChart3',
           title: 'Performance Bonuses',
-          description: 'Additional earnings for exceeding targets'
+          description: 'Additional earnings for exceeding client growth targets'
         },
         {
           icon: 'Clock',
           title: 'Long-term Value',
-          description: 'Client relationships that last years'
+          description: 'Client relationships that last years, not months'
         }
       ],
-      note: 'Specific revenue potential depends on your territory and commitment. Details provided during qualification.'
+      note: 'Specific revenue potential depends on your territory, commitment level, and number of managed restaurants. Details provided during the qualification process.'
     },
     support: {
       title: 'Support & Training',
@@ -252,62 +220,54 @@ const franchiseTranslations = {
       items: [
         {
           title: 'Initial Onboarding',
-          description: 'Comprehensive training covering sales, operations, technology and client management.'
+          description: 'Comprehensive training program covering all aspects of the business: sales, operations, technology, and client management.'
         },
         {
           title: 'Ongoing Education',
-          description: 'Regular updates, new feature tutorials and industry best practices.'
+          description: 'Regular training updates, new feature tutorials, and industry best practices shared with all partners.'
         },
         {
           title: 'Dedicated Support',
-          description: '24/7 WhatsApp access. Strategy calls for complex situations.'
+          description: '24/7 WhatsApp access to our support team. Strategy calls available for complex situations.'
         },
         {
           title: 'System Updates',
-          description: 'Continuous AI improvements at no additional cost.'
+          description: 'Continuous improvements to our AI systems and management tools at no additional cost.'
         },
         {
           title: 'Partner Community',
-          description: 'Private community for networking and sharing strategies.'
+          description: 'Private community of MrDelivery partners for networking, sharing strategies, and mutual support.'
         }
       ]
     },
     cta: {
-      title: 'Want to Become a MrDelivery Partner?',
-      subtitle: 'Build your own business with our technology and support.',
-      button: 'Learn More'
-    },
-    footer: {
-      rights: 'All rights reserved.'
+      title: 'Ready to Build Your Business?',
+      subtitle: 'Take the first step toward building a recurring revenue business in the restaurant delivery industry.',
+      primary: 'Apply to Become a Partner',
+      secondary: 'Schedule a Call',
+      note: 'Application does not guarantee acceptance. We carefully review each candidate to ensure mutual fit.'
     }
   },
   ro: {
     nav: {
-      home: 'Acasă',
-      partner: 'Devino Partener'
+      backToHome: 'Înapoi la Pagina Principală'
     },
     hero: {
-      badge: 'Oportunitate de Franciză',
-      title1: 'Devino Partener',
-      title2: 'MrDelivery',
-      subtitle: 'Construiește o afacere profitabilă în delivery și automatizare. Primești tehnologia AI, sistemele și suportul — tu aduci clienții.',
+      badge: 'Program de Parteneriat MrDelivery',
+      title: 'Construiește o Afacere cu Venituri Recurente în Managementul Livrărilor',
+      subtitle: 'Devino partener local și administrează restaurante pe platformele de livrare folosind sistemele noastre bazate pe inteligență artificială, puterea de negociere și metodologia testată.',
       cta: 'Aplică pentru Parteneriat',
-      secondaryCta: 'Programează un Call'
-    },
-    stats: {
-      partners: 'Parteneri Activi',
-      restaurants: 'Restaurante Gestionate',
-      countries: 'Țări'
+      secondaryCta: 'Programează o Discuție'
     },
     whatIs: {
       title: 'Ce înseamnă Parteneriatul MrDelivery?',
-      subtitle: 'Parteneriat de Tehnologie + Management',
-      description: 'Aceasta NU este o franciză tradițională de restaurant. Nu gătești, nu livrezi. Administrezi restaurante pe platformele de livrare folosind sistemele noastre AI.',
+      subtitle: 'Parteneriat de Tehnologie și Management',
+      description: 'Aceasta NU este o franciză tradițională de restaurant. Nu gătești, nu livrezi. Administrezi restaurante pe platformele de livrare folosind sistemele noastre.',
       model: {
         title: 'Modelul de Afacere',
         items: [
           'Devii partener local MrDelivery în zona ta',
-          'Îți oferim sisteme AI, instruire și putere de negociere',
+          'Îți oferim sisteme AI, instruire completă și putere de negociere',
           'Administrezi restaurante pe Uber Eats, Glovo, Tazz, Bolt Food',
           'Restaurantele plătesc taxe lunare recurente pentru administrare',
           'Câștigi venit lunar predictibil de la fiecare client'
@@ -324,31 +284,6 @@ const franchiseTranslations = {
         ]
       }
     },
-    services: {
-      title: 'Servicii Principale',
-      items: [
-        {
-          icon: 'Truck',
-          title: 'Management Livrări',
-          description: 'Negociem comisioane și bugete pe Glovo, Wolt și Bolt Food.'
-        },
-        {
-          icon: 'Video',
-          title: 'Producție Video AI',
-          description: 'Creăm și postăm conținut video zilnic pe 4 platforme.'
-        },
-        {
-          icon: 'Bot',
-          title: 'Chatboți AI',
-          description: 'Asistenți virtuali care răspund clienților 24/7.'
-        },
-        {
-          icon: 'Cog',
-          title: 'Automatizări Complete',
-          description: 'Sisteme AI pentru marketing, comenzi și operațiuni.'
-        }
-      ]
-    },
     whoFor: {
       title: 'Cui i se Adresează',
       subtitle: 'Profiluri Ideale de Parteneri',
@@ -356,45 +291,49 @@ const franchiseTranslations = {
         {
           icon: 'Building2',
           title: 'Antreprenori',
-          description: 'Care caută o oportunitate de afacere structurată cu potențial de venituri recurente.'
+          description: 'Care caută o oportunitate de afacere structurată cu potențial de venituri recurente și sisteme deja funcționale.'
         },
         {
           icon: 'Users',
           title: 'Consultanți HoReCa',
-          description: 'Care deja lucrează cu restaurante și doresc să adauge un serviciu profitabil.'
+          description: 'Care deja lucrează cu restaurante și doresc să adauge un serviciu profitabil în portofoliul lor.'
         },
         {
           icon: 'TrendingUp',
-          title: 'Specialiști Marketing Digital',
-          description: 'Cu experiență în marketing de performanță care vor să se specializeze.'
+          title: 'Specialiști în Marketing Digital',
+          description: 'Cu experiență în marketing de performanță care vor să se specializeze în industria restaurantelor.'
         },
         {
           icon: 'Target',
           title: 'Operatori Locali',
-          description: 'Cu rețele locale puternice care pot construi relații cu restaurantele.'
+          description: 'Cu rețele locale puternice care pot construi relații cu proprietarii de restaurante din zona lor.'
         }
       ],
-      note: 'Experiența în industria restaurantelor este utilă, dar nu obligatorie. Ce contează este angajamentul și profesionalismul.'
+      note: 'Experiența în industria restaurantelor este utilă, dar nu obligatorie. Ce contează este angajamentul, profesionalismul și capacitatea de a construi relații durabile cu clienții.'
     },
     whoNotFor: {
       title: 'Cui NU i se Adresează',
       subtitle: 'Această oportunitate nu este potrivită pentru toată lumea',
       items: [
         {
+          icon: 'XCircle',
           title: 'Persoane care vor Bani Rapizi',
-          description: 'Aceasta este o afacere reală care necesită timp pentru construire.'
+          description: 'Aceasta este o afacere reală care necesită timp pentru a fi construită. Nu există povești de succes peste noapte.'
         },
         {
+          icon: 'XCircle',
           title: 'Investitori Pasivi',
-          description: 'Trebuie să administrezi activ zona și clienții.'
+          description: 'Trebuie să administrezi activ zona și clienții. Nu este o investiție de tip „setează și uită".'
         },
         {
+          icon: 'XCircle',
           title: 'Freelanceri în Căutare de Proiecte',
-          description: 'Acesta este un parteneriat de afaceri pe termen lung.'
+          description: 'Acesta este un parteneriat de afaceri pe termen lung, nu un proiect freelance sau un contract temporar.'
         },
         {
+          icon: 'XCircle',
           title: 'Persoane fără Angajament',
-          description: 'Construirea unei baze de clienți necesită dedicare.'
+          description: 'Construirea unei baze de clienți necesită dedicare. Căutăm parteneri care sunt implicați pe termen lung.'
         }
       ]
     },
@@ -405,63 +344,63 @@ const franchiseTranslations = {
         {
           icon: 'Brain',
           title: 'Tehnologie AI',
-          description: 'Acces la sistemele noastre AI pentru optimizarea meniului, asistenți vocali și chatboți.'
+          description: 'Acces la sistemele noastre de inteligență artificială pentru optimizarea meniului, asistenți vocali, chatboți și analiză.'
         },
         {
           icon: 'GraduationCap',
           title: 'Instruire Completă',
-          description: 'Program de onboarding care acoperă vânzări, operațiuni și succesul clienților.'
+          description: 'Program de onboarding care acoperă vânzări, operațiuni, managementul platformelor și succesul clienților.'
         },
         {
           icon: 'Handshake',
           title: 'Putere de Negociere',
-          description: 'Folosești relațiile noastre cu platformele pentru comisioane mai bune.'
+          description: 'Folosești relațiile noastre cu Uber Eats, Glovo, Tazz și Bolt Food pentru comisioane mai bune.'
         },
         {
           icon: 'Shield',
           title: 'Brand și Credibilitate',
-          description: 'Operezi sub brandul MrDelivery cu reputație stabilită.'
+          description: 'Operezi sub brandul MrDelivery cu reputație stabilită și materiale de marketing gata de utilizare.'
         },
         {
           icon: 'Headphones',
           title: 'Suport Permanent',
-          description: 'Acces 24/7 la echipa de suport și discuții de strategie.'
+          description: 'Acces 24/7 la echipa noastră de suport, discuții de strategie și actualizări continue ale sistemelor.'
         },
         {
           icon: 'Users',
           title: 'Comunitate de Parteneri',
-          description: 'Te alături unei rețele de parteneri care împărtășesc bune practici.'
+          description: 'Te alături unei rețele de parteneri care împărtășesc bune practici, strategii și se sprijină reciproc.'
         }
       ]
     },
     howItWorks: {
-      title: 'Cum Funcționează',
+      title: 'Cum Funcționează Afacerea',
       subtitle: 'De la Aplicație la Operațiuni Profitabile',
       steps: [
         {
           number: '01',
           title: 'Aplicație și Calificare',
-          description: 'Trimite aplicația. Analizăm profilul și programăm o discuție.'
+          description: 'Trimite aplicația. Analizăm profilul tău și programăm o discuție pentru a afla mai multe detalii.'
         },
         {
           number: '02',
           title: 'Onboarding și Instruire',
-          description: 'Parcurgi programul de instruire. Înveți sistemele și operațiunile.'
+          description: 'Parcurgi programul nostru complet de instruire. Înveți sistemele, vânzările și operațiunile.'
         },
         {
           number: '03',
           title: 'Configurare Zonă',
-          description: 'Te ajutăm să îți configurezi zona și materialele de marketing.'
+          description: 'Te ajutăm să îți configurezi zona, materialele de marketing și strategia inițială de prospectare.'
         },
         {
           number: '04',
           title: 'Achiziție Clienți',
-          description: 'Începi să abordezi restaurantele. Te susținem cu instrumente de vânzare.'
+          description: 'Începi să abordezi restaurantele din zona ta. Te susținem cu instrumente de vânzare și îndrumare.'
         },
         {
           number: '05',
           title: 'Operațiuni Recurente',
-          description: 'Administrezi clienții lunar. Colectezi taxe recurente și crești.'
+          description: 'Administrezi clienții lunar folosind sistemele noastre. Colectezi taxe recurente și îți crești portofoliul.'
         }
       ]
     },
@@ -473,25 +412,25 @@ const franchiseTranslations = {
         {
           icon: 'DollarSign',
           title: 'Venituri Recurente',
-          description: 'Taxe lunare de administrare de la fiecare client'
+          description: 'Taxe lunare de administrare de la fiecare restaurant client'
         },
         {
           icon: 'TrendingUp',
           title: 'Creștere Scalabilă',
-          description: 'Adaugi mai multe restaurante și crești proporțional'
+          description: 'Adaugi mai multe restaurante și crești venitul proporțional'
         },
         {
           icon: 'BarChart3',
           title: 'Bonusuri de Performanță',
-          description: 'Câștiguri suplimentare pentru depășirea obiectivelor'
+          description: 'Câștiguri suplimentare pentru depășirea obiectivelor de creștere'
         },
         {
           icon: 'Clock',
           title: 'Valoare pe Termen Lung',
-          description: 'Relații cu clienții care durează ani de zile'
+          description: 'Relații cu clienții care durează ani de zile, nu luni'
         }
       ],
-      note: 'Potențialul de venituri depinde de zonă și angajament. Detaliile sunt furnizate în procesul de calificare.'
+      note: 'Potențialul de venituri depinde de zonă, nivelul de angajament și numărul de restaurante administrate. Detaliile sunt furnizate în procesul de calificare.'
     },
     support: {
       title: 'Suport și Instruire',
@@ -499,64 +438,56 @@ const franchiseTranslations = {
       items: [
         {
           title: 'Onboarding Inițial',
-          description: 'Program complet de instruire: vânzări, operațiuni, tehnologie și managementul clienților.'
+          description: 'Program complet de instruire care acoperă toate aspectele afacerii: vânzări, operațiuni, tehnologie și managementul clienților.'
         },
         {
           title: 'Educație Continuă',
-          description: 'Actualizări regulate, tutoriale pentru funcționalități noi și bune practici.'
+          description: 'Actualizări regulate de instruire, tutoriale pentru funcționalități noi și bune practici din industrie împărtășite cu toți partenerii.'
         },
         {
           title: 'Suport Dedicat',
-          description: 'Acces 24/7 pe WhatsApp. Discuții de strategie pentru situații complexe.'
+          description: 'Acces 24/7 pe WhatsApp la echipa noastră de suport. Discuții de strategie disponibile pentru situații complexe.'
         },
         {
           title: 'Actualizări Sistem',
-          description: 'Îmbunătățiri continue ale sistemelor AI fără costuri suplimentare.'
+          description: 'Îmbunătățiri continue ale sistemelor noastre AI și instrumentelor de administrare fără costuri suplimentare.'
         },
         {
           title: 'Comunitate de Parteneri',
-          description: 'Comunitate privată pentru networking și împărtășire de strategii.'
+          description: 'Comunitate privată de parteneri MrDelivery pentru networking, împărtășire de strategii și suport reciproc.'
         }
       ]
     },
     cta: {
-      title: 'Vrei să Devii Partener MrDelivery?',
-      subtitle: 'Construiește-ți propria afacere cu tehnologia și suportul nostru.',
-      button: 'Află Mai Multe'
-    },
-    footer: {
-      rights: 'Toate drepturile rezervate.'
+      title: 'Ești Pregătit să Îți Construiești Afacerea?',
+      subtitle: 'Fă primul pas către o afacere cu venituri recurente în industria livrărilor pentru restaurante.',
+      primary: 'Aplică pentru Parteneriat',
+      secondary: 'Programează o Discuție',
+      note: 'Aplicația nu garantează acceptarea. Analizăm cu atenție fiecare candidat pentru a ne asigura de potrivirea reciprocă.'
     }
   },
   es: {
     nav: {
-      home: 'Inicio',
-      partner: 'Hazte Socio'
+      backToHome: 'Volver al Inicio'
     },
     hero: {
-      badge: 'Oportunidad de Franquicia',
-      title1: 'Hazte Socio',
-      title2: 'MrDelivery',
-      subtitle: 'Construye un negocio rentable en delivery y automatización. Recibes la tecnología AI, los sistemas y el soporte — tú traes los clientes.',
-      cta: 'Aplicar para Asociación',
+      badge: 'Programa de Franquicia MrDelivery',
+      title: 'Construye un Negocio con Ingresos Recurrentes en Gestión de Entregas',
+      subtitle: 'Conviértete en socio local gestionando restaurantes en plataformas de entrega usando nuestros sistemas de IA, poder de negociación y metodología comprobada.',
+      cta: 'Aplicar para ser Socio',
       secondaryCta: 'Programar una Llamada'
     },
-    stats: {
-      partners: 'Socios Activos',
-      restaurants: 'Restaurantes Gestionados',
-      countries: 'Países'
-    },
     whatIs: {
-      title: '¿Qué es la Asociación MrDelivery?',
+      title: '¿Qué es la Franquicia MrDelivery?',
       subtitle: 'Asociación de Tecnología + Gestión',
-      description: 'Esto NO es una franquicia tradicional de restaurante. No cocinas, no entregas. Gestionas restaurantes en plataformas de entrega usando nuestros sistemas AI.',
+      description: 'Esto NO es una franquicia tradicional de restaurante. No cocinas, no entregas. Gestionas restaurantes en plataformas de entrega usando nuestros sistemas.',
       model: {
         title: 'El Modelo de Negocio',
         items: [
           'Te conviertes en socio local MrDelivery en tu territorio',
-          'Te proporcionamos sistemas AI, capacitación y poder de negociación',
+          'Te proporcionamos sistemas de IA, capacitación y poder de negociación',
           'Gestionas restaurantes en Uber Eats, DoorDash, Grubhub',
-          'Los restaurantes pagan tarifas mensuales recurrentes',
+          'Los restaurantes pagan tarifas mensuales recurrentes por la gestión',
           'Ganas ingresos mensuales predecibles de cada cliente'
         ]
       },
@@ -571,31 +502,6 @@ const franchiseTranslations = {
         ]
       }
     },
-    services: {
-      title: 'Servicios Principales',
-      items: [
-        {
-          icon: 'Truck',
-          title: 'Gestión de Entregas',
-          description: 'Negociamos comisiones y presupuestos en Glovo, Wolt y Bolt Food.'
-        },
-        {
-          icon: 'Video',
-          title: 'Producción Video AI',
-          description: 'Creamos y publicamos contenido de video diario en 4 plataformas.'
-        },
-        {
-          icon: 'Bot',
-          title: 'Chatbots AI',
-          description: 'Asistentes virtuales que responden a clientes 24/7.'
-        },
-        {
-          icon: 'Cog',
-          title: 'Automatización Completa',
-          description: 'Sistemas AI para marketing, pedidos y operaciones.'
-        }
-      ]
-    },
     whoFor: {
       title: 'Para Quién Es',
       subtitle: 'Perfiles Ideales de Socios',
@@ -603,45 +509,49 @@ const franchiseTranslations = {
         {
           icon: 'Building2',
           title: 'Emprendedores',
-          description: 'Buscando una oportunidad de negocio estructurada con potencial de ingresos recurrentes.'
+          description: 'Buscando una oportunidad de negocio estructurada con potencial de ingresos recurrentes y sistemas probados.'
         },
         {
           icon: 'Users',
           title: 'Consultores de Restaurantes',
-          description: 'Ya trabajando con restaurantes y queriendo agregar un servicio rentable.'
+          description: 'Ya trabajando con restaurantes y queriendo agregar un servicio rentable a su portafolio.'
         },
         {
           icon: 'TrendingUp',
           title: 'Especialistas en Marketing Digital',
-          description: 'Con experiencia en marketing de rendimiento que quieren especializarse.'
+          description: 'Con experiencia en marketing de rendimiento que quieren especializarse en la industria restaurantera.'
         },
         {
           icon: 'Target',
           title: 'Operadores Locales',
-          description: 'Con redes locales fuertes que pueden construir relaciones con restaurantes.'
+          description: 'Con redes locales fuertes que pueden construir relaciones con propietarios de restaurantes en su área.'
         }
       ],
-      note: 'La experiencia en la industria restaurantera es útil pero no obligatoria. Lo que importa es el compromiso y profesionalismo.'
+      note: 'La experiencia en la industria restaurantera es útil pero no obligatoria. Lo que importa es el compromiso, el profesionalismo y la capacidad de construir relaciones con clientes.'
     },
     whoNotFor: {
       title: 'Para Quién NO Es',
       subtitle: 'Esta oportunidad no es para todos',
       items: [
         {
+          icon: 'XCircle',
           title: 'Buscadores de Dinero Rápido',
-          description: 'Este es un negocio real que requiere tiempo para construirse.'
+          description: 'Este es un negocio real que requiere tiempo para construirse. Sin historias de éxito de la noche a la mañana.'
         },
         {
+          icon: 'XCircle',
           title: 'Inversores Pasivos',
-          description: 'Necesitas gestionar activamente tu territorio y clientes.'
+          description: 'Necesitas gestionar activamente tu territorio y clientes. No es una inversión de configurar y olvidar.'
         },
         {
+          icon: 'XCircle',
           title: 'Freelancers Buscando Proyectos',
-          description: 'Esta es una asociación de negocio a largo plazo.'
+          description: 'Esta es una asociación de negocio a largo plazo, no un proyecto freelance o contrato temporal.'
         },
         {
+          icon: 'XCircle',
           title: 'Personas Sin Compromiso',
-          description: 'Construir una base de clientes requiere dedicación.'
+          description: 'Construir una base de clientes requiere dedicación. Necesitamos socios comprometidos a largo plazo.'
         }
       ]
     },
@@ -651,64 +561,64 @@ const franchiseTranslations = {
       items: [
         {
           icon: 'Brain',
-          title: 'Tecnología AI',
-          description: 'Acceso a nuestros sistemas AI para optimización de menú, agentes de voz y chatbots.'
+          title: 'Tecnología de IA',
+          description: 'Acceso a nuestros sistemas de IA para optimización de menú, agentes de voz, chatbots y análisis.'
         },
         {
           icon: 'GraduationCap',
           title: 'Capacitación Completa',
-          description: 'Programa de incorporación que cubre ventas, operaciones y éxito del cliente.'
+          description: 'Programa de incorporación que cubre ventas, operaciones, gestión de plataformas y éxito del cliente.'
         },
         {
           icon: 'Handshake',
           title: 'Poder de Negociación',
-          description: 'Aprovecha nuestras relaciones con plataformas para mejores tasas.'
+          description: 'Aprovecha nuestras relaciones con Uber Eats, DoorDash y Grubhub para mejores tasas de comisión.'
         },
         {
           icon: 'Shield',
           title: 'Marca y Credibilidad',
-          description: 'Opera bajo la marca MrDelivery con reputación establecida.'
+          description: 'Opera bajo la marca MrDelivery con reputación establecida y materiales de marketing.'
         },
         {
           icon: 'Headphones',
           title: 'Soporte Continuo',
-          description: 'Acceso 24/7 al equipo de soporte y llamadas de estrategia.'
+          description: 'Acceso 24/7 a nuestro equipo de soporte, llamadas de estrategia y actualizaciones del sistema.'
         },
         {
           icon: 'Users',
           title: 'Comunidad de Socios',
-          description: 'Únete a una red de socios compartiendo mejores prácticas.'
+          description: 'Únete a una red de socios compartiendo mejores prácticas, estrategias y apoyo mutuo.'
         }
       ]
     },
     howItWorks: {
-      title: 'Cómo Funciona',
+      title: 'Cómo Funciona el Negocio',
       subtitle: 'De Socio a Operaciones Rentables',
       steps: [
         {
           number: '01',
           title: 'Aplicación y Calificación',
-          description: 'Envía tu aplicación. Revisamos tu perfil y programamos una llamada.'
+          description: 'Envía tu aplicación. Revisamos tu perfil y programamos una llamada para discutir la oportunidad.'
         },
         {
           number: '02',
           title: 'Incorporación y Capacitación',
-          description: 'Completa nuestro programa de capacitación. Aprende sistemas y operaciones.'
+          description: 'Completa nuestro programa integral de capacitación. Aprende sistemas, ventas y operaciones.'
         },
         {
           number: '03',
           title: 'Configuración de Territorio',
-          description: 'Te ayudamos a configurar tu territorio y materiales de marketing.'
+          description: 'Te ayudamos a configurar tu territorio, materiales de marketing y estrategia inicial.'
         },
         {
           number: '04',
           title: 'Adquisición de Clientes',
-          description: 'Comienza a acercarte a restaurantes. Te apoyamos con herramientas.'
+          description: 'Comienza a acercarte a restaurantes en tu área. Te apoyamos con herramientas y orientación.'
         },
         {
           number: '05',
           title: 'Operaciones Recurrentes',
-          description: 'Gestiona clientes mensualmente. Cobra tarifas recurrentes y crece.'
+          description: 'Gestiona tus clientes mensualmente usando nuestros sistemas. Cobra tarifas recurrentes y crece.'
         }
       ]
     },
@@ -720,25 +630,25 @@ const franchiseTranslations = {
         {
           icon: 'DollarSign',
           title: 'Ingresos Recurrentes',
-          description: 'Tarifas mensuales de gestión de cada cliente'
+          description: 'Tarifas mensuales de gestión de cada cliente restaurante'
         },
         {
           icon: 'TrendingUp',
           title: 'Crecimiento Escalable',
-          description: 'Agrega más restaurantes para crecer proporcionalmente'
+          description: 'Agrega más restaurantes para crecer tus ingresos proporcionalmente'
         },
         {
           icon: 'BarChart3',
           title: 'Bonos por Rendimiento',
-          description: 'Ganancias adicionales por superar objetivos'
+          description: 'Ganancias adicionales por superar objetivos de crecimiento'
         },
         {
           icon: 'Clock',
           title: 'Valor a Largo Plazo',
-          description: 'Relaciones con clientes que duran años'
+          description: 'Relaciones con clientes que duran años, no meses'
         }
       ],
-      note: 'El potencial de ingresos depende de tu territorio y compromiso. Detalles proporcionados durante calificación.'
+      note: 'El potencial de ingresos depende de tu territorio, nivel de compromiso y número de restaurantes gestionados. Detalles proporcionados durante el proceso de calificación.'
     },
     support: {
       title: 'Soporte y Capacitación',
@@ -746,33 +656,32 @@ const franchiseTranslations = {
       items: [
         {
           title: 'Incorporación Inicial',
-          description: 'Programa integral: ventas, operaciones, tecnología y gestión de clientes.'
+          description: 'Programa integral de capacitación que cubre todos los aspectos del negocio: ventas, operaciones, tecnología y gestión de clientes.'
         },
         {
           title: 'Educación Continua',
-          description: 'Actualizaciones regulares, tutoriales y mejores prácticas.'
+          description: 'Actualizaciones regulares de capacitación, tutoriales de nuevas funciones y mejores prácticas compartidas con todos los socios.'
         },
         {
           title: 'Soporte Dedicado',
-          description: 'Acceso 24/7 por WhatsApp. Llamadas de estrategia para situaciones complejas.'
+          description: 'Acceso 24/7 por WhatsApp a nuestro equipo de soporte. Llamadas de estrategia disponibles para situaciones complejas.'
         },
         {
           title: 'Actualizaciones del Sistema',
-          description: 'Mejoras continuas a sistemas AI sin costo adicional.'
+          description: 'Mejoras continuas a nuestros sistemas de IA y herramientas de gestión sin costo adicional.'
         },
         {
           title: 'Comunidad de Socios',
-          description: 'Comunidad privada para networking y compartir estrategias.'
+          description: 'Comunidad privada de socios MrDelivery para networking, compartir estrategias y apoyo mutuo.'
         }
       ]
     },
     cta: {
-      title: '¿Quieres ser Socio MrDelivery?',
-      subtitle: 'Construye tu propio negocio con nuestra tecnología y soporte.',
-      button: 'Más Información'
-    },
-    footer: {
-      rights: 'Todos los derechos reservados.'
+      title: '¿Listo para Construir tu Negocio?',
+      subtitle: 'Da el primer paso hacia un negocio con ingresos recurrentes en la industria de entregas para restaurantes.',
+      primary: 'Aplicar para ser Socio',
+      secondary: 'Programar una Llamada',
+      note: 'La aplicación no garantiza aceptación. Revisamos cuidadosamente cada candidato para asegurar un ajuste mutuo.'
     }
   }
 };
@@ -790,11 +699,7 @@ const iconMap: { [key: string]: React.ComponentType<any> } = {
   DollarSign,
   BarChart3,
   Clock,
-  XCircle,
-  Truck,
-  Video,
-  Bot,
-  Cog
+  XCircle
 };
 
 const FranchisePage = () => {
@@ -803,7 +708,7 @@ const FranchisePage = () => {
 
   const getWhatsAppUrl = () => {
     const messages = {
-      en: "Hello! I'm interested in the MrDelivery Partnership program. I would like to learn more about becoming a partner.",
+      en: "Hello! I'm interested in the MrDelivery Franchise Partnership program. I would like to learn more about becoming a partner.",
       ro: "Bună ziua! Sunt interesat de programul de parteneriat MrDelivery. Aș dori să aflu mai multe despre cum pot deveni partener.",
       es: "¡Hola! Estoy interesado en el programa de franquicia MrDelivery. Me gustaría saber más sobre cómo convertirme en socio."
     };
@@ -811,58 +716,41 @@ const FranchisePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background stars-bg">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link to="/" className="text-xl font-bold text-primary">
-              MrDelivery
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="text-sm font-medium">{t.nav.backToHome}</span>
             </Link>
-            
-            <div className="hidden md:flex items-center gap-8">
-              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
-                {t.nav.home}
-              </Link>
-              <Link to="/franchise" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                <Sparkles className="w-4 h-4 text-primary" />
-                {t.nav.partner}
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-4">
+            <div className="text-xl font-bold text-primary">MrDelivery</div>
+            <div className="hidden sm:block">
               <LanguageSwitcher />
-              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="hidden sm:block">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
-                  <Sparkles className="w-4 h-4" />
-                  {t.nav.partner}
-                </Button>
-              </a>
             </div>
+          </div>
+          <div className="sm:hidden mt-3">
+            <LanguageSwitcher />
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-28 lg:py-36 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
+      <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted border border-border text-muted-foreground text-sm font-medium mb-8">
-            <Sparkles className="w-4 h-4 text-primary" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+            <Rocket className="w-4 h-4" />
             {t.hero.badge}
           </div>
-          
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-foreground">{t.hero.title1}</span>
-            <br />
-            <span className="text-primary">{t.hero.title2}</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight max-w-5xl mx-auto">
+            {t.hero.title}
           </h1>
-          
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
             {t.hero.subtitle}
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold rounded-xl">
                 {t.hero.cta}
@@ -870,65 +758,17 @@ const FranchisePage = () => {
               </Button>
             </a>
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg font-semibold rounded-xl border-border hover:bg-muted">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg font-semibold rounded-xl border-2">
+                <Phone className="mr-2 w-5 h-5" />
                 {t.hero.secondaryCta}
               </Button>
             </a>
-          </div>
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-16">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Building className="w-5 h-5 text-primary" />
-                <span className="text-3xl sm:text-4xl font-bold text-foreground">50+</span>
-              </div>
-              <p className="text-sm text-muted-foreground">{t.stats.partners}</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Settings className="w-5 h-5 text-primary" />
-                <span className="text-3xl sm:text-4xl font-bold text-foreground">500+</span>
-              </div>
-              <p className="text-sm text-muted-foreground">{t.stats.restaurants}</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Sparkles className="w-5 h-5 text-primary" />
-                <span className="text-3xl sm:text-4xl font-bold text-foreground">3</span>
-              </div>
-              <p className="text-sm text-muted-foreground">{t.stats.countries}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-foreground mb-12">
-            {t.services.title}
-          </h2>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.services.items.map((service, index) => {
-              const IconComponent = iconMap[service.icon] || Zap;
-              return (
-                <div key={index} className="bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-all hover:-translate-y-1">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
 
       {/* What Is Section */}
-      <section className="py-16 sm:py-24 bg-muted/20">
+      <section className="py-16 sm:py-24 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.whatIs.title}</h2>
@@ -937,7 +777,7 @@ const FranchisePage = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-card rounded-2xl p-8 border border-border">
+            <div className="bg-card rounded-2xl p-8 border border-border shadow-lg">
               <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-3">
                 <Settings className="w-6 h-6 text-primary" />
                 {t.whatIs.model.title}
@@ -945,14 +785,14 @@ const FranchisePage = () => {
               <ul className="space-y-4">
                 {t.whatIs.model.items.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-muted-foreground">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="bg-card rounded-2xl p-8 border border-border">
+            <div className="bg-card rounded-2xl p-8 border border-border shadow-lg">
               <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-3">
                 <Globe className="w-6 h-6 text-primary" />
                 {t.whatIs.youGet.title}
@@ -960,7 +800,7 @@ const FranchisePage = () => {
               <ul className="space-y-4">
                 {t.whatIs.youGet.items.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                     <span className="text-muted-foreground">{item}</span>
                   </li>
                 ))}
@@ -982,7 +822,7 @@ const FranchisePage = () => {
             {t.whoFor.profiles.map((profile, index) => {
               const IconComponent = iconMap[profile.icon] || Building2;
               return (
-                <div key={index} className="bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-all">
+                <div key={index} className="bg-card rounded-2xl p-6 border border-border shadow-lg hover:shadow-xl transition-shadow">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <IconComponent className="w-6 h-6 text-primary" />
                   </div>
@@ -1000,7 +840,7 @@ const FranchisePage = () => {
       </section>
 
       {/* Who NOT For Section */}
-      <section className="py-16 sm:py-24 bg-muted/20">
+      <section className="py-16 sm:py-24 bg-destructive/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.whoNotFor.title}</h2>
@@ -1009,7 +849,7 @@ const FranchisePage = () => {
           
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {t.whoNotFor.items.map((item, index) => (
-              <div key={index} className="bg-card rounded-2xl p-6 border border-destructive/20">
+              <div key={index} className="bg-card rounded-2xl p-6 border border-destructive/20 shadow-lg">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0">
                     <XCircle className="w-5 h-5 text-destructive" />
@@ -1037,8 +877,8 @@ const FranchisePage = () => {
             {t.whatYouGet.items.map((item, index) => {
               const IconComponent = iconMap[item.icon] || Zap;
               return (
-                <div key={index} className="bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-all hover:-translate-y-1">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                <div key={index} className="bg-card rounded-2xl p-6 border border-border shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
                     <IconComponent className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
@@ -1051,7 +891,7 @@ const FranchisePage = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 sm:py-24 bg-muted/20">
+      <section className="py-16 sm:py-24 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.howItWorks.title}</h2>
@@ -1065,13 +905,13 @@ const FranchisePage = () => {
               {t.howItWorks.steps.map((step, index) => (
                 <div key={index} className={`relative flex flex-col lg:flex-row items-center gap-6 lg:gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className={`flex-1 ${index % 2 === 1 ? 'lg:text-left' : 'lg:text-right'}`}>
-                    <div className={`bg-card rounded-2xl p-6 border border-border inline-block ${index % 2 === 1 ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
+                    <div className={`bg-card rounded-2xl p-6 border border-border shadow-lg inline-block ${index % 2 === 1 ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
                       <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
                       <p className="text-sm text-muted-foreground max-w-sm">{step.description}</p>
                     </div>
                   </div>
                   
-                  <div className="relative z-10 w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold shadow-glow-sm">
+                  <div className="relative z-10 w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold shadow-lg">
                     {step.number}
                   </div>
                   
@@ -1096,9 +936,9 @@ const FranchisePage = () => {
             {t.revenue.highlights.map((highlight, index) => {
               const IconComponent = iconMap[highlight.icon] || DollarSign;
               return (
-                <div key={index} className="bg-card rounded-2xl p-6 border border-border text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-7 h-7 text-primary" />
+                <div key={index} className="bg-gradient-to-br from-card to-muted/30 rounded-2xl p-6 border border-border shadow-lg text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-success/10 flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="w-7 h-7 text-success" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">{highlight.title}</h3>
                   <p className="text-sm text-muted-foreground">{highlight.description}</p>
@@ -1114,7 +954,7 @@ const FranchisePage = () => {
       </section>
 
       {/* Support Section */}
-      <section className="py-16 sm:py-24 bg-muted/20">
+      <section className="py-16 sm:py-24 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.support.title}</h2>
@@ -1123,7 +963,7 @@ const FranchisePage = () => {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {t.support.items.map((item, index) => (
-              <div key={index} className="bg-card rounded-2xl p-6 border border-border">
+              <div key={index} className="bg-card rounded-2xl p-6 border border-border shadow-lg">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <Award className="w-5 h-5 text-primary" />
                 </div>
@@ -1136,17 +976,27 @@ const FranchisePage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 sm:py-24">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary to-primary/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.cta.title}</h2>
-          <p className="text-lg text-muted-foreground mb-10">{t.cta.subtitle}</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">{t.cta.title}</h2>
+          <p className="text-lg text-primary-foreground/80 mb-10">{t.cta.subtitle}</p>
           
-          <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold rounded-xl">
-              {t.cta.button}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="w-full sm:w-auto bg-white hover:bg-white/90 text-primary px-8 py-6 text-lg font-semibold rounded-xl">
+                {t.cta.primary}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </a>
+            <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg font-semibold rounded-xl border-2 border-white/30 text-white hover:bg-white/10">
+                <MessageSquare className="mr-2 w-5 h-5" />
+                {t.cta.secondary}
+              </Button>
+            </a>
+          </div>
+          
+          <p className="text-sm text-primary-foreground/60 italic">{t.cta.note}</p>
         </div>
       </section>
 
@@ -1154,7 +1004,7 @@ const FranchisePage = () => {
       <footer className="py-8 bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} MrDelivery. {t.footer.rights}
+            © {new Date().getFullYear()} MrDelivery. All rights reserved.
           </p>
         </div>
       </footer>
