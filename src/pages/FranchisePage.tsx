@@ -790,54 +790,91 @@ const iconMap: { [key: string]: React.ComponentType<any> } = {
   MessageSquare
 };
 
-// Star background component
+// Generate stable star positions using seeded random
+const generateStars = (count: number, seed: number) => {
+  const stars = [];
+  for (let i = 0; i < count; i++) {
+    const x = ((seed * (i + 1) * 9301 + 49297) % 233280) / 233280 * 100;
+    const y = ((seed * (i + 1) * 49297 + 9301) % 233280) / 233280 * 100;
+    const duration = 2 + ((seed * (i + 1) * 12345) % 233280) / 233280 * 4;
+    const delay = ((seed * (i + 1) * 67890) % 233280) / 233280 * 5;
+    stars.push({ x, y, duration, delay });
+  }
+  return stars;
+};
+
+const smallStars = generateStars(120, 1);
+const mediumStars = generateStars(60, 2);
+const largeStars = generateStars(25, 3);
+
+// Star background component with twinkling animations
 const StarBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
+      <style>{`
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        @keyframes twinkleBright {
+          0%, 100% { opacity: 0.5; transform: scale(1); box-shadow: 0 0 4px 1px rgba(255,255,255,0.3); }
+          50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 8px 3px rgba(255,255,255,0.6); }
+        }
+        @keyframes twinkleGlow {
+          0%, 100% { opacity: 0.6; transform: scale(1); box-shadow: 0 0 6px 2px rgba(253, 224, 71, 0.4); }
+          50% { opacity: 1; transform: scale(1.4); box-shadow: 0 0 12px 4px rgba(253, 224, 71, 0.8); }
+        }
+        .star-small { animation: twinkle ease-in-out infinite; }
+        .star-medium { animation: twinkleBright ease-in-out infinite; }
+        .star-large { animation: twinkleGlow ease-in-out infinite; }
+      `}</style>
+      
       {/* Dark gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
       
-      {/* Stars layer 1 - small stars */}
+      {/* Stars layer 1 - small twinkling stars */}
       <div className="absolute inset-0">
-        {[...Array(100)].map((_, i) => (
+        {smallStars.map((star, i) => (
           <div
             key={`star-1-${i}`}
-            className="absolute w-0.5 h-0.5 bg-white rounded-full opacity-60"
+            className="absolute w-0.5 h-0.5 bg-white rounded-full star-small"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              animationDuration: `${star.duration}s`,
+              animationDelay: `${star.delay}s`,
             }}
           />
         ))}
       </div>
       
-      {/* Stars layer 2 - medium stars */}
+      {/* Stars layer 2 - medium twinkling stars */}
       <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
+        {mediumStars.map((star, i) => (
           <div
             key={`star-2-${i}`}
-            className="absolute w-1 h-1 bg-white rounded-full opacity-80"
+            className="absolute w-1 h-1 bg-white rounded-full star-medium"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              animationDuration: `${star.duration + 1}s`,
+              animationDelay: `${star.delay}s`,
             }}
           />
         ))}
       </div>
       
-      {/* Stars layer 3 - large stars with glow */}
+      {/* Stars layer 3 - large glowing stars */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {largeStars.map((star, i) => (
           <div
             key={`star-3-${i}`}
-            className="absolute w-1.5 h-1.5 bg-yellow-200 rounded-full"
+            className="absolute w-1.5 h-1.5 bg-yellow-200 rounded-full star-large"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              boxShadow: '0 0 6px 2px rgba(253, 224, 71, 0.5)',
-              animationDelay: `${Math.random() * 3}s`,
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              animationDuration: `${star.duration + 2}s`,
+              animationDelay: `${star.delay}s`,
             }}
           />
         ))}
@@ -891,7 +928,7 @@ const FranchisePage = () => {
             <Sparkles className="w-4 h-4" />
             {t.hero.badge}
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight max-w-5xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-lg">
             {t.hero.title.split(' ').map((word, i) => 
               i === 0 || i === 1 ? (
                 <span key={i}>{word} </span>
@@ -902,7 +939,7 @@ const FranchisePage = () => {
               )
             )}
           </h1>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+          <p className="text-lg sm:text-xl text-gray-300 font-semibold max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-md">
             {t.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -926,7 +963,7 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.services}</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.services}</h2>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -937,8 +974,8 @@ const FranchisePage = () => {
                   <div className="w-14 h-14 rounded-2xl bg-yellow-500/10 flex items-center justify-center mb-4">
                     <IconComponent className="w-7 h-7 text-yellow-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-sm text-gray-400">{service.description}</p>
+                  <h3 className="text-lg font-extrabold text-white mb-2 tracking-tight">{service.title}</h3>
+                  <p className="text-sm text-gray-300 font-medium leading-relaxed">{service.description}</p>
                 </div>
               );
             })}
@@ -950,14 +987,14 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whatIs.title}</h2>
-            <p className="text-xl text-yellow-400 font-medium mb-4">{t.whatIs.subtitle}</p>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">{t.whatIs.description}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.whatIs.title}</h2>
+            <p className="text-xl text-yellow-400 font-bold mb-4">{t.whatIs.subtitle}</p>
+            <p className="text-lg text-gray-300 font-medium max-w-3xl mx-auto leading-relaxed">{t.whatIs.description}</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 mt-12">
             <div className="bg-gray-900/50 rounded-2xl p-8 border border-yellow-500/20 shadow-lg">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+              <h3 className="text-xl font-extrabold text-white mb-6 flex items-center gap-3 tracking-tight">
                 <Settings className="w-6 h-6 text-yellow-400" />
                 {t.whatIs.model.title}
               </h3>
@@ -965,14 +1002,14 @@ const FranchisePage = () => {
                 {t.whatIs.model.items.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-300">{item}</span>
+                    <span className="text-gray-200 font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             
             <div className="bg-gray-900/50 rounded-2xl p-8 border border-yellow-500/20 shadow-lg">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+              <h3 className="text-xl font-extrabold text-white mb-6 flex items-center gap-3 tracking-tight">
                 <Globe className="w-6 h-6 text-yellow-400" />
                 {t.whatIs.youGet.title}
               </h3>
@@ -980,7 +1017,7 @@ const FranchisePage = () => {
                 {t.whatIs.youGet.items.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-300">{item}</span>
+                    <span className="text-gray-200 font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -993,8 +1030,8 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-gray-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whoFor.title}</h2>
-            <p className="text-xl text-gray-400">{t.whoFor.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.whoFor.title}</h2>
+            <p className="text-xl text-gray-300 font-semibold">{t.whoFor.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1005,14 +1042,14 @@ const FranchisePage = () => {
                   <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-4">
                     <IconComponent className="w-6 h-6 text-yellow-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{profile.title}</h3>
-                  <p className="text-sm text-gray-400">{profile.description}</p>
+                  <h3 className="text-lg font-extrabold text-white mb-2 tracking-tight">{profile.title}</h3>
+                  <p className="text-sm text-gray-300 font-medium leading-relaxed">{profile.description}</p>
                 </div>
               );
             })}
           </div>
           
-          <p className="text-center text-gray-500 mt-8 max-w-3xl mx-auto italic">
+          <p className="text-center text-gray-400 mt-8 max-w-3xl mx-auto italic font-medium">
             {t.whoFor.note}
           </p>
         </div>
@@ -1022,8 +1059,8 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-red-900/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whoNotFor.title}</h2>
-            <p className="text-xl text-gray-400">{t.whoNotFor.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.whoNotFor.title}</h2>
+            <p className="text-xl text-gray-300 font-semibold">{t.whoNotFor.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -1034,8 +1071,8 @@ const FranchisePage = () => {
                     <XCircle className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-400">{item.description}</p>
+                    <h3 className="text-lg font-extrabold text-white mb-2 tracking-tight">{item.title}</h3>
+                    <p className="text-sm text-gray-300 font-medium leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -1048,8 +1085,8 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whatYouGet.title}</h2>
-            <p className="text-xl text-gray-400">{t.whatYouGet.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.whatYouGet.title}</h2>
+            <p className="text-xl text-gray-300 font-semibold">{t.whatYouGet.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1060,8 +1097,8 @@ const FranchisePage = () => {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 flex items-center justify-center mb-4">
                     <IconComponent className="w-7 h-7 text-yellow-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400">{item.description}</p>
+                  <h3 className="text-lg font-extrabold text-white mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-sm text-gray-300 font-medium leading-relaxed">{item.description}</p>
                 </div>
               );
             })}
@@ -1073,8 +1110,8 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-gray-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.howItWorks.title}</h2>
-            <p className="text-xl text-gray-400">{t.howItWorks.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.howItWorks.title}</h2>
+            <p className="text-xl text-gray-300 font-semibold">{t.howItWorks.subtitle}</p>
           </div>
           
           <div className="relative">
@@ -1085,12 +1122,12 @@ const FranchisePage = () => {
                 <div key={index} className={`relative flex flex-col lg:flex-row items-center gap-6 lg:gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className={`flex-1 ${index % 2 === 1 ? 'lg:text-left' : 'lg:text-right'}`}>
                     <div className={`bg-black/50 rounded-2xl p-6 border border-yellow-500/20 shadow-lg inline-block ${index % 2 === 1 ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
-                      <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                      <p className="text-sm text-gray-400 max-w-sm">{step.description}</p>
+                      <h3 className="text-lg font-extrabold text-white mb-2 tracking-tight">{step.title}</h3>
+                      <p className="text-sm text-gray-300 font-medium max-w-sm leading-relaxed">{step.description}</p>
                     </div>
                   </div>
                   
-                  <div className="relative z-10 w-16 h-16 rounded-full bg-yellow-500 text-black flex items-center justify-center text-xl font-bold shadow-lg shadow-yellow-500/30">
+                  <div className="relative z-10 w-16 h-16 rounded-full bg-yellow-500 text-black flex items-center justify-center text-xl font-black shadow-lg shadow-yellow-500/30">
                     {step.number}
                   </div>
                   
@@ -1106,9 +1143,9 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.revenue.title}</h2>
-            <p className="text-xl text-yellow-400 font-medium mb-4">{t.revenue.subtitle}</p>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">{t.revenue.description}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.revenue.title}</h2>
+            <p className="text-xl text-yellow-400 font-bold mb-4">{t.revenue.subtitle}</p>
+            <p className="text-lg text-gray-300 font-medium max-w-3xl mx-auto leading-relaxed">{t.revenue.description}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1119,14 +1156,14 @@ const FranchisePage = () => {
                   <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="w-7 h-7 text-green-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{highlight.title}</h3>
-                  <p className="text-sm text-gray-400">{highlight.description}</p>
+                  <h3 className="text-lg font-extrabold text-white mb-2 tracking-tight">{highlight.title}</h3>
+                  <p className="text-sm text-gray-300 font-medium leading-relaxed">{highlight.description}</p>
                 </div>
               );
             })}
           </div>
           
-          <p className="text-center text-gray-500 mt-8 max-w-3xl mx-auto text-sm italic">
+          <p className="text-center text-gray-400 mt-8 max-w-3xl mx-auto text-sm italic font-medium">
             {t.revenue.note}
           </p>
         </div>
@@ -1136,8 +1173,8 @@ const FranchisePage = () => {
       <section className="relative py-16 sm:py-24 bg-gray-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.support.title}</h2>
-            <p className="text-xl text-gray-400">{t.support.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.support.title}</h2>
+            <p className="text-xl text-gray-300 font-semibold">{t.support.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -1146,8 +1183,8 @@ const FranchisePage = () => {
                 <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-4">
                   <Award className="w-5 h-5 text-yellow-400" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-400">{item.description}</p>
+                <h3 className="text-lg font-extrabold text-white mb-2 tracking-tight">{item.title}</h3>
+                <p className="text-sm text-gray-300 font-medium leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -1159,8 +1196,8 @@ const FranchisePage = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-yellow-600/10 to-yellow-500/20" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Sparkles className="w-12 h-12 text-yellow-400 mx-auto mb-6" />
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.franchiseBanner.title}</h2>
-          <p className="text-lg text-gray-300 mb-8">{t.franchiseBanner.description}</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight drop-shadow-lg">{t.franchiseBanner.title}</h2>
+          <p className="text-lg text-gray-200 font-semibold mb-8">{t.franchiseBanner.description}</p>
           <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-6 text-lg font-semibold rounded-xl">
               {t.franchiseBanner.cta}
