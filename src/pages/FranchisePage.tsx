@@ -26,7 +26,9 @@ import {
   Handshake,
   DollarSign,
   Settings,
-  Phone
+  Phone,
+  Sparkles,
+  Bot
 } from 'lucide-react';
 
 const franchiseTranslations = {
@@ -246,6 +248,34 @@ const franchiseTranslations = {
       primary: 'Apply to Become a Partner',
       secondary: 'Schedule a Call',
       note: 'Application does not guarantee acceptance. We carefully review each candidate to ensure mutual fit.'
+    },
+    services: 'Main Services',
+    servicesList: [
+      {
+        icon: 'TrendingUp',
+        title: 'Delivery Management',
+        description: 'We negotiate commissions and budgets on Glovo, Wolt, and Bolt Food.'
+      },
+      {
+        icon: 'Video',
+        title: 'AI Video Production',
+        description: 'We create and post video content daily on 4 platforms.'
+      },
+      {
+        icon: 'MessageSquare',
+        title: 'AI Chatbots',
+        description: 'Virtual assistants that respond to customers 24/7.'
+      },
+      {
+        icon: 'Bot',
+        title: 'Complete Automations',
+        description: 'AI systems for marketing, orders, and operations.'
+      }
+    ],
+    franchiseBanner: {
+      title: 'Want to Become a MrDelivery Partner?',
+      description: 'Build your own business with our technology and support.',
+      cta: 'Learn More'
     }
   },
   ro: {
@@ -464,6 +494,34 @@ const franchiseTranslations = {
       primary: 'Aplică pentru Parteneriat',
       secondary: 'Programează o Discuție',
       note: 'Aplicația nu garantează acceptarea. Analizăm cu atenție fiecare candidat pentru a ne asigura de potrivirea reciprocă.'
+    },
+    services: 'Servicii Principale',
+    servicesList: [
+      {
+        icon: 'TrendingUp',
+        title: 'Management Livrări',
+        description: 'Negociem comisioane și bugete pe Glovo, Wolt și Bolt Food.'
+      },
+      {
+        icon: 'Video',
+        title: 'Producție Video AI',
+        description: 'Creăm și postăm conținut video zilnic pe 4 platforme.'
+      },
+      {
+        icon: 'MessageSquare',
+        title: 'Chatboți AI',
+        description: 'Asistenți virtuali care răspund clienților 24/7.'
+      },
+      {
+        icon: 'Bot',
+        title: 'Automatizări Complete',
+        description: 'Sisteme AI pentru marketing, comenzi și operațiuni.'
+      }
+    ],
+    franchiseBanner: {
+      title: 'Vrei să Devii Partener MrDelivery?',
+      description: 'Construiește-ți propria afacere cu tehnologia și suportul nostru.',
+      cta: 'Află Mai Multe'
     }
   },
   es: {
@@ -682,6 +740,34 @@ const franchiseTranslations = {
       primary: 'Aplicar para ser Socio',
       secondary: 'Programar una Llamada',
       note: 'La aplicación no garantiza aceptación. Revisamos cuidadosamente cada candidato para asegurar un ajuste mutuo.'
+    },
+    services: 'Servicios Principales',
+    servicesList: [
+      {
+        icon: 'TrendingUp',
+        title: 'Gestión de Entregas',
+        description: 'Negociamos comisiones y presupuestos en Glovo, Wolt y Bolt Food.'
+      },
+      {
+        icon: 'Video',
+        title: 'Producción de Video AI',
+        description: 'Creamos y publicamos contenido de video diariamente en 4 plataformas.'
+      },
+      {
+        icon: 'MessageSquare',
+        title: 'Chatbots de IA',
+        description: 'Asistentes virtuales que responden a los clientes 24/7.'
+      },
+      {
+        icon: 'Bot',
+        title: 'Automatizaciones Completas',
+        description: 'Sistemas de IA para marketing, pedidos y operaciones.'
+      }
+    ],
+    franchiseBanner: {
+      title: '¿Quieres Ser Socio de MrDelivery?',
+      description: 'Construye tu propio negocio con nuestra tecnología y soporte.',
+      cta: 'Saber Más'
     }
   }
 };
@@ -699,7 +785,68 @@ const iconMap: { [key: string]: React.ComponentType<any> } = {
   DollarSign,
   BarChart3,
   Clock,
-  XCircle
+  XCircle,
+  Bot,
+  MessageSquare
+};
+
+// Star background component
+const StarBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Dark gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+      
+      {/* Stars layer 1 - small stars */}
+      <div className="absolute inset-0">
+        {[...Array(100)].map((_, i) => (
+          <div
+            key={`star-1-${i}`}
+            className="absolute w-0.5 h-0.5 bg-white rounded-full opacity-60"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Stars layer 2 - medium stars */}
+      <div className="absolute inset-0">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={`star-2-${i}`}
+            className="absolute w-1 h-1 bg-white rounded-full opacity-80"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Stars layer 3 - large stars with glow */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={`star-3-${i}`}
+            className="absolute w-1.5 h-1.5 bg-yellow-200 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              boxShadow: '0 0 6px 2px rgba(253, 224, 71, 0.5)',
+              animationDelay: `${Math.random() * 3}s`,
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/10 via-transparent to-yellow-900/5" />
+    </div>
+  );
 };
 
 const FranchisePage = () => {
@@ -716,16 +863,16 @@ const FranchisePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-yellow-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/" className="flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors">
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm font-medium">{t.nav.backToHome}</span>
             </Link>
-            <div className="text-xl font-bold text-primary">MrDelivery</div>
+            <div className="text-xl font-bold text-yellow-400">MrDelivery</div>
             <div className="hidden sm:block">
               <LanguageSwitcher />
             </div>
@@ -738,27 +885,35 @@ const FranchisePage = () => {
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
+        <StarBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-            <Rocket className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" />
             {t.hero.badge}
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight max-w-5xl mx-auto">
-            {t.hero.title}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight max-w-5xl mx-auto">
+            {t.hero.title.split(' ').map((word, i) => 
+              i === 0 || i === 1 ? (
+                <span key={i}>{word} </span>
+              ) : i === 2 || i === 3 ? (
+                <span key={i} className="text-yellow-400">{word} </span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
             {t.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold rounded-xl">
+              <Button size="lg" className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-6 text-lg font-semibold rounded-xl">
                 {t.hero.cta}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </a>
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg font-semibold rounded-xl border-2">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg font-semibold rounded-xl border-2 border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10 hover:border-yellow-400">
                 <Phone className="mr-2 w-5 h-5" />
                 {t.hero.secondaryCta}
               </Button>
@@ -767,41 +922,65 @@ const FranchisePage = () => {
         </div>
       </section>
 
-      {/* What Is Section */}
-      <section className="py-16 sm:py-24 bg-muted/30">
+      {/* Services Section - Added from reference */}
+      <section className="relative py-16 sm:py-24 bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.whatIs.title}</h2>
-            <p className="text-xl text-primary font-medium mb-4">{t.whatIs.subtitle}</p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t.whatIs.description}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.services}</h2>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {t.servicesList.map((service, index) => {
+              const IconComponent = iconMap[service.icon] || Zap;
+              return (
+                <div key={index} className="bg-black/50 rounded-2xl p-6 border border-yellow-500/20 shadow-lg hover:border-yellow-500/40 transition-all hover:-translate-y-1">
+                  <div className="w-14 h-14 rounded-2xl bg-yellow-500/10 flex items-center justify-center mb-4">
+                    <IconComponent className="w-7 h-7 text-yellow-400" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
+                  <p className="text-sm text-gray-400">{service.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* What Is Section */}
+      <section className="relative py-16 sm:py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whatIs.title}</h2>
+            <p className="text-xl text-yellow-400 font-medium mb-4">{t.whatIs.subtitle}</p>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">{t.whatIs.description}</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-card rounded-2xl p-8 border border-border shadow-lg">
-              <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-3">
-                <Settings className="w-6 h-6 text-primary" />
+            <div className="bg-gray-900/50 rounded-2xl p-8 border border-yellow-500/20 shadow-lg">
+              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                <Settings className="w-6 h-6 text-yellow-400" />
                 {t.whatIs.model.title}
               </h3>
               <ul className="space-y-4">
                 {t.whatIs.model.items.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="bg-card rounded-2xl p-8 border border-border shadow-lg">
-              <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-3">
-                <Globe className="w-6 h-6 text-primary" />
+            <div className="bg-gray-900/50 rounded-2xl p-8 border border-yellow-500/20 shadow-lg">
+              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                <Globe className="w-6 h-6 text-yellow-400" />
                 {t.whatIs.youGet.title}
               </h3>
               <ul className="space-y-4">
                 {t.whatIs.youGet.items.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -811,52 +990,52 @@ const FranchisePage = () => {
       </section>
 
       {/* Who For Section */}
-      <section className="py-16 sm:py-24">
+      <section className="relative py-16 sm:py-24 bg-gray-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.whoFor.title}</h2>
-            <p className="text-xl text-muted-foreground">{t.whoFor.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whoFor.title}</h2>
+            <p className="text-xl text-gray-400">{t.whoFor.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.whoFor.profiles.map((profile, index) => {
               const IconComponent = iconMap[profile.icon] || Building2;
               return (
-                <div key={index} className="bg-card rounded-2xl p-6 border border-border shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-primary" />
+                <div key={index} className="bg-black/50 rounded-2xl p-6 border border-yellow-500/20 shadow-lg hover:border-yellow-500/40 transition-all hover:shadow-yellow-500/10">
+                  <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-4">
+                    <IconComponent className="w-6 h-6 text-yellow-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{profile.title}</h3>
-                  <p className="text-sm text-muted-foreground">{profile.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-2">{profile.title}</h3>
+                  <p className="text-sm text-gray-400">{profile.description}</p>
                 </div>
               );
             })}
           </div>
           
-          <p className="text-center text-muted-foreground mt-8 max-w-3xl mx-auto italic">
+          <p className="text-center text-gray-500 mt-8 max-w-3xl mx-auto italic">
             {t.whoFor.note}
           </p>
         </div>
       </section>
 
       {/* Who NOT For Section */}
-      <section className="py-16 sm:py-24 bg-destructive/5">
+      <section className="relative py-16 sm:py-24 bg-red-900/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.whoNotFor.title}</h2>
-            <p className="text-xl text-muted-foreground">{t.whoNotFor.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whoNotFor.title}</h2>
+            <p className="text-xl text-gray-400">{t.whoNotFor.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {t.whoNotFor.items.map((item, index) => (
-              <div key={index} className="bg-card rounded-2xl p-6 border border-destructive/20 shadow-lg">
+              <div key={index} className="bg-black/50 rounded-2xl p-6 border border-red-500/30 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0">
-                    <XCircle className="w-5 h-5 text-destructive" />
+                  <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                    <XCircle className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-400">{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -866,23 +1045,23 @@ const FranchisePage = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-16 sm:py-24">
+      <section className="relative py-16 sm:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.whatYouGet.title}</h2>
-            <p className="text-xl text-muted-foreground">{t.whatYouGet.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.whatYouGet.title}</h2>
+            <p className="text-xl text-gray-400">{t.whatYouGet.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {t.whatYouGet.items.map((item, index) => {
               const IconComponent = iconMap[item.icon] || Zap;
               return (
-                <div key={index} className="bg-card rounded-2xl p-6 border border-border shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
-                    <IconComponent className="w-7 h-7 text-primary" />
+                <div key={index} className="bg-gray-900/50 rounded-2xl p-6 border border-yellow-500/20 shadow-lg hover:border-yellow-500/40 transition-all hover:-translate-y-1">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 flex items-center justify-center mb-4">
+                    <IconComponent className="w-7 h-7 text-yellow-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-400">{item.description}</p>
                 </div>
               );
             })}
@@ -891,27 +1070,27 @@ const FranchisePage = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 sm:py-24 bg-muted/30">
+      <section className="relative py-16 sm:py-24 bg-gray-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.howItWorks.title}</h2>
-            <p className="text-xl text-muted-foreground">{t.howItWorks.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.howItWorks.title}</h2>
+            <p className="text-xl text-gray-400">{t.howItWorks.subtitle}</p>
           </div>
           
           <div className="relative">
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-yellow-500/30 -translate-x-1/2" />
             
             <div className="space-y-8 lg:space-y-0">
               {t.howItWorks.steps.map((step, index) => (
                 <div key={index} className={`relative flex flex-col lg:flex-row items-center gap-6 lg:gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className={`flex-1 ${index % 2 === 1 ? 'lg:text-left' : 'lg:text-right'}`}>
-                    <div className={`bg-card rounded-2xl p-6 border border-border shadow-lg inline-block ${index % 2 === 1 ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
-                      <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground max-w-sm">{step.description}</p>
+                    <div className={`bg-black/50 rounded-2xl p-6 border border-yellow-500/20 shadow-lg inline-block ${index % 2 === 1 ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
+                      <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                      <p className="text-sm text-gray-400 max-w-sm">{step.description}</p>
                     </div>
                   </div>
                   
-                  <div className="relative z-10 w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold shadow-lg">
+                  <div className="relative z-10 w-16 h-16 rounded-full bg-yellow-500 text-black flex items-center justify-center text-xl font-bold shadow-lg shadow-yellow-500/30">
                     {step.number}
                   </div>
                   
@@ -924,86 +1103,102 @@ const FranchisePage = () => {
       </section>
 
       {/* Revenue Section */}
-      <section className="py-16 sm:py-24">
+      <section className="relative py-16 sm:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.revenue.title}</h2>
-            <p className="text-xl text-primary font-medium mb-4">{t.revenue.subtitle}</p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t.revenue.description}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.revenue.title}</h2>
+            <p className="text-xl text-yellow-400 font-medium mb-4">{t.revenue.subtitle}</p>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">{t.revenue.description}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.revenue.highlights.map((highlight, index) => {
               const IconComponent = iconMap[highlight.icon] || DollarSign;
               return (
-                <div key={index} className="bg-gradient-to-br from-card to-muted/30 rounded-2xl p-6 border border-border shadow-lg text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-success/10 flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-7 h-7 text-success" />
+                <div key={index} className="bg-gradient-to-br from-gray-900/50 to-black rounded-2xl p-6 border border-green-500/30 shadow-lg text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="w-7 h-7 text-green-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{highlight.title}</h3>
-                  <p className="text-sm text-muted-foreground">{highlight.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-2">{highlight.title}</h3>
+                  <p className="text-sm text-gray-400">{highlight.description}</p>
                 </div>
               );
             })}
           </div>
           
-          <p className="text-center text-muted-foreground mt-8 max-w-3xl mx-auto text-sm italic">
+          <p className="text-center text-gray-500 mt-8 max-w-3xl mx-auto text-sm italic">
             {t.revenue.note}
           </p>
         </div>
       </section>
 
       {/* Support Section */}
-      <section className="py-16 sm:py-24 bg-muted/30">
+      <section className="relative py-16 sm:py-24 bg-gray-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.support.title}</h2>
-            <p className="text-xl text-muted-foreground">{t.support.subtitle}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.support.title}</h2>
+            <p className="text-xl text-gray-400">{t.support.subtitle}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {t.support.items.map((item, index) => (
-              <div key={index} className="bg-card rounded-2xl p-6 border border-border shadow-lg">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <Award className="w-5 h-5 text-primary" />
+              <div key={index} className="bg-black/50 rounded-2xl p-6 border border-yellow-500/20 shadow-lg">
+                <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-4">
+                  <Award className="w-5 h-5 text-yellow-400" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-400">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Franchise Banner */}
+      <section className="relative py-16 sm:py-24 bg-black overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-yellow-600/10 to-yellow-500/20" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Sparkles className="w-12 h-12 text-yellow-400 mx-auto mb-6" />
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t.franchiseBanner.title}</h2>
+          <p className="text-lg text-gray-300 mb-8">{t.franchiseBanner.description}</p>
+          <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-6 text-lg font-semibold rounded-xl">
+              {t.franchiseBanner.cta}
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </a>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary to-primary/80">
+      <section className="relative py-16 sm:py-24 bg-gradient-to-br from-yellow-600 to-yellow-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">{t.cta.title}</h2>
-          <p className="text-lg text-primary-foreground/80 mb-10">{t.cta.subtitle}</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">{t.cta.title}</h2>
+          <p className="text-lg text-black/70 mb-10">{t.cta.subtitle}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="w-full sm:w-auto bg-white hover:bg-white/90 text-primary px-8 py-6 text-lg font-semibold rounded-xl">
+              <Button size="lg" className="w-full sm:w-auto bg-black hover:bg-gray-900 text-yellow-400 px-8 py-6 text-lg font-semibold rounded-xl">
                 {t.cta.primary}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </a>
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg font-semibold rounded-xl border-2 border-white/30 text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg font-semibold rounded-xl border-2 border-black/30 text-black hover:bg-black/10">
                 <MessageSquare className="mr-2 w-5 h-5" />
                 {t.cta.secondary}
               </Button>
             </a>
           </div>
           
-          <p className="text-sm text-primary-foreground/60 italic">{t.cta.note}</p>
+          <p className="text-sm text-black/60 italic">{t.cta.note}</p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-card border-t border-border">
+      <footer className="py-8 bg-black border-t border-yellow-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-muted-foreground text-sm">
+          <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} MrDelivery. All rights reserved.
           </p>
         </div>
