@@ -8,6 +8,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import BecomeCreator from "./pages/BecomeCreator";
+import FranchisePage from "./pages/FranchisePage";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/creator-studio/Dashboard";
 import AIBanner from "./pages/creator-studio/AIBanner";
@@ -31,6 +32,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/become-creator" element={<BecomeCreator />} />
+              <Route path="/franchise" element={<FranchisePage />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/creator-studio" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
               <Route path="/creator-studio/banner" element={<ProtectedRoute><AIBanner /></ProtectedRoute>} />
