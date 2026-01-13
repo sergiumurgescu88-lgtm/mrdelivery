@@ -637,7 +637,7 @@ const Index = () => {
             <Link to="/franchise" className="block">
               <Button className="animate-flicker bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white font-bold py-2 px-4 sm:py-4 sm:px-8 rounded-xl sm:rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-base flex items-center gap-1.5 sm:gap-2 w-auto justify-center">
                 <Handshake className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-                <span className="whitespace-nowrap">{language === 'ro' ? 'Devino Partener' : language === 'es' ? 'Hazte Socio' : 'Become a Partner'}</span>
+                <span className="whitespace-nowrap">{language === 'ro' ? 'Franciza MrDelivery' : language === 'es' ? 'Franquicia MrDelivery' : 'MrDelivery Franchise'}</span>
                 <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               </Button>
             </Link>
