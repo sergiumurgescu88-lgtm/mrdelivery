@@ -15,7 +15,7 @@ import ugcExample3 from '@/assets/ugc-example-3.mp4';
 import ugcExample4 from '@/assets/ugc-example-4.mp4';
 import ugcExample5 from '@/assets/ugc-example-5.mp4';
 import ugcExample6 from '@/assets/ugc-example-6.mp4';
-import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign } from 'lucide-react';
+import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -632,15 +632,15 @@ const Index = () => {
 
         {/* Footer CTA */}
         <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
-          {/* Become a Creator Button */}
+          {/* Become a Partner Button */}
           <div className="mb-4 sm:mb-6 flex justify-center">
-            <a href="https://api.whatsapp.com/send/?phone=40768676141&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="block">
+            <Link to="/franchise" className="block">
               <Button className="animate-flicker bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white font-bold py-2 px-4 sm:py-4 sm:px-8 rounded-xl sm:rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300 text-xs sm:text-base flex items-center gap-1.5 sm:gap-2 w-auto justify-center">
-                <Palette className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-                <span className="whitespace-nowrap">Become a Creator</span>
+                <Handshake className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                <span className="whitespace-nowrap">{language === 'ro' ? 'Devino Partener' : language === 'es' ? 'Hazte Socio' : 'Become a Partner'}</span>
                 <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               </Button>
-            </a>
+            </Link>
           </div>
           
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
