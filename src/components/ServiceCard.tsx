@@ -68,21 +68,21 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Large Package Number Background */}
+      {/* Large Package Number Background - positioned on the header section right side */}
       {packageNumber && (
-        <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-0 pointer-events-none select-none">
+        <div className="absolute right-4 sm:right-6 md:right-8 top-4 sm:top-6 z-[1] pointer-events-none select-none overflow-hidden">
           <span 
-            className={`text-[120px] sm:text-[160px] md:text-[200px] font-black leading-none opacity-20 ${
-              packageNumber === 1 ? 'text-blue-400' :
-              packageNumber === 2 ? 'text-purple-400' :
+            className={`text-[100px] sm:text-[130px] md:text-[160px] font-black leading-none block ${
+              packageNumber === 1 ? 'text-cyan-400' :
+              packageNumber === 2 ? 'text-fuchsia-400' :
               packageNumber === 3 ? 'text-amber-400' :
               packageNumber === 4 ? 'text-emerald-400' :
               'text-rose-400'
             }`}
             style={{
-              textShadow: highlight 
-                ? '0 0 40px currentColor, 0 0 80px currentColor' 
-                : '0 0 30px currentColor',
+              opacity: 0.35,
+              textShadow: '0 0 60px currentColor, 0 0 100px currentColor, 0 0 140px currentColor',
+              WebkitTextStroke: '2px currentColor',
             }}
           >
             {packageNumber}
