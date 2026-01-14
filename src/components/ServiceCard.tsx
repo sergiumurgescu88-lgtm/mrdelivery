@@ -60,7 +60,7 @@ export const ServiceCard = ({
   return (
     <div
       ref={cardRef}
-      className={`border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
+      className={`border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm relative ${
         highlight
           ? 'border-transparent shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10 animated-gradient-border'
           : 'border-border hover:shadow-xl bg-card/70'
@@ -68,6 +68,27 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Large Package Number Background */}
+      {packageNumber && (
+        <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-0 pointer-events-none select-none">
+          <span 
+            className={`text-[120px] sm:text-[160px] md:text-[200px] font-black leading-none opacity-20 ${
+              packageNumber === 1 ? 'text-blue-400' :
+              packageNumber === 2 ? 'text-purple-400' :
+              packageNumber === 3 ? 'text-amber-400' :
+              packageNumber === 4 ? 'text-emerald-400' :
+              'text-rose-400'
+            }`}
+            style={{
+              textShadow: highlight 
+                ? '0 0 40px currentColor, 0 0 80px currentColor' 
+                : '0 0 30px currentColor',
+            }}
+          >
+            {packageNumber}
+          </span>
+        </div>
+      )}
       <div
         className={`p-4 sm:p-5 cursor-pointer relative overflow-hidden ${
           highlight ? 'bg-gradient-primary' : 'bg-gradient-to-r from-muted/50 to-muted'

@@ -118,7 +118,7 @@ const Index = () => {
         {/* Current Services Tab */}
         {activeTab === 'existente' && <main className="space-y-5 px-2">
             {/* Standard Package - Delivery Platform Management */}
-            <ServiceCard title={t.services.standard.title} icon={Truck} price={t.services.standard.price} subtitle={t.services.standard.subtitle} audioPackage="management-platforme" onPlayAudio={setActiveAudioPackage}>
+            <ServiceCard title={t.services.standard.title} icon={Truck} price={t.services.standard.price} subtitle={t.services.standard.subtitle} packageNumber={1} audioPackage="management-platforme" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full">
                   <Globe className="w-4 h-4 text-primary" />
@@ -240,7 +240,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* Video Premium - VEO3 Services (Second) */}
-            <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} originalPrice={t.services.video.originalPrice} discount={t.services.video.discount} subtitle={t.services.video.subtitle} highlight audioPackage="productie-video" onPlayAudio={setActiveAudioPackage}>
+            <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} originalPrice={t.services.video.originalPrice} discount={t.services.video.discount} subtitle={t.services.video.subtitle} highlight packageNumber={2} audioPackage="productie-video" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Video className="w-5 h-5 text-accent" />
@@ -347,7 +347,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* AI Agents (Third) - Styled like VEO3 with same colors */}
-            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} originalPrice={t.services.aiAgents.originalPrice} discount={t.services.aiAgents.discount} subtitle={t.services.aiAgents.subtitle} highlight audioPackage="asistent-virtual" onPlayAudio={setActiveAudioPackage}>
+            <ServiceCard title={t.services.aiAgents.title} icon={MessageSquare} price={t.services.aiAgents.price} originalPrice={t.services.aiAgents.originalPrice} discount={t.services.aiAgents.discount} subtitle={t.services.aiAgents.subtitle} highlight packageNumber={3} audioPackage="asistent-virtual" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Sparkles className="w-5 h-5 text-accent" />
@@ -415,7 +415,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* Premium Package - Business on Autopilot */}
-            <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} originalPrice={t.services.premium.originalPrice} discount={t.services.premium.discount} discountNote={t.services.premium.discountNote} subtitle={t.services.premium.subtitle} highlight audioPackage="pilot-automat" onPlayAudio={setActiveAudioPackage}>
+            <ServiceCard title={t.services.premium.title} icon={Sparkles} price={t.services.premium.price} originalPrice={t.services.premium.originalPrice} discount={t.services.premium.discount} discountNote={t.services.premium.discountNote} subtitle={t.services.premium.subtitle} highlight packageNumber={4} audioPackage="pilot-automat" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Star className="w-5 h-5 text-warning" />
@@ -483,7 +483,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* AI Video Generator - Digital Avatar Package - MOVED TO BOTTOM */}
-            <ServiceCard title={t.services.ugc.title} icon={Video} discount="32 videoclipuri" price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} subtitle={t.services.ugc.heroSubtitle} highlight audioPackage="brandul-tau" onPlayAudio={setActiveAudioPackage}>
+            <ServiceCard title={t.services.ugc.title} icon={Video} discount="32 videoclipuri" price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} subtitle={t.services.ugc.heroSubtitle} highlight packageNumber={5} audioPackage="brandul-tau" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-3 py-1.5 rounded-full shadow-lg">
                   <Video className="w-4 h-4 text-accent" />
