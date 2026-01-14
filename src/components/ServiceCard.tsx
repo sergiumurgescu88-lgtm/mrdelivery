@@ -70,19 +70,18 @@ export const ServiceCard = ({
     >
       {/* Large Package Number Background - positioned on the header section right side */}
       {packageNumber && (
-        <div className="absolute right-4 sm:right-6 md:right-8 top-4 sm:top-6 z-[1] pointer-events-none select-none overflow-hidden">
+        <div className="absolute right-2 sm:right-4 md:right-6 top-2 sm:top-4 z-[1] pointer-events-none select-none">
           <span 
-            className={`text-[100px] sm:text-[130px] md:text-[160px] font-black leading-none block ${
-              packageNumber === 1 ? 'text-cyan-400' :
-              packageNumber === 2 ? 'text-fuchsia-400' :
-              packageNumber === 3 ? 'text-amber-400' :
-              packageNumber === 4 ? 'text-emerald-400' :
-              'text-rose-400'
+            className={`text-[90px] sm:text-[120px] md:text-[150px] font-black leading-none block ${
+              packageNumber === 1 ? 'text-cyan-300' :
+              packageNumber === 2 ? 'text-fuchsia-300' :
+              packageNumber === 3 ? 'text-amber-300' :
+              packageNumber === 4 ? 'text-emerald-300' :
+              'text-rose-300'
             }`}
             style={{
-              opacity: 0.35,
-              textShadow: '0 0 60px currentColor, 0 0 100px currentColor, 0 0 140px currentColor',
-              WebkitTextStroke: '2px currentColor',
+              opacity: 0.5,
+              textShadow: '0 0 40px currentColor, 0 0 80px currentColor',
             }}
           >
             {packageNumber}
@@ -105,15 +104,6 @@ export const ServiceCard = ({
               >
                 <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${highlight ? 'text-primary' : 'text-primary-foreground'}`} />
               </div>
-              {packageNumber && (
-                <div
-                  className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center font-bold text-sm sm:text-base ${
-                    highlight ? 'bg-card text-primary shadow-lg' : 'bg-primary text-primary-foreground'
-                  }`}
-                >
-                  {packageNumber}
-                </div>
-              )}
               {/* Audio Button */}
               {audioPackage && onPlayAudio && (
                 <button
