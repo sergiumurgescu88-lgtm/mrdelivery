@@ -118,7 +118,7 @@ const Index = () => {
         {/* Current Services Tab */}
         {activeTab === 'existente' && <main className="space-y-5 px-2">
             {/* Standard Package - Delivery Platform Management */}
-            <ServiceCard title={t.services.standard.title} icon={Truck} price={t.services.standard.price} subtitle={t.services.standard.subtitle} packageNumber={1} audioPackage="management-platforme" onPlayAudio={setActiveAudioPackage}>
+            <ServiceCard title={t.services.standard.title} icon={Truck} price={t.services.standard.price} discount="-35%" subtitle={t.services.standard.subtitle} packageNumber={1} audioPackage="management-platforme" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full">
                   <Globe className="w-4 h-4 text-primary" />
@@ -536,7 +536,7 @@ const Index = () => {
             </ServiceCard>
 
             {/* AI Video Generator - Digital Avatar Package - MOVED TO BOTTOM */}
-            <ServiceCard title={t.services.ugc.title} icon={Video} discount="32 videoclipuri" price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} subtitle={t.services.ugc.heroSubtitle} highlight packageNumber={5} audioPackage="brandul-tau" onPlayAudio={setActiveAudioPackage}>
+            <ServiceCard title={t.services.ugc.title} icon={Video} discount="-35%" price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} subtitle={t.services.ugc.heroSubtitle} highlight packageNumber={5} audioPackage="brandul-tau" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-3 py-1.5 rounded-full shadow-lg">
                   <Video className="w-4 h-4 text-accent" />
