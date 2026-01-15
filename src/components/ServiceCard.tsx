@@ -68,20 +68,28 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Large Package Number Background - positioned on the header section right side */}
+      {/* Large Package Number Background - animated and highly visible */}
       {packageNumber && (
-        <div className="absolute right-2 sm:right-4 md:right-6 top-2 sm:top-4 z-[1] pointer-events-none select-none">
+        <div className="absolute right-0 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-[1] pointer-events-none select-none">
           <span 
-            className={`text-[90px] sm:text-[120px] md:text-[150px] font-black leading-none block ${
-              packageNumber === 1 ? 'text-cyan-300' :
-              packageNumber === 2 ? 'text-fuchsia-300' :
-              packageNumber === 3 ? 'text-amber-300' :
-              packageNumber === 4 ? 'text-emerald-300' :
-              'text-rose-300'
+            className={`text-[120px] sm:text-[160px] md:text-[200px] lg:text-[240px] font-black leading-none block animate-pulse ${
+              packageNumber === 1 ? 'text-cyan-400 drop-shadow-[0_0_60px_rgba(34,211,238,0.8)]' :
+              packageNumber === 2 ? 'text-fuchsia-400 drop-shadow-[0_0_60px_rgba(232,121,249,0.8)]' :
+              packageNumber === 3 ? 'text-amber-400 drop-shadow-[0_0_60px_rgba(251,191,36,0.8)]' :
+              packageNumber === 4 ? 'text-emerald-400 drop-shadow-[0_0_60px_rgba(52,211,153,0.8)]' :
+              'text-rose-400 drop-shadow-[0_0_60px_rgba(251,113,133,0.8)]'
             }`}
             style={{
-              opacity: 0.5,
-              textShadow: '0 0 40px currentColor, 0 0 80px currentColor',
+              opacity: 0.85,
+              textShadow: `
+                0 0 20px currentColor,
+                0 0 40px currentColor,
+                0 0 60px currentColor,
+                0 0 80px currentColor,
+                0 0 100px currentColor
+              `,
+              filter: 'blur(0.5px)',
+              animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             }}
           >
             {packageNumber}
