@@ -68,29 +68,51 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Large Package Number Background - SUPER visible */}
+      {/* Large Package Number Background - NEON effect */}
       {packageNumber && (
         <div className="absolute -right-4 sm:-right-2 md:right-0 top-1/2 -translate-y-1/2 z-[1] pointer-events-none select-none overflow-visible">
+          {/* Neon glow layer behind */}
           <span 
-            className={`text-[180px] sm:text-[220px] md:text-[280px] lg:text-[320px] font-black leading-none block ${
-              packageNumber === 1 ? 'text-cyan-300' :
-              packageNumber === 2 ? 'text-fuchsia-300' :
-              packageNumber === 3 ? 'text-amber-300' :
-              packageNumber === 4 ? 'text-emerald-300' :
-              'text-rose-300'
+            className={`absolute text-[180px] sm:text-[220px] md:text-[280px] lg:text-[320px] font-black leading-none block ${
+              packageNumber === 1 ? 'text-cyan-400' :
+              packageNumber === 2 ? 'text-fuchsia-400' :
+              packageNumber === 3 ? 'text-amber-400' :
+              packageNumber === 4 ? 'text-emerald-400' :
+              'text-rose-400'
             }`}
             style={{
-              opacity: 1,
+              opacity: 0.6,
+              filter: 'blur(8px)',
               textShadow: `
-                0 0 30px currentColor,
-                0 0 60px currentColor,
-                0 0 90px currentColor,
-                0 0 120px currentColor,
-                0 0 150px currentColor,
-                0 0 180px currentColor
+                0 0 40px currentColor,
+                0 0 80px currentColor,
+                0 0 120px currentColor
               `,
-              WebkitTextStroke: '2px currentColor',
-              animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }}
+            aria-hidden="true"
+          >
+            {packageNumber}
+          </span>
+          {/* Main neon number with stroke */}
+          <span 
+            className={`relative text-[180px] sm:text-[220px] md:text-[280px] lg:text-[320px] font-black leading-none block`}
+            style={{
+              color: 'transparent',
+              WebkitTextStroke: packageNumber === 1 ? '3px #22d3ee' :
+                               packageNumber === 2 ? '3px #e879f9' :
+                               packageNumber === 3 ? '3px #fbbf24' :
+                               packageNumber === 4 ? '3px #34d399' :
+                               '3px #fb7185',
+              textShadow: packageNumber === 1 
+                ? '0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 40px #22d3ee, 0 0 80px #22d3ee, 0 0 120px #22d3ee'
+                : packageNumber === 2 
+                ? '0 0 10px #e879f9, 0 0 20px #e879f9, 0 0 40px #e879f9, 0 0 80px #e879f9, 0 0 120px #e879f9'
+                : packageNumber === 3 
+                ? '0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 80px #fbbf24, 0 0 120px #fbbf24'
+                : packageNumber === 4 
+                ? '0 0 10px #34d399, 0 0 20px #34d399, 0 0 40px #34d399, 0 0 80px #34d399, 0 0 120px #34d399'
+                : '0 0 10px #fb7185, 0 0 20px #fb7185, 0 0 40px #fb7185, 0 0 80px #fb7185, 0 0 120px #fb7185',
+              animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             }}
           >
             {packageNumber}
