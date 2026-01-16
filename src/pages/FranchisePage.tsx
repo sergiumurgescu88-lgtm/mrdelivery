@@ -20,9 +20,10 @@ const franchiseTranslations = {
       brand: 'MrDelivery',
       subtitle: 'Job remote pentru vorbitorii de',
       countries: 'engleză sau spaniolă',
+      royalty: 'Percepem doar 9% redevență - tu câștigi 91%',
       description: 'Lucrează de oriunde din lume, cu un sistem complet automatizat de transformare digitală pentru restaurante. Scalabilitate garantată până la',
       profit: '15.000+ € profit lunar',
-      badges: ['100% remote', 'Bot auto-recrutare', 'ROI 30 zile', 'Piață exclusivă'],
+      badges: ['100% remote', 'Bot auto-recrutare', 'ROI 30 zile', 'Piață exclusivă', 'Doar 9% redevență'],
       cta: 'Vreau să aleg piața mea',
       secondaryCta: 'Vezi modelul financiar'
     },
@@ -30,15 +31,10 @@ const franchiseTranslations = {
       title: 'Pentru cine este această',
       titleHighlight: 'oportunitate?',
       countries: [{
-        flag: '🇺🇸',
+        flag: '🇺🇸🇬🇧',
         question: 'Vorbești engleză?',
-        action: 'Alege orice stat din USA',
-        description: 'Piața cea mai mare și mai profitabilă. Restaurante dispuse să plătească premium pentru servicii digitale de calitate.'
-      }, {
-        flag: '🇬🇧',
-        question: 'Vorbești engleză?',
-        action: 'Alege orice oraș din UK',
-        description: 'Piață matură cu restaurante care caută soluții digitale complete și profesioniste.'
+        action: 'Alege orice stat din USA sau oraș din UK',
+        description: 'Cele mai mari și profitabile piețe. Restaurante dispuse să plătească premium pentru servicii digitale de calitate.'
       }, {
         flag: '🇪🇸',
         question: 'Vorbești spaniolă?',
@@ -175,9 +171,10 @@ const franchiseTranslations = {
       brand: 'MrDelivery',
       subtitle: 'Remote job for speakers of',
       countries: 'English or Spanish',
+      royalty: 'We charge only 9% royalty - you earn 91%',
       description: 'Work from anywhere in the world, with a fully automated digital transformation system for restaurants. Guaranteed scalability up to',
       profit: '€15,000+ monthly profit',
-      badges: ['100% remote', 'Auto-recruiting bot', '30-day ROI', 'Exclusive market'],
+      badges: ['100% remote', 'Auto-recruiting bot', '30-day ROI', 'Exclusive market', 'Only 9% royalty'],
       cta: 'I want to choose my market',
       secondaryCta: 'See financial model'
     },
@@ -185,15 +182,10 @@ const franchiseTranslations = {
       title: 'Who is this',
       titleHighlight: 'opportunity for?',
       countries: [{
-        flag: '🇺🇸',
+        flag: '🇺🇸🇬🇧',
         question: 'Do you speak English?',
-        action: 'Choose any state in USA',
-        description: 'The largest and most profitable market. Restaurants willing to pay premium for quality digital services.'
-      }, {
-        flag: '🇬🇧',
-        question: 'Do you speak English?',
-        action: 'Choose any city in UK',
-        description: 'Mature market with restaurants seeking complete and professional digital solutions.'
+        action: 'Choose any state in USA or city in UK',
+        description: 'The largest and most profitable markets. Restaurants willing to pay premium for quality digital services.'
       }, {
         flag: '🇪🇸',
         question: 'Do you speak Spanish?',
@@ -330,9 +322,10 @@ const franchiseTranslations = {
       brand: 'MrDelivery',
       subtitle: 'Trabajo remoto para hablantes de',
       countries: 'inglés o español',
+      royalty: 'Cobramos solo 9% de regalías - tú ganas el 91%',
       description: 'Trabaja desde cualquier parte del mundo, con un sistema de transformación digital totalmente automatizado para restaurantes. Escalabilidad garantizada hasta',
       profit: '€15.000+ de ganancia mensual',
-      badges: ['100% remoto', 'Bot auto-reclutamiento', 'ROI 30 días', 'Mercado exclusivo'],
+      badges: ['100% remoto', 'Bot auto-reclutamiento', 'ROI 30 días', 'Mercado exclusivo', 'Solo 9% regalías'],
       cta: 'Quiero elegir mi mercado',
       secondaryCta: 'Ver modelo financiero'
     },
@@ -340,15 +333,10 @@ const franchiseTranslations = {
       title: '¿Para quién es esta',
       titleHighlight: 'oportunidad?',
       countries: [{
-        flag: '🇺🇸',
+        flag: '🇺🇸🇬🇧',
         question: '¿Hablas inglés?',
-        action: 'Elige cualquier estado de USA',
-        description: 'El mercado más grande y rentable. Restaurantes dispuestos a pagar premium por servicios digitales de calidad.'
-      }, {
-        flag: '🇬🇧',
-        question: '¿Hablas inglés?',
-        action: 'Elige cualquier ciudad del UK',
-        description: 'Mercado maduro con restaurantes que buscan soluciones digitales completas y profesionales.'
+        action: 'Elige cualquier estado de USA o ciudad del UK',
+        description: 'Los mercados más grandes y rentables. Restaurantes dispuestos a pagar premium por servicios digitales de calidad.'
       }, {
         flag: '🇪🇸',
         question: '¿Hablas español?',
@@ -501,6 +489,13 @@ const FranchisePage: React.FC = () => {
             {t.hero.brand}
           </h2>
           
+          {/* Royalty highlight */}
+          <div className="bg-emerald-500/20 border border-emerald-500 rounded-xl px-6 py-3 inline-block mb-6">
+            <p className="text-emerald-400 font-bold text-lg md:text-xl">
+              {t.hero.royalty}
+            </p>
+          </div>
+          
           <p className="text-xl md:text-2xl text-white/90 mb-2">
             {t.hero.subtitle} <span className="text-amber-400 font-semibold">{t.hero.countries}</span>
           </p>
@@ -528,7 +523,7 @@ const FranchisePage: React.FC = () => {
             {t.opportunity.title} <span className="text-amber-400">{t.opportunity.titleHighlight}</span>
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {t.opportunity.countries.map((country, index) => <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-amber-400/50 transition-colors">
                 <div className="text-4xl mb-4">{country.flag}</div>
                 <h3 className="text-xl font-bold text-amber-400 mb-2">{country.question}</h3>
