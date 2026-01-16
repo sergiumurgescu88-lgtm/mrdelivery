@@ -517,14 +517,7 @@ const FranchisePage: React.FC = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-amber-400 hover:bg-amber-500 text-black font-bold px-8 py-6 text-lg">
-              {t.hero.cta}
-            </Button>
-            <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg">
-              {t.hero.secondaryCta}
-            </Button>
-          </div>
+          
         </div>
       </section>
 
