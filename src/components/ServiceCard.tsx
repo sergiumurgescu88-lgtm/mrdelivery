@@ -68,52 +68,26 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Large Package Number Background - NEON effect */}
+      {/* Large Package Number Background - SOLID & VISIBLE */}
       {packageNumber && (
-        <div className="absolute -right-4 sm:-right-2 md:right-0 top-1/2 -translate-y-1/2 z-[1] pointer-events-none select-none overflow-visible">
-          {/* Neon glow layer behind */}
+        <div className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-[1] pointer-events-none select-none">
+          {/* Main solid number - fully visible */}
           <span 
-            className={`absolute text-[180px] sm:text-[220px] md:text-[280px] lg:text-[320px] font-black leading-none block ${
-              packageNumber === 1 ? 'text-cyan-400' :
-              packageNumber === 2 ? 'text-fuchsia-400' :
-              packageNumber === 3 ? 'text-amber-400' :
-              packageNumber === 4 ? 'text-emerald-400' :
-              'text-rose-400'
-            }`}
+            className="text-[200px] sm:text-[260px] md:text-[320px] lg:text-[380px] font-black leading-none block"
             style={{
-              opacity: 0.6,
-              filter: 'blur(8px)',
-              textShadow: `
-                0 0 40px currentColor,
-                0 0 80px currentColor,
-                0 0 120px currentColor
-              `,
+              color: packageNumber === 1 ? '#22d3ee' :
+                     packageNumber === 2 ? '#e879f9' :
+                     packageNumber === 3 ? '#fbbf24' :
+                     packageNumber === 4 ? '#34d399' :
+                     '#fb7185',
+              opacity: 0.25,
+              WebkitTextStroke: packageNumber === 1 ? '4px #0891b2' :
+                               packageNumber === 2 ? '4px #c026d3' :
+                               packageNumber === 3 ? '4px #d97706' :
+                               packageNumber === 4 ? '4px #059669' :
+                               '4px #e11d48',
             }}
             aria-hidden="true"
-          >
-            {packageNumber}
-          </span>
-          {/* Main neon number with stroke */}
-          <span 
-            className={`relative text-[180px] sm:text-[220px] md:text-[280px] lg:text-[320px] font-black leading-none block`}
-            style={{
-              color: 'transparent',
-              WebkitTextStroke: packageNumber === 1 ? '3px #22d3ee' :
-                               packageNumber === 2 ? '3px #e879f9' :
-                               packageNumber === 3 ? '3px #fbbf24' :
-                               packageNumber === 4 ? '3px #34d399' :
-                               '3px #fb7185',
-              textShadow: packageNumber === 1 
-                ? '0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 40px #22d3ee, 0 0 80px #22d3ee, 0 0 120px #22d3ee'
-                : packageNumber === 2 
-                ? '0 0 10px #e879f9, 0 0 20px #e879f9, 0 0 40px #e879f9, 0 0 80px #e879f9, 0 0 120px #e879f9'
-                : packageNumber === 3 
-                ? '0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 80px #fbbf24, 0 0 120px #fbbf24'
-                : packageNumber === 4 
-                ? '0 0 10px #34d399, 0 0 20px #34d399, 0 0 40px #34d399, 0 0 80px #34d399, 0 0 120px #34d399'
-                : '0 0 10px #fb7185, 0 0 20px #fb7185, 0 0 40px #fb7185, 0 0 80px #fb7185, 0 0 120px #fb7185',
-              animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            }}
           >
             {packageNumber}
           </span>
