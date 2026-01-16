@@ -22,7 +22,7 @@ export const translations = {
     services: {
       standard: {
         title: 'Delivery Platform Management',
-        price: '€399/month',
+        price: '$399/month',
         subtitle: 'We negotiate commissions and budgets for you on Uber Eats, DoorDash & Grubhub',
         support: 'Available for Romania, Spain & USA',
         badge: 'Multi-Platform Management',
@@ -76,8 +76,8 @@ export const translations = {
       },
       aiAgents: {
         title: 'Intelligent Virtual Assistant',
-        price: '€300/month',
-        originalPrice: '€400/month',
+        price: '$399/month',
+        originalPrice: '$499/month',
         discount: '-25%',
         subtitle: 'Your ideal employee: Never sleeps and responds instantly to any customer',
         badge: '24/7 Conversational AI Agent',
@@ -120,8 +120,8 @@ export const translations = {
       },
       video: {
         title: 'Video Production & Automatic Posting',
-        price: '€389/month',
-        originalPrice: '€599/month',
+        price: '$399/month',
+        originalPrice: '$599/month',
         discount: '35% OFF',
         subtitle: 'We create, we post. Your business grows daily on 4 platforms simultaneously',
         badge: 'Viral Video Content',
@@ -172,8 +172,8 @@ export const translations = {
         title: 'Your Brand, Your Voice: The Digital Avatar That Grows Your Business',
         heroTitle: 'Your Brand, Your Voice',
         heroSubtitle: "Don't depend on influencers anymore. Use your own face and voice to create viral content in seconds, at a fraction of the cost.",
-        price: '€100',
-        originalPrice: '€150',
+        price: '$199',
+        originalPrice: '$299',
         discount: '32 Videos',
         noSubscription: 'Pay once. No monthly subscription.',
         subtitle: 'A real presenter promotes your product. You just send a photo on Telegram.',
@@ -212,8 +212,8 @@ export const translations = {
       },
       premium: {
         title: 'Business on Autopilot',
-        price: '€300/month',
-        originalPrice: '€550/month',
+        price: '$399/month',
+        originalPrice: '$699/month',
         discount: '-45%',
         discountNote: 'Save 45% by activating Digitalization and Marketing packages together',
         subtitle: 'Everything you need to sell online, in one complete solution.',
