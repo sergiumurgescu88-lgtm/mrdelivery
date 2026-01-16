@@ -497,7 +497,7 @@ const FranchisePage: React.FC = () => {
           <h1 className="text-5xl font-black mb-2 md:text-5xl font-serif">
             <span className="text-amber-400">{t.hero.title}</span>
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif text-accent">
+          <h2 className="text-3xl font-bold mb-6 font-serif text-accent md:text-2xl">
             {t.hero.brand}
           </h2>
           
