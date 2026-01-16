@@ -31,7 +31,7 @@ const franchiseTranslations = {
       title: 'Pentru cine este această',
       titleHighlight: 'oportunitate?',
       countries: [{
-        flag: '🇺🇸 or 🇬🇧',
+        flag: '🇺🇸  -  🇬🇧',
         question: 'Vorbești engleză?',
         action: 'Alege orice stat din USA sau oraș din UK',
         description: 'Cele mai mari și profitabile piețe. Restaurante dispuse să plătească premium pentru servicii digitale de calitate.'
@@ -182,7 +182,7 @@ const franchiseTranslations = {
       title: 'Who is this',
       titleHighlight: 'opportunity for?',
       countries: [{
-        flag: '🇺🇸 or 🇬🇧',
+        flag: '🇺🇸  -  🇬🇧',
         question: 'Do you speak English?',
         action: 'Choose any state in USA or city in UK',
         description: 'The largest and most profitable markets. Restaurants willing to pay premium for quality digital services.'
@@ -333,7 +333,7 @@ const franchiseTranslations = {
       title: '¿Para quién es esta',
       titleHighlight: 'oportunidad?',
       countries: [{
-        flag: '🇺🇸 or 🇬🇧',
+        flag: '🇺🇸  -  🇬🇧',
         question: '¿Hablas inglés?',
         action: 'Elige cualquier estado de USA o ciudad del UK',
         description: 'Los mercados más grandes y rentables. Restaurantes dispuestos a pagar premium por servicios digitales de calidad.'
