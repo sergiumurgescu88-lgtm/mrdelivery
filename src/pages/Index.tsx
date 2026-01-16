@@ -712,36 +712,81 @@ const Index = () => {
             </div>
           </main>}
 
-        {/* Franchise CTA Banner - Black & Yellow */}
-        <div className="mt-6 sm:mt-8 mx-2">
+        {/* Footer CTA */}
+        <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
+          <p className="text-sm sm:text-base md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+            <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="bg-success text-success-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2">
+              <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
+              {t.footer.whatsapp}
+            </a>
+            <a href={getPhoneUrl()} className="bg-card text-primary px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2">
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+              {t.footer.call}
+            </a>
+          </div>
+        </footer>
+
+        {/* Franchise CTA Banner - Black & Yellow - LAST SECTION */}
+        <div className="mt-6 sm:mt-8 mx-2 mb-4">
           <div className="relative bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 rounded-2xl border-2 border-amber-400/60 shadow-2xl overflow-hidden p-6 sm:p-8">
             {/* Yellow glow effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-amber-400/5 via-yellow-400/10 to-amber-400/5 pointer-events-none" />
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-400/20 rounded-full blur-3xl" />
             <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-yellow-400/20 rounded-full blur-3xl" />
             
+            {/* Earnings Badge */}
+            <div className="absolute top-3 right-3 px-3 py-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-xs sm:text-sm font-bold text-gray-950 uppercase tracking-wider shadow-lg flex items-center gap-1">
+              <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
+              {language === 'ro' ? '15K+ €/lună' : language === 'es' ? '15K+ €/mes' : '15K+ €/month'}
+            </div>
+            
             {/* Content */}
             <div className="relative z-10 text-center">
+              {/* Target Audience Badge */}
+              <div className="mb-3 sm:mb-4 flex flex-wrap justify-center gap-2">
+                <span className="px-3 py-1 bg-amber-400/20 border border-amber-400/40 rounded-full text-xs sm:text-sm text-amber-200 font-medium">
+                  Ex-Glovo
+                </span>
+                <span className="px-3 py-1 bg-amber-400/20 border border-amber-400/40 rounded-full text-xs sm:text-sm text-amber-200 font-medium">
+                  Ex-Wolt
+                </span>
+                <span className="px-3 py-1 bg-amber-400/20 border border-amber-400/40 rounded-full text-xs sm:text-sm text-amber-200 font-medium">
+                  Ex-Bolt Food
+                </span>
+                <span className="px-3 py-1 bg-amber-400/20 border border-amber-400/40 rounded-full text-xs sm:text-sm text-amber-200 font-medium">
+                  Ex-Uber Eats
+                </span>
+                <span className="px-3 py-1 bg-amber-400/20 border border-amber-400/40 rounded-full text-xs sm:text-sm text-amber-200 font-medium">
+                  Ex-DoorDash
+                </span>
+              </div>
+              
+              {/* Title */}
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
+                {language === 'ro' ? 'Ai experiență în delivery? Câștigă 15.000€+ pe lună!' : language === 'es' ? '¿Tienes experiencia en delivery? ¡Gana 15.000€+ al mes!' : 'Delivery experience? Earn 15,000€+ per month!'}
+              </h2>
+              
+              {/* Subtitle */}
+              <p className="text-sm sm:text-base text-amber-100/80 mb-4 sm:mb-5 max-w-lg mx-auto">
+                {language === 'ro' 
+                  ? 'Foști angajați Glovo, Wolt, Bolt Food, Uber Eats sau DoorDash - transformă-ți experiența în propriul business de succes!' 
+                  : language === 'es' 
+                    ? 'Ex empleados de Glovo, Wolt, Bolt Food, Uber Eats o DoorDash - ¡transforma tu experiencia en tu propio negocio exitoso!' 
+                    : 'Former Glovo, Wolt, Bolt Food, Uber Eats or DoorDash employees - turn your experience into your own successful business!'}
+              </p>
+              
               {/* Franchise Button */}
               <div className="mb-4 sm:mb-5">
                 <Link to="/franchise" className="inline-block">
                   <Button className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-gray-950 font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-xl sm:rounded-2xl shadow-xl shadow-amber-500/30 transform hover:scale-105 transition-all duration-300 text-sm sm:text-lg flex items-center gap-2 sm:gap-3">
                     <Handshake className="w-5 h-5 sm:w-6 sm:h-6" />
-                    <span className="whitespace-nowrap">{language === 'ro' ? 'Franciza MrDelivery' : language === 'es' ? 'Franquicia MrDelivery' : 'MrDelivery Franchise'}</span>
+                    <span className="whitespace-nowrap">{language === 'ro' ? 'Devino Partener MrDelivery' : language === 'es' ? 'Conviértete en Socio MrDelivery' : 'Become a MrDelivery Partner'}</span>
                     <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
                   </Button>
                 </Link>
               </div>
-              
-              {/* Title */}
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
-                {language === 'ro' ? 'Gata să îți transformi restaurantul?' : language === 'es' ? '¿Listo para transformar tu restaurante?' : 'Ready to transform your restaurant?'}
-              </h2>
-              
-              {/* Subtitle */}
-              <p className="text-sm sm:text-base text-amber-100/80 mb-5 sm:mb-6 max-w-md mx-auto">
-                {language === 'ro' ? 'Contactează-ne pentru o consultație gratuită' : language === 'es' ? 'Contáctanos para una consulta gratuita' : 'Contact us for a free consultation'}
-              </p>
               
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -765,22 +810,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-
-        {/* Footer CTA */}
-        <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
-          <p className="text-sm sm:text-base md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
-            <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="bg-success text-success-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2">
-              <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
-              {t.footer.whatsapp}
-            </a>
-            <a href={getPhoneUrl()} className="bg-card text-primary px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2">
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-              {t.footer.call}
-            </a>
-          </div>
-        </footer>
 
       </div>
     </div>;
