@@ -493,7 +493,7 @@ const FranchisePage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4">
-        <div className="container mx-auto text-center border-secondary">
+        <div className="container mx-auto text-center border-secondary opacity-100 rounded-none shadow-none border border-dashed">
           <h1 className="text-5xl font-black mb-2 md:text-5xl font-serif">
             <span className="text-amber-400">{t.hero.title}</span>
           </h1>
@@ -533,7 +533,7 @@ const FranchisePage: React.FC = () => {
                 <div className="text-4xl mb-4">{country.flag}</div>
                 <h3 className="text-xl font-bold text-amber-400 mb-2">{country.question}</h3>
                 <p className="text-white/90 font-medium mb-3">{country.action}</p>
-                <p className="text-white/60 text-sm">{country.description}</p>
+                <p className="text-white/60 text-sm font-bold">{country.description}</p>
               </div>)}
           </div>
         </div>
