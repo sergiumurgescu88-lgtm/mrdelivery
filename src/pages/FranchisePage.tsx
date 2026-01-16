@@ -494,10 +494,10 @@ const FranchisePage: React.FC = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center border-secondary">
-          <h1 className="text-5xl md:text-7xl font-black mb-2">
+          <h1 className="text-5xl font-black mb-2 md:text-5xl font-serif">
             <span className="text-amber-400">{t.hero.title}</span>
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif text-accent">
             {t.hero.brand}
           </h2>
           
