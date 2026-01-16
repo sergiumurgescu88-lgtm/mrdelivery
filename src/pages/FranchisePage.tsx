@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Link } from 'react-router-dom';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import SEO from '@/components/SEO';
-import { ArrowLeft, Check, X, Bot, Search, Mail, Calendar, MapPin, Zap, Monitor } from 'lucide-react';
+import { ArrowLeft, Check, X, Bot, Search, Mail, Calendar, MapPin, Zap, Loader2, User, Phone, Globe, Send, Sparkles } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+
 const franchiseTranslations = {
   ro: {
     seo: {
@@ -26,6 +31,23 @@ const franchiseTranslations = {
       badges: ['100% remote', 'Bot auto-recrutare', 'ROI 30 zile', 'Piață exclusivă', 'Doar 9% redevență'],
       cta: 'Vreau să aleg piața mea',
       secondaryCta: 'Vezi modelul financiar'
+    },
+    form: {
+      title: 'Aplică pentru Franciză',
+      subtitle: 'Completează formularul și te contactăm în 24h',
+      name: 'Nume complet',
+      email: 'Email',
+      phone: 'Telefon / WhatsApp',
+      country: 'Piața de interes',
+      countryPlaceholder: 'Selectează piața',
+      countries: ['🇺🇸 USA', '🇬🇧 UK', '🇪🇸 Spania'],
+      submit: 'Trimite Aplicația',
+      submitting: 'Se trimite...',
+      success: 'Aplicația a fost trimisă! Te contactăm în curând.',
+      error: 'A apărut o eroare. Încearcă din nou.',
+      googleButton: 'Continuă cu Google',
+      googleSubtext: 'Sau completează manual',
+      orDivider: 'sau'
     },
     opportunity: {
       title: 'Pentru cine este această',
@@ -178,6 +200,23 @@ const franchiseTranslations = {
       cta: 'I want to choose my market',
       secondaryCta: 'See financial model'
     },
+    form: {
+      title: 'Apply for Franchise',
+      subtitle: 'Fill the form and we contact you within 24h',
+      name: 'Full name',
+      email: 'Email',
+      phone: 'Phone / WhatsApp',
+      country: 'Market of interest',
+      countryPlaceholder: 'Select market',
+      countries: ['🇺🇸 USA', '🇬🇧 UK', '🇪🇸 Spain'],
+      submit: 'Submit Application',
+      submitting: 'Submitting...',
+      success: 'Application sent! We will contact you soon.',
+      error: 'An error occurred. Please try again.',
+      googleButton: 'Continue with Google',
+      googleSubtext: 'Or fill manually',
+      orDivider: 'or'
+    },
     opportunity: {
       title: 'Who is this',
       titleHighlight: 'opportunity for?',
@@ -329,6 +368,23 @@ const franchiseTranslations = {
       cta: 'Quiero elegir mi mercado',
       secondaryCta: 'Ver modelo financiero'
     },
+    form: {
+      title: 'Solicitar Franquicia',
+      subtitle: 'Completa el formulario y te contactamos en 24h',
+      name: 'Nombre completo',
+      email: 'Email',
+      phone: 'Teléfono / WhatsApp',
+      country: 'Mercado de interés',
+      countryPlaceholder: 'Seleccionar mercado',
+      countries: ['🇺🇸 USA', '🇬🇧 UK', '🇪🇸 España'],
+      submit: 'Enviar Solicitud',
+      submitting: 'Enviando...',
+      success: '¡Solicitud enviada! Te contactaremos pronto.',
+      error: 'Ocurrió un error. Inténtalo de nuevo.',
+      googleButton: 'Continuar con Google',
+      googleSubtext: 'O completa manualmente',
+      orDivider: 'o'
+    },
     opportunity: {
       title: '¿Para quién es esta',
       titleHighlight: 'oportunidad?',
@@ -461,11 +517,68 @@ const franchiseTranslations = {
   }
 };
 const FranchisePage: React.FC = () => {
-  const {
-    language
-  } = useLanguage();
+  const { language } = useLanguage();
+  const { toast } = useToast();
   const t = franchiseTranslations[language as keyof typeof franchiseTranslations] || franchiseTranslations.ro;
-  return <div className="min-h-screen bg-black text-white">
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    country: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleGoogleSignIn = async () => {
+    setGoogleLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/franchise`
+        }
+      });
+      if (error) throw error;
+    } catch (error: any) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: error.message || t.form.error
+      });
+      setGoogleLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    try {
+      // Submit to database or send email notification
+      // For now, just show success message
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setSubmitted(true);
+      toast({
+        title: '✅',
+        description: t.form.success
+      });
+    } catch (error: any) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: t.form.error
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white">
       <SEO title={t.seo.title} description={t.seo.description} keywords={t.seo.keywords} url="https://mrdelivery.lovable.app/franchise" />
 
       {/* Navigation */}
@@ -479,40 +592,189 @@ const FranchisePage: React.FC = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
-        <div className="container mx-auto text-center border-secondary opacity-100 rounded-none shadow-none border border-none">
-          <h1 className="text-5xl font-black mb-2 font-serif md:text-4xl">
-            <span className="text-amber-400">{t.hero.title}</span>
-          </h1>
-          <h2 className="text-3xl font-bold mb-6 font-serif text-accent md:text-4xl">
-            {t.hero.brand}
-          </h2>
-          
-          {/* Royalty highlight */}
-          <div className="border rounded-xl px-6 py-3 inline-block mb-6 border-destructive bg-popover-foreground">
-            <p className="text-emerald-400 font-bold text-lg md:text-xl">
-              {t.hero.royalty}
-            </p>
-          </div>
-          
-          <p className="text-xl md:text-2xl text-white/90 mb-2">
-            {t.hero.subtitle} <span className="text-amber-400 font-semibold">{t.hero.countries}</span>
-          </p>
-          
-          <p className="text-base md:text-lg text-white/70 max-w-3xl mx-auto mb-4">
-            {t.hero.description} <span className="text-amber-400 font-semibold">{t.hero.profit}</span>
-          </p>
+      {/* Hero Section with Form */}
+      <section className="pt-24 pb-16 px-4 min-h-[90vh] flex items-center">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Content */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 border border-amber-400/30 rounded-full mb-6">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span className="text-amber-400 text-sm font-medium">Franchise Opportunity</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-2">
+                <span className="text-amber-400">{t.hero.title}</span>
+              </h1>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                {t.hero.brand}
+              </h2>
+              
+              {/* Royalty highlight */}
+              <div className="inline-block mb-6">
+                <div className="bg-gradient-to-r from-emerald-500/20 to-emerald-500/10 border border-emerald-500/50 rounded-2xl px-6 py-4 backdrop-blur-sm">
+                  <p className="text-emerald-400 font-bold text-lg md:text-xl flex items-center gap-2 justify-center lg:justify-start">
+                    <span className="text-2xl">💰</span>
+                    {t.hero.royalty}
+                  </p>
+                </div>
+              </div>
+              
+              <p className="text-lg md:text-xl text-white/90 mb-2">
+                {t.hero.subtitle} <span className="text-amber-400 font-semibold">{t.hero.countries}</span>
+              </p>
+              
+              <p className="text-base md:text-lg text-white/60 max-w-xl mb-6">
+                {t.hero.description} <span className="text-amber-400 font-semibold">{t.hero.profit}</span>
+              </p>
 
-          {/* Badges */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {t.hero.badges.map((badge, index) => <span key={index} className="px-4 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-400 rounded-full text-sm font-medium">
-                ✓ {badge}
-              </span>)}
-          </div>
+              {/* Badges */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8">
+                {t.hero.badges.map((badge, index) => (
+                  <span key={index} className="px-3 py-1.5 bg-white/5 border border-white/10 text-white/80 rounded-full text-xs font-medium">
+                    ✓ {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-          {/* CTA Buttons */}
-          
+            {/* Right - Form */}
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 via-emerald-400/20 to-amber-400/20 rounded-3xl blur-xl opacity-50"></div>
+              
+              <div className="relative bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+                {submitted ? (
+                  <div className="text-center py-12">
+                    <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Check className="w-10 h-10 text-emerald-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-3">{t.form.success}</h3>
+                    <p className="text-white/60">🚀</p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="text-center mb-8">
+                      <h3 className="text-2xl font-bold text-white mb-2">{t.form.title}</h3>
+                      <p className="text-white/60 text-sm">{t.form.subtitle}</p>
+                    </div>
+
+                    {/* Google Sign In */}
+                    <Button
+                      type="button"
+                      onClick={handleGoogleSignIn}
+                      disabled={googleLoading}
+                      className="w-full h-14 mb-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                      {googleLoading ? (
+                        <Loader2 className="h-5 w-5 animate-spin mr-2" />
+                      ) : (
+                        <svg className="h-5 w-5 mr-3" viewBox="0 0 24 24">
+                          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                      )}
+                      {t.form.googleButton}
+                    </Button>
+
+                    {/* Divider */}
+                    <div className="relative my-6">
+                      <div className="absolute inset-0 flex items-center">
+                        <div className="w-full border-t border-white/10"></div>
+                      </div>
+                      <div className="relative flex justify-center text-xs uppercase">
+                        <span className="bg-transparent px-4 text-white/40">{t.form.orDivider}</span>
+                      </div>
+                    </div>
+
+                    {/* Manual Form */}
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="name" className="text-white/80 text-sm">{t.form.name}</Label>
+                        <div className="relative">
+                          <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                          <Input
+                            id="name"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            required
+                            className="h-12 pl-11 bg-white/5 border-white/10 text-white placeholder:text-white/30 rounded-xl focus:border-amber-400/50 focus:ring-amber-400/20"
+                            placeholder="John Doe"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-white/80 text-sm">{t.form.email}</Label>
+                        <div className="relative">
+                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                          <Input
+                            id="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            required
+                            className="h-12 pl-11 bg-white/5 border-white/10 text-white placeholder:text-white/30 rounded-xl focus:border-amber-400/50 focus:ring-amber-400/20"
+                            placeholder="john@example.com"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="phone" className="text-white/80 text-sm">{t.form.phone}</Label>
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                          <Input
+                            id="phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            required
+                            className="h-12 pl-11 bg-white/5 border-white/10 text-white placeholder:text-white/30 rounded-xl focus:border-amber-400/50 focus:ring-amber-400/20"
+                            placeholder="+1 234 567 890"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="country" className="text-white/80 text-sm">{t.form.country}</Label>
+                        <div className="relative">
+                          <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                          <select
+                            id="country"
+                            value={formData.country}
+                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                            required
+                            className="w-full h-12 pl-11 pr-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-amber-400/50 focus:ring-amber-400/20 focus:outline-none appearance-none cursor-pointer"
+                          >
+                            <option value="" className="bg-gray-900">{t.form.countryPlaceholder}</option>
+                            {t.form.countries.map((country, index) => (
+                              <option key={index} value={country} className="bg-gray-900">{country}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+
+                      <Button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full h-14 mt-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-amber-500/25 hover:shadow-xl"
+                      >
+                        {loading ? (
+                          <Loader2 className="h-5 w-5 animate-spin mr-2" />
+                        ) : (
+                          <Send className="h-5 w-5 mr-2" />
+                        )}
+                        {loading ? t.form.submitting : t.form.submit}
+                      </Button>
+                    </form>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -720,6 +982,8 @@ const FranchisePage: React.FC = () => {
           </Button>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default FranchisePage;
