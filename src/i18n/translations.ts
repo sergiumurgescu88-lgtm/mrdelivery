@@ -125,7 +125,7 @@ export const translations = {
         discount: '35% OFF',
         subtitle: 'We create, we post. Your business grows daily on 4 platforms simultaneously',
         badge: 'Viral Video Content',
-        videosTitle: '🎬 Premium Content (VEO3 AI)',
+        videosTitle: '🎬 16-20 Premium Clips / Month',
         videoDesc: '16-20 Videoclips/Month:',
         hook: 'Hook (8s)',
         hookDesc: 'captures attention instantly',
@@ -137,24 +137,68 @@ export const translations = {
         veo3Desc: 'Image and sound at cinema standards, with presenters that bring your brand to life',
         format: 'Creative Variety',
         formatDesc: 'Challenges, interviews and interactive clips that make people share',
-        robot: {
-          title: 'Daily Posting Robot',
-          tagline: 'Automation',
-          intro: 'Forget about manual posting. Our robot works for you.',
+        presenters: {
+          title: 'OUR PRESENTERS',
+          tagline: 'Zero effort from you',
+          intro: 'We do everything. Our team of professional creators and presenters bring your brand to life.',
           items: [
-            'Posting on 4 Platforms: Your clip reaches TikTok, Instagram, Facebook and YouTube Shorts simultaneously.',
-            'Maximum Precision: We post every day, at the exact same time, to maximize impact.',
-            'Zero Effort: No need to open apps, write descriptions or add hashtags. We automate the entire process.'
+            'Professional team of creators',
+            'Experienced presenters',
+            'No effort required from you'
+          ]
+        },
+        yourFace: {
+          title: 'YOU ARE THE BRAND FACE',
+          tagline: 'Maximum authenticity',
+          intro: 'We use your face and voice. Cutting-edge AI technology (VEO3) for cinematic videos.',
+          items: [
+            'Personal connection with audience',
+            'Cutting-edge VEO3 technology',
+            'Ideal for authentic owners'
+          ]
+        },
+        quality: {
+          title: 'Quality & Creativity',
+          tagline: 'For both options',
+          intro: 'Cinematic Quality: Premium image, sound and editing.',
+          items: [
+            'Creative and viral storyboards',
+            'Challenges, interviews, interactive clips',
+            'Ideas that capture attention'
+          ]
+        },
+        robot: {
+          title: '🤖 Daily Posting Robot (With Your Approval)',
+          tagline: 'Set & Forget',
+          intro: 'Delivery & Approval: At the end of the month, you receive the entire video package for review and final approval.',
+          items: [
+            '4 Platforms Simultaneously: Posts daily on TikTok, Instagram Reels, Facebook Reels, YouTube Shorts.',
+            'Perfect Consistency: At the same optimal time, every day.',
+            'Completely Hands-Off: No manual management, no logins, no headaches.'
           ]
         },
         visibility: {
-          title: 'Guaranteed Visibility from Month 1',
-          tagline: 'Algorithm Friendly',
+          title: '🚀 Guaranteed Results',
+          tagline: 'Measurable Impact',
           intro: 'Make friends with the Algorithm: Social media algorithms love consistency.',
           items: [
-            'Immediate Impact: You will see increases in visibility, followers and interactions from the first 30 days.',
-            'Iron Consistency: Your brand stays in customers minds because you are present every day.'
+            'Algorithm Friendship: Daily consistency significantly increases your organic visibility.',
+            'Measurable Impact: See increases in views, followers and engagement in the first 30 days.',
+            'Strong Branding: Constant presence keeps you in customers minds.'
           ]
+        },
+        formatExamples: {
+          label: 'Format Examples'
+        },
+        included: {
+          title: "What's Included",
+          items: [
+            '20 premium videos/month (with our presenters OR with your face and voice*)',
+            'Creative ideas and complete content management',
+            'Automatic posting on 4 social networks, after your approval'
+          ],
+          note: "(*) The option with owner's face and voice is selected at the start of collaboration and is included in the price.",
+          cta: 'Complete your online presence. We make the videos and posts. You get the results.'
         },
         items: [
           '16 creative concepts per month with complete script',
@@ -672,7 +716,7 @@ export const translations = {
         discount: '35% DESCUENTO',
         subtitle: 'Nosotros creamos, nosotros publicamos. Tu negocio crece diariamente en 4 plataformas simultáneamente',
         badge: 'Contenido de Vídeo Viral',
-        videosTitle: '🎬 Contenido Premium (VEO3 AI)',
+        videosTitle: '🎬 16-20 Clips Premium / Mes',
         videoDesc: '16-20 Videoclips/Mes:',
         hook: 'Hook (8s)',
         hookDesc: 'capta la atención al instante',
@@ -684,24 +728,68 @@ export const translations = {
         veo3Desc: 'Imagen y sonido con estándares de cine, con presentadores que dan vida a tu marca',
         format: 'Variedad Creativa',
         formatDesc: 'Retos, entrevistas y clips interactivos que hacen que la gente comparta',
-        robot: {
-          title: 'Robot de Publicación Diaria',
-          tagline: 'Automatización',
-          intro: 'Olvida las publicaciones manuales. Nuestro robot trabaja para ti.',
+        presenters: {
+          title: 'NUESTROS PRESENTADORES',
+          tagline: 'Cero esfuerzo de tu parte',
+          intro: 'Lo hacemos todo. Nuestro equipo de creadores y presentadores profesionales dan vida a tu marca.',
           items: [
-            'Publicación en 4 Plataformas: Tu clip llega a TikTok, Instagram, Facebook y YouTube Shorts simultáneamente.',
-            'Precisión Máxima: Publicamos cada día, a la misma hora exacta, para maximizar el impacto.',
-            'Cero Esfuerzo: No necesitas abrir apps, escribir descripciones o añadir hashtags. Automatizamos todo el proceso.'
+            'Equipo profesional de creadores',
+            'Presentadores con experiencia',
+            'Sin ningún esfuerzo de tu parte'
+          ]
+        },
+        yourFace: {
+          title: 'TÚ ERES LA CARA DE LA MARCA',
+          tagline: 'Máxima autenticidad',
+          intro: 'Usamos tu cara y voz. Tecnología AI de última generación (VEO3) para videos cinematográficos.',
+          items: [
+            'Conexión personal con la audiencia',
+            'Tecnología VEO3 de última generación',
+            'Ideal para propietarios auténticos'
+          ]
+        },
+        quality: {
+          title: 'Calidad y Creatividad',
+          tagline: 'Para ambas opciones',
+          intro: 'Calidad Cinematográfica: Imagen, sonido y edición premium.',
+          items: [
+            'Storyboards creativos y virales',
+            'Retos, entrevistas, clips interactivos',
+            'Ideas que captan la atención'
+          ]
+        },
+        robot: {
+          title: '🤖 Robot de Publicación Diaria (Con Tu Aprobación)',
+          tagline: 'Configura y Olvida',
+          intro: 'Entrega y Aprobación: Al final del mes, recibes todo el paquete de videos para revisión y aprobación final.',
+          items: [
+            '4 Plataformas Simultáneas: Publica diariamente en TikTok, Instagram Reels, Facebook Reels, YouTube Shorts.',
+            'Consistencia Perfecta: A la misma hora óptima, cada día.',
+            'Completamente Automatizado: Sin gestión manual, sin inicios de sesión, sin dolores de cabeza.'
           ]
         },
         visibility: {
-          title: 'Visibilidad Garantizada desde el Mes 1',
-          tagline: 'Amigo del Algoritmo',
+          title: '🚀 Resultados Garantizados',
+          tagline: 'Impacto Medible',
           intro: 'Hazte amigo del Algoritmo: Los algoritmos de redes sociales aman la consistencia.',
           items: [
-            'Impacto Inmediato: Verás aumentos en visibilidad, seguidores e interacciones desde los primeros 30 días.',
-            'Consistencia de Hierro: Tu marca permanece en la mente de los clientes porque estás presente cada día.'
+            'Amistad con el Algoritmo: La consistencia diaria aumenta significativamente tu visibilidad orgánica.',
+            'Impacto Medible: Ve aumentos en vistas, seguidores y engagement en los primeros 30 días.',
+            'Branding Fuerte: La presencia constante te mantiene en la mente de los clientes.'
           ]
+        },
+        formatExamples: {
+          label: 'Ejemplos de Formatos'
+        },
+        included: {
+          title: 'Qué Está Incluido',
+          items: [
+            '20 videos premium/mes (con nuestros presentadores O con tu cara y voz*)',
+            'Ideas creativas y gestión completa del contenido',
+            'Publicación automática en 4 redes sociales, después de tu aprobación'
+          ],
+          note: '(*) La opción con la cara y voz del propietario se selecciona al inicio de la colaboración y está incluida en el precio.',
+          cta: 'Completa tu presencia online. Nosotros hacemos los videos y publicaciones. Tú recibes los resultados.'
         },
         items: [
           '16 conceptos creativos al mes con guion completo',
@@ -1219,7 +1307,7 @@ export const translations = {
         discount: '35% REDUCERE',
         subtitle: 'Noi creăm, noi postăm. Afacerea ta crește zilnic pe 4 platforme simultan',
         badge: 'Conținut Video Viral',
-        videosTitle: '🎬 Conținut Premium (VEO3 AI)',
+        videosTitle: '🎬 16-20 Clipuri Premium / Lună',
         videoDesc: '16-20 Videoclipuri/Lună:',
         hook: 'Hook (8s)',
         hookDesc: 'captează atenția instant',
@@ -1231,24 +1319,68 @@ export const translations = {
         veo3Desc: 'Imagine și sunet la standarde de cinema, cu prezentatori care dau viață brandului tău',
         format: 'Creativitate Continuă',
         formatDesc: 'Provocări, interviuri și clipuri interactive care fac oamenii să dea Share',
-        robot: {
-          title: 'Robot de Postare Zilnică',
-          tagline: 'Automatizare',
-          intro: 'Uită de grija postărilor manuale. Robotul nostru lucrează pentru tine.',
+        presenters: {
+          title: 'PREZENTATORII NOȘTRI',
+          tagline: 'Implicare zero din partea ta',
+          intro: 'Facem totul noi. Echipa noastră de creatori și prezentatori profesionali aduc viață brandului tău.',
           items: [
-            'Postare pe 4 Platforme: Clipul tău ajunge simultan pe TikTok, Instagram, Facebook și YouTube Shorts.',
-            'Precizie Maximă: Postăm în fiecare zi, exact la aceeași oră, pentru a maximiza impactul.',
-            'Fără Efort: Nu trebuie să intri în aplicații, să scrii descrieri sau să pui hashtag-uri. Noi automatizăm tot procesul.'
+            'Echipă profesionistă de creatori',
+            'Prezentatori cu experiență',
+            'Fără niciun efort din partea ta'
+          ]
+        },
+        yourFace: {
+          title: 'TU EȘTI FAȚA BRANDULUI',
+          tagline: 'Maximă autenticitate',
+          intro: 'Folosim chipul și vocea ta. Tehnologie AI (VEO3) de ultimă oră pentru videoclipuri cinematografice.',
+          items: [
+            'Conexiune personală cu publicul',
+            'Tehnologie VEO3 de ultimă oră',
+            'Ideal pentru proprietari autentici'
+          ]
+        },
+        quality: {
+          title: 'Calitate & Creativitate',
+          tagline: 'Pentru ambele opțiuni',
+          intro: 'Calitate Cinematografică: Imagine, sunet și editare premium.',
+          items: [
+            'Storyboard-uri creative și virale',
+            'Challenge-uri, interviuri, clipuri interactive',
+            'Idei care captează atenția'
+          ]
+        },
+        robot: {
+          title: '🤖 Robot de Postare Zilnică (Cu Aprobarea Ta)',
+          tagline: 'Set & Forget',
+          intro: 'Predare & Aprobare: La sfârșitul lunii, primești întregul pachet de videoclipuri pentru revizuire și aprobare finală.',
+          items: [
+            '4 Platforme Simultane: Postează zilnic pe TikTok, Instagram Reels, Facebook Reels, YouTube Shorts.',
+            'Consecvență Perfectă: La aceeași oră optimă, în fiecare zi.',
+            'Complet Hands-Off: Nicio gestionare manuală, fără login-uri, fără bătăi de cap.'
           ]
         },
         visibility: {
-          title: 'Vizibilitate Garantată din Prima Lună',
-          tagline: 'Algoritm Prietenos',
+          title: '🚀 Rezultate Garantate',
+          tagline: 'Impact Măsurabil',
           intro: 'Împrietenește-te cu Algoritmul: Algoritmii social media adoră consecvența.',
           items: [
-            'Impact Imediat: Vei vedea creșteri în vizibilitate, urmăritori și interacțiuni încă din primele 30 de zile.',
-            'Constanță de Fier: Brandul tău rămâne în mintea clienților pentru că ești prezent sub ochii lor în fiecare zi.'
+            'Prietenia Algoritmului: Consecvența zilnică îți mărește vizibilitatea organică semnificativ.',
+            'Impact Măsurabil: Vezi creșteri în vizualizări, urmăritori și angajament în primele 30 de zile.',
+            'Branding Puternic: Prezența constantă te menține în mintea clienților.'
           ]
+        },
+        formatExamples: {
+          label: 'Exemple de Formate'
+        },
+        included: {
+          title: 'Ce este inclus',
+          items: [
+            '20 videoclipuri premium/lună (cu prezentatorii noștri SAU cu chipul și vocea ta*)',
+            'Idei creative și managementul complet al conținutului',
+            'Postare automată pe 4 rețele de social media, după aprobarea ta'
+          ],
+          note: '(*) Opțiunea cu chipul și vocea proprietarului se selectează la începutul colaborării și este inclusă în preț.',
+          cta: 'Finalizează-ți prezența online. Noi facem videoclipurile și postările. Tu primești rezultatele.'
         },
         items: [
           '16 concepte creative pe lună cu scenariu complet',

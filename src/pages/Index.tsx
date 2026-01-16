@@ -269,70 +269,70 @@ const Index = () => {
               </div>
             </ServiceCard>
 
-            {/* Pachet 2 - Producție Video & Postare Automată */}
-            <ServiceCard title="Producție Video & Postare Automată" icon={Video} price="1.625 RON / lună" originalPrice="2.500 RON / lună" discount="-35%" subtitle="Serviciu complet: Creăm conținut video de impact și îl distribuim automat pentru tine. Prezență constantă, rezultate garantate, efort zero." highlight packageNumber={2} audioPackage="productie-video" onPlayAudio={setActiveAudioPackage}>
+            {/* Pachet 2 - Video Production & Automatic Posting */}
+            <ServiceCard title={t.services.video.title} icon={Video} price={t.services.video.price} originalPrice={t.services.video.originalPrice} discount={t.services.video.discount} subtitle={t.services.video.subtitle} highlight packageNumber={2} audioPackage="productie-video" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
                 <div className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-lg">
                   <Sparkles className="w-5 h-5 text-accent" />
-                  <span className="text-sm font-bold text-gradient-primary">🎬 16-20 Clipuri Premium / Lună</span>
+                  <span className="text-sm font-bold text-gradient-primary">{t.services.video.videosTitle}</span>
                 </div>
               </div>
 
               {/* 3-Column Grid for Video Production Features */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-5">
-                {/* Column 1: Prezentatorii Noștri */}
+                {/* Column 1: Our Presenters */}
                 <div className="bg-gradient-to-br from-destructive/5 to-destructive/10 p-4 sm:p-5 rounded-2xl border-2 border-destructive/30 shadow-xl h-full">
                   <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
                     <div className="p-2 bg-destructive rounded-lg">
                       <Users className="w-5 h-5 text-destructive-foreground" />
                     </div>
-                    PREZENTATORII NOȘTRI
+                    {t.services.video.presenters?.title || 'OUR PRESENTERS'}
                   </h4>
-                  <p className="text-sm text-destructive font-semibold mb-2">Implicare zero din partea ta</p>
-                  <p className="text-sm text-muted-foreground mb-3">Facem totul noi. Echipa noastră de creatori și prezentatori profesionali aduc viață brandului tău.</p>
+                  <p className="text-sm text-destructive font-semibold mb-2">{t.services.video.presenters?.tagline || 'Zero effort from you'}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.video.presenters?.intro || 'We do everything. Our team of professional creators and presenters bring your brand to life.'}</p>
                   <div className="space-y-2">
-                    <ServiceItem text="Echipă profesionistă de creatori" />
-                    <ServiceItem text="Prezentatori cu experiență" />
-                    <ServiceItem text="Fără niciun efort din partea ta" />
+                    {(t.services.video.presenters?.items || ['Professional team of creators', 'Experienced presenters', 'No effort required from you']).map((item: string, idx: number) => (
+                      <ServiceItem key={idx} text={item} />
+                    ))}
                   </div>
                 </div>
 
-                {/* Column 2: Tu Ești Fața Brandului */}
+                {/* Column 2: You Are The Face */}
                 <div className="bg-gradient-to-br from-success/5 to-success/10 p-4 sm:p-5 rounded-2xl border-2 border-success/30 shadow-xl h-full">
                   <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
                     <div className="p-2 bg-success rounded-lg">
                       <Star className="w-5 h-5 text-success-foreground" />
                     </div>
-                    TU EȘTI FAȚA BRANDULUI
+                    {t.services.video.yourFace?.title || 'YOU ARE THE BRAND FACE'}
                   </h4>
-                  <p className="text-sm text-success font-semibold mb-2">Maximă autenticitate</p>
-                  <p className="text-sm text-muted-foreground mb-3">Folosim chipul și vocea ta. Tehnologie AI (VEO3) de ultimă oră pentru videoclipuri cinematografice.</p>
+                  <p className="text-sm text-success font-semibold mb-2">{t.services.video.yourFace?.tagline || 'Maximum authenticity'}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.video.yourFace?.intro || 'We use your face and voice. Cutting-edge AI technology (VEO3) for cinematic videos.'}</p>
                   <div className="space-y-2">
-                    <ServiceItem text="Conexiune personală cu publicul" />
-                    <ServiceItem text="Tehnologie VEO3 de ultimă oră" />
-                    <ServiceItem text="Ideal pentru proprietari autentici" />
+                    {(t.services.video.yourFace?.items || ['Personal connection with audience', 'Cutting-edge VEO3 technology', 'Ideal for authentic owners']).map((item: string, idx: number) => (
+                      <ServiceItem key={idx} text={item} />
+                    ))}
                   </div>
                 </div>
 
-                {/* Column 3: Calitate & Creativitate */}
+                {/* Column 3: Quality & Creativity */}
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-4 sm:p-5 rounded-2xl border-2 border-primary/30 shadow-xl h-full">
                   <h4 className="font-bold text-base sm:text-lg text-foreground mb-2 flex items-center gap-2">
                     <div className="p-2 bg-primary rounded-lg">
                       <Video className="w-5 h-5 text-primary-foreground" />
                     </div>
-                    Calitate & Creativitate
+                    {t.services.video.quality?.title || 'Quality & Creativity'}
                   </h4>
-                  <p className="text-sm text-primary font-semibold mb-2">Pentru ambele opțiuni</p>
-                  <p className="text-sm text-muted-foreground mb-3">Calitate Cinematografică: Imagine, sunet și editare premium.</p>
+                  <p className="text-sm text-primary font-semibold mb-2">{t.services.video.quality?.tagline || 'For both options'}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.video.quality?.intro || 'Cinematic Quality: Premium image, sound and editing.'}</p>
                   <div className="space-y-2">
-                    <ServiceItem text="Storyboard-uri creative și virale" />
-                    <ServiceItem text="Challenge-uri, interviuri, clipuri interactive" />
-                    <ServiceItem text="Idei care captează atenția" />
+                    {(t.services.video.quality?.items || ['Creative and viral storyboards', 'Challenges, interviews, interactive clips', 'Ideas that capture attention']).map((item: string, idx: number) => (
+                      <ServiceItem key={idx} text={item} />
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Robot de Postare Zilnică */}
+              {/* Daily Posting Robot */}
               <div className="bg-gradient-to-br from-primary/15 via-primary/10 to-accent/15 p-4 sm:p-5 rounded-2xl border-2 border-primary/40 shadow-2xl relative overflow-hidden mb-5">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 animate-pulse pointer-events-none" />
                 <div className="relative z-10">
@@ -341,90 +341,72 @@ const Index = () => {
                       <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-base sm:text-lg text-foreground">🤖 Robot de Postare Zilnică (Cu Aprobarea Ta)</h4>
-                      <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-semibold">Set & Forget</span>
+                      <h4 className="font-bold text-base sm:text-lg text-foreground">{t.services.video.robot.title}</h4>
+                      <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-semibold">{t.services.video.robot.tagline}</span>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">Predare & Aprobare: La sfârșitul lunii, primești întregul pachet de videoclipuri pentru revizuire și aprobare finală.</p>
+                  <p className="text-sm text-muted-foreground mb-3">{t.services.video.robot.intro}</p>
                   <div className="space-y-2">
-                    <div className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground"><strong>4 Platforme Simultane:</strong> Postează zilnic pe TikTok, Instagram Reels, Facebook Reels, YouTube Shorts.</span>
-                    </div>
-                    <div className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground"><strong>Consecvență Perfectă:</strong> La aceeași oră optimă, în fiecare zi.</span>
-                    </div>
-                    <div className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground"><strong>Complet Hands-Off:</strong> Nicio gestionare manuală, fără login-uri, fără bătăi de cap.</span>
-                    </div>
+                    {t.services.video.robot.items.map((item: string, idx: number) => (
+                      <div key={idx} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Rezultate Garantate */}
+              {/* Guaranteed Results */}
               <div className="bg-gradient-to-br from-success/10 via-success/5 to-success/10 p-4 sm:p-5 rounded-2xl border-2 border-success/30 shadow-lg mb-5">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2.5 bg-gradient-success rounded-xl shadow-lg">
                     <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-success-foreground" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-base sm:text-lg text-foreground">🚀 Rezultate Garantate</h4>
-                    <span className="text-xs bg-success/20 text-success px-2 py-0.5 rounded-full font-semibold">Impact Măsurabil</span>
+                    <h4 className="font-bold text-base sm:text-lg text-foreground">{t.services.video.visibility.title}</h4>
+                    <span className="text-xs bg-success/20 text-success px-2 py-0.5 rounded-full font-semibold">{t.services.video.visibility.tagline}</span>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
-                    <TrendingUp className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground"><strong>Prietenia Algoritmului:</strong> Consecvența zilnică îți mărește vizibilitatea organică semnificativ.</span>
-                  </div>
-                  <div className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
-                    <TrendingUp className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground"><strong>Impact Măsurabil:</strong> Vezi creșteri în vizualizări, urmăritori și angajament în primele 30 de zile.</span>
-                  </div>
-                  <div className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
-                    <TrendingUp className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground"><strong>Branding Puternic:</strong> Prezența constantă te menține în mintea clienților.</span>
-                  </div>
+                  {t.services.video.visibility.items.map((item: string, idx: number) => (
+                    <div key={idx} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
+                      <TrendingUp className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Exemple de Formate */}
+              {/* Format Examples */}
               <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg mb-5">
                 <div className="flex items-start gap-2 sm:gap-3">
                   <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
                   <p className="text-sm sm:text-base text-warning-foreground font-medium">
-                    <strong>🎥 Exemple de Formate:</strong> Ultimate Burger Challenge, Street Food Confessions, Ghicește Ingredientul Secret, Batalla Iubit vs Iubită.
+                    <strong>🎥 {t.services.video.formatExamples?.label || 'Format Examples'}:</strong> {t.services.video.examples}
                   </p>
                 </div>
               </div>
 
-              {/* Ce este inclus */}
+              {/* What's Included */}
               <div className="bg-gradient-warning p-4 sm:p-5 rounded-2xl border-2 border-warning/30 shadow-xl">
                 <h4 className="font-bold text-base sm:text-lg text-warning-foreground mb-3 flex items-center gap-2">
                   <Award className="w-5 h-5" />
-                  💰 Ce este inclus
+                  💰 {t.services.video.included?.title || "What's Included"}
                 </h4>
                 <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-warning-foreground">20 videoclipuri premium/lună (cu prezentatorii noștri SAU cu chipul și vocea ta*)</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-warning-foreground">Idei creative și managementul complet al conținutului</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-warning-foreground">Postare automată pe 4 rețele de social media, după aprobarea ta</span>
-                  </div>
+                  {(t.services.video.included?.items || t.services.video.items).map((item: string, idx: number) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-warning-foreground">{item}</span>
+                    </div>
+                  ))}
                 </div>
                 <p className="text-xs text-warning-foreground/80 mt-3 italic">
-                  (*) Opțiunea cu chipul și vocea proprietarului se selectează la începutul colaborării și este inclusă în preț.
+                  {t.services.video.included?.note || "(*) The option with owner's face and voice is selected at the start of collaboration and is included in the price."}
                 </p>
                 <p className="text-sm text-warning-foreground font-bold mt-3">
-                  Finalizează-ți prezența online. Noi facem videoclipurile și postările. Tu primești rezultatele.
+                  {t.services.video.included?.cta || "Complete your online presence. We make the videos and posts. You get the results."}
                 </p>
               </div>
             </ServiceCard>
