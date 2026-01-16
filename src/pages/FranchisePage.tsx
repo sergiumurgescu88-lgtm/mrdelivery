@@ -490,7 +490,7 @@ const FranchisePage: React.FC = () => {
           </h2>
           
           {/* Royalty highlight */}
-          <div className="bg-emerald-500/20 border border-emerald-500 rounded-xl px-6 py-3 inline-block mb-6">
+          <div className="border rounded-xl px-6 py-3 inline-block mb-6 border-destructive bg-popover-foreground">
             <p className="text-emerald-400 font-bold text-lg md:text-xl">
               {t.hero.royalty}
             </p>
