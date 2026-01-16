@@ -70,45 +70,23 @@ export const ServiceCard = ({
     >
       {/* Large Package Number Background - SOLID & VISIBLE */}
       {packageNumber && (
-        <div className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-[2] pointer-events-none select-none">
-          {/* Main solid number - fully visible + glow */}
-          <span
-            className="text-[210px] sm:text-[280px] md:text-[340px] lg:text-[400px] font-black leading-none block"
-            style={(() => {
-              const fg =
-                packageNumber === 1
-                  ? 'hsl(var(--primary))'
-                  : packageNumber === 2
-                    ? 'hsl(var(--secondary))'
-                    : packageNumber === 3
-                      ? 'hsl(var(--accent))'
-                      : packageNumber === 4
-                        ? 'hsl(var(--success))'
-                        : 'hsl(var(--destructive))';
-
-              const stroke =
-                packageNumber === 1
-                  ? 'hsl(var(--primary) / 0.85)'
-                  : packageNumber === 2
-                    ? 'hsl(var(--secondary) / 0.85)'
-                    : packageNumber === 3
-                      ? 'hsl(var(--accent) / 0.85)'
-                      : packageNumber === 4
-                        ? 'hsl(var(--success) / 0.85)'
-                        : 'hsl(var(--destructive) / 0.85)';
-
-              return {
-                color: fg,
-                opacity: 0.6,
-                WebkitTextStroke: `5px ${stroke}`,
-                textShadow: `
-                  0 0 10px ${fg},
-                  0 0 28px ${fg},
-                  0 0 70px ${fg},
-                  0 0 120px ${fg}
-                `,
-              } as const;
-            })()}
+        <div className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-[1] pointer-events-none select-none">
+          {/* Main solid number - fully visible */}
+          <span 
+            className="text-[200px] sm:text-[260px] md:text-[320px] lg:text-[380px] font-black leading-none block"
+            style={{
+              color: packageNumber === 1 ? '#22d3ee' :
+                     packageNumber === 2 ? '#e879f9' :
+                     packageNumber === 3 ? '#fbbf24' :
+                     packageNumber === 4 ? '#34d399' :
+                     '#fb7185',
+              opacity: 0.25,
+              WebkitTextStroke: packageNumber === 1 ? '4px #0891b2' :
+                               packageNumber === 2 ? '4px #c026d3' :
+                               packageNumber === 3 ? '4px #d97706' :
+                               packageNumber === 4 ? '4px #059669' :
+                               '4px #e11d48',
+            }}
             aria-hidden="true"
           >
             {packageNumber}
