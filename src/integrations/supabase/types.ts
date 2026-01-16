@@ -263,6 +263,45 @@ export type Database = {
         }
         Relationships: []
       }
+      restaurant_audit_applications: {
+        Row: {
+          city: string
+          created_at: string
+          has_mobile_app: boolean
+          id: string
+          location_name: string
+          notes: string | null
+          on_delivery_apps: boolean
+          phone: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          city: string
+          created_at?: string
+          has_mobile_app?: boolean
+          id?: string
+          location_name: string
+          notes?: string | null
+          on_delivery_apps?: boolean
+          phone: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          city?: string
+          created_at?: string
+          has_mobile_app?: boolean
+          id?: string
+          location_name?: string
+          notes?: string | null
+          on_delivery_apps?: boolean
+          phone?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

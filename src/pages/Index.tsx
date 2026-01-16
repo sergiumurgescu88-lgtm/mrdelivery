@@ -16,10 +16,11 @@ import ugcExample3 from '@/assets/ugc-example-3.mp4';
 import ugcExample4 from '@/assets/ugc-example-4.mp4';
 import ugcExample5 from '@/assets/ugc-example-5.mp4';
 import ugcExample6 from '@/assets/ugc-example-6.mp4';
-import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake } from 'lucide-react';
+import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { RestaurantAuditForm } from '@/components/RestaurantAuditForm';
 const Index = () => {
   const {
     language,
@@ -717,6 +718,15 @@ const Index = () => {
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{t.footer.title}</h2>
           <p className="text-sm sm:text-base md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+            {/* Restaurant Audit Form Button */}
+            <RestaurantAuditForm 
+              trigger={
+                <Button className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-gray-950 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30">
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
+                  {language === 'ro' ? 'Completează Formular' : language === 'es' ? 'Completa Formulario' : 'Fill Form'}
+                </Button>
+              }
+            />
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="bg-success text-success-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2">
               <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.footer.whatsapp}
