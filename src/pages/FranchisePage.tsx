@@ -3,6 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import SEO from '@/components/SEO';
 import { 
   ArrowRight, 
   ArrowLeft,
@@ -899,8 +900,36 @@ const FranchisePage = () => {
     return `https://api.whatsapp.com/send/?phone=40768676141&text=${encodeURIComponent(messages[language] || messages.en)}&type=phone_number&app_absent=0`;
   };
 
+  const seoData = {
+    ro: {
+      title: 'Parteneriat Franciză - Construiește o Afacere cu Venituri Recurente',
+      description: 'Devino partener MrDelivery și construiește o afacere profitabilă în industria livrărilor pentru restaurante. Sistem AI, training complet, suport 24/7 și putere de negociere cu platformele de livrare.',
+      keywords: 'franciză restaurant, parteneriat MrDelivery, afacere livrări, venituri recurente, management restaurante, Glovo partener, Wolt partener, oportunitate afacere HoReCa'
+    },
+    en: {
+      title: 'Franchise Partnership - Build a Recurring Revenue Business',
+      description: 'Become a MrDelivery partner and build a profitable business in the restaurant delivery industry. AI system, complete training, 24/7 support and negotiation power with delivery platforms.',
+      keywords: 'restaurant franchise, MrDelivery partnership, delivery business, recurring revenue, restaurant management, Uber Eats partner, DoorDash partner, HoReCa business opportunity'
+    },
+    es: {
+      title: 'Asociación de Franquicia - Construye un Negocio con Ingresos Recurrentes',
+      description: 'Conviértete en socio de MrDelivery y construye un negocio rentable en la industria de entregas de restaurantes. Sistema AI, capacitación completa, soporte 24/7 y poder de negociación.',
+      keywords: 'franquicia restaurante, asociación MrDelivery, negocio entregas, ingresos recurrentes, gestión restaurantes, socio Uber Eats, oportunidad negocio HoReCa'
+    }
+  };
+
+  const currentSeo = seoData[language] || seoData.ro;
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO 
+        title={currentSeo.title}
+        description={currentSeo.description}
+        keywords={currentSeo.keywords}
+        url="https://mrdelivery.lovable.app/franchise"
+        locale={language === 'ro' ? 'ro_RO' : language === 'es' ? 'es_ES' : 'en_US'}
+      />
+      
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-yellow-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

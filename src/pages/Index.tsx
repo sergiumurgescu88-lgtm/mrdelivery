@@ -9,6 +9,7 @@ import { FullscreenVideo } from '@/components/FullscreenVideo';
 import { VideoGallery } from '@/components/VideoGallery';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 import ugcExample1 from '@/assets/ugc-example-1.mp4';
 import ugcExample2 from '@/assets/ugc-example-2.mp4';
 import ugcExample3 from '@/assets/ugc-example-3.mp4';
@@ -26,7 +27,35 @@ const Index = () => {
   } = useLanguage();
   const [activeTab, setActiveTab] = useState<'existente' | 'ai'>('existente');
   const [activeAudioPackage, setActiveAudioPackage] = useState<PackageType | null>(null);
+  const seoData = {
+    ro: {
+      title: 'Servicii de Management Livrări și Marketing AI pentru Restaurante',
+      description: 'MrDelivery oferă management complet pentru restaurante pe platformele de livrare (Glovo, Wolt, Bolt Food), producție video AI, chatboți și automatizări inteligente. Crește-ți vânzările cu 40%!',
+      keywords: 'management livrări restaurant, Glovo management, Wolt management, Bolt Food, marketing restaurant, video AI restaurant, chatbot restaurant, automatizări HoReCa, creștere vânzări restaurant'
+    },
+    en: {
+      title: 'Delivery Management & AI Marketing Services for Restaurants',
+      description: 'MrDelivery provides complete restaurant management on delivery platforms (Uber Eats, DoorDash, Grubhub), AI video production, chatbots, and smart automations. Increase your sales by 40%!',
+      keywords: 'restaurant delivery management, Uber Eats management, DoorDash management, restaurant marketing, AI video restaurant, restaurant chatbot, HoReCa automations, restaurant sales growth'
+    },
+    es: {
+      title: 'Gestión de Entregas y Marketing AI para Restaurantes',
+      description: 'MrDelivery ofrece gestión completa para restaurantes en plataformas de entrega, producción de video AI, chatbots y automatizaciones inteligentes. ¡Aumenta tus ventas un 40%!',
+      keywords: 'gestión entregas restaurante, gestión Uber Eats, marketing restaurante, video AI restaurante, chatbot restaurante, automatizaciones HoReCa'
+    }
+  };
+
+  const currentSeo = seoData[language] || seoData.ro;
+
   return <div className="min-h-screen relative overflow-x-hidden bg-background">
+      <SEO 
+        title={currentSeo.title}
+        description={currentSeo.description}
+        keywords={currentSeo.keywords}
+        url="https://mrdelivery.lovable.app"
+        locale={language === 'ro' ? 'ro_RO' : language === 'es' ? 'es_ES' : 'en_US'}
+      />
+      
       {/* Food Background with Miniature Chefs */}
       <FoodBackground />
 
