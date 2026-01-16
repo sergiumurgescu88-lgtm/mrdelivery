@@ -7,8 +7,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import FranchisePage from "./pages/FranchisePage";
-import AuthPage from "./pages/AuthPage";
-import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,15 +21,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route 
-                path="/franchise" 
-                element={
-                  <ProtectedRoute>
-                    <FranchisePage />
-                  </ProtectedRoute>
-                } 
-              />
+              <Route path="/franchise" element={<FranchisePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
