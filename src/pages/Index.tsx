@@ -731,14 +731,16 @@ const Index = () => {
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-400/20 rounded-full blur-3xl" />
             <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-yellow-400/20 rounded-full blur-3xl" />
             
-            {/* Earnings Badge */}
-            <div className="absolute top-3 right-3 px-3 py-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-xs sm:text-sm font-bold text-gray-950 uppercase tracking-wider shadow-lg flex items-center gap-1">
-              <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
-              {language === 'ro' ? '15K+ €/lună' : language === 'es' ? '15K+ €/mes' : '15K+ €/month'}
-            </div>
-            
             {/* Content */}
             <div className="relative z-10 text-center">
+              {/* Earnings Badge - positioned in flow on mobile, absolute on desktop */}
+              <div className="flex justify-center mb-3 sm:mb-0 sm:absolute sm:top-3 sm:right-3">
+                <div className="px-3 py-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-xs sm:text-sm font-bold text-gray-950 tracking-wider shadow-lg flex items-center gap-1">
+                  <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
+                  {language === 'ro' ? '15K+ €/lună' : language === 'es' ? '15K+ €/mes' : '15K+ €/month'}
+                </div>
+              </div>
+              
               {/* Target Audience Badge */}
               <div className="mb-3 sm:mb-4 flex flex-wrap justify-center gap-2">
                 <span className="px-3 py-1 bg-amber-400/20 border border-amber-400/40 rounded-full text-xs sm:text-sm text-amber-200 font-medium">
