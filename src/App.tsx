@@ -8,7 +8,10 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import FranchisePage from "./pages/FranchisePage";
 import AdminDashboard from "./pages/AdminDashboard";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
+import { CookieConsentBanner } from "./components/CookieConsentBanner";
 
 const queryClient = new QueryClient();
 
@@ -24,8 +27,11 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/franchise" element={<FranchisePage />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
+              <Route path="/politica-cookies" element={<CookiePolicy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <CookieConsentBanner />
           </BrowserRouter>
         </TooltipProvider>
       </LanguageProvider>
