@@ -6,7 +6,7 @@ import { PulsingBadge } from '@/components/PulsingBadge';
 import { CinematicPlayer, PackageType } from '@/components/CinematicPlayer';
 import { FoodBackground } from '@/components/FoodBackground';
 import { FullscreenVideo } from '@/components/FullscreenVideo';
-import { VideoGallery } from '@/components/VideoGallery';
+import { PremiumVideoGallery } from '@/components/PremiumVideoGallery';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
@@ -329,7 +329,7 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
                   
                   {/* Header - Opens Video Gallery */}
-                  <VideoGallery videos={[galleryVideo1, galleryVideo2, galleryVideo3, galleryVideo4, galleryVideo5, galleryVideo6]} buttonText="" customTrigger={<button className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10">
+                  <PremiumVideoGallery videos={[galleryVideo1, galleryVideo2, galleryVideo3, galleryVideo4, galleryVideo5, galleryVideo6]} customTrigger={<button className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10">
                         <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
                           <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
                             <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
