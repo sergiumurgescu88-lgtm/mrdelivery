@@ -11,8 +11,23 @@ import galleryVideo3 from '@/assets/gallery-video-3.mp4';
 import galleryVideo4 from '@/assets/gallery-video-4.mp4';
 import galleryVideo5 from '@/assets/gallery-video-5.mp4';
 import galleryVideo6 from '@/assets/gallery-video-6.mp4';
+import galleryVideo7 from '@/assets/gallery-video-7.mp4';
+import galleryVideo8 from '@/assets/gallery-video-8.mp4';
+import galleryVideo9 from '@/assets/gallery-video-9.mp4';
+import galleryVideo10 from '@/assets/gallery-video-10.mp4';
+import galleryVideo11 from '@/assets/gallery-video-11.mp4';
+import galleryVideo12 from '@/assets/gallery-video-12.mp4';
+import galleryVideo13 from '@/assets/gallery-video-13.mp4';
+import galleryVideo14 from '@/assets/gallery-video-14.mp4';
+import galleryVideo15 from '@/assets/gallery-video-15.mp4';
+import galleryVideo16 from '@/assets/gallery-video-16.mp4';
 
-const videos = [galleryVideo1, galleryVideo2, galleryVideo3, galleryVideo4, galleryVideo5, galleryVideo6];
+const videos = [
+  galleryVideo1, galleryVideo2, galleryVideo3, galleryVideo4, 
+  galleryVideo5, galleryVideo6, galleryVideo7, galleryVideo8,
+  galleryVideo9, galleryVideo10, galleryVideo11, galleryVideo12,
+  galleryVideo13, galleryVideo14, galleryVideo15, galleryVideo16
+];
 
 const GalleryPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
