@@ -70,11 +70,11 @@ const packageAudioMap: Record<PackageType, Record<'ro' | 'es' | 'en', string>> =
 };
 
 const packageNames: Record<PackageType, Record<'ro' | 'es' | 'en', string>> = {
-  'brandul-tau': { ro: 'Pachetul 1', es: 'El paquete 1', en: 'Package 1' },
-  'pilot-automat': { ro: 'Pachetul 2', es: 'El paquete 2', en: 'Package 2' },
+  'brandul-tau': { ro: 'Pachetul 5', es: 'El paquete 5', en: 'Package 5' },
+  'pilot-automat': { ro: 'Pachetul 4', es: 'El paquete 4', en: 'Package 4' },
   'asistent-virtual': { ro: 'Pachetul 3', es: 'El paquete 3', en: 'Package 3' },
-  'productie-video': { ro: 'Pachetul 4', es: 'El paquete 4', en: 'Package 4' },
-  'management-platforme': { ro: 'Pachetul 5', es: 'El paquete 5', en: 'Package 5' },
+  'productie-video': { ro: 'Pachetul 2', es: 'El paquete 2', en: 'Package 2' },
+  'management-platforme': { ro: 'Pachetul 1', es: 'El paquete 1', en: 'Package 1' },
 };
 
 type AudioSource = { type: 'podcast'; language: Language } | { type: 'package'; packageId: PackageType };
