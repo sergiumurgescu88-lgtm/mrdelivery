@@ -45,17 +45,9 @@ const Index = () => {
       keywords: 'gestión entregas restaurante, gestión Uber Eats, marketing restaurante, video AI restaurante, chatbot restaurante, automatizaciones HoReCa'
     }
   };
-
   const currentSeo = seoData[language] || seoData.ro;
-
   return <div className="min-h-screen relative overflow-x-hidden bg-background">
-      <SEO 
-        title={currentSeo.title}
-        description={currentSeo.description}
-        keywords={currentSeo.keywords}
-        url="https://mrdelivery.lovable.app"
-        locale={language === 'ro' ? 'ro_RO' : language === 'es' ? 'es_ES' : 'en_US'}
-      />
+      <SEO title={currentSeo.title} description={currentSeo.description} keywords={currentSeo.keywords} url="https://mrdelivery.lovable.app" locale={language === 'ro' ? 'ro_RO' : language === 'es' ? 'es_ES' : 'en_US'} />
       
       {/* Food Background with Miniature Chefs */}
       <FoodBackground />
@@ -97,10 +89,7 @@ const Index = () => {
         </header>
 
         {/* Unified Audio Player - Podcast + Packages */}
-        <CinematicPlayer 
-          activePackage={activeAudioPackage}
-          onClearPackage={() => setActiveAudioPackage(null)}
-        />
+        <CinematicPlayer activePackage={activeAudioPackage} onClearPackage={() => setActiveAudioPackage(null)} />
 
 
 
@@ -151,12 +140,10 @@ const Index = () => {
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{(t.services.standard as any).negotiation?.intro || 'Nu lăsa profitul tău să dispară în comisioane uriașe.'}</p>
                   <div className="space-y-2">
-                    {((t.services.standard as any).negotiation?.items || []).map((item: string, index: number) => (
-                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-warning/20">
+                    {((t.services.standard as any).negotiation?.items || []).map((item: string, index: number) => <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-warning/20">
                         <Check className="w-4 h-4 text-warning flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-foreground">{item}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
 
@@ -173,12 +160,10 @@ const Index = () => {
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{(t.services.standard as any).menu?.intro || 'Un meniu care arată bine, vinde mai mult.'}</p>
                   <div className="space-y-2">
-                    {((t.services.standard as any).menu?.items || []).map((item: string, index: number) => (
-                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-secondary/20">
+                    {((t.services.standard as any).menu?.items || []).map((item: string, index: number) => <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-secondary/20">
                         <Check className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-foreground">{item}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
 
@@ -195,12 +180,10 @@ const Index = () => {
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{(t.services.standard as any).support_card?.intro || 'Suntem „departamentul tău de livrări" disponibil oricând pe WhatsApp.'}</p>
                   <div className="space-y-2">
-                    {((t.services.standard as any).support_card?.items || []).map((item: string, index: number) => (
-                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
+                    {((t.services.standard as any).support_card?.items || []).map((item: string, index: number) => <div key={index} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
                         <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-foreground">{item}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
 
@@ -217,17 +200,10 @@ const Index = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-muted-foreground mb-3 break-words">{(t.services.standard as any).training?.intro || 'Echipa ta învață să utilizeze platformele de livrare ca un profesionist.'}</p>
                   <div className="space-y-2">
-                    {((t.services.standard as any).training?.items || [
-                      'Instruire Completă: Învățăm personalul tău să folosească Glovo, Wolt și Bolt Food eficient - comenzi, tablete, confirmări.',
-                      'Probleme Comenzi: Învață să gestioneze produse lipsă, comenzi anulate, cereri de refund - totul rezolvat rapid.',
-                      'Best Practices: Sfaturi și trucuri pentru reducerea timpului de preparare, îmbunătățirea ambalajului și evitarea recenziilor negative.',
-                      'Suport Continuu: Echipa are acces direct la noi pe WhatsApp pentru orice întrebare sau problemă.'
-                    ]).map((item: string, index: number) => (
-                      <div key={index} className="flex items-start gap-2 bg-card/60 p-2 sm:p-2.5 rounded-lg border border-primary/20">
+                    {((t.services.standard as any).training?.items || ['Instruire Completă: Învățăm personalul tău să folosească Glovo, Wolt și Bolt Food eficient - comenzi, tablete, confirmări.', 'Probleme Comenzi: Învață să gestioneze produse lipsă, comenzi anulate, cereri de refund - totul rezolvat rapid.', 'Best Practices: Sfaturi și trucuri pentru reducerea timpului de preparare, îmbunătățirea ambalajului și evitarea recenziilor negative.', 'Suport Continuu: Echipa are acces direct la noi pe WhatsApp pentru orice întrebare sau problemă.']).map((item: string, index: number) => <div key={index} className="flex items-start gap-2 bg-card/60 p-2 sm:p-2.5 rounded-lg border border-primary/20">
                         <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-xs sm:text-sm text-foreground break-words leading-relaxed">{item}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -239,12 +215,10 @@ const Index = () => {
                   {(t.services.standard as any).whyTitle || 'De ce ai nevoie de acest management?'}
                 </h5>
                 <div className="space-y-2">
-                  {((t.services.standard as any).whyItems || []).map((item: string, index: number) => (
-                    <div key={index} className="flex items-start gap-2">
+                  {((t.services.standard as any).whyItems || []).map((item: string, index: number) => <div key={index} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </ServiceCard>
@@ -271,9 +245,7 @@ const Index = () => {
                   <p className="text-sm text-destructive font-semibold mb-2">{t.services.video.presenters?.tagline || 'Zero effort from you'}</p>
                   <p className="text-sm text-muted-foreground mb-3">{t.services.video.presenters?.intro || 'We do everything. Our team of professional creators and presenters bring your brand to life.'}</p>
                   <div className="space-y-2">
-                    {(t.services.video.presenters?.items || ['Professional team of creators', 'Experienced presenters', 'No effort required from you']).map((item: string, idx: number) => (
-                      <ServiceItem key={idx} text={item} />
-                    ))}
+                    {(t.services.video.presenters?.items || ['Professional team of creators', 'Experienced presenters', 'No effort required from you']).map((item: string, idx: number) => <ServiceItem key={idx} text={item} />)}
                   </div>
                 </div>
 
@@ -288,9 +260,7 @@ const Index = () => {
                   <p className="text-sm text-success font-semibold mb-2">{t.services.video.yourFace?.tagline || 'Maximum authenticity'}</p>
                   <p className="text-sm text-muted-foreground mb-3">{t.services.video.yourFace?.intro || 'We use your face and voice. Cutting-edge AI technology (VEO3) for cinematic videos.'}</p>
                   <div className="space-y-2">
-                    {(t.services.video.yourFace?.items || ['Personal connection with audience', 'Cutting-edge VEO3 technology', 'Ideal for authentic owners']).map((item: string, idx: number) => (
-                      <ServiceItem key={idx} text={item} />
-                    ))}
+                    {(t.services.video.yourFace?.items || ['Personal connection with audience', 'Cutting-edge VEO3 technology', 'Ideal for authentic owners']).map((item: string, idx: number) => <ServiceItem key={idx} text={item} />)}
                   </div>
                 </div>
 
@@ -305,9 +275,7 @@ const Index = () => {
                   <p className="text-sm text-primary font-semibold mb-2">{t.services.video.quality?.tagline || 'For both options'}</p>
                   <p className="text-sm text-muted-foreground mb-3">{t.services.video.quality?.intro || 'Cinematic Quality: Premium image, sound and editing.'}</p>
                   <div className="space-y-2">
-                    {(t.services.video.quality?.items || ['Creative and viral storyboards', 'Challenges, interviews, interactive clips', 'Ideas that capture attention']).map((item: string, idx: number) => (
-                      <ServiceItem key={idx} text={item} />
-                    ))}
+                    {(t.services.video.quality?.items || ['Creative and viral storyboards', 'Challenges, interviews, interactive clips', 'Ideas that capture attention']).map((item: string, idx: number) => <ServiceItem key={idx} text={item} />)}
                   </div>
                 </div>
               </div>
@@ -327,12 +295,10 @@ const Index = () => {
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{t.services.video.robot.intro}</p>
                   <div className="space-y-2">
-                    {t.services.video.robot.items.map((item: string, idx: number) => (
-                      <div key={idx} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
+                    {t.services.video.robot.items.map((item: string, idx: number) => <div key={idx} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-primary/20">
                         <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-foreground">{item}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -349,12 +315,10 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  {t.services.video.visibility.items.map((item: string, idx: number) => (
-                    <div key={idx} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
+                  {t.services.video.visibility.items.map((item: string, idx: number) => <div key={idx} className="flex items-start gap-2 bg-card/60 p-2.5 rounded-lg border border-success/20">
                       <TrendingUp className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
@@ -398,12 +362,10 @@ const Index = () => {
                   💰 {t.services.video.included?.title || "What's Included"}
                 </h4>
                 <div className="space-y-2">
-                  {(t.services.video.included?.items || t.services.video.items).map((item: string, idx: number) => (
-                    <div key={idx} className="flex items-start gap-2">
+                  {(t.services.video.included?.items || t.services.video.items).map((item: string, idx: number) => <div key={idx} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-warning-foreground">{item}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 <p className="text-xs text-warning-foreground/80 mt-3 italic">
                   {t.services.video.included?.note || "(*) The option with owner's face and voice is selected at the start of collaboration and is included in the price."}
@@ -472,12 +434,10 @@ const Index = () => {
                   {t.services.aiAgents.benefitsTitle}
                 </h4>
                 <div className="space-y-2">
-                  {t.services.aiAgents.benefitsList.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-2">
+                  {t.services.aiAgents.benefitsList.map((benefit, index) => <div key={index} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-warning-foreground">{benefit}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </ServiceCard>
@@ -540,12 +500,10 @@ const Index = () => {
                   {t.services.premium.whyChoose}
                 </h4>
                 <div className="space-y-2">
-                  {t.services.premium.benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-2">
+                  {t.services.premium.benefits.map((benefit, index) => <div key={index} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-warning-foreground flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-warning-foreground">{benefit}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </ServiceCard>
@@ -568,13 +526,27 @@ const Index = () => {
                   {t.services.ugc.stepsTitle}
                 </h4>
                 <div className="space-y-2">
-                  {[
-                    { num: '1', text: t.services.ugc.step1, desc: t.services.ugc.step1Desc, colors: 'from-primary to-secondary' },
-                    { num: '2', text: t.services.ugc.step2, desc: t.services.ugc.step2Desc, colors: 'from-secondary to-accent' },
-                    { num: '3', text: t.services.ugc.step3, desc: t.services.ugc.step3Desc, colors: 'from-accent to-warning' },
-                    { num: '4', text: t.services.ugc.step4, desc: t.services.ugc.step4Desc, colors: 'bg-gradient-success' }
-                  ].map((step, index) => (
-                    <div key={index} className="flex items-start gap-2 bg-card/80 p-2 sm:p-2.5 rounded-lg">
+                  {[{
+                num: '1',
+                text: t.services.ugc.step1,
+                desc: t.services.ugc.step1Desc,
+                colors: 'from-primary to-secondary'
+              }, {
+                num: '2',
+                text: t.services.ugc.step2,
+                desc: t.services.ugc.step2Desc,
+                colors: 'from-secondary to-accent'
+              }, {
+                num: '3',
+                text: t.services.ugc.step3,
+                desc: t.services.ugc.step3Desc,
+                colors: 'from-accent to-warning'
+              }, {
+                num: '4',
+                text: t.services.ugc.step4,
+                desc: t.services.ugc.step4Desc,
+                colors: 'bg-gradient-success'
+              }].map((step, index) => <div key={index} className="flex items-start gap-2 bg-card/80 p-2 sm:p-2.5 rounded-lg">
                       <div className={`w-6 h-6 bg-gradient-to-br ${step.colors} rounded-full flex items-center justify-center flex-shrink-0`}>
                         <span className="text-xs font-bold text-primary-foreground">{step.num}</span>
                       </div>
@@ -582,8 +554,7 @@ const Index = () => {
                         <span className="text-sm text-foreground font-semibold">{step.text}</span>
                         <p className="text-xs text-muted-foreground mt-0.5">{step.desc}</p>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
@@ -596,15 +567,29 @@ const Index = () => {
                   {t.services.ugc.benefitsTitle}
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {[
-                    { icon: Zap, title: t.services.ugc.benefit1Title, desc: t.services.ugc.benefit1Desc, colors: 'from-primary to-secondary' },
-                    { icon: Star, title: t.services.ugc.benefit2Title, desc: t.services.ugc.benefit2Desc, colors: 'bg-gradient-success' },
-                    { icon: Check, title: t.services.ugc.benefit3Title, desc: t.services.ugc.benefit3Desc, colors: 'from-secondary to-accent' },
-                    { icon: Users, title: t.services.ugc.benefit4Title, desc: t.services.ugc.benefit4Desc, colors: 'from-accent to-warning' }
-                  ].map((benefit, index) => {
-                    const IconComponent = benefit.icon;
-                    return (
-                      <div key={index} className="flex items-start gap-2 bg-card/80 p-2 sm:p-2.5 rounded-lg">
+                  {[{
+                icon: Zap,
+                title: t.services.ugc.benefit1Title,
+                desc: t.services.ugc.benefit1Desc,
+                colors: 'from-primary to-secondary'
+              }, {
+                icon: Star,
+                title: t.services.ugc.benefit2Title,
+                desc: t.services.ugc.benefit2Desc,
+                colors: 'bg-gradient-success'
+              }, {
+                icon: Check,
+                title: t.services.ugc.benefit3Title,
+                desc: t.services.ugc.benefit3Desc,
+                colors: 'from-secondary to-accent'
+              }, {
+                icon: Users,
+                title: t.services.ugc.benefit4Title,
+                desc: t.services.ugc.benefit4Desc,
+                colors: 'from-accent to-warning'
+              }].map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return <div key={index} className="flex items-start gap-2 bg-card/80 p-2 sm:p-2.5 rounded-lg">
                         <div className={`w-6 h-6 bg-gradient-to-br ${benefit.colors} rounded-full flex items-center justify-center flex-shrink-0`}>
                           <IconComponent className="w-3 h-3 text-primary-foreground" />
                         </div>
@@ -612,9 +597,8 @@ const Index = () => {
                           <span className="text-sm text-foreground font-semibold">{benefit.title}</span>
                           <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{benefit.desc}</p>
                         </div>
-                      </div>
-                    );
-                  })}
+                      </div>;
+              })}
                 </div>
               </div>
 
@@ -704,14 +688,10 @@ const Index = () => {
           <p className="text-sm sm:text-base md:text-base mb-3 sm:mb-5 opacity-90">{t.footer.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
             {/* Restaurant Audit Form Button */}
-            <RestaurantAuditForm 
-              trigger={
-                <Button className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-gray-950 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30">
+            <RestaurantAuditForm trigger={<Button className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 text-gray-950 font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30">
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                   {language === 'ro' ? 'Completează Formular' : language === 'es' ? 'Completa Formulario' : 'Fill Form'}
-                </Button>
-              }
-            />
+                </Button>} />
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="bg-success text-success-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-success/90 transition-all flex items-center justify-center gap-2">
               <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.footer.whatsapp}
@@ -736,7 +716,7 @@ const Index = () => {
               {/* Earnings Badge - positioned in flow on mobile, absolute on desktop */}
               <div className="flex justify-center mb-3 sm:mb-0 sm:absolute sm:top-3 sm:right-3">
                 <div className="px-3 py-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-xs sm:text-sm font-bold text-gray-950 tracking-wider shadow-lg flex items-center gap-1">
-                  <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
+                  
                   {language === 'ro' ? '15K+ €/lună' : language === 'es' ? '15K+ €/mes' : '15K+ €/month'}
                 </div>
               </div>
@@ -767,11 +747,7 @@ const Index = () => {
               
               {/* Subtitle */}
               <p className="text-sm sm:text-base text-amber-100/80 mb-4 sm:mb-5 max-w-lg mx-auto">
-                {language === 'ro' 
-                  ? 'Foști angajați Glovo, Wolt, Bolt Food, Uber Eats sau DoorDash - transformă-ți experiența în propriul business de succes!' 
-                  : language === 'es' 
-                    ? 'Ex empleados de Glovo, Wolt, Bolt Food, Uber Eats o DoorDash - ¡transforma tu experiencia en tu propio negocio exitoso!' 
-                    : 'Former Glovo, Wolt, Bolt Food, Uber Eats or DoorDash employees - turn your experience into your own successful business!'}
+                {language === 'ro' ? 'Foști angajați Glovo, Wolt, Bolt Food, Uber Eats sau DoorDash - transformă-ți experiența în propriul business de succes!' : language === 'es' ? 'Ex empleados de Glovo, Wolt, Bolt Food, Uber Eats o DoorDash - ¡transforma tu experiencia en tu propio negocio exitoso!' : 'Former Glovo, Wolt, Bolt Food, Uber Eats or DoorDash employees - turn your experience into your own successful business!'}
               </p>
               
               {/* Franchise Button */}
@@ -787,19 +763,11 @@ const Index = () => {
               
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <a 
-                  href="https://wa.me/40768676141" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-success text-success-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-success/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-success/30"
-                >
+                <a href="https://wa.me/40768676141" target="_blank" rel="noopener noreferrer" className="bg-success text-success-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-success/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-success/30">
                   <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6" />
                   WhatsApp
                 </a>
-                <a 
-                  href="tel:+40768676141" 
-                  className="bg-white/10 backdrop-blur-sm text-amber-100 border-2 border-amber-400/40 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-amber-400/20 transition-all flex items-center justify-center gap-2"
-                >
+                <a href="tel:+40768676141" className="bg-white/10 backdrop-blur-sm text-amber-100 border-2 border-amber-400/40 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-amber-400/20 transition-all flex items-center justify-center gap-2">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                   {language === 'ro' ? 'Sună Acum' : language === 'es' ? 'Llama Ahora' : 'Call Now'}
                 </a>
