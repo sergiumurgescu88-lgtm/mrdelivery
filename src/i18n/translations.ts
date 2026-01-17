@@ -1304,7 +1304,7 @@ export const translations = {
         title: 'Producție Video & Postare Automată',
         price: '1.625 RON/lună',
         originalPrice: '2.500 RON/lună',
-        discount: '35% REDUCERE',
+        discount: '-35%',
         subtitle: 'Noi creăm, noi postăm. Afacerea ta crește zilnic pe 4 platforme simultan',
         badge: 'Conținut Video Viral',
         videosTitle: '🎬 16-20 Clipuri Premium / Lună',
