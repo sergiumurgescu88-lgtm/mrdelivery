@@ -106,38 +106,6 @@ const Index = () => {
 
         
 
-        {/* Content Examples - Premium Gold Box */}
-        <div className="mb-6 sm:mb-8 px-2">
-          <div className="bg-gradient-to-br from-amber-950/80 via-yellow-900/60 to-amber-950/80 rounded-2xl border-2 border-amber-400/50 shadow-2xl overflow-hidden relative">
-            {/* Premium gold glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
-            
-            {/* Header - Opens Video Gallery */}
-            <VideoGallery videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} buttonText="" customTrigger={<button className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10">
-                  <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
-                    <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
-                      <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
-                    </div>
-                    <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
-                      🎬 Content Examples
-                    </span>
-                  </h4>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-amber-300 font-semibold tracking-wide">
-                      See All Videos
-                    </span>
-                    <div className="p-1.5 bg-amber-400/30 rounded-full border border-amber-400/50">
-                      <ChevronDown className="w-4 h-4 text-amber-300" />
-                    </div>
-                  </div>
-                </button>} />
-            
-            {/* Premium badge */}
-            <div className="absolute top-2 right-2 px-2 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-[10px] font-bold text-amber-950 uppercase tracking-wider shadow-lg">
-              Premium
-            </div>
-          </div>
-        </div>
 
         {/* Tab Navigation - Servicii existente / Servicii AI */}
         <nav className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
@@ -390,13 +358,36 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Format Examples */}
-              <div className="mt-5 p-4 bg-gradient-warning rounded-2xl border-2 border-warning/30 shadow-lg mb-5">
-                <div className="flex items-start gap-2 sm:gap-3">
-                  <Video className="w-5 h-5 sm:w-6 sm:h-6 text-warning-foreground flex-shrink-0 mt-1 animate-pulse" />
-                  <p className="text-sm sm:text-base text-warning-foreground font-medium">
-                    <strong>🎥 {t.services.video.formatExamples?.label || 'Format Examples'}:</strong> {t.services.video.examples}
-                  </p>
+              {/* Content Examples - Premium Gold Box */}
+              <div className="mt-5 mb-5">
+                <div className="bg-gradient-to-br from-amber-950/80 via-yellow-900/60 to-amber-950/80 rounded-2xl border-2 border-amber-400/50 shadow-2xl overflow-hidden relative">
+                  {/* Premium gold glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
+                  
+                  {/* Header - Opens Video Gallery */}
+                  <VideoGallery videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} buttonText="" customTrigger={<button className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10">
+                        <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
+                          <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
+                            <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
+                          </div>
+                          <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
+                            🎬 Content Examples
+                          </span>
+                        </h4>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm text-amber-300 font-semibold tracking-wide">
+                            See All Videos
+                          </span>
+                          <div className="p-1.5 bg-amber-400/30 rounded-full border border-amber-400/50">
+                            <ChevronDown className="w-4 h-4 text-amber-300" />
+                          </div>
+                        </div>
+                      </button>} />
+                  
+                  {/* Premium badge */}
+                  <div className="absolute top-2 right-2 px-2 py-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full text-[10px] font-bold text-amber-950 uppercase tracking-wider shadow-lg">
+                    Premium
+                  </div>
                 </div>
               </div>
 
