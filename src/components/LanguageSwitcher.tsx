@@ -2,20 +2,28 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/i18n/translations';
 import { Globe } from 'lucide-react';
 
-const languages: { code: Language; label: string; flag: string }[] = [
+const allLanguages: { code: Language; label: string; flag: string }[] = [
   { code: 'ro', label: 'RO', flag: '🇷🇴' },
   { code: 'es', label: 'ES', flag: '🇪🇸' },
   { code: 'en', label: 'EN', flag: '🇺🇸' },
 ];
 
 export const LanguageSwitcher = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, availableLanguages, isLoading } = useLanguage();
+
+  // Filter languages based on what's available for the user's country
+  const visibleLanguages = allLanguages.filter(lang => availableLanguages.includes(lang.code));
+
+  // Don't render if still loading or only one language available
+  if (isLoading || visibleLanguages.length <= 1) {
+    return null;
+  }
 
   return (
     <div className="flex justify-center mb-2">
       <div className="flex items-center gap-0.5 bg-card/80 backdrop-blur-md rounded-full px-1 py-0.5 shadow-md border border-border/30">
         <Globe className="w-3 h-3 text-muted-foreground ml-1.5" />
-        {languages.map((lang) => (
+        {visibleLanguages.map((lang) => (
           <button
             key={lang.code}
             onClick={() => setLanguage(lang.code)}
