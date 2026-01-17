@@ -10,6 +10,7 @@ import FranchisePage from "./pages/FranchisePage";
 import AdminDashboard from "./pages/AdminDashboard";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import CookiePolicy from "./pages/CookiePolicy";
+import GalleryPage from "./pages/GalleryPage";
 import NotFound from "./pages/NotFound";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
 
@@ -29,6 +30,7 @@ const App = () => (
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
               <Route path="/politica-cookies" element={<CookiePolicy />} />
+              <Route path="/gallery" element={<GalleryPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <CookieConsentBanner />
