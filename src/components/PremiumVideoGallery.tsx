@@ -216,14 +216,27 @@ export const PremiumVideoGallery = ({ videos, customTrigger }: PremiumVideoGalle
         </button>
       )}
 
-      {/* Gallery Modal */}
+      {/* Gallery Modal - Portal to body for true fullscreen */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black">
+        <div 
+          className="fixed inset-0 bg-black"
+          style={{ 
+            zIndex: 99999,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: '100vw',
+            height: '100dvh'
+          }}
+        >
           {isMobile ? (
             /* Mobile: TikTok-style vertical swipe */
             <div
               ref={containerRef}
-              className="relative w-full h-full"
+              className="relative w-full h-full bg-black"
+              style={{ height: '100dvh' }}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
@@ -231,15 +244,24 @@ export const PremiumVideoGallery = ({ videos, customTrigger }: PremiumVideoGalle
               {/* Close button */}
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 z-20 p-2 bg-black/40 backdrop-blur-sm rounded-full border border-amber-400/30 transition-all hover:bg-black/60"
+                className="absolute top-4 right-4 z-30 p-3 bg-black/60 backdrop-blur-sm rounded-full border-2 border-amber-400/50 transition-all active:scale-95"
               >
                 <X className="w-6 h-6 text-amber-400" />
               </button>
 
-              {/* Video container */}
-              <div className="relative w-full h-full flex items-center justify-center p-3">
+              {/* Video container - truly fullscreen */}
+              <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4">
                 {/* Golden frame */}
-                <div className={`relative w-full h-full max-w-[calc(100vh*9/16)] rounded-2xl overflow-hidden ${goldenBorderStyle}`}>
+                <div 
+                  className={`relative w-full h-full rounded-xl overflow-hidden ${goldenBorderStyle}`}
+                  style={{ maxWidth: 'calc((100dvh - 120px) * 9 / 16)' }}
+                >
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-amber-400 rounded-tl-lg z-20" />
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-amber-400 rounded-tr-lg z-20" />
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-amber-400 rounded-bl-lg z-20" />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-amber-400 rounded-br-lg z-20" />
+                  
                   {/* Inner glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-b from-amber-400/5 via-transparent to-amber-400/5 pointer-events-none z-10" />
                   
@@ -263,21 +285,21 @@ export const PremiumVideoGallery = ({ videos, customTrigger }: PremiumVideoGalle
                   {/* Play/Pause overlay */}
                   {!isPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                      <div className="p-4 bg-black/50 rounded-full backdrop-blur-sm border border-amber-400/30">
-                        <Play className="w-12 h-12 text-amber-400" fill="currentColor" />
+                      <div className="p-5 bg-black/60 rounded-full backdrop-blur-sm border-2 border-amber-400/50">
+                        <Play className="w-14 h-14 text-amber-400" fill="currentColor" />
                       </div>
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Navigation indicators */}
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-20">
+              {/* Navigation indicators - positioned outside video */}
+              <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
                 <button
                   onClick={navigatePrev}
                   disabled={currentIndex === 0}
-                  className={`p-2 rounded-full bg-black/40 backdrop-blur-sm border border-amber-400/30 transition-all ${
-                    currentIndex === 0 ? 'opacity-30' : 'hover:bg-amber-400/20'
+                  className={`p-2.5 rounded-full bg-black/60 backdrop-blur-sm border-2 border-amber-400/40 transition-all ${
+                    currentIndex === 0 ? 'opacity-30' : 'active:scale-95'
                   }`}
                 >
                   <ChevronUp className="w-5 h-5 text-amber-400" />
@@ -285,18 +307,18 @@ export const PremiumVideoGallery = ({ videos, customTrigger }: PremiumVideoGalle
                 <button
                   onClick={navigateNext}
                   disabled={currentIndex === videos.length - 1}
-                  className={`p-2 rounded-full bg-black/40 backdrop-blur-sm border border-amber-400/30 transition-all ${
-                    currentIndex === videos.length - 1 ? 'opacity-30' : 'hover:bg-amber-400/20'
+                  className={`p-2.5 rounded-full bg-black/60 backdrop-blur-sm border-2 border-amber-400/40 transition-all ${
+                    currentIndex === videos.length - 1 ? 'opacity-30' : 'active:scale-95'
                   }`}
                 >
                   <ChevronDown className="w-5 h-5 text-amber-400" />
                 </button>
               </div>
 
-              {/* Bottom controls */}
-              <div className="absolute bottom-6 left-0 right-0 px-6 z-20">
+              {/* Bottom controls - safe area aware */}
+              <div className="absolute bottom-0 left-0 right-0 px-4 pb-6 pt-4 z-30 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                 {/* Progress bar */}
-                <div className="w-full h-1 bg-white/20 rounded-full mb-4 overflow-hidden">
+                <div className="w-full h-1.5 bg-white/20 rounded-full mb-4 overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full transition-all duration-100"
                     style={{ width: `${progress}%` }}
@@ -305,22 +327,22 @@ export const PremiumVideoGallery = ({ videos, customTrigger }: PremiumVideoGalle
 
                 <div className="flex items-center justify-between">
                   {/* Video indicator */}
-                  <div className="flex items-center gap-2">
-                    <span className="text-amber-400 font-medium text-sm">
+                  <div className="flex items-center gap-2 px-3 py-1.5 bg-black/50 backdrop-blur-sm rounded-full border border-amber-400/30">
+                    <span className="text-amber-400 font-bold text-sm">
                       {currentIndex + 1} / {videos.length}
                     </span>
                   </div>
 
                   {/* Dot indicators */}
-                  <div className="flex gap-1.5">
+                  <div className="flex gap-2">
                     {videos.map((_, index) => (
                       <button
                         key={index}
                         onClick={() => navigateTo(index)}
                         className={`transition-all duration-300 rounded-full ${
                           index === currentIndex
-                            ? 'w-6 h-2 bg-gradient-to-r from-amber-400 to-yellow-400'
-                            : 'w-2 h-2 bg-white/30 hover:bg-white/50'
+                            ? 'w-7 h-2.5 bg-gradient-to-r from-amber-400 to-yellow-400'
+                            : 'w-2.5 h-2.5 bg-white/40'
                         }`}
                       />
                     ))}
@@ -329,7 +351,7 @@ export const PremiumVideoGallery = ({ videos, customTrigger }: PremiumVideoGalle
                   {/* Volume control */}
                   <button
                     onClick={toggleMute}
-                    className="p-2 bg-black/40 backdrop-blur-sm rounded-full border border-amber-400/30 transition-all hover:bg-amber-400/20"
+                    className="p-2.5 bg-black/50 backdrop-blur-sm rounded-full border border-amber-400/30 transition-all active:scale-95"
                   >
                     {isMuted ? (
                       <VolumeX className="w-5 h-5 text-amber-400" />
@@ -342,9 +364,9 @@ export const PremiumVideoGallery = ({ videos, customTrigger }: PremiumVideoGalle
 
               {/* Swipe hint */}
               {currentIndex === 0 && (
-                <div className="absolute bottom-24 left-1/2 -translate-x-1/2 animate-bounce z-20">
-                  <div className="flex flex-col items-center text-amber-400/60 text-xs">
-                    <ChevronUp className="w-4 h-4" />
+                <div className="absolute bottom-32 left-1/2 -translate-x-1/2 animate-bounce z-20">
+                  <div className="flex flex-col items-center text-amber-400/80 text-xs font-medium">
+                    <ChevronUp className="w-5 h-5" />
                     <span>Swipe</span>
                   </div>
                 </div>
