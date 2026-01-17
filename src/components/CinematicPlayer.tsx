@@ -69,12 +69,12 @@ const packageAudioMap: Record<PackageType, Record<'ro' | 'es' | 'en', string>> =
   'management-platforme': { ro: audioManagementPlatforme, es: audioManagementPlatformeEs, en: audioManagementPlatformeEn },
 };
 
-const packageNames: Record<PackageType, string> = {
-  'brandul-tau': 'Brandul Tău',
-  'pilot-automat': 'Afacere pe Pilot Automat',
-  'asistent-virtual': 'Asistent Virtual Inteligent',
-  'productie-video': 'Producție Video',
-  'management-platforme': 'Management Platforme',
+const packageNames: Record<PackageType, Record<'ro' | 'es' | 'en', string>> = {
+  'brandul-tau': { ro: 'Pachetul 1', es: 'El paquete 1', en: 'Package 1' },
+  'pilot-automat': { ro: 'Pachetul 2', es: 'El paquete 2', en: 'Package 2' },
+  'asistent-virtual': { ro: 'Pachetul 3', es: 'El paquete 3', en: 'Package 3' },
+  'productie-video': { ro: 'Pachetul 4', es: 'El paquete 4', en: 'Package 4' },
+  'management-platforme': { ro: 'Pachetul 5', es: 'El paquete 5', en: 'Package 5' },
 };
 
 type AudioSource = { type: 'podcast'; language: Language } | { type: 'package'; packageId: PackageType };
@@ -118,7 +118,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
       const podcast = podcasts.find(p => p.id === audioSource.language) || podcasts[0];
       return `${podcast.label} - MrDelivery Podcast`;
     } else {
-      return packageNames[audioSource.packageId];
+      return packageNames[audioSource.packageId][appLanguage];
     }
   };
 
@@ -126,7 +126,7 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     if (audioSource.type === 'podcast') {
       return 'MrDelivery Podcast';
     } else {
-      return packageNames[audioSource.packageId];
+      return packageNames[audioSource.packageId][appLanguage];
     }
   };
 
