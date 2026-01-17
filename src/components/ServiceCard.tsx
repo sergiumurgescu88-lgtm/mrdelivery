@@ -68,24 +68,30 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Large Package Number Background - SOLID & VISIBLE */}
+      {/* Large Package Number Background - BOLD & VISIBLE on Desktop */}
       {packageNumber && (
         <div className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-[1] pointer-events-none select-none">
-          {/* Main solid number - fully visible */}
+          {/* Main solid number - more visible on desktop with increased opacity */}
           <span 
-            className="text-[200px] sm:text-[260px] md:text-[320px] lg:text-[380px] font-black leading-none block"
+            className="text-[200px] sm:text-[260px] md:text-[320px] lg:text-[380px] font-black leading-none block opacity-25 md:opacity-50"
             style={{
               color: packageNumber === 1 ? '#22d3ee' :
                      packageNumber === 2 ? '#e879f9' :
                      packageNumber === 3 ? '#fbbf24' :
                      packageNumber === 4 ? '#34d399' :
                      '#fb7185',
-              opacity: 0.25,
-              WebkitTextStroke: packageNumber === 1 ? '4px #0891b2' :
-                               packageNumber === 2 ? '4px #c026d3' :
-                               packageNumber === 3 ? '4px #d97706' :
-                               packageNumber === 4 ? '4px #059669' :
-                               '4px #e11d48',
+              WebkitTextStroke: packageNumber === 1 ? '6px #0891b2' :
+                               packageNumber === 2 ? '6px #c026d3' :
+                               packageNumber === 3 ? '6px #d97706' :
+                               packageNumber === 4 ? '6px #059669' :
+                               '6px #e11d48',
+              textShadow: `0 4px 30px ${
+                packageNumber === 1 ? 'rgba(34, 211, 238, 0.5)' :
+                packageNumber === 2 ? 'rgba(232, 121, 249, 0.5)' :
+                packageNumber === 3 ? 'rgba(251, 191, 36, 0.5)' :
+                packageNumber === 4 ? 'rgba(52, 211, 153, 0.5)' :
+                'rgba(251, 113, 133, 0.5)'
+              }`,
             }}
             aria-hidden="true"
           >
