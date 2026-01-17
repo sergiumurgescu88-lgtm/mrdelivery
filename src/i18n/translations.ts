@@ -78,7 +78,7 @@ export const translations = {
         title: 'Intelligent Virtual Assistant',
         price: '$399/month',
         originalPrice: '$499/month',
-        discount: '-25%',
+        discount: '25% OFF',
         subtitle: 'Your ideal employee: Never sleeps and responds instantly to any customer',
         badge: '24/7 Conversational AI Agent',
         phone: {
@@ -258,7 +258,7 @@ export const translations = {
         title: 'Business on Autopilot',
         price: '$399/month',
         originalPrice: '$699/month',
-        discount: '-45%',
+        discount: '45% OFF',
         discountNote: 'Save 45% by activating Digitalization and Marketing packages together',
         subtitle: 'Everything you need to sell online, in one complete solution.',
         badge: 'All-Inclusive Package',
