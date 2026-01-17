@@ -3,11 +3,11 @@ export type Language = 'en' | 'es' | 'ro';
 export const translations = {
   en: {
     siteName: 'MrDelivery',
-    tagline: '🚀 Marketing Management • AI Chatbots & Voice Agents • Viral Video Content',
+    tagline: '🚀 Marketing management • AI chatbots & voice agents • Viral video content',
     taglineItems: [
-      { emoji: '🚀', text: 'Training Staff - Management and Marketing' },
-      { emoji: '🤖', text: 'AI Chatbots & Voice Agents' },
-      { emoji: '🎬', text: 'Viral Video Content - Daily Posting' }
+      { emoji: '🚀', text: 'Staff training - management and marketing' },
+      { emoji: '🤖', text: 'AI chatbots & voice agents' },
+      { emoji: '🎬', text: 'Viral video content - daily posting' }
     ],
     subtitle: 'Dominate Uber Eats, DoorDash & Grubhub with our all-in-one restaurant marketing solutions',
     badges: {
@@ -594,11 +594,11 @@ export const translations = {
   },
   es: {
     siteName: 'MrDelivery',
-    tagline: '🚀 Gestión de Marketing • Chatbots IA & Agentes de Voz • Contenido de Vídeo Viral',
+    tagline: '🚀 Gestión de marketing • Chatbots IA & agentes de voz • Contenido de vídeo viral',
     taglineItems: [
-      { emoji: '🚀', text: 'Formación de Personal - Gestión y Marketing' },
-      { emoji: '🤖', text: 'Chatbots IA & Agentes de Voz' },
-      { emoji: '🎬', text: 'Contenido de Vídeo Viral - Publicación Diaria' }
+      { emoji: '🚀', text: 'Formación de personal - gestión y marketing' },
+      { emoji: '🤖', text: 'Chatbots IA & agentes de voz' },
+      { emoji: '🎬', text: 'Contenido de vídeo viral - publicación diaria' }
     ],
     subtitle: 'Domina Glovo, Uber Eats y Just Eat con nuestras soluciones integrales de marketing para restaurantes',
     badges: {
@@ -1185,11 +1185,11 @@ export const translations = {
   },
   ro: {
     siteName: 'MrDelivery',
-    tagline: '🚀 Management Marketing • Chatboți AI & Agenți Vocali • Conținut Video Viral',
+    tagline: '🚀 Management marketing • Chatboți AI & agenți vocali • Conținut video viral',
     taglineItems: [
-      { emoji: '🚀', text: 'Instruire Personal - Management și Marketing' },
-      { emoji: '🤖', text: 'Chatboți AI & Agenți Vocali' },
-      { emoji: '🎬', text: 'Conținut Video Viral - postări zilnice' }
+      { emoji: '🚀', text: 'Instruire personal - management și marketing' },
+      { emoji: '🤖', text: 'Chatboți AI & agenți vocali' },
+      { emoji: '🎬', text: 'Conținut video viral - postări zilnice' }
     ],
     subtitle: 'Domină Wolt, Glovo și Bolt Food cu soluțiile noastre complete de marketing pentru restaurante',
     badges: {
