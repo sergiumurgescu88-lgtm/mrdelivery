@@ -10,12 +10,12 @@ import { VideoGallery } from '@/components/VideoGallery';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
-import ugcExample1 from '@/assets/ugc-example-1.mp4';
-import ugcExample2 from '@/assets/ugc-example-2.mp4';
-import ugcExample3 from '@/assets/ugc-example-3.mp4';
-import ugcExample4 from '@/assets/ugc-example-4.mp4';
-import ugcExample5 from '@/assets/ugc-example-5.mp4';
-import ugcExample6 from '@/assets/ugc-example-6.mp4';
+import galleryVideo1 from '@/assets/gallery-video-1.mp4';
+import galleryVideo2 from '@/assets/gallery-video-2.mp4';
+import galleryVideo3 from '@/assets/gallery-video-3.mp4';
+import galleryVideo4 from '@/assets/gallery-video-4.mp4';
+import galleryVideo5 from '@/assets/gallery-video-5.mp4';
+import galleryVideo6 from '@/assets/gallery-video-6.mp4';
 import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -329,7 +329,7 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 pointer-events-none" />
                   
                   {/* Header - Opens Video Gallery */}
-                  <VideoGallery videos={[ugcExample1, ugcExample2, ugcExample3, ugcExample4, ugcExample5, ugcExample6]} buttonText="" customTrigger={<button className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10">
+                  <VideoGallery videos={[galleryVideo1, galleryVideo2, galleryVideo3, galleryVideo4, galleryVideo5, galleryVideo6]} buttonText="" customTrigger={<button className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-amber-400/10 transition-colors relative z-10">
                         <h4 className="font-bold text-base sm:text-lg text-amber-100 flex items-center gap-2">
                           <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-lg shadow-lg shadow-amber-500/30">
                             <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
