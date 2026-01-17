@@ -85,82 +85,87 @@ export const CookieConsentBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-lg bg-card rounded-2xl shadow-2xl border border-border overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+      <div className="w-full max-w-lg bg-black rounded-2xl shadow-2xl border border-yellow-500/30 overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
         {/* Header */}
-        <div className="p-5 pb-4 border-b border-border">
+        <div className="p-5 pb-4 border-b border-yellow-500/20">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-gradient-primary rounded-xl">
-              <Cookie className="w-5 h-5 text-primary-foreground" />
+            <div className="p-2.5 bg-yellow-500 rounded-xl">
+              <Cookie className="w-5 h-5 text-black" />
             </div>
             <div className="flex-1">
-              <h2 className="font-bold text-lg text-foreground">{t.title}</h2>
+              <h2 className="font-bold text-lg text-white flex items-center gap-2">
+                {t.title} <span className="text-xl">🍪</span>
+              </h2>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground mt-3">
+          <p className="text-sm text-gray-400 mt-3">
             {t.description}
           </p>
         </div>
 
         {/* Cookie Categories - Collapsible */}
         {showDetails && (
-          <div className="p-5 space-y-4 border-b border-border max-h-[300px] overflow-y-auto">
+          <div className="p-5 space-y-4 border-b border-yellow-500/20 max-h-[300px] overflow-y-auto">
             {/* Necessary */}
-            <div className="flex items-center justify-between p-3 bg-primary/5 rounded-xl border border-primary/20">
+            <div className="flex items-center justify-between p-3 bg-yellow-500/10 rounded-xl border border-yellow-500/30">
               <div className="flex items-center gap-3">
-                <Shield className="w-5 h-5 text-primary" />
+                <Shield className="w-5 h-5 text-yellow-500" />
                 <div>
-                  <p className="font-medium text-foreground text-sm">{t.necessary}</p>
-                  <p className="text-xs text-muted-foreground">{t.necessaryDesc}</p>
+                  <p className="font-medium text-white text-sm">{t.necessary}</p>
+                  <p className="text-xs text-gray-400">{t.necessaryDesc}</p>
                 </div>
               </div>
-              <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">
+              <span className="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded-full font-medium">
                 {t.alwaysActive}
               </span>
             </div>
 
             {/* Functional */}
-            <div className="flex items-center justify-between p-3 bg-muted/50 rounded-xl border border-border">
+            <div className="flex items-center justify-between p-3 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-secondary" />
+                <Sparkles className="w-5 h-5 text-yellow-400" />
                 <div>
-                  <p className="font-medium text-foreground text-sm">{t.functional}</p>
-                  <p className="text-xs text-muted-foreground">{t.functionalDesc}</p>
+                  <p className="font-medium text-white text-sm">{t.functional}</p>
+                  <p className="text-xs text-gray-400">{t.functionalDesc}</p>
                 </div>
               </div>
               <Switch
                 checked={preferences.functional}
                 onCheckedChange={(checked) => setPreferences({ ...preferences, functional: checked })}
+                className="data-[state=checked]:bg-yellow-500"
               />
             </div>
 
             {/* Analytics */}
-            <div className="flex items-center justify-between p-3 bg-muted/50 rounded-xl border border-border">
+            <div className="flex items-center justify-between p-3 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center gap-3">
-                <BarChart3 className="w-5 h-5 text-accent" />
+                <BarChart3 className="w-5 h-5 text-yellow-400" />
                 <div>
-                  <p className="font-medium text-foreground text-sm">{t.analytics}</p>
-                  <p className="text-xs text-muted-foreground">{t.analyticsDesc}</p>
+                  <p className="font-medium text-white text-sm">{t.analytics}</p>
+                  <p className="text-xs text-gray-400">{t.analyticsDesc}</p>
                 </div>
               </div>
               <Switch
                 checked={preferences.analytics}
                 onCheckedChange={(checked) => setPreferences({ ...preferences, analytics: checked })}
+                className="data-[state=checked]:bg-yellow-500"
               />
             </div>
 
             {/* Marketing */}
-            <div className="flex items-center justify-between p-3 bg-muted/50 rounded-xl border border-border">
+            <div className="flex items-center justify-between p-3 bg-gray-900/50 rounded-xl border border-gray-700">
               <div className="flex items-center gap-3">
-                <Target className="w-5 h-5 text-warning" />
+                <Target className="w-5 h-5 text-yellow-400" />
                 <div>
-                  <p className="font-medium text-foreground text-sm">{t.marketing}</p>
-                  <p className="text-xs text-muted-foreground">{t.marketingDesc}</p>
+                  <p className="font-medium text-white text-sm">{t.marketing}</p>
+                  <p className="text-xs text-gray-400">{t.marketingDesc}</p>
                 </div>
               </div>
               <Switch
                 checked={preferences.marketing}
                 onCheckedChange={(checked) => setPreferences({ ...preferences, marketing: checked })}
+                className="data-[state=checked]:bg-yellow-500"
               />
             </div>
           </div>
@@ -172,14 +177,14 @@ export const CookieConsentBanner = () => {
             <>
               <Button 
                 onClick={handleSavePreferences}
-                className="w-full bg-gradient-primary text-primary-foreground font-semibold"
+                className="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-semibold"
               >
                 {t.save}
               </Button>
               <Button 
                 variant="outline" 
                 onClick={() => setShowDetails(false)}
-                className="w-full"
+                className="w-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
               >
                 <X className="w-4 h-4 mr-2" />
                 {language === 'ro' ? 'Închide' : language === 'es' ? 'Cerrar' : 'Close'}
@@ -190,14 +195,14 @@ export const CookieConsentBanner = () => {
               <div className="flex gap-3">
                 <Button 
                   onClick={handleAcceptAll}
-                  className="flex-1 bg-gradient-primary text-primary-foreground font-semibold"
+                  className="flex-1 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold"
                 >
                   {t.acceptAll}
                 </Button>
                 <Button 
                   variant="outline" 
                   onClick={handleRejectAll}
-                  className="flex-1"
+                  className="flex-1 border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
                 >
                   {t.rejectAll}
                 </Button>
@@ -205,7 +210,7 @@ export const CookieConsentBanner = () => {
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDetails(true)}
-                className="w-full text-muted-foreground hover:text-foreground"
+                className="w-full text-gray-400 hover:text-yellow-500 hover:bg-gray-800"
               >
                 <Settings className="w-4 h-4 mr-2" />
                 {t.customize}
@@ -214,12 +219,12 @@ export const CookieConsentBanner = () => {
           )}
 
           {/* Links */}
-          <div className="flex justify-center gap-4 pt-2 text-xs text-muted-foreground">
-            <Link to="/politica-cookies" className="hover:text-primary hover:underline">
+          <div className="flex justify-center gap-4 pt-2 text-xs text-gray-500">
+            <Link to="/politica-cookies" className="hover:text-yellow-500 hover:underline">
               {t.moreInfo}
             </Link>
             <span>•</span>
-            <Link to="/termeni-si-conditii" className="hover:text-primary hover:underline">
+            <Link to="/termeni-si-conditii" className="hover:text-yellow-500 hover:underline">
               {language === 'ro' ? 'Termeni' : language === 'es' ? 'Términos' : 'Terms'}
             </Link>
           </div>
