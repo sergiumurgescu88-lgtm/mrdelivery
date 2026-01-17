@@ -58,7 +58,7 @@ const Index = () => {
           <LanguageSwitcher />
           
           <div className="inline-block relative mb-2 sm:mb-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gradient-primary drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-gradient-primary drop-shadow-lg md:text-6xl">
               {t.siteName}
             </h1>
           </div>
