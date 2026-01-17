@@ -533,6 +533,11 @@ const FranchisePage: React.FC = () => {
   const { toast } = useToast();
   const t = franchiseTranslations[language as keyof typeof franchiseTranslations] || franchiseTranslations.ro;
   
+  // Scroll to top on mount
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   // Form state
   const [formData, setFormData] = useState({
     name: '',
