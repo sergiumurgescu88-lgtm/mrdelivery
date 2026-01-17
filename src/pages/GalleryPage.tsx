@@ -29,10 +29,111 @@ const videos = [
   galleryVideo13, galleryVideo14, galleryVideo15, galleryVideo16
 ];
 
+// Lazy Video Card Component with Intersection Observer
+interface LazyVideoCardProps {
+  video: string;
+  index: number;
+  currentIndex: number;
+  isPlaying: boolean;
+  isMuted: boolean;
+  goldenBorderStyle: string;
+  videoRefs: React.MutableRefObject<(HTMLVideoElement | null)[]>;
+  onVideoClick: (index: number) => void;
+}
+
+const LazyVideoCard = ({ 
+  video, 
+  index, 
+  currentIndex, 
+  isPlaying, 
+  isMuted, 
+  goldenBorderStyle, 
+  videoRefs, 
+  onVideoClick 
+}: LazyVideoCardProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px', threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      onClick={() => onVideoClick(index)}
+      className={`group relative cursor-pointer rounded-2xl overflow-hidden aspect-[9/16] ${goldenBorderStyle} hover:border-amber-400 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)] transition-all duration-300`}
+    >
+      {/* Golden corner accents */}
+      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-amber-400 rounded-tl-xl z-10" />
+      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-amber-400 rounded-tr-xl z-10" />
+      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-amber-400 rounded-bl-xl z-10" />
+      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-amber-400 rounded-br-xl z-10" />
+
+      {isVisible ? (
+        <video
+          ref={el => { videoRefs.current[index] = el; }}
+          src={video}
+          className="w-full h-full object-cover"
+          loop
+          playsInline
+          muted={isMuted}
+          preload="metadata"
+        />
+      ) : (
+        <div className="w-full h-full bg-black/80 flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
+        </div>
+      )}
+
+      {/* Hover overlay */}
+      <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${
+        currentIndex === index && isPlaying ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'
+      }`}>
+        <div className="p-4 bg-black/50 rounded-full backdrop-blur-sm border border-amber-400/50 group-hover:scale-110 transition-transform">
+          <Play className="w-8 h-8 text-amber-400" fill="currentColor" />
+        </div>
+      </div>
+
+      {/* Video number badge */}
+      <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-full border border-amber-400/30 z-10">
+        <span className="text-amber-400 font-medium text-xs">{index + 1}</span>
+      </div>
+
+      {/* Playing indicator */}
+      {currentIndex === index && isPlaying && (
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-full border border-amber-400/30 z-10">
+          <div className="flex gap-0.5">
+            <div className="w-1 h-3 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
+            <div className="w-1 h-4 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
+            <div className="w-1 h-2 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
+          </div>
+          <span className="text-amber-400 text-xs font-medium">Playing</span>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const GalleryPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false); // Start with audio enabled
   const [isPlaying, setIsPlaying] = useState(true);
+  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set([0, 1, 2])); // Initial lazy load
   const [progress, setProgress] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -194,16 +295,22 @@ const GalleryPage = () => {
     });
   };
 
-  // Preload videos
+  // Lazy load videos - only load adjacent videos
   useEffect(() => {
-    const preloadIndices = [currentIndex - 1, currentIndex, currentIndex + 1]
+    const indicesToLoad = [currentIndex - 1, currentIndex, currentIndex + 1, currentIndex + 2]
       .filter(i => i >= 0 && i < videos.length);
     
-    preloadIndices.forEach(index => {
+    setLoadedVideos(prev => {
+      const newSet = new Set(prev);
+      indicesToLoad.forEach(i => newSet.add(i));
+      return newSet;
+    });
+    
+    // Preload adjacent videos
+    indicesToLoad.forEach(index => {
       const video = videoRefs.current[index];
       if (video) {
         video.preload = 'auto';
-        video.load();
       }
     });
   }, [currentIndex]);
@@ -272,21 +379,32 @@ const GalleryPage = () => {
               {/* Inner glow effect */}
               <div className="absolute inset-0 bg-gradient-to-b from-amber-400/5 via-transparent to-amber-400/5 pointer-events-none z-10" />
               
-              {/* Videos */}
+              {/* Videos - Lazy loaded */}
               {videos.map((video, index) => (
-                <video
-                  key={index}
-                  ref={el => { videoRefs.current[index] = el; }}
-                  src={video}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-                    index === currentIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                  }`}
-                  loop
-                  playsInline
-                  muted={isMuted}
-                  preload={Math.abs(index - currentIndex) <= 1 ? 'auto' : 'metadata'}
-                  onClick={togglePlay}
-                />
+                loadedVideos.has(index) ? (
+                  <video
+                    key={index}
+                    ref={el => { videoRefs.current[index] = el; }}
+                    src={video}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                      index === currentIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                    loop
+                    playsInline
+                    muted={isMuted}
+                    preload={Math.abs(index - currentIndex) <= 1 ? 'auto' : 'none'}
+                    onClick={togglePlay}
+                  />
+                ) : (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 w-full h-full bg-black/80 flex items-center justify-center transition-opacity duration-300 ${
+                      index === currentIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                  >
+                    <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
+                  </div>
+                )
               ))}
 
               {/* Play/Pause overlay */}
@@ -399,21 +517,30 @@ const GalleryPage = () => {
             <p className="text-amber-400/60 text-sm mt-2">Click to play • Press ESC to go back</p>
           </div>
 
-          {/* Grid */}
+          {/* Grid - Lazy loaded */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 px-8 pb-24 max-w-6xl mx-auto">
             {videos.map((video, index) => (
-              <div
+              <LazyVideoCard
                 key={index}
-                onClick={() => {
-                  setCurrentIndex(index);
-                  const videoEl = videoRefs.current[index];
+                video={video}
+                index={index}
+                currentIndex={currentIndex}
+                isPlaying={isPlaying}
+                isMuted={isMuted}
+                goldenBorderStyle={goldenBorderStyle}
+                videoRefs={videoRefs}
+                onVideoClick={(idx) => {
+                  setCurrentIndex(idx);
+                  // Mark as loaded when clicked
+                  setLoadedVideos(prev => new Set([...prev, idx]));
+                  const videoEl = videoRefs.current[idx];
                   if (videoEl) {
-                    if (isPlaying && currentIndex === index) {
+                    if (isPlaying && currentIndex === idx) {
                       videoEl.pause();
                       setIsPlaying(false);
                     } else {
                       videoRefs.current.forEach((v, i) => {
-                        if (v && i !== index) v.pause();
+                        if (v && i !== idx) v.pause();
                       });
                       videoEl.currentTime = 0;
                       videoEl.muted = isMuted;
@@ -422,50 +549,7 @@ const GalleryPage = () => {
                     }
                   }
                 }}
-                className={`group relative cursor-pointer rounded-2xl overflow-hidden aspect-[9/16] ${goldenBorderStyle} hover:border-amber-400 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)] transition-all duration-300`}
-              >
-                {/* Golden corner accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-amber-400 rounded-tl-xl z-10" />
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-amber-400 rounded-tr-xl z-10" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-amber-400 rounded-bl-xl z-10" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-amber-400 rounded-br-xl z-10" />
-
-                <video
-                  ref={el => { videoRefs.current[index] = el; }}
-                  src={video}
-                  className="w-full h-full object-cover"
-                  loop
-                  playsInline
-                  muted={isMuted}
-                  preload="auto"
-                />
-
-                {/* Hover overlay */}
-                <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${
-                  currentIndex === index && isPlaying ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'
-                }`}>
-                  <div className="p-4 bg-black/50 rounded-full backdrop-blur-sm border border-amber-400/50 group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 text-amber-400" fill="currentColor" />
-                  </div>
-                </div>
-
-                {/* Video number badge */}
-                <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-full border border-amber-400/30 z-10">
-                  <span className="text-amber-400 font-medium text-xs">{index + 1}</span>
-                </div>
-
-                {/* Playing indicator */}
-                {currentIndex === index && isPlaying && (
-                  <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-full border border-amber-400/30 z-10">
-                    <div className="flex gap-0.5">
-                      <div className="w-1 h-3 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
-                      <div className="w-1 h-4 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
-                      <div className="w-1 h-2 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
-                    </div>
-                    <span className="text-amber-400 text-xs font-medium">Playing</span>
-                  </div>
-                )}
-              </div>
+              />
             ))}
           </div>
 
