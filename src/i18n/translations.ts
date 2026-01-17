@@ -218,7 +218,7 @@ export const translations = {
         heroSubtitle: "Don't depend on influencers anymore. Use your own face and voice to create viral content in seconds, at a fraction of the cost.",
         price: '$199',
         originalPrice: '$299',
-        discount: '32 Videos',
+        discount: '35% OFF',
         noSubscription: 'Pay once. No monthly subscription.',
         subtitle: 'A real presenter promotes your product. You just send a photo on Telegram.',
         badge: 'AI-Powered UGC Creator',
