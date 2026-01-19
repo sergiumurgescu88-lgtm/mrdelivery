@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import FranchisePage from "./pages/FranchisePage";
+import FranchiseManualPage from "./pages/FranchiseManualPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/franchise" element={<FranchisePage />} />
+              <Route path="/franchise_manual" element={<FranchiseManualPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
               <Route path="/politica-cookies" element={<CookiePolicy />} />
