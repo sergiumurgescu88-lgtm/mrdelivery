@@ -1815,6 +1815,322 @@ export const translations = {
   }
 };
 
+// Franchise Manual translations (separate for cleaner organization)
+export const franchiseManualTranslations = {
+  en: {
+    version: 'Franchise Manual Version 3.0',
+    heroTitle: 'TURNKEY AI BUSINESS COMPLETELY AUTOMATED',
+    heroDescription: 'No office. No employees at the start. Invest €5,000 and operate a digital empire from anywhere in the world.',
+    roiGuarantee: '30 Day ROI Guarantee',
+    applyCta: 'Apply for Franchise',
+    contactTeam: 'CONTACT TEAM',
+    sections: {
+      vision: {
+        title: 'VISION & PROBLEM',
+        problem: 'The Problem:',
+        problemDesc: '95% of restaurants and local businesses suffer digitally.',
+        problemItems: [
+          'Huge commissions (30-35%) on Uber Eats/DoorDash/Grubhub.',
+          'Lack of video visibility (TikTok/Reels).',
+          'Missed calls = lost money.'
+        ],
+        solution: 'The MrDelivery Solution:',
+        solutionDesc: 'You offer them a complete "digital department". You sell the solution, we handle 100% of the technical delivery.'
+      },
+      robot: {
+        title: 'THE ENGINE: SALES ROBOT',
+        intro: 'While others cold call, your AI robot works 24/7:',
+        steps: [
+          { title: 'Scans:', desc: 'Google Maps in your exclusive territory.' },
+          { title: 'Extracts:', desc: 'Email, Phone, WhatsApp of business owners.' },
+          { title: 'Contacts:', desc: 'Sends 300 messages/day automatically.' },
+          { title: 'Schedules:', desc: 'Books demos directly in your calendar.' }
+        ]
+      },
+      income: {
+        title: '5 INCOME SOURCES',
+        packages: [
+          {
+            name: '1. Delivery Platform Management',
+            target: 'For Restaurants (Uber Eats, DoorDash, Grubhub)',
+            price: '€300/month',
+            net: 'Net: €273',
+            desc: 'Commission negotiation, menu optimization.'
+          },
+          {
+            name: '2. Premium Video Production',
+            target: 'For any business (TikTok/Reels)',
+            price: '€500/month',
+            net: 'Net: €455',
+            desc: '20 Videos/month, AI Avatar, Auto-posting.'
+          },
+          {
+            name: '3. 24/7 AI Virtual Assistant',
+            target: '',
+            price: '€400/month',
+            net: 'Net: €364',
+            desc: 'Answers phone, makes WhatsApp reservations.'
+          },
+          {
+            name: '4. All-Inclusive Digital Suite',
+            target: '',
+            price: '€350/month',
+            net: 'Net: €318',
+            desc: 'Own App + Order Website + Marketing.',
+            bestseller: true
+          },
+          {
+            name: '5. AI Video Generator',
+            target: '',
+            price: '€100 (one-time)',
+            net: 'Net: €91',
+            desc: 'Quick upsell product. Photo to Video in 2 min.'
+          }
+        ]
+      },
+      financial: {
+        title: 'FINANCIAL MODEL',
+        intro: 'You keep 91% of revenues.',
+        phases: [
+          { name: 'PHASE 1: Solo (Months 1-6)', clients: '10-12', profit: '~€5,780/month' },
+          { name: 'PHASE 2: Team (Months 7-12)', clients: '20', profit: '~€10,160/month' },
+          { name: 'PHASE 3: Empire (Month 13+)', clients: '30+', profit: '€15,000+/month' }
+        ],
+        clientsLabel: 'Clients:',
+        profitLabel: 'Net Profit:'
+      },
+      launch: {
+        title: 'LAUNCH IN 30 DAYS',
+        timeline: [
+          { title: 'Days 1-3: Foundation', desc: 'Contract signing, Platform access, Workstation setup.' },
+          { title: 'Days 4-10: Bot Activation', desc: 'Robot starts sending 250 messages/day. First demos appear in calendar.' },
+          { title: 'Days 11-30: First Money', desc: 'Close 4-6 clients. Recover your €5,000 investment. If not, you get extended free support.' }
+        ]
+      },
+      license: {
+        title: 'WHAT THE LICENSE INCLUDES',
+        items: [
+          'Exclusive Territory',
+          'AI Sales Robot Setup',
+          'Contracts & GDPR Legal',
+          'Video Academy Training',
+          'Personal Coach (90 days)'
+        ],
+        costLabel: 'One-Time License Cost',
+        cost: '€5,000'
+      }
+    }
+  },
+  es: {
+    version: 'Manual de Franquicia Versión 3.0',
+    heroTitle: 'NEGOCIO IA LLAVE EN MANO COMPLETAMENTE AUTOMATIZADO',
+    heroDescription: 'Sin oficina. Sin empleados al inicio. Invierte €5.000 y opera un imperio digital desde cualquier parte del mundo.',
+    roiGuarantee: 'Garantía ROI 30 Días',
+    applyCta: 'Solicitar Franquicia',
+    contactTeam: 'CONTACTAR EQUIPO',
+    sections: {
+      vision: {
+        title: 'VISIÓN Y PROBLEMA',
+        problem: 'El Problema:',
+        problemDesc: 'El 95% de los restaurantes y negocios locales sufren digitalmente.',
+        problemItems: [
+          'Comisiones enormes (30-35%) en Glovo/Uber Eats/Just Eat.',
+          'Falta de visibilidad en video (TikTok/Reels).',
+          'Llamadas perdidas = dinero perdido.'
+        ],
+        solution: 'La Solución MrDelivery:',
+        solutionDesc: 'Tú les ofreces un "departamento digital" completo. Tú vendes la solución, nosotros nos encargamos del 100% de la entrega técnica.'
+      },
+      robot: {
+        title: 'EL MOTOR: ROBOT DE VENTAS',
+        intro: 'Mientras otros llaman en frío, tu robot IA trabaja 24/7:',
+        steps: [
+          { title: 'Escanea:', desc: 'Google Maps en tu territorio exclusivo.' },
+          { title: 'Extrae:', desc: 'Email, Teléfono, WhatsApp de dueños de negocios.' },
+          { title: 'Contacta:', desc: 'Envía 300 mensajes/día automáticamente.' },
+          { title: 'Programa:', desc: 'Reserva demos directamente en tu calendario.' }
+        ]
+      },
+      income: {
+        title: '5 FUENTES DE INGRESO',
+        packages: [
+          {
+            name: '1. Gestión Plataformas Delivery',
+            target: 'Para Restaurantes (Glovo, Uber Eats, Just Eat)',
+            price: '€300/mes',
+            net: 'Neto: €273',
+            desc: 'Negociación comisiones, optimización menús.'
+          },
+          {
+            name: '2. Producción Video Premium',
+            target: 'Para cualquier negocio (TikTok/Reels)',
+            price: '€500/mes',
+            net: 'Neto: €455',
+            desc: '20 Videos/mes, Avatar IA, Auto-publicación.'
+          },
+          {
+            name: '3. Asistente Virtual IA 24/7',
+            target: '',
+            price: '€400/mes',
+            net: 'Neto: €364',
+            desc: 'Responde llamadas, hace reservas por WhatsApp.'
+          },
+          {
+            name: '4. Suite Digital Todo Incluido',
+            target: '',
+            price: '€350/mes',
+            net: 'Neto: €318',
+            desc: 'App propia + Web de Pedidos + Marketing.',
+            bestseller: true
+          },
+          {
+            name: '5. Generador Video IA',
+            target: '',
+            price: '€100 (único)',
+            net: 'Neto: €91',
+            desc: 'Producto rápido de upsell. Foto a Video en 2 min.'
+          }
+        ]
+      },
+      financial: {
+        title: 'MODELO FINANCIERO',
+        intro: 'Te quedas con el 91% de los ingresos.',
+        phases: [
+          { name: 'FASE 1: Solo (Meses 1-6)', clients: '10-12', profit: '~€5.780/mes' },
+          { name: 'FASE 2: Equipo (Meses 7-12)', clients: '20', profit: '~€10.160/mes' },
+          { name: 'FASE 3: Imperio (Mes 13+)', clients: '30+', profit: '€15.000+/mes' }
+        ],
+        clientsLabel: 'Clientes:',
+        profitLabel: 'Beneficio Neto:'
+      },
+      launch: {
+        title: 'LANZAMIENTO EN 30 DÍAS',
+        timeline: [
+          { title: 'Días 1-3: Fundación', desc: 'Firma contrato, Acceso Plataforma, Configuración puesto de trabajo.' },
+          { title: 'Días 4-10: Activación Bot', desc: 'Robot empieza a enviar 250 mensajes/día. Primeras demos aparecen en calendario.' },
+          { title: 'Días 11-30: Primeros Ingresos', desc: 'Cierras 4-6 clientes. Recuperas tu inversión de €5.000. Si no, recibes soporte extendido gratis.' }
+        ]
+      },
+      license: {
+        title: 'QUÉ INCLUYE LA LICENCIA',
+        items: [
+          'Territorio Exclusivo',
+          'Configuración Robot IA Ventas',
+          'Contratos & Legal GDPR',
+          'Formación Academia Video',
+          'Coach Personal (90 días)'
+        ],
+        costLabel: 'Coste Único Licencia',
+        cost: '€5.000'
+      }
+    }
+  },
+  ro: {
+    version: 'Manual Franciză Versiunea 3.0',
+    heroTitle: 'BUSINESS AI LA CHEIE COMPLET AUTOMATIZAT',
+    heroDescription: 'Fără birou. Fără angajați la început. Investește €5.000 și operează un imperiu digital de oriunde din lume.',
+    roiGuarantee: 'Garanție ROI 30 Zile',
+    applyCta: 'Aplică pentru Franciză',
+    contactTeam: 'CONTACTEAZĂ ECHIPA',
+    sections: {
+      vision: {
+        title: 'VIZIUNEA & PROBLEMA',
+        problem: 'Problema:',
+        problemDesc: '95% dintre restaurante și afacerile locale suferă digital.',
+        problemItems: [
+          'Comisioane uriașe (30-35%) la Glovo/Tazz/Uber.',
+          'Lipsă de vizibilitate video (TikTok/Reels).',
+          'Apeluri pierdute = bani pierduți.'
+        ],
+        solution: 'Soluția MrDelivery:',
+        solutionDesc: 'Tu le oferi un "departament digital" complet. Tu vinzi soluția, noi ne ocupăm de livrarea tehnică 100%.'
+      },
+      robot: {
+        title: 'MOTORUL: ROBOTUL DE VÂNZĂRI',
+        intro: 'În timp ce alții sună "la rece", robotul tău AI muncește 24/7:',
+        steps: [
+          { title: 'Scanează:', desc: 'Google Maps în teritoriul tău exclusiv.' },
+          { title: 'Extrage:', desc: 'Email, Telefon, WhatsApp-ul patronilor.' },
+          { title: 'Contactează:', desc: 'Trimite 300 mesaje/zi automat.' },
+          { title: 'Programează:', desc: 'Îți pune Demo-uri direct în calendar.' }
+        ]
+      },
+      income: {
+        title: 'CELE 5 SURSE DE VENIT',
+        packages: [
+          {
+            name: '1. Management Platforme Livrare',
+            target: 'Pentru Restaurante (Glovo, Tazz, Bolt)',
+            price: '€300/lună',
+            net: 'Net: €273',
+            desc: 'Negociere comisioane, optimizare meniuri.'
+          },
+          {
+            name: '2. Producție Video Premium',
+            target: 'Pentru orice afacere (TikTok/Reels)',
+            price: '€500/lună',
+            net: 'Net: €455',
+            desc: '20 Video-uri/lună, Avatar AI, Postare automată.'
+          },
+          {
+            name: '3. Asistent Virtual AI 24/7',
+            target: '',
+            price: '€400/lună',
+            net: 'Net: €364',
+            desc: 'Răspunde la telefon, face rezervări pe WhatsApp.'
+          },
+          {
+            name: '4. Suită Digitală All-Inclusive',
+            target: '',
+            price: '€350/lună',
+            net: 'Net: €318',
+            desc: 'Aplicație proprie + Site Comenzi + Marketing.',
+            bestseller: true
+          },
+          {
+            name: '5. Generator Video AI',
+            target: '',
+            price: '€100 (one-time)',
+            net: 'Net: €91',
+            desc: 'Produs rapid de upsell. Poză în Video în 2 min.'
+          }
+        ]
+      },
+      financial: {
+        title: 'MODEL FINANCIAR',
+        intro: 'Tu păstrezi 91% din venituri.',
+        phases: [
+          { name: 'FAZA 1: Solo (Lunile 1-6)', clients: '10-12', profit: '~€5.780/lună' },
+          { name: 'FAZA 2: Echipă (Lunile 7-12)', clients: '20', profit: '~€10.160/lună' },
+          { name: 'FAZA 3: Imperiu (Luna 13+)', clients: '30+', profit: '€15.000+/lună' }
+        ],
+        clientsLabel: 'Clienți:',
+        profitLabel: 'Profit Net:'
+      },
+      launch: {
+        title: 'LANSARE ÎN 30 ZILE',
+        timeline: [
+          { title: 'Zilele 1-3: Fundația', desc: 'Semnare contract, acces Platformă, Configurare stație de lucru.' },
+          { title: 'Zilele 4-10: Activare Bot', desc: 'Robotul începe trimiterea a 250 mesaje/zi. Primele demo-uri apar în calendar.' },
+          { title: 'Zilele 11-30: Primii Bani', desc: 'Închizi 4-6 clienți. Recuperezi investiția de €5.000. Dacă nu, primești suport gratuit extins.' }
+        ]
+      },
+      license: {
+        title: 'CE INCLUDE LICENȚA',
+        items: [
+          'Teritoriu Exclusiv',
+          'Configurare Robot AI Vânzări',
+          'Contracte & Legal GDPR',
+          'Training Academie Video',
+          'Coach Personal (90 zile)'
+        ],
+        costLabel: 'Cost Unic Licență',
+        cost: '€5.000'
+      }
+    }
+  }
+};
+
 export const getWhatsAppUrl = () => {
   return 'https://wa.me/40768676141';
 };
