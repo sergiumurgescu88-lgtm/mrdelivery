@@ -1,29 +1,33 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback, lazy, Suspense, memo } from 'react';
 import { Play, Pause, Volume2, VolumeX, Podcast, Maximize2, Minimize2, Package, RotateCcw, RotateCw } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language as AppLanguage } from '@/i18n/translations';
-import podcastRomanian from '@/assets/podcast-romanian.wav';
-import podcastSpanish from '@/assets/podcast-spanish.wav';
-import podcastEnglish from '@/assets/podcast-english.wav';
-// Romanian audio (default)
-import audioBrandulTau from '@/assets/audio-brandul-tau.wav';
-import audioPilotAutomat from '@/assets/audio-pilot-automat.wav';
-import audioAsistentVirtual from '@/assets/audio-asistent-virtual.wav';
-import audioProductieVideo from '@/assets/audio-productie-video.wav';
-import audioManagementPlatforme from '@/assets/audio-management-platforme.wav';
-// Spanish audio
-import audioBrandulTauEs from '@/assets/audio-brandul-tau-es.wav';
-import audioPilotAutomatEs from '@/assets/audio-pilot-automat-es.wav';
-import audioAsistentVirtualEs from '@/assets/audio-asistent-virtual-es.wav';
-import audioProductieVideoEs from '@/assets/audio-productie-video-es.wav';
-import audioManagementPlatformeEs from '@/assets/audio-management-platforme-es.wav';
-// English audio
-import audioBrandulTauEn from '@/assets/audio-brandul-tau-en.wav';
-import audioPilotAutomatEn from '@/assets/audio-pilot-automat-en.wav';
-import audioAsistentVirtualEn from '@/assets/audio-asistent-virtual-en.wav';
-import audioProductieVideoEn from '@/assets/audio-productie-video-en.wav';
-import audioManagementPlatformeEn from '@/assets/audio-management-platforme-en.wav';
+
+// Lazy load audio URLs - these are just paths, actual loading happens on demand
+const getAudioUrl = (name: string): string => {
+  const audioMap: Record<string, string> = {
+    'podcast-romanian': new URL('@/assets/podcast-romanian.wav', import.meta.url).href,
+    'podcast-spanish': new URL('@/assets/podcast-spanish.wav', import.meta.url).href,
+    'podcast-english': new URL('@/assets/podcast-english.wav', import.meta.url).href,
+    'audio-brandul-tau': new URL('@/assets/audio-brandul-tau.wav', import.meta.url).href,
+    'audio-pilot-automat': new URL('@/assets/audio-pilot-automat.wav', import.meta.url).href,
+    'audio-asistent-virtual': new URL('@/assets/audio-asistent-virtual.wav', import.meta.url).href,
+    'audio-productie-video': new URL('@/assets/audio-productie-video.wav', import.meta.url).href,
+    'audio-management-platforme': new URL('@/assets/audio-management-platforme.wav', import.meta.url).href,
+    'audio-brandul-tau-es': new URL('@/assets/audio-brandul-tau-es.wav', import.meta.url).href,
+    'audio-pilot-automat-es': new URL('@/assets/audio-pilot-automat-es.wav', import.meta.url).href,
+    'audio-asistent-virtual-es': new URL('@/assets/audio-asistent-virtual-es.wav', import.meta.url).href,
+    'audio-productie-video-es': new URL('@/assets/audio-productie-video-es.wav', import.meta.url).href,
+    'audio-management-platforme-es': new URL('@/assets/audio-management-platforme-es.wav', import.meta.url).href,
+    'audio-brandul-tau-en': new URL('@/assets/audio-brandul-tau-en.wav', import.meta.url).href,
+    'audio-pilot-automat-en': new URL('@/assets/audio-pilot-automat-en.wav', import.meta.url).href,
+    'audio-asistent-virtual-en': new URL('@/assets/audio-asistent-virtual-en.wav', import.meta.url).href,
+    'audio-productie-video-en': new URL('@/assets/audio-productie-video-en.wav', import.meta.url).href,
+    'audio-management-platforme-en': new URL('@/assets/audio-management-platforme-en.wav', import.meta.url).href,
+  };
+  return audioMap[name] || '';
+};
 
 // Map app language to podcast language
 const languageToPodcast: Record<AppLanguage, Language> = {
@@ -51,22 +55,22 @@ interface PodcastConfig {
   id: Language;
   label: string;
   flag: string;
-  src: string;
+  audioKey: string;
 }
 
 const podcasts: PodcastConfig[] = [
-  { id: 'ro', label: 'Română', flag: '🇷🇴', src: podcastRomanian },
-  { id: 'es', label: 'Español', flag: '🇪🇸', src: podcastSpanish },
-  { id: 'us', label: 'English', flag: '🇺🇸', src: podcastEnglish },
+  { id: 'ro', label: 'Română', flag: '🇷🇴', audioKey: 'podcast-romanian' },
+  { id: 'es', label: 'Español', flag: '🇪🇸', audioKey: 'podcast-spanish' },
+  { id: 'us', label: 'English', flag: '🇺🇸', audioKey: 'podcast-english' },
 ];
 
-// Package audio per language
-const packageAudioMap: Record<PackageType, Record<'ro' | 'es' | 'en', string>> = {
-  'brandul-tau': { ro: audioBrandulTau, es: audioBrandulTauEs, en: audioBrandulTauEn },
-  'pilot-automat': { ro: audioPilotAutomat, es: audioPilotAutomatEs, en: audioPilotAutomatEn },
-  'asistent-virtual': { ro: audioAsistentVirtual, es: audioAsistentVirtualEs, en: audioAsistentVirtualEn },
-  'productie-video': { ro: audioProductieVideo, es: audioProductieVideoEs, en: audioProductieVideoEn },
-  'management-platforme': { ro: audioManagementPlatforme, es: audioManagementPlatformeEs, en: audioManagementPlatformeEn },
+// Package audio keys per language
+const packageAudioKeys: Record<PackageType, Record<'ro' | 'es' | 'en', string>> = {
+  'brandul-tau': { ro: 'audio-brandul-tau', es: 'audio-brandul-tau-es', en: 'audio-brandul-tau-en' },
+  'pilot-automat': { ro: 'audio-pilot-automat', es: 'audio-pilot-automat-es', en: 'audio-pilot-automat-en' },
+  'asistent-virtual': { ro: 'audio-asistent-virtual', es: 'audio-asistent-virtual-es', en: 'audio-asistent-virtual-en' },
+  'productie-video': { ro: 'audio-productie-video', es: 'audio-productie-video-es', en: 'audio-productie-video-en' },
+  'management-platforme': { ro: 'audio-management-platforme', es: 'audio-management-platforme-es', en: 'audio-management-platforme-en' },
 };
 
 const packageNames: Record<PackageType, Record<'ro' | 'es' | 'en', string>> = {
@@ -105,11 +109,11 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
   const getCurrentSrc = () => {
     if (audioSource.type === 'podcast') {
       const podcast = podcasts.find(p => p.id === audioSource.language) || podcasts[0];
-      return podcast.src;
+      return getAudioUrl(podcast.audioKey);
     } else {
       // Get package audio based on app language
       const langKey = appLanguage === 'es' ? 'es' : appLanguage === 'en' ? 'en' : 'ro';
-      return packageAudioMap[audioSource.packageId][langKey];
+      return getAudioUrl(packageAudioKeys[audioSource.packageId][langKey]);
     }
   };
 
