@@ -4,7 +4,7 @@ import { ServiceCard } from '@/components/ServiceCard';
 import { ServiceItem } from '@/components/ServiceItem';
 import { PulsingBadge } from '@/components/PulsingBadge';
 import { CinematicPlayer, PackageType } from '@/components/CinematicPlayer';
-import { FoodBackground } from '@/components/FoodBackground';
+import { InteractiveStarBackground } from '@/components/InteractiveStarBackground';
 import { FullscreenVideo } from '@/components/FullscreenVideo';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import { Link } from 'react-router-dom';
@@ -42,8 +42,8 @@ const Index = () => {
   return <div className="min-h-screen relative overflow-x-hidden bg-background">
       <SEO title={currentSeo.title} description={currentSeo.description} keywords={currentSeo.keywords} url="https://mrdelivery.lovable.app" locale={language === 'ro' ? 'ro_RO' : language === 'es' ? 'es_ES' : 'en_US'} />
       
-      {/* Food Background with Miniature Chefs */}
-      <FoodBackground />
+      {/* Interactive Star Background with Mouse Effect */}
+      <InteractiveStarBackground />
 
       <div className="max-w-4xl mx-auto px-3 sm:px-4 pt-6 pb-28 sm:py-8 relative z-10">
         {/* Hero Section */}
