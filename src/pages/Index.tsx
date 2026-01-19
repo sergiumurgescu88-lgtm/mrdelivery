@@ -277,7 +277,18 @@ const Index = () => {
                         : item.icon === 'Users' ? Users 
                         : ClipboardList;
                       return (
-                        <div key={index} className="flex items-start gap-4 bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/10 hover:border-amber-400/30 transition-all duration-300">
+                        <div 
+                          key={index} 
+                          className={`flex items-start gap-4 bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/10 hover:border-amber-400/30 transition-all duration-300 ${
+                            isReportsOpen 
+                              ? 'opacity-100 translate-y-0' 
+                              : 'opacity-0 translate-y-4'
+                          }`}
+                          style={{ 
+                            transitionDelay: isReportsOpen ? `${index * 100}ms` : '0ms',
+                            transitionProperty: 'opacity, transform, background-color, border-color'
+                          }}
+                        >
                           <div className="p-2.5 bg-amber-400 rounded-xl flex-shrink-0 shadow-lg shadow-amber-400/20">
                             <IconComponent className="w-5 h-5 text-black" />
                           </div>
