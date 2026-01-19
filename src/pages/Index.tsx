@@ -236,24 +236,33 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Monthly Reports - Golden Section */}
-              <div className="bg-gradient-to-br from-amber-500/20 via-yellow-500/15 to-amber-600/20 p-4 sm:p-5 rounded-2xl border-2 border-amber-400/50 shadow-lg shadow-amber-500/10 mb-5">
-                <h5 className="font-bold text-lg sm:text-xl text-amber-300 mb-3 flex items-center gap-2">
-                  <div className="p-2 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg shadow-lg">
-                    <FileText className="w-5 h-5 text-black" />
-                  </div>
-                  {(t.services.standard as any).monthlyReports?.title || 'Ce primești lunar'}
-                </h5>
-                <p className="text-sm text-amber-100/80 mb-4 leading-relaxed">
-                  {(t.services.standard as any).monthlyReports?.intro || 'Pentru a ne asigura că business-ul tău crește constant pe platformele de delivery, îți oferim lunar un set de 5 rapoarte detaliate de performanță.'}
-                </p>
-                <div className="space-y-3">
+              {/* Monthly Reports - Premium Black & Gold Section */}
+              <div className="bg-black rounded-2xl border border-amber-400/30 shadow-2xl shadow-amber-500/10 mb-5 overflow-hidden">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-amber-500/10 to-amber-600/5 px-5 py-4 border-b border-amber-400/20">
+                  <h5 className="font-black text-xl sm:text-2xl text-amber-400 flex items-center gap-3">
+                    <div className="p-2.5 bg-amber-400 rounded-xl shadow-lg shadow-amber-400/30">
+                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+                    </div>
+                    {(t.services.standard as any).monthlyReports?.title || 'Ce primești lunar'}
+                  </h5>
+                </div>
+                
+                {/* Intro */}
+                <div className="px-5 pt-4 pb-2">
+                  <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+                    {(t.services.standard as any).monthlyReports?.intro || 'Pentru a ne asigura că business-ul tău crește constant pe platformele de delivery (Glovo, Wolt, Bolt, Tazz), îți oferim lunar un set de 5 rapoarte detaliate de performanță.'}
+                  </p>
+                </div>
+
+                {/* Reports List */}
+                <div className="px-5 py-4 space-y-3">
                   {((t.services.standard as any).monthlyReports?.items || [
-                    { icon: 'BarChart3', title: 'Analiză comparativă a încasărilor', desc: 'Evaluăm performanța financiară actuală în raport cu luna precedentă.' },
-                    { icon: 'Rocket', title: 'Raport de promovare și rezultate', desc: 'Analizăm campaniile active și măsurăm impactul real.' },
-                    { icon: 'TrendingUp', title: 'Situația vânzărilor prin aplicație', desc: 'Monitorizăm fluxul de comenzi și eficiența.' },
-                    { icon: 'Users', title: 'Raport achiziție clienți noi', desc: 'Câți utilizatori noi au descoperit brandul tău.' },
-                    { icon: 'ClipboardList', title: 'Centralizator meniu și oferte', desc: 'Structura meniului și ofertele speciale.' }
+                    { icon: 'BarChart3', title: 'Analiză comparativă a încasărilor', desc: 'Evaluăm performanța financiară actuală în raport cu luna precedentă pentru a identifica tendințele de creștere.' },
+                    { icon: 'Rocket', title: 'Raport de promovare și rezultate', desc: 'Analizăm campaniile active și măsurăm impactul real al promoțiilor asupra volumului de comenzi.' },
+                    { icon: 'TrendingUp', title: 'Situația vânzărilor prin aplicație', desc: 'Monitorizăm fluxul de comenzi și eficiența canalelor de vânzare digitală.' },
+                    { icon: 'Users', title: 'Raport achiziție clienți noi', desc: 'Vezi exact câți utilizatori noi au descoperit brandul tău în ultima lună.' },
+                    { icon: 'ClipboardList', title: 'Centralizator meniu și oferte', desc: 'O situație clară a structurii meniului tău și a ofertelor speciale implementate.' }
                   ]).map((item: { icon: string; title: string; desc: string }, index: number) => {
                     const IconComponent = item.icon === 'BarChart3' ? BarChart3 
                       : item.icon === 'Rocket' ? Rocket 
@@ -261,25 +270,27 @@ const Index = () => {
                       : item.icon === 'Users' ? Users 
                       : ClipboardList;
                     return (
-                      <div key={index} className="flex items-start gap-3 bg-black/30 p-3 rounded-xl border border-amber-400/30 hover:border-amber-400/50 transition-colors">
-                        <div className="p-2 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg flex-shrink-0">
-                          <IconComponent className="w-4 h-4 text-black" />
+                      <div key={index} className="flex items-start gap-4 bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/10 hover:border-amber-400/30 transition-all duration-300">
+                        <div className="p-2.5 bg-amber-400 rounded-xl flex-shrink-0 shadow-lg shadow-amber-400/20">
+                          <IconComponent className="w-5 h-5 text-black" />
                         </div>
-                        <div>
-                          <h6 className="font-semibold text-sm text-amber-200">{item.title}</h6>
-                          <p className="text-xs text-amber-100/60 mt-0.5">{item.desc}</p>
+                        <div className="flex-1">
+                          <h6 className="font-bold text-base text-amber-400 mb-1">{item.title}</h6>
+                          <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
                         </div>
                       </div>
                     );
                   })}
                 </div>
-                <div className="mt-4 pt-4 border-t border-amber-400/30">
-                  <h6 className="font-semibold text-sm text-amber-300 mb-2 flex items-center gap-2">
-                    <Award className="w-4 h-4" />
+
+                {/* Footer - Why Important */}
+                <div className="px-5 py-4 bg-gradient-to-r from-amber-500/10 to-transparent border-t border-amber-400/20">
+                  <h6 className="font-bold text-base text-amber-400 mb-2 flex items-center gap-2">
+                    <Award className="w-5 h-5" />
                     {(t.services.standard as any).monthlyReports?.whyImportant || 'De ce este important acest management?'}
                   </h6>
-                  <p className="text-sm text-amber-100/70 leading-relaxed">
-                    {(t.services.standard as any).monthlyReports?.whyDesc || 'Nu doar listăm produsele, ci gestionăm activ prezența ta online. Ne ocupăm de integrarea logo-ului, fotografiile de brand și optimizarea viziunii locației tale.'}
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    {(t.services.standard as any).monthlyReports?.whyDesc || 'Nu doar listăm produsele, ci gestionăm activ prezența ta online. Ne ocupăm de integrarea logo-ului, fotografiile de brand și optimizarea viziunii locației tale, astfel încât să maximizezi fiecare oportunitate de vânzare.'}
                   </p>
                 </div>
               </div>
