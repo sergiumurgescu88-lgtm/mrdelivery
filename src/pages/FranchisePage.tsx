@@ -603,35 +603,35 @@ const FranchisePage: React.FC = () => {
             <span className="text-amber-400 text-sm font-medium">Franchise Opportunity</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-2">
             <span className="text-amber-400">{t.hero.title}</span>
           </h1>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
             {t.hero.brand}
           </h2>
           
           {/* Royalty highlight */}
-          <div className="inline-block mb-6">
-            <div className="bg-gradient-to-r from-emerald-500/20 to-emerald-500/10 border border-emerald-500/50 rounded-2xl px-6 py-4 backdrop-blur-sm">
-              <p className="text-emerald-400 font-bold text-lg md:text-xl flex items-center gap-2 justify-center">
-                <span className="text-2xl">💰</span>
+          <div className="inline-block mb-4 md:mb-6">
+            <div className="bg-gradient-to-r from-emerald-500/20 to-emerald-500/10 border border-emerald-500/50 rounded-2xl px-4 md:px-6 py-3 md:py-4 backdrop-blur-sm">
+              <p className="text-emerald-400 font-bold text-sm sm:text-base md:text-lg lg:text-xl flex items-center gap-2 justify-center">
+                <span className="text-xl md:text-2xl">💰</span>
                 {t.hero.royalty}
               </p>
             </div>
           </div>
           
-          <p className="text-lg md:text-xl text-white/90 mb-2">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-2 px-2">
             {t.hero.subtitle} <span className="text-amber-400 font-semibold">{t.hero.countries}</span>
           </p>
           
-          <p className="text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-6">
+          <p className="text-sm sm:text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-4 md:mb-6 px-2 leading-relaxed">
             {t.hero.description} <span className="text-amber-400 font-semibold">{t.hero.profit}</span>
           </p>
 
           {/* Badges */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6 md:mb-8 px-2">
             {t.hero.badges.map((badge, index) => (
-              <span key={index} className="px-3 py-1.5 bg-white/5 border border-white/10 text-white/80 rounded-full text-xs font-medium">
+              <span key={index} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-white/5 border border-white/10 text-white/80 rounded-full text-[10px] sm:text-xs font-medium">
                 ✓ {badge}
               </span>
             ))}
@@ -650,54 +650,54 @@ const FranchisePage: React.FC = () => {
       {/* Opportunity Section */}
       <section className="py-16 px-4 border-t border-white/10">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 px-2">
             {t.opportunity.title} <span className="text-amber-400">{t.opportunity.titleHighlight}</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {t.opportunity.countries.map((country, index) => <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-amber-400/50 transition-colors">
-                <div className="text-4xl mb-4">{country.flag}</div>
-                <h3 className="text-xl font-bold text-amber-400 mb-2">{country.question}</h3>
-                <p className="text-white/90 font-medium mb-3">{country.action}</p>
-                <p className="text-white/60 text-sm font-bold">{country.description}</p>
+            {t.opportunity.countries.map((country, index) => <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6 hover:border-amber-400/50 transition-colors">
+                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{country.flag}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-2">{country.question}</h3>
+                <p className="text-white/90 font-medium mb-2 sm:mb-3 text-sm sm:text-base">{country.action}</p>
+                <p className="text-white/60 text-xs sm:text-sm font-bold leading-relaxed">{country.description}</p>
               </div>)}
           </div>
         </div>
       </section>
 
       {/* Work From Home Section */}
-      <section className="py-16 px-4 bg-white/5">
+      <section className="py-12 md:py-16 px-4 bg-white/5">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Left Column */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
                 {t.workFromHome.title} <span className="text-amber-400">{t.workFromHome.titleHighlight}</span>
               </h2>
-              <p className="text-white/70 mb-8">{t.workFromHome.description}</p>
+              <p className="text-white/70 mb-6 md:mb-8 text-sm sm:text-base leading-relaxed">{t.workFromHome.description}</p>
               
               <div className="space-y-4">
                 {t.workFromHome.features.map((feature, index) => <div key={index} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-amber-400 rounded-full mt-2"></div>
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
-                      <h4 className="font-semibold text-white">{feature.title}</h4>
-                      <p className="text-white/60 text-sm">{feature.description}</p>
+                      <h4 className="font-semibold text-white text-sm sm:text-base">{feature.title}</h4>
+                      <p className="text-white/60 text-xs sm:text-sm">{feature.description}</p>
                     </div>
                   </div>)}
               </div>
             </div>
             
             {/* Right Column */}
-            <div className="bg-amber-400/10 border border-amber-400/30 rounded-xl p-6">
-              <h3 className="text-2xl font-bold text-amber-400 mb-4">{t.workFromHome.machineTitle}</h3>
-              <p className="text-white/80 mb-6">{t.workFromHome.machineDescription}</p>
+            <div className="bg-amber-400/10 border border-amber-400/30 rounded-xl p-4 sm:p-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-amber-400 mb-3 sm:mb-4">{t.workFromHome.machineTitle}</h3>
+              <p className="text-white/80 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">{t.workFromHome.machineDescription}</p>
               
-              <div className="bg-black/30 rounded-lg p-4">
-                <h4 className="font-semibold text-white mb-2 flex items-center gap-2">
-                  <Bot className="w-5 h-5 text-amber-400" />
+              <div className="bg-black/30 rounded-lg p-3 sm:p-4">
+                <h4 className="font-semibold text-white mb-2 flex items-center gap-2 text-sm sm:text-base">
+                  <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 flex-shrink-0" />
                   {t.workFromHome.botTitle}
                 </h4>
-                <p className="text-white/60 text-sm">{t.workFromHome.botDescription}</p>
+                <p className="text-white/60 text-xs sm:text-sm leading-relaxed">{t.workFromHome.botDescription}</p>
               </div>
             </div>
           </div>
@@ -705,89 +705,89 @@ const FranchisePage: React.FC = () => {
       </section>
 
       {/* Financial Model Section */}
-      <section className="py-16 px-4 border-t border-white/10">
+      <section className="py-12 md:py-16 px-4 border-t border-white/10">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">{t.financial.title}</h2>
-          <p className="text-white/60 text-center mb-12">{t.financial.subtitle}</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 md:mb-4 px-2 leading-tight">{t.financial.title}</h2>
+          <p className="text-white/60 text-center mb-8 md:mb-12 text-sm sm:text-base">{t.financial.subtitle}</p>
           
-          <div className="grid md:grid-cols-4 gap-4">
-            {t.financial.items.map((item, index) => <div key={index} className="bg-amber-400/10 border border-amber-400/40 rounded-xl p-6 text-center">
-                <div className="text-3xl md:text-4xl font-black text-amber-400 mb-2">{item.value}</div>
-                <div className="font-semibold text-white mb-1">{item.label}</div>
-                <div className="text-white/50 text-sm">{item.description}</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            {t.financial.items.map((item, index) => <div key={index} className="bg-amber-400/10 border border-amber-400/40 rounded-xl p-3 sm:p-4 md:p-6 text-center">
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-amber-400 mb-1 sm:mb-2">{item.value}</div>
+                <div className="font-semibold text-white mb-1 text-xs sm:text-sm md:text-base">{item.label}</div>
+                <div className="text-white/50 text-[10px] sm:text-xs md:text-sm">{item.description}</div>
               </div>)}
           </div>
         </div>
       </section>
 
       {/* Scalability Section */}
-      <section className="py-16 px-4 bg-white/5">
+      <section className="py-12 md:py-16 px-4 bg-white/5">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-2 px-2 leading-tight">
             {t.scalability.title} <span className="text-amber-400">{t.scalability.titleHighlight}</span>
           </h2>
-          <p className="text-white/60 text-center mb-12">{t.scalability.subtitle}</p>
+          <p className="text-white/60 text-center mb-8 md:mb-12 text-sm sm:text-base">{t.scalability.subtitle}</p>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            {t.scalability.phases.map((phase, index) => <div key={index} className={`rounded-xl p-6 ${index === 1 ? 'bg-amber-400 text-black' : 'bg-white/5 border border-white/10'}`}>
-                <div className="flex justify-between items-start mb-4">
-                  <span className={`text-sm font-bold ${index === 1 ? 'text-black/70' : 'text-amber-400'}`}>{phase.phase}</span>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${index === 1 ? 'bg-black/20 text-black' : 'bg-white/10 text-white/70'}`}>{phase.period}</span>
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+            {t.scalability.phases.map((phase, index) => <div key={index} className={`rounded-xl p-4 sm:p-6 ${index === 1 ? 'bg-amber-400 text-black' : 'bg-white/5 border border-white/10'}`}>
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <span className={`text-xs sm:text-sm font-bold ${index === 1 ? 'text-black/70' : 'text-amber-400'}`}>{phase.phase}</span>
+                  <span className={`px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium ${index === 1 ? 'bg-black/20 text-black' : 'bg-white/10 text-white/70'}`}>{phase.period}</span>
                 </div>
                 
-                <h3 className={`text-xl font-bold mb-4 ${index === 1 ? 'text-black' : 'text-white'}`}>{phase.title}</h3>
+                <h3 className={`text-lg sm:text-xl font-bold mb-3 sm:mb-4 ${index === 1 ? 'text-black' : 'text-white'}`}>{phase.title}</h3>
                 
-                <div className="space-y-2 text-sm mb-6">
+                <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm mb-4 sm:mb-6">
                   <p className={index === 1 ? 'text-black/70' : 'text-white/60'}>⏰ {phase.hours}</p>
                   <p className={index === 1 ? 'text-black/70' : 'text-white/60'}>👤 {phase.structure}</p>
                   <p className={index === 1 ? 'text-black/70' : 'text-white/60'}>🏢 {phase.clients}</p>
                 </div>
                 
-                <div className={`pt-4 border-t ${index === 1 ? 'border-black/20' : 'border-white/10'}`}>
-                  <div className={`text-2xl font-black ${index === 1 ? 'text-black' : 'text-white'}`}>{phase.revenue}</div>
-                  <div className={`text-sm ${index === 1 ? 'text-black/70' : 'text-white/50'}`}>{phase.profit}</div>
+                <div className={`pt-3 sm:pt-4 border-t ${index === 1 ? 'border-black/20' : 'border-white/10'}`}>
+                  <div className={`text-xl sm:text-2xl font-black ${index === 1 ? 'text-black' : 'text-white'}`}>{phase.revenue}</div>
+                  <div className={`text-xs sm:text-sm ${index === 1 ? 'text-black/70' : 'text-white/50'}`}>{phase.profit}</div>
                 </div>
               </div>)}
           </div>
           
-          <p className="text-center text-white/50 text-sm mt-8 max-w-2xl mx-auto">{t.scalability.guarantee}</p>
+          <p className="text-center text-white/50 text-xs sm:text-sm mt-6 sm:mt-8 max-w-2xl mx-auto px-2 leading-relaxed">{t.scalability.guarantee}</p>
         </div>
       </section>
 
       {/* Secret to Success Section */}
-      <section className="py-16 px-4 border-t border-white/10">
+      <section className="py-12 md:py-16 px-4 border-t border-white/10">
         <div className="container mx-auto">
-          <div className="bg-amber-400/5 border border-amber-400/30 rounded-2xl p-8 md:p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          <div className="bg-amber-400/5 border border-amber-400/30 rounded-2xl p-5 sm:p-8 md:p-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 md:mb-4 leading-tight">
               {t.secret.title} <span className="text-amber-400">{t.secret.titleHighlight}</span>
             </h2>
-            <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">{t.secret.subtitle}</p>
+            <p className="text-white/70 text-center mb-8 md:mb-12 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">{t.secret.subtitle}</p>
             
-            <h3 className="text-xl font-semibold text-center mb-8">{t.secret.howItWorks}</h3>
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold text-center mb-6 md:mb-8">{t.secret.howItWorks}</h3>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 md:mb-12">
               {t.secret.steps.map((step, index) => <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-amber-400/20 border border-amber-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    {step.icon === 'search' && <Search className="w-6 h-6 text-amber-400" />}
-                    {step.icon === 'mail' && <Mail className="w-6 h-6 text-amber-400" />}
-                    {step.icon === 'send' && <Zap className="w-6 h-6 text-amber-400" />}
-                    {step.icon === 'calendar' && <Calendar className="w-6 h-6 text-amber-400" />}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-400/20 border border-amber-400 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    {step.icon === 'search' && <Search className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />}
+                    {step.icon === 'mail' && <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />}
+                    {step.icon === 'send' && <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />}
+                    {step.icon === 'calendar' && <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />}
                   </div>
-                  <h4 className="font-semibold text-white mb-2">{step.title}</h4>
-                  <p className="text-white/60 text-sm">{step.description}</p>
+                  <h4 className="font-semibold text-white mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">{step.title}</h4>
+                  <p className="text-white/60 text-[10px] sm:text-xs md:text-sm leading-relaxed">{step.description}</p>
                 </div>)}
             </div>
             
-            <div className="bg-black/30 rounded-xl p-6">
-              <h4 className="text-center font-semibold mb-6">{t.secret.results}</h4>
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-black/30 rounded-xl p-4 sm:p-6">
+              <h4 className="text-center font-semibold mb-4 sm:mb-6 text-sm sm:text-base">{t.secret.results}</h4>
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div className="text-center">
-                  <div className="text-4xl font-black text-amber-400">{t.secret.leads}</div>
-                  <div className="text-white/60">{t.secret.leadsLabel}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-black text-amber-400">{t.secret.leads}</div>
+                  <div className="text-white/60 text-xs sm:text-sm">{t.secret.leadsLabel}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-black text-amber-400">{t.secret.demos}</div>
-                  <div className="text-white/60">{t.secret.demosLabel}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-black text-amber-400">{t.secret.demos}</div>
+                  <div className="text-white/60 text-xs sm:text-sm">{t.secret.demosLabel}</div>
                 </div>
               </div>
             </div>
@@ -796,43 +796,43 @@ const FranchisePage: React.FC = () => {
       </section>
 
       {/* Ideal Franchisee Section */}
-      <section className="py-16 px-4 bg-white/5">
+      <section className="py-12 md:py-16 px-4 bg-white/5">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">{t.ideal.title}</h2>
-          <p className="text-white/60 text-center mb-12">{t.ideal.subtitle}</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 md:mb-4 px-2">{t.ideal.title}</h2>
+          <p className="text-white/60 text-center mb-8 md:mb-12 text-sm sm:text-base">{t.ideal.subtitle}</p>
           
           {/* Work From Home Banner */}
-          <div className="bg-amber-400/10 border border-amber-400/30 rounded-xl p-6 mb-12 text-center">
-            <MapPin className="w-8 h-8 text-amber-400 mx-auto mb-3" />
-            <h3 className="text-xl font-bold text-amber-400 mb-2">{t.ideal.workFromHome.title}</h3>
-            <p className="text-white/70 max-w-2xl mx-auto">{t.ideal.workFromHome.description}</p>
+          <div className="bg-amber-400/10 border border-amber-400/30 rounded-xl p-4 sm:p-6 mb-8 md:mb-12 text-center">
+            <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400 mx-auto mb-2 sm:mb-3" />
+            <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-2">{t.ideal.workFromHome.title}</h3>
+            <p className="text-white/70 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">{t.ideal.workFromHome.description}</p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {/* Need */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-emerald-400 mb-6 flex items-center gap-2">
-                <Check className="w-6 h-6" />
+            <div className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-bold text-emerald-400 mb-4 sm:mb-6 flex items-center gap-2">
+                <Check className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
                 {t.ideal.needTitle}
               </h3>
-              <ul className="space-y-3">
-                {t.ideal.needItems.map((item, index) => <li key={index} className="flex items-start gap-3 text-white/80">
-                    <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                    <span>{item}</span>
+              <ul className="space-y-2 sm:space-y-3">
+                {t.ideal.needItems.map((item, index) => <li key={index} className="flex items-start gap-2 sm:gap-3 text-white/80 text-sm sm:text-base">
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                    <span className="leading-relaxed">{item}</span>
                   </li>)}
               </ul>
             </div>
             
             {/* Not Need */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-red-400 mb-6 flex items-center gap-2">
-                <X className="w-6 h-6" />
+            <div className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-bold text-red-400 mb-4 sm:mb-6 flex items-center gap-2">
+                <X className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
                 {t.ideal.notNeedTitle}
               </h3>
-              <ul className="space-y-3">
-                {t.ideal.notNeedItems.map((item, index) => <li key={index} className="flex items-start gap-3 text-white/80">
-                    <X className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
-                    <span>{item}</span>
+              <ul className="space-y-2 sm:space-y-3">
+                {t.ideal.notNeedItems.map((item, index) => <li key={index} className="flex items-start gap-2 sm:gap-3 text-white/80 text-sm sm:text-base">
+                    <X className="w-4 h-4 sm:w-5 sm:h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                    <span className="leading-relaxed">{item}</span>
                   </li>)}
               </ul>
             </div>
@@ -841,27 +841,27 @@ const FranchisePage: React.FC = () => {
       </section>
 
       {/* Application Form Section */}
-      <section id="apply-form" className="py-20 px-4 border-t border-white/10 bg-gradient-to-b from-black to-amber-950/20">
+      <section id="apply-form" className="py-12 md:py-20 px-4 border-t border-white/10 bg-gradient-to-b from-black to-amber-950/20">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
-                <Sparkles className="w-4 h-4 text-emerald-400" />
-                <span className="text-emerald-400 text-sm font-medium">
+            <div className="text-center mb-8 md:mb-12">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-4 sm:mb-6">
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+                <span className="text-emerald-400 text-xs sm:text-sm font-medium">
                   {language === 'ro' ? 'Ultimul pas' : language === 'en' ? 'Final step' : 'Último paso'}
                 </span>
               </div>
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 px-2 leading-tight">
                 {t.form.ctaTitle} <span className="text-amber-400">{t.form.ctaHighlight}</span>
               </h2>
               
-              <p className="text-white/60 text-lg max-w-2xl mx-auto mb-4">
+              <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-3 md:mb-4 px-2 leading-relaxed">
                 {t.form.ctaSubtitle}
               </p>
               
-              <p className="text-emerald-400/80 text-sm">
+              <p className="text-emerald-400/80 text-xs sm:text-sm px-2">
                 {t.form.ctaPromise}
               </p>
             </div>
