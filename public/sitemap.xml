@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- mrdelivery.ro -->
+  <url>
+    <loc>https://mrdelivery.ro/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mrdelivery.ro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mrdelivery.shop/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mrdelivery.online/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.ro/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.ro/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.ro/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.ro/gallery</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.ro/franchise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- mrdelivery.shop (English) -->
+  <url>
+    <loc>https://mrdelivery.shop/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mrdelivery.ro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mrdelivery.shop/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mrdelivery.online/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.shop/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.shop/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.shop/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.shop/gallery</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.shop/franchise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- mrdelivery.online (Spanish) -->
+  <url>
+    <loc>https://mrdelivery.online/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mrdelivery.ro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mrdelivery.shop/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mrdelivery.online/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.online/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.online/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.online/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.online/gallery</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mrdelivery.online/franchise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

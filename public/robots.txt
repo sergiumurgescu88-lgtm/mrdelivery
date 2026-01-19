@@ -12,3 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemaps for all domains
+Sitemap: https://mrdelivery.ro/sitemap.xml
+Sitemap: https://mrdelivery.shop/sitemap.xml
+Sitemap: https://mrdelivery.online/sitemap.xml
