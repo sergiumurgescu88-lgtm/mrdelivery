@@ -171,9 +171,18 @@ const FranchiseManualPage: React.FC = () => {
 
         <a 
           href="#apply-form" 
-          className="block w-full bg-amber-400 text-black font-bold py-4 rounded-xl shadow-[0_0_15px_rgba(250,204,21,0.4)] animate-pulse hover:scale-105 transition transform text-lg uppercase"
+          className="group relative inline-flex items-center justify-center w-full px-6 py-5 text-lg font-black rounded-2xl transition-all duration-300 hover:scale-[1.02]"
         >
-          {t.applyCta}
+          {/* Animated gradient border */}
+          <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 p-[3px] animate-shimmer" style={{ backgroundSize: '200% 100%' }}>
+            <span className="absolute inset-[3px] rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-600 group-hover:to-amber-700 transition-all duration-300"></span>
+          </span>
+          {/* Glow effect */}
+          <span className="absolute inset-0 rounded-2xl bg-amber-400/30 blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-300"></span>
+          {/* Text content */}
+          <span className="relative z-10 text-black font-black tracking-wide drop-shadow-sm uppercase">
+            {t.applyCta}
+          </span>
         </a>
       </section>
 
