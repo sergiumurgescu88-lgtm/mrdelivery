@@ -23,181 +23,181 @@ export const translations = {
       standard: {
         title: 'Delivery Platform Management',
         price: '$399/month',
-        subtitle: 'We negotiate commissions and budgets for you on Uber Eats, DoorDash & Grubhub',
-        support: 'Available for Romania, Spain & USA',
+        subtitle: 'We negotiate commissions and budgets on Uber Eats, DoorDash & Grubhub',
+        support: 'Available in Romania, Spain & USA',
         badge: 'Multi-Platform Management',
         negotiation: {
-          title: 'Negotiation & Budgets',
+          title: 'Negotiations & Budgets',
           tagline: 'Save Money',
-          intro: "Don't let your profit disappear in huge commissions.",
+          intro: 'Stop losing profit to high commissions.',
           items: [
-            'Lower Commissions: We negotiate directly with platforms (Uber Eats, DoorDash, Grubhub) to get the best rates for you.',
-            'Free Marketing Budgets: We obtain campaign budgets supported directly by platforms, so you get new customers on their money.',
-            'Fast Reaction: We activate any promotional campaign within 6 hours of decision.'
+            'Lower commissions negotiated directly with platforms',
+            'Free marketing budgets funded by apps',
+            'Campaign activation within 6 hours'
           ]
         },
         menu: {
-          title: 'Active Menu',
+          title: 'Optimized Menu',
           tagline: 'Sell More',
-          intro: 'A menu that looks good, sells more.',
+          intro: 'A well-presented menu sells more.',
           items: [
-            'Daily Menu: We update it daily for you, to keep customers loyal and curious.',
-            'Professional Photos & Details: We present products with correct images and complete information (allergens, ingredients).',
-            'Upselling: We structure the menu so customers always add a drink, sauce or dessert to their cart.'
+            'Daily menu updates to keep customers coming back',
+            'Professional photos with full product details',
+            'Upselling structure to boost average order'
           ]
         },
         support_card: {
           title: 'Support & Optimization',
           tagline: '24/7 WhatsApp',
-          intro: 'We are your "delivery department" available anytime on WhatsApp.',
+          intro: 'Your dedicated delivery team on WhatsApp.',
           items: [
-            'Delivery Efficiency: We optimize delivery radius (for own delivery) to reach customers fast and cheap.',
-            'Monthly Analysis: We show you exactly how much you sold and how we can increase the average order.',
-            'Problem Solving: Any incident with an order or platform is resolved quickly through our dedicated support.'
+            'Optimized delivery zones for speed and cost',
+            'Monthly sales analysis with growth insights',
+            'Fast resolution of any order issues'
           ]
         },
         training: {
-          title: 'Staff Training & Management',
-          tagline: 'Trained Team',
-          intro: 'Your team learns to use delivery platforms like a pro.',
+          title: 'Staff Training',
+          tagline: 'Expert Team',
+          intro: 'Your team masters delivery platforms.',
           items: [
-            'Complete Training: We teach your staff to use Uber Eats, DoorDash & Grubhub efficiently - orders, tablets, confirmations.',
-            'Order Issues: They learn to handle missing items, canceled orders, refund requests - everything solved fast.',
-            'Best Practices: Tips & tricks for reducing prep time, improving packaging, and avoiding bad reviews.',
-            'Continuous Support: The team has direct access to us on WhatsApp for any questions or issues.'
+            'Full training: orders, tablets, confirmations',
+            'Handle refunds and cancellations smoothly',
+            'Best practices for prep time and packaging',
+            'Direct WhatsApp support for your staff'
           ]
         },
         monthlyReports: {
-          title: 'What you receive monthly',
-          intro: 'To ensure your business grows constantly on delivery platforms (Glovo, Wolt, Bolt, Tazz), we provide you monthly with a set of 5 detailed performance reports. These give you a clear vision of sales and help you make data-driven decisions.',
+          title: 'Monthly reports included',
+          intro: '5 detailed reports each month to grow your delivery business with data-driven decisions.',
           items: [
-            { icon: 'BarChart3', title: 'Comparative Revenue Analysis', desc: 'We evaluate current financial performance against the previous month to identify growth trends.' },
-            { icon: 'Rocket', title: 'Promotion & Results Report', desc: 'We analyze active campaigns and measure the real impact of promotions on order volume.' },
-            { icon: 'TrendingUp', title: 'App Sales Status', desc: 'We monitor order flow and digital sales channel efficiency.' },
-            { icon: 'Users', title: 'New Customer Acquisition Report', desc: 'See exactly how many new users discovered your brand last month.' },
-            { icon: 'ClipboardList', title: 'Menu & Offers Summary', desc: 'A clear overview of your menu structure and special offers implemented to stay competitive.' }
+            { icon: 'BarChart3', title: 'Revenue comparison', desc: 'Current vs previous month growth trends' },
+            { icon: 'Rocket', title: 'Promotion results', desc: 'Campaign impact on order volume' },
+            { icon: 'TrendingUp', title: 'App sales status', desc: 'Order flow and channel efficiency' },
+            { icon: 'Users', title: 'New customers', desc: 'New users who discovered your brand' },
+            { icon: 'ClipboardList', title: 'Menu summary', desc: 'Menu structure and active offers' }
           ],
-          whyImportant: 'Why is this management important?',
-          whyDesc: "We don't just list products, we actively manage your online presence. We handle logo integration, brand photos and location optimization, so you maximize every sales opportunity on Pocket, Glovo, Wolt or Bolt."
+          whyImportant: 'Why this management matters',
+          whyDesc: 'We actively manage your online presence: logo, photos, location optimization to maximize every sale.'
         },
-        whyTitle: 'Why do you need this management?',
+        whyTitle: 'Why choose this package?',
         whyItems: [
-          'Recover Investment: By simply negotiating commissions, our package can pay for itself from the first month.',
-          'Maximum Visibility: We put you on the front line of delivery platforms, exactly where hungry customers are looking.',
-          'No Technical Headaches: You no longer need to enter tablets or complex control panels.'
+          'ROI from month 1 through commission savings',
+          'Top visibility on all delivery platforms',
+          'Zero technical hassle for you'
         ]
       },
       aiAgents: {
-        title: 'Intelligent Virtual Assistant',
+        title: 'AI Virtual Assistant',
         price: '$399/month',
         originalPrice: '$499/month',
         discount: '25% OFF',
-        subtitle: 'Your ideal employee: Never sleeps and responds instantly to any customer',
-        badge: '24/7 Conversational AI Agent',
+        subtitle: 'Never sleeps, responds instantly to every customer',
+        badge: '24/7 AI Agent',
         phone: {
-          title: 'Answers Your Phone',
+          title: 'Answers calls',
           tagline: 'Voice AI',
-          intro: 'Never lose a customer because you were busy in the kitchen or in a meeting.',
+          intro: 'Never miss a customer when you are busy.',
           items: [
-            'Natural Voice: Speaks fluently in English, just like a human.',
-            'Expert in Your Business: Knows everything about your menu, prices, ingredients or services.',
-            'No Missed Calls: Can handle dozens of calls simultaneously, 24/7.'
+            'Natural voice, speaks like a human',
+            'Knows your menu, prices, ingredients',
+            'Handles dozens of calls at once'
           ]
         },
         whatsapp: {
-          title: 'WhatsApp Expert',
+          title: 'WhatsApp expert',
           tagline: 'Chat AI',
-          intro: 'Customers want answers NOW. AI gives them instantly.',
+          intro: 'Instant answers when customers ask.',
           items: [
-            'Digital Menu: Sends photos and product details directly on WhatsApp.',
-            'Active Selling: Recommends products and presents special offers intelligently.',
-            'Total Availability: Responds instantly, even in the middle of the night.'
+            'Sends photos and menu details directly',
+            'Smart upselling and offer recommendations',
+            'Available 24/7, even at night'
           ]
         },
         reservations: {
-          title: 'Automatic Reservations',
+          title: 'Auto reservations',
           tagline: 'Calendar Sync',
-          intro: 'Forget the paper agenda and human errors.',
+          intro: 'No paper agenda, no human errors.',
           items: [
-            'Direct Scheduling: Checks availability and puts the reservation directly in Google Calendar.',
-            'Confirmations & Reminders: Automatically sends messages to customers to ensure they show up.',
-            'Simple Management: Customers can cancel or move the reservation themselves, via chat or phone.'
+            'Books directly into Google Calendar',
+            'Sends confirmations and reminders',
+            'Customers reschedule via chat or call'
           ]
         },
-        benefitsTitle: 'Why do you need an AI Agent?',
+        benefitsTitle: 'Why AI Agent?',
         benefitsList: [
           'Zero missed calls',
-          '24/7 availability',
-          'Less stress for the team'
+          'Always available',
+          'Less team stress'
         ]
       },
       video: {
-        title: 'Video Production & Automatic Posting',
+        title: 'Video Production & Auto-Posting',
         price: '$399/month',
         originalPrice: '$599/month',
         discount: '35% OFF',
-        subtitle: 'We create, we post. Your business grows daily on 4 platforms simultaneously',
+        subtitle: 'We create and post daily on 4 platforms',
         badge: 'Viral Video Content',
-        videosTitle: '🎬 16-20 Premium Clips / Month',
-        videoDesc: '16-20 Videoclips/Month:',
+        videosTitle: '🎬 16-20 Premium Clips/Month',
+        videoDesc: '16-20 videos monthly:',
         hook: 'Hook (8s)',
-        hookDesc: 'captures attention instantly',
+        hookDesc: 'captures attention',
         action: 'Action (8s)',
-        actionDesc: 'presents the concept',
+        actionDesc: 'shows concept',
         cta: 'CTA (8s)',
-        ctaDesc: 'powerful call-to-action',
+        ctaDesc: 'drives action',
         veo3: 'Cinematic Quality',
-        veo3Desc: 'Image and sound at cinema standards, with presenters that bring your brand to life',
+        veo3Desc: 'Cinema-grade visuals with presenters that bring your brand to life',
         format: 'Creative Variety',
-        formatDesc: 'Challenges, interviews and interactive clips that make people share',
+        formatDesc: 'Challenges, interviews and shareable clips',
         presenters: {
           title: 'OUR PRESENTERS',
           tagline: 'Zero effort from you',
-          intro: 'We do everything. Our team of professional creators and presenters bring your brand to life.',
+          intro: 'Our professional team creates everything for you.',
           items: [
-            'Professional team of creators',
+            'Professional creator team',
             'Experienced presenters',
-            'No effort required from you'
+            'No effort from you'
           ]
         },
         yourFace: {
-          title: 'YOU ARE THE BRAND FACE',
-          tagline: 'Maximum authenticity',
-          intro: 'We use your face and voice. Cutting-edge AI technology (VEO3) for cinematic videos.',
+          title: 'YOUR FACE AS BRAND',
+          tagline: 'Max authenticity',
+          intro: 'Your face and voice with VEO3 AI technology.',
           items: [
-            'Personal connection with audience',
-            'Cutting-edge VEO3 technology',
+            'Personal audience connection',
+            'VEO3 AI technology',
             'Ideal for authentic owners'
           ]
         },
         quality: {
           title: 'Quality & Creativity',
-          tagline: 'For both options',
-          intro: 'Cinematic Quality: Premium image, sound and editing.',
+          tagline: 'Both options',
+          intro: 'Premium image, sound and editing.',
           items: [
-            'Creative and viral storyboards',
-            'Challenges, interviews, interactive clips',
-            'Ideas that capture attention'
+            'Viral storyboards',
+            'Challenges, interviews, interactive',
+            'Attention-grabbing ideas'
           ]
         },
         robot: {
-          title: '🤖 Daily Posting Robot (With Your Approval)',
+          title: '🤖 Daily Posting Robot',
           tagline: 'Set & Forget',
-          intro: 'Delivery & Approval: At the end of the month, you receive the entire video package for review and final approval.',
+          intro: 'Monthly package delivered for your approval.',
           items: [
-            '4 Platforms Simultaneously: Posts daily on TikTok, Instagram Reels, Facebook Reels, YouTube Shorts.',
-            'Perfect Consistency: At the same optimal time, every day.',
-            'Completely Hands-Off: No manual management, no logins, no headaches.'
+            'Posts daily on TikTok, Instagram, Facebook, YouTube',
+            'Same optimal time every day',
+            'Fully automated, zero hassle'
           ]
         },
         visibility: {
           title: '🚀 Guaranteed Results',
           tagline: 'Measurable Impact',
-          intro: 'Make friends with the Algorithm: Social media algorithms love consistency.',
+          intro: 'Algorithms love consistency.',
           items: [
-            'Algorithm Friendship: Daily consistency significantly increases your organic visibility.',
-            'Measurable Impact: See increases in views, followers and engagement in the first 30 days.',
-            'Strong Branding: Constant presence keeps you in customers minds.'
+            'Daily posting boosts organic reach',
+            'See growth in 30 days',
+            'Strong brand presence'
           ]
         },
         formatExamples: {
@@ -206,110 +206,110 @@ export const translations = {
         included: {
           title: "What's Included",
           items: [
-            '20 premium videos/month (with our presenters OR with your face and voice*)',
-            'Creative ideas and complete content management',
-            'Automatic posting on 4 social networks, after your approval'
+            '20 premium videos/month (our team or your face*)',
+            'Creative ideas and full content management',
+            'Auto-posting on 4 platforms after approval'
           ],
-          note: "(*) The option with owner's face and voice is selected at the start of collaboration and is included in the price.",
-          cta: 'Complete your online presence. We make the videos and posts. You get the results.'
+          note: '(*) Face option selected at start, included in price.',
+          cta: 'We create. We post. You grow.'
         },
         items: [
-          '16 creative concepts per month with complete script',
-          'Professional presenter representing MrDelivery',
-          'Interactive challenges for audience participation',
-          'Natural brand integration and call-to-action',
-          'Diverse formats: challenges, interviews, battles',
-          'Professional cinematic production',
-          'Optimization for social media algorithms',
-          'Delivery in 16:9 and 9:16 format for all platforms'
+          '16 creative concepts with full script',
+          'Professional MrDelivery presenter',
+          'Interactive audience challenges',
+          'Natural brand integration + CTA',
+          'Diverse formats: challenges, interviews',
+          'Cinematic production quality',
+          'Algorithm-optimized content',
+          '16:9 and 9:16 delivery'
         ],
-        examples: 'Ultimate Burger Challenge, Street Food Confessions, Guess the Secret Ingredient, Boyfriend vs Girlfriend Battle and many more'
+        examples: 'Burger Challenge, Street Food Confessions, Guess the Ingredient, Couples Battle and more'
       },
       ugc: {
-        title: 'Your Brand, Your Voice: The Digital Avatar That Grows Your Business',
+        title: 'Your Brand, Your Voice: AI Digital Avatar',
         heroTitle: 'Your Brand, Your Voice',
-        heroSubtitle: "Don't depend on influencers anymore. Use your own face and voice to create viral content in seconds, at a fraction of the cost.",
+        heroSubtitle: 'Create viral content with your face and voice in seconds, no influencers needed.',
         price: '$199',
         originalPrice: '$299',
         discount: '35% OFF',
-        noSubscription: 'Pay once. No monthly subscription.',
-        subtitle: 'A real presenter promotes your product. You just send a photo on Telegram.',
-        badge: 'AI-Powered UGC Creator',
-        stepsTitle: 'How It Works? (4 Simple Steps)',
-        stepsDesc: 'Automated workflow via Telegram:',
+        noSubscription: 'One-time payment. No subscription.',
+        subtitle: 'Real presenter promotes your product. Just send a photo.',
+        badge: 'AI UGC Creator',
+        stepsTitle: 'How it works (4 steps)',
+        stepsDesc: 'Automated via Telegram:',
         step1: 'OPEN',
-        step1Desc: 'the bot on Telegram',
+        step1Desc: 'Telegram bot',
         step2: 'SEND',
-        step2Desc: 'a photo of your product',
+        step2Desc: 'product photo',
         step3: 'WAIT',
         step3Desc: '2 minutes',
-        step4: 'RECEIVE',
-        step4Desc: 'your 24-second viral video, ready to post',
-        benefitsTitle: 'Why Choose AI Video Generator?',
+        step4: 'GET',
+        step4Desc: '24s viral video ready to post',
+        benefitsTitle: 'Why AI Video Generator?',
         benefit1Title: 'Fast',
-        benefit1Desc: 'From photo to video in less than 5 minutes',
+        benefit1Desc: 'Photo to video in under 5 min',
         benefit2Title: 'Cheap',
-        benefit2Desc: '~€3 per video. Much less than an influencer',
+        benefit2Desc: '~$3/video vs expensive influencers',
         benefit3Title: 'Easy',
-        benefit3Desc: 'No team, studio, or marketing knowledge needed',
-        benefit4Title: 'Professional',
-        benefit4Desc: 'Real presenter, natural and quality look',
-        deliverable: '24-second video optimized for TikTok, Reels, YouTube Shorts',
-        telegramButton: 'START NOW ON TELEGRAM',
-        finalCta: 'GENERATE YOUR FIRST VIDEO NOW',
+        benefit3Desc: 'No team or studio needed',
+        benefit4Title: 'Pro Quality',
+        benefit4Desc: 'Real presenter, natural look',
+        deliverable: '24s video for TikTok, Reels, Shorts',
+        telegramButton: 'START ON TELEGRAM',
+        finalCta: 'CREATE YOUR FIRST VIDEO',
         items: [
-          'Real presenter promoting your product',
-          '24-second video optimized for TikTok, Reels, Shorts',
-          'Delivery in less than 5 minutes',
-          '~€3 per video - much cheaper than an influencer',
-          'No team, studio, or marketing knowledge needed',
-          'Works only on Telegram - fast and easy!'
+          'Real presenter promotes your product',
+          '24s video for TikTok, Reels, Shorts',
+          'Delivered in under 5 minutes',
+          '~$3/video - way cheaper than influencers',
+          'No team, studio or marketing skills',
+          'Telegram-based - fast and simple'
         ],
-        examples: 'Influencer product showcases, restaurant food promotions, authentic testimonials, lifestyle unboxings, morning routines with your products'
+        examples: 'Product showcases, food promos, testimonials, unboxings, lifestyle content'
       },
       premium: {
         title: 'Business on Autopilot',
         price: '$399/month',
         originalPrice: '$699/month',
         discount: '45% OFF',
-        discountNote: 'Save 45% by activating Digitalization and Marketing packages together',
-        subtitle: 'Everything you need to sell online, in one complete solution.',
-        badge: 'All-Inclusive Package',
+        discountNote: 'Save 45% with Digitalization + Marketing bundle',
+        subtitle: 'Complete online sales solution in one package.',
+        badge: 'All-Inclusive',
         app: {
-          title: 'Your Mobile App & Website',
+          title: 'Your App & Website',
           tagline: 'Your own store',
-          intro: "Don't depend only on delivery platforms or social media.",
+          intro: 'Independence from platforms and social media.',
           items: [
-            'Complete Launch: We create, test and launch your Android & iOS app and ordering website.',
-            'Worry-Free: We handle everything, from design to technical maintenance.',
-            'Smart Delivery: Integration with delivery partners (no need to hire your own couriers).'
+            'Full launch: Android, iOS app + ordering website',
+            'We handle design to maintenance',
+            'Delivery partner integration included'
           ]
         },
         automation: {
           title: 'Automation & Loyalty',
-          tagline: 'Sell more to existing customers',
-          intro: 'Turn occasional visitors into loyal customers who return.',
+          tagline: 'More repeat sales',
+          intro: 'Turn visitors into loyal customers.',
           items: [
-            'Database: We automatically collect customer data to send them offers.',
-            'Direct Messages: Send automatic notifications and promotions via WhatsApp or SMS.',
-            'Personalized Marketing: Right messages sent at the right time.'
+            'Auto-collect customer data for offers',
+            'WhatsApp/SMS automatic promotions',
+            'Right message at the right time'
           ]
         },
         social: {
           title: 'Social Media Management',
-          tagline: 'Maximum Visibility',
-          intro: 'Be present where your customers are, every day.',
+          tagline: 'Max Visibility',
+          intro: 'Daily presence where customers are.',
           items: [
-            'Viral Content: Posts and videos created especially for TikTok, Instagram and Facebook.',
-            'Growth Strategy: We don\'t just post, we bring new people to interact with your brand.',
-            'Monitoring: We analyze what works and constantly optimize for better results.'
+            'Viral TikTok, Instagram, Facebook content',
+            'Growth strategy, not just posting',
+            'Continuous optimization for results'
           ]
         },
-        whyChoose: 'Why choose this package?',
+        whyChoose: 'Why this package?',
         benefits: [
-          'Save time: We handle technology and posting, you focus on your business.',
-          'Reduced costs: Get an entire team (Developers, Marketers, Social Media) for the price of one subscription.',
-          'Total Control: Have your own sales channels, without huge commissions to third parties.'
+          'Save time: We handle tech + posting',
+          'One subscription = full team (devs, marketers, social)',
+          'Your channels, no commission fees'
         ]
       }
     },
@@ -625,295 +625,295 @@ export const translations = {
     },
     services: {
       standard: {
-        title: 'Gestión de Plataformas de Entrega',
+        title: 'Gestión Plataformas Delivery',
         price: '399 €/mes',
-        subtitle: 'Negociamos comisiones y presupuestos para ti en Glovo, Uber Eats & Just Eat',
-        support: 'Disponible para Rumanía, España y USA',
+        subtitle: 'Negociamos comisiones y presupuestos en Glovo, Uber Eats y Just Eat',
+        support: 'Disponible en Rumanía, España y USA',
         badge: 'Gestión Multi-Plataforma',
         negotiation: {
           title: 'Negociación y Presupuestos',
           tagline: 'Ahorra Dinero',
-          intro: 'No dejes que tu beneficio desaparezca en comisiones enormes.',
+          intro: 'No pierdas más beneficios en comisiones.',
           items: [
-            'Comisiones más Bajas: Negociamos directamente con las plataformas (Glovo, Uber Eats, Just Eat) para obtener las mejores tarifas para ti.',
-            'Presupuestos de Marketing Gratis: Obtenemos presupuestos de campaña apoyados directamente por las plataformas, para que consigas nuevos clientes con su dinero.',
-            'Reacción Rápida: Activamos cualquier campaña promocional en un máximo de 6 horas desde la decisión.'
+            'Comisiones más bajas negociadas directamente',
+            'Presupuestos de marketing gratis de las apps',
+            'Campañas activadas en máximo 6 horas'
           ]
         },
         menu: {
-          title: 'Menú Activo',
+          title: 'Menú Optimizado',
           tagline: 'Vende Más',
-          intro: 'Un menú que se ve bien, vende más.',
+          intro: 'Un menú bien presentado vende más.',
           items: [
-            'Menú del Día: Lo actualizamos diariamente para ti, para mantener a los clientes fieles y curiosos.',
-            'Fotos y Detalles Profesionales: Presentamos los productos con imágenes correctas e información completa (alérgenos, ingredientes).',
-            'Upselling: Estructuramos el menú para que los clientes siempre añadan una bebida, salsa o postre al carrito.'
+            'Actualizaciones diarias para fidelizar clientes',
+            'Fotos profesionales con detalles completos',
+            'Estructura upselling para subir ticket medio'
           ]
         },
         support_card: {
           title: 'Soporte y Optimización',
           tagline: 'WhatsApp 24/7',
-          intro: 'Somos tu "departamento de entregas" disponible en cualquier momento por WhatsApp.',
+          intro: 'Tu equipo de delivery dedicado en WhatsApp.',
           items: [
-            'Eficiencia de Entrega: Optimizamos el radio de entrega (para entrega propia) para llegar a los clientes rápido y barato.',
-            'Análisis Mensual: Te mostramos exactamente cuánto has vendido y cómo podemos aumentar el pedido medio.',
-            'Resolución de Problemas: Cualquier incidente con un pedido o plataforma se resuelve rápidamente a través de nuestro soporte dedicado.'
+            'Zonas de entrega optimizadas',
+            'Análisis mensual con insights de crecimiento',
+            'Resolución rápida de incidencias'
           ]
         },
         training: {
-          title: 'Formación de Personal y Gestión',
-          tagline: 'Equipo Formado',
-          intro: 'Tu equipo aprende a usar las plataformas de entrega como un profesional.',
+          title: 'Formación del Personal',
+          tagline: 'Equipo Experto',
+          intro: 'Tu equipo domina las plataformas.',
           items: [
-            'Formación Completa: Enseñamos a tu personal a usar Glovo, Uber Eats y Just Eat eficientemente - pedidos, tablets, confirmaciones.',
-            'Problemas de Pedidos: Aprenden a gestionar artículos faltantes, pedidos cancelados, solicitudes de reembolso - todo resuelto rápidamente.',
-            'Mejores Prácticas: Consejos y trucos para reducir el tiempo de preparación, mejorar el embalaje y evitar malas reseñas.',
-            'Soporte Continuo: El equipo tiene acceso directo a nosotros por WhatsApp para cualquier pregunta o problema.'
+            'Formación completa: pedidos, tablets, confirmaciones',
+            'Gestión de reembolsos y cancelaciones',
+            'Mejores prácticas de preparación y empaque',
+            'Soporte WhatsApp directo para tu staff'
           ]
         },
         monthlyReports: {
-          title: 'Lo que recibes mensualmente',
-          intro: 'Para asegurarnos de que tu negocio crece constantemente en las plataformas de delivery (Glovo, Uber Eats, Just Eat), te ofrecemos mensualmente un conjunto de 5 informes detallados de rendimiento. Estos te dan una visión clara de las ventas y te ayudan a tomar decisiones basadas en datos reales.',
+          title: 'Informes mensuales incluidos',
+          intro: '5 informes detallados cada mes para crecer tu negocio de delivery con datos reales.',
           items: [
-            { icon: 'BarChart3', title: 'Análisis comparativo de ingresos', desc: 'Evaluamos el rendimiento financiero actual en comparación con el mes anterior para identificar tendencias de crecimiento.' },
-            { icon: 'Rocket', title: 'Informe de promoción y resultados', desc: 'Analizamos las campañas activas y medimos el impacto real de las promociones en el volumen de pedidos.' },
-            { icon: 'TrendingUp', title: 'Estado de ventas por aplicación', desc: 'Monitoreamos el flujo de pedidos y la eficiencia de los canales de venta digital.' },
-            { icon: 'Users', title: 'Informe de adquisición de nuevos clientes', desc: 'Ve exactamente cuántos nuevos usuarios descubrieron tu marca el mes pasado.' },
-            { icon: 'ClipboardList', title: 'Resumen de menú y ofertas', desc: 'Una visión clara de la estructura de tu menú y las ofertas especiales implementadas para mantenerte competitivo.' }
+            { icon: 'BarChart3', title: 'Comparativa ingresos', desc: 'Tendencias de crecimiento vs mes anterior' },
+            { icon: 'Rocket', title: 'Resultados promociones', desc: 'Impacto de campañas en volumen de pedidos' },
+            { icon: 'TrendingUp', title: 'Ventas por app', desc: 'Flujo de pedidos y eficiencia de canales' },
+            { icon: 'Users', title: 'Clientes nuevos', desc: 'Nuevos usuarios que descubrieron tu marca' },
+            { icon: 'ClipboardList', title: 'Resumen menú', desc: 'Estructura del menú y ofertas activas' }
           ],
-          whyImportant: '¿Por qué es importante esta gestión?',
-          whyDesc: 'No solo listamos productos, gestionamos activamente tu presencia online. Nos encargamos de la integración del logo, fotos de marca y optimización de la visibilidad de tu ubicación, para que maximices cada oportunidad de venta en Pocket, Glovo, Wolt o Bolt.'
+          whyImportant: '¿Por qué importa esta gestión?',
+          whyDesc: 'Gestionamos activamente tu presencia online: logo, fotos, optimización para maximizar ventas.'
         },
-        whyTitle: '¿Por qué necesitas esta gestión?',
+        whyTitle: '¿Por qué elegir este paquete?',
         whyItems: [
-          'Recupera la Inversión: Simplemente negociando comisiones, nuestro paquete puede pagarse solo desde el primer mes.',
-          'Visibilidad Máxima: Te ponemos en primera línea de las plataformas de entrega, exactamente donde los clientes hambrientos buscan.',
-          'Sin Dolores de Cabeza Técnicos: Ya no necesitas entrar en tablets o paneles de control complejos.'
+          'ROI desde el mes 1 por ahorro en comisiones',
+          'Máxima visibilidad en todas las plataformas',
+          'Cero complicaciones técnicas para ti'
         ]
       },
       aiAgents: {
-        title: 'Asistente Virtual Inteligente',
-        price: '€300/mes',
-        originalPrice: '€400/mes',
+        title: 'Asistente Virtual IA',
+        price: '399 €/mes',
+        originalPrice: '499 €/mes',
         discount: '-25%',
-        subtitle: 'Tu empleado ideal: Nunca duerme y responde al instante a cualquier cliente',
-        badge: 'Agente IA Conversacional 24/7',
+        subtitle: 'Nunca duerme, responde al instante a cada cliente',
+        badge: 'Agente IA 24/7',
         phone: {
-          title: 'Contesta el Teléfono',
+          title: 'Contesta llamadas',
           tagline: 'Voice AI',
-          intro: 'Nunca pierdas un cliente porque estabas ocupado en la cocina o en una reunión.',
+          intro: 'Nunca pierdas un cliente por estar ocupado.',
           items: [
-            'Voz Natural: Habla con fluidez en español, como un humano.',
-            'Experto en Tu Negocio: Conoce todo sobre tu menú, precios, ingredientes o servicios.',
-            'Cero Llamadas Perdidas: Puede atender decenas de llamadas simultáneamente, 24/7.'
+            'Voz natural, habla como humano',
+            'Conoce tu menú, precios, ingredientes',
+            'Atiende decenas de llamadas a la vez'
           ]
         },
         whatsapp: {
-          title: 'Experto en WhatsApp',
+          title: 'Experto WhatsApp',
           tagline: 'Chat AI',
-          intro: 'Los clientes quieren respuestas AHORA. La IA se las da al instante.',
+          intro: 'Respuestas instantáneas cuando preguntan.',
           items: [
-            'Menú Digital: Envía fotos y detalles de productos directamente por WhatsApp.',
-            'Venta Activa: Recomienda productos y presenta ofertas especiales de forma inteligente.',
-            'Disponibilidad Total: Responde al instante, incluso en mitad de la noche.'
+            'Envía fotos y detalles del menú',
+            'Upselling inteligente y ofertas',
+            'Disponible 24/7, incluso de noche'
           ]
         },
         reservations: {
-          title: 'Reservas Automáticas',
+          title: 'Reservas automáticas',
           tagline: 'Calendar Sync',
-          intro: 'Olvida la agenda de papel y los errores humanos.',
+          intro: 'Sin agenda de papel, sin errores humanos.',
           items: [
-            'Programación Directa: Verifica disponibilidad y pone la reserva directamente en Google Calendar.',
-            'Confirmaciones y Recordatorios: Envía automáticamente mensajes a los clientes para asegurar que asistan.',
-            'Gestión Simple: Los clientes pueden cancelar o mover la reserva ellos mismos, por chat o teléfono.'
+            'Reserva directamente en Google Calendar',
+            'Envía confirmaciones y recordatorios',
+            'Clientes reagendan por chat o llamada'
           ]
         },
-        benefitsTitle: '¿Por qué necesitas un Agente IA?',
+        benefitsTitle: '¿Por qué Agente IA?',
         benefitsList: [
           'Cero llamadas perdidas',
-          'Disponibilidad 24/7',
+          'Siempre disponible',
           'Menos estrés para el equipo'
         ]
       },
       video: {
-        title: 'Producción de Vídeo y Publicación Automática',
+        title: 'Producción Video + Publicación Auto',
         price: '389 €/mes',
         originalPrice: '599 €/mes',
         discount: '-35%',
-        subtitle: 'Nosotros creamos, nosotros publicamos. Tu negocio crece diariamente en 4 plataformas simultáneamente',
-        badge: 'Contenido de Vídeo Viral',
-        videosTitle: '🎬 16-20 Clips Premium / Mes',
-        videoDesc: '16-20 Videoclips/Mes:',
+        subtitle: 'Creamos y publicamos diario en 4 plataformas',
+        badge: 'Contenido Video Viral',
+        videosTitle: '🎬 16-20 Clips Premium/Mes',
+        videoDesc: '16-20 videos mensuales:',
         hook: 'Hook (8s)',
-        hookDesc: 'capta la atención al instante',
+        hookDesc: 'capta atención',
         action: 'Acción (8s)',
-        actionDesc: 'presenta el concepto',
+        actionDesc: 'muestra concepto',
         cta: 'CTA (8s)',
-        ctaDesc: 'llamada a la acción potente',
+        ctaDesc: 'impulsa acción',
         veo3: 'Calidad Cinematográfica',
-        veo3Desc: 'Imagen y sonido con estándares de cine, con presentadores que dan vida a tu marca',
+        veo3Desc: 'Visuales de cine con presentadores que dan vida a tu marca',
         format: 'Variedad Creativa',
-        formatDesc: 'Retos, entrevistas y clips interactivos que hacen que la gente comparta',
+        formatDesc: 'Retos, entrevistas y clips compartibles',
         presenters: {
           title: 'NUESTROS PRESENTADORES',
-          tagline: 'Cero esfuerzo de tu parte',
-          intro: 'Lo hacemos todo. Nuestro equipo de creadores y presentadores profesionales dan vida a tu marca.',
+          tagline: 'Cero esfuerzo tuyo',
+          intro: 'Nuestro equipo profesional crea todo.',
           items: [
-            'Equipo profesional de creadores',
+            'Equipo de creadores profesional',
             'Presentadores con experiencia',
-            'Sin ningún esfuerzo de tu parte'
+            'Sin esfuerzo de tu parte'
           ]
         },
         yourFace: {
-          title: 'TÚ ERES LA CARA DE LA MARCA',
+          title: 'TU CARA COMO MARCA',
           tagline: 'Máxima autenticidad',
-          intro: 'Usamos tu cara y voz. Tecnología AI de última generación (VEO3) para videos cinematográficos.',
+          intro: 'Tu cara y voz con tecnología IA VEO3.',
           items: [
-            'Conexión personal con la audiencia',
-            'Tecnología VEO3 de última generación',
-            'Ideal para propietarios auténticos'
+            'Conexión personal con tu audiencia',
+            'Tecnología IA VEO3',
+            'Ideal para dueños auténticos'
           ]
         },
         quality: {
           title: 'Calidad y Creatividad',
-          tagline: 'Para ambas opciones',
-          intro: 'Calidad Cinematográfica: Imagen, sonido y edición premium.',
+          tagline: 'Ambas opciones',
+          intro: 'Imagen, sonido y edición premium.',
           items: [
-            'Storyboards creativos y virales',
-            'Retos, entrevistas, clips interactivos',
-            'Ideas que captan la atención'
+            'Storyboards virales',
+            'Retos, entrevistas, interactivos',
+            'Ideas que captan atención'
           ]
         },
         robot: {
-          title: '🤖 Robot de Publicación Diaria (Con Tu Aprobación)',
+          title: '🤖 Robot de Publicación Diaria',
           tagline: 'Configura y Olvida',
-          intro: 'Entrega y Aprobación: Al final del mes, recibes todo el paquete de videos para revisión y aprobación final.',
+          intro: 'Paquete mensual para tu aprobación.',
           items: [
-            '4 Plataformas Simultáneas: Publica diariamente en TikTok, Instagram Reels, Facebook Reels, YouTube Shorts.',
-            'Consistencia Perfecta: A la misma hora óptima, cada día.',
-            'Completamente Automatizado: Sin gestión manual, sin inicios de sesión, sin dolores de cabeza.'
+            'Publica diario en TikTok, Instagram, Facebook, YouTube',
+            'Misma hora óptima cada día',
+            'Totalmente automatizado, cero lío'
           ]
         },
         visibility: {
           title: '🚀 Resultados Garantizados',
           tagline: 'Impacto Medible',
-          intro: 'Hazte amigo del Algoritmo: Los algoritmos de redes sociales aman la consistencia.',
+          intro: 'Los algoritmos aman la consistencia.',
           items: [
-            'Amistad con el Algoritmo: La consistencia diaria aumenta significativamente tu visibilidad orgánica.',
-            'Impacto Medible: Ve aumentos en vistas, seguidores y engagement en los primeros 30 días.',
-            'Branding Fuerte: La presencia constante te mantiene en la mente de los clientes.'
+            'Publicación diaria aumenta alcance orgánico',
+            'Ve crecimiento en 30 días',
+            'Presencia de marca fuerte'
           ]
         },
         formatExamples: {
           label: 'Ejemplos de Formatos'
         },
         included: {
-          title: 'Qué Está Incluido',
+          title: 'Qué Incluye',
           items: [
-            '20 videos premium/mes (con nuestros presentadores O con tu cara y voz*)',
-            'Ideas creativas y gestión completa del contenido',
-            'Publicación automática en 4 redes sociales, después de tu aprobación'
+            '20 videos premium/mes (nuestro equipo o tu cara*)',
+            'Ideas creativas y gestión completa',
+            'Publicación auto en 4 plataformas tras aprobación'
           ],
-          note: '(*) La opción con la cara y voz del propietario se selecciona al inicio de la colaboración y está incluida en el precio.',
-          cta: 'Completa tu presencia online. Nosotros hacemos los videos y publicaciones. Tú recibes los resultados.'
+          note: '(*) Opción de cara se elige al inicio, incluida en precio.',
+          cta: 'Nosotros creamos. Nosotros publicamos. Tú creces.'
         },
         items: [
-          '16 conceptos creativos al mes con guion completo',
-          'Presentador profesional representando a MrDelivery',
-          'Retos interactivos para participación del público',
-          'Integración natural de la marca y llamada a la acción',
-          'Formatos diversos: challenges, entrevistas, batallas',
-          'Producción cinematográfica profesional',
-          'Optimización para algoritmos de redes sociales',
-          'Entrega en formato 16:9 y 9:16 para todas las plataformas'
+          '16 conceptos creativos con guión completo',
+          'Presentador profesional MrDelivery',
+          'Retos interactivos para audiencia',
+          'Integración natural de marca + CTA',
+          'Formatos diversos: retos, entrevistas',
+          'Producción cinematográfica',
+          'Contenido optimizado para algoritmos',
+          'Entrega en 16:9 y 9:16'
         ],
-        examples: 'Ultimate Burger Challenge, Street Food Confessions, Adivina el Ingrediente Secreto, Batalla Novio vs Novia y muchos más'
+        examples: 'Burger Challenge, Street Food Confessions, Adivina el Ingrediente, Batalla de Parejas y más'
       },
       ugc: {
-        title: 'Tu Marca, Tu Voz: El Avatar Digital que Hace Crecer tu Negocio',
+        title: 'Tu Marca, Tu Voz: Avatar Digital IA',
         heroTitle: 'Tu Marca, Tu Voz',
-        heroSubtitle: 'No dependas más de influencers. Usa tu propio rostro y voz para crear contenido viral en segundos, a una fracción del costo.',
-        price: '€100',
-        originalPrice: '€150',
+        heroSubtitle: 'Crea contenido viral con tu cara y voz en segundos, sin influencers.',
+        price: '€199',
+        originalPrice: '€299',
         discount: '-35%',
-        noSubscription: 'Paga una vez. Sin suscripción mensual.',
-        subtitle: 'Un presentador real promociona tu producto. Solo envías una foto por Telegram.',
-        badge: 'Creador UGC con IA',
-        stepsTitle: '¿Cómo Funciona? (4 Pasos Simples)',
-        stepsDesc: 'Flujo automatizado vía Telegram:',
+        noSubscription: 'Pago único. Sin suscripción.',
+        subtitle: 'Presentador real promociona tu producto. Solo envías foto.',
+        badge: 'Creador UGC IA',
+        stepsTitle: 'Cómo funciona (4 pasos)',
+        stepsDesc: 'Automatizado vía Telegram:',
         step1: 'ABRE',
-        step1Desc: 'el bot en Telegram',
+        step1Desc: 'bot Telegram',
         step2: 'ENVÍA',
-        step2Desc: 'una foto de tu producto',
+        step2Desc: 'foto del producto',
         step3: 'ESPERA',
         step3Desc: '2 minutos',
         step4: 'RECIBE',
-        step4Desc: 'tu vídeo viral de 24 segundos, listo para publicar',
-        benefitsTitle: '¿Por Qué Elegir AI Video Generator?',
+        step4Desc: 'video viral 24s listo para publicar',
+        benefitsTitle: '¿Por qué AI Video Generator?',
         benefit1Title: 'Rápido',
-        benefit1Desc: 'De foto a vídeo en menos de 5 minutos',
+        benefit1Desc: 'De foto a video en menos de 5 min',
         benefit2Title: 'Barato',
-        benefit2Desc: '~€3 por vídeo. Mucho menos que un influencer',
+        benefit2Desc: '~€3/video vs influencers caros',
         benefit3Title: 'Fácil',
-        benefit3Desc: 'Sin equipo, estudio ni conocimientos de marketing',
+        benefit3Desc: 'Sin equipo ni estudio',
         benefit4Title: 'Profesional',
-        benefit4Desc: 'Presentador real, aspecto natural y de calidad',
-        deliverable: 'Vídeo de 24 segundos optimizado para TikTok, Reels, YouTube Shorts',
-        telegramButton: 'EMPIEZA AHORA EN TELEGRAM',
-        finalCta: 'GENERA TU PRIMER VÍDEO AHORA',
+        benefit4Desc: 'Presentador real, aspecto natural',
+        deliverable: 'Video 24s para TikTok, Reels, Shorts',
+        telegramButton: 'EMPIEZA EN TELEGRAM',
+        finalCta: 'CREA TU PRIMER VIDEO',
         items: [
-          'Presentador real promocionando tu producto',
-          'Vídeo de 24 segundos optimizado para TikTok, Reels, Shorts',
+          'Presentador real promociona tu producto',
+          'Video 24s para TikTok, Reels, Shorts',
           'Entrega en menos de 5 minutos',
-          '~€3 por vídeo - mucho más barato que un influencer',
-          'Sin equipo, estudio ni conocimientos de marketing',
-          '¡Funciona solo en Telegram - rápido y fácil!'
+          '~€3/video - mucho más barato que influencers',
+          'Sin equipo, estudio ni conocimientos',
+          'Por Telegram - rápido y simple'
         ],
-        examples: 'Showcases de productos con influencers, promociones de comida de restaurante, testimonios auténticos, unboxings lifestyle, rutinas matutinas con tus productos'
+        examples: 'Showcases de productos, promos de comida, testimonios, unboxings, contenido lifestyle'
       },
       premium: {
         title: 'Negocio en Piloto Automático',
-        price: '300 €/mes',
-        originalPrice: '550 €/mes',
+        price: '399 €/mes',
+        originalPrice: '699 €/mes',
         discount: '-45%',
-        discountNote: 'Ahorra 45% activando los paquetes de Digitalización y Marketing juntos',
-        subtitle: 'Todo lo que necesitas para vender online, en una sola solución completa.',
-        badge: 'Paquete Todo Incluido',
+        discountNote: 'Ahorra 45% con pack Digitalización + Marketing',
+        subtitle: 'Solución completa de ventas online en un paquete.',
+        badge: 'Todo Incluido',
         app: {
-          title: 'Tu App Móvil y Website',
+          title: 'Tu App y Website',
           tagline: 'Tu propia tienda',
-          intro: 'No dependas solo de plataformas de delivery o redes sociales.',
+          intro: 'Independencia de plataformas y redes.',
           items: [
-            'Lanzamiento Completo: Creamos, probamos y lanzamos tu app de Android & iOS y website de pedidos.',
-            'Sin Preocupaciones: Nos encargamos de todo, desde el diseño hasta el mantenimiento técnico.',
-            'Entrega Inteligente: Integración con partners de entrega (no necesitas contratar repartidores).'
+            'Lanzamiento completo: app Android, iOS + web pedidos',
+            'Nosotros manejamos diseño y mantenimiento',
+            'Integración con partners de entrega incluida'
           ]
         },
         automation: {
           title: 'Automatización y Fidelización',
-          tagline: 'Vende más a clientes actuales',
-          intro: 'Transforma visitantes ocasionales en clientes fieles que vuelven.',
+          tagline: 'Más ventas repetidas',
+          intro: 'Convierte visitantes en clientes fieles.',
           items: [
-            'Base de Datos: Recopilamos automáticamente datos de clientes para enviarles ofertas.',
-            'Mensajes Directos: Envía notificaciones automáticas y promociones por WhatsApp o SMS.',
-            'Marketing Personalizado: Mensajes correctos enviados en el momento correcto.'
+            'Recopilación automática de datos para ofertas',
+            'Promociones automáticas WhatsApp/SMS',
+            'Mensaje correcto en momento correcto'
           ]
         },
         social: {
-          title: 'Gestión de Redes Sociales',
+          title: 'Gestión Redes Sociales',
           tagline: 'Visibilidad Máxima',
-          intro: 'Estar presente donde están tus clientes, cada día.',
+          intro: 'Presencia diaria donde están tus clientes.',
           items: [
-            'Contenido Viral: Posts y vídeos creados especialmente para TikTok, Instagram y Facebook.',
-            'Estrategia de Crecimiento: No solo publicamos, traemos gente nueva para interactuar con tu marca.',
-            'Monitorización: Analizamos qué funciona y optimizamos constantemente para mejores resultados.'
+            'Contenido viral TikTok, Instagram, Facebook',
+            'Estrategia de crecimiento, no solo publicar',
+            'Optimización continua para resultados'
           ]
         },
-        whyChoose: '¿Por qué elegir este paquete?',
+        whyChoose: '¿Por qué este paquete?',
         benefits: [
-          'Ahorra tiempo: Nos encargamos de tecnología y publicaciones, tú te enfocas en tu negocio.',
-          'Costes reducidos: Obtén un equipo completo (Desarrolladores, Marketers, Social Media) al precio de una suscripción.',
-          'Control Total: Ten tus propios canales de venta, sin comisiones enormes a terceros.'
+          'Ahorra tiempo: Manejamos tech + publicaciones',
+          'Una suscripción = equipo completo (devs, marketers, social)',
+          'Tus canales, sin comisiones a terceros'
         ]
       }
     },
@@ -1277,65 +1277,65 @@ export const translations = {
         },
         monthlyReports: {
           title: 'Ce primești lunar',
-          intro: 'Pentru a ne asigura că business-ul tău crește constant pe platformele de delivery (Glovo, Wolt, Bolt, Tazz), îți oferim lunar un set de 5 rapoarte detaliate de performanță. Acestea îți oferă o viziune clară asupra vânzărilor și te ajută să iei decizii bazate pe date reale.',
+          intro: '5 rapoarte detaliate lunar pentru a-ți crește afacerea de delivery cu decizii bazate pe date.',
           items: [
-            { icon: 'BarChart3', title: 'Analiză comparativă a încasărilor', desc: 'Evaluăm performanța financiară actuală în raport cu luna precedentă pentru a identifica tendințele de creștere.' },
-            { icon: 'Rocket', title: 'Raport de promovare și rezultate', desc: 'Analizăm campaniile active și măsurăm impactul real al promoțiilor asupra volumului de comenzi.' },
-            { icon: 'TrendingUp', title: 'Situația vânzărilor prin aplicație', desc: 'Monitorizăm fluxul de comenzi și eficiența canalelor de vânzare digitală.' },
-            { icon: 'Users', title: 'Raport achiziție clienți noi', desc: 'Vezi exact câți utilizatori noi au descoperit brandul tău în ultima lună.' },
-            { icon: 'ClipboardList', title: 'Centralizator meniu și oferte', desc: 'O situație clară a structurii meniului tău și a ofertelor speciale implementate pentru a rămâne competitiv.' }
+            { icon: 'BarChart3', title: 'Comparație încasări', desc: 'Tendințe de creștere vs luna anterioară' },
+            { icon: 'Rocket', title: 'Rezultate promoții', desc: 'Impact campanii asupra volumului de comenzi' },
+            { icon: 'TrendingUp', title: 'Vânzări pe aplicații', desc: 'Flux comenzi și eficiență canale' },
+            { icon: 'Users', title: 'Clienți noi', desc: 'Utilizatori noi care au descoperit brandul' },
+            { icon: 'ClipboardList', title: 'Rezumat meniu', desc: 'Structura meniului și oferte active' }
           ],
-          whyImportant: 'De ce este important acest management?',
-          whyDesc: 'Nu doar listăm produsele, ci gestionăm activ prezența ta online. Ne ocupăm de integrarea logo-ului, fotografiile de brand și optimizarea viziunii locației tale, astfel încât să maximizezi fiecare oportunitate de vânzare pe Pocket, Glovo, Wolt sau Bolt.'
+          whyImportant: 'De ce contează acest management?',
+          whyDesc: 'Gestionăm activ prezența ta online: logo, poze, optimizare pentru a maximiza vânzările.'
         },
-        whyTitle: 'De ce ai nevoie de acest management?',
+        whyTitle: 'De ce să alegi acest pachet?',
         whyItems: [
-          'Recuperezi investiția: Prin simpla negociere a comisioanelor, pachetul nostru se poate plăti singur încă din prima lună.',
-          'Vizibilitate Maximă: Te punem în prima linie pe platformele de livrare, exact acolo unde clienții flămânzi caută.',
-          'Fără bătăi de cap tehnice: Tu nu mai trebuie să intri în tablete sau panouri de control complexe.'
+          'ROI din luna 1 prin economii la comisioane',
+          'Vizibilitate maximă pe toate platformele',
+          'Zero bătăi de cap tehnice pentru tine'
         ]
       },
       aiAgents: {
-        title: 'Asistent Virtual Inteligent',
+        title: 'Asistent Virtual IA',
         price: '1.500 RON/lună',
         originalPrice: '2.000 RON/lună',
         discount: '-25%',
-        subtitle: 'Angajatul tău ideal: Nu doarme niciodată și răspunde instant oricărui client',
-        badge: 'Agent AI Conversațional 24/7',
+        subtitle: 'Nu doarme niciodată, răspunde instant oricărui client',
+        badge: 'Agent IA 24/7',
         phone: {
-          title: 'Răspunde la Telefon',
+          title: 'Răspunde la telefon',
           tagline: 'Voice AI',
-          intro: 'Nu mai pierde niciun client pentru că erai ocupat în bucătărie sau în ședință.',
+          intro: 'Nu mai pierzi clienți când ești ocupat.',
           items: [
-            'Voce Naturală: Vorbește fluid în limba română, exact ca un om.',
-            'Expert în Afacerea Ta: Știe totul despre meniul tău, prețuri, ingrediente sau servicii.',
-            'Fără Apeluri Pierdute: Poate prelua zeci de apeluri simultan, 24/7.'
+            'Voce naturală, vorbește ca un om',
+            'Știe meniul, prețurile, ingredientele',
+            'Preia zeci de apeluri simultan'
           ]
         },
         whatsapp: {
-          title: 'Expert pe WhatsApp',
+          title: 'Expert WhatsApp',
           tagline: 'Chat AI',
-          intro: 'Clienții vor răspunsuri ACUM. AI-ul i le oferă pe loc.',
+          intro: 'Răspunsuri instant când întreabă.',
           items: [
-            'Meniu Digital: Trimite poze și detalii despre produse direct pe WhatsApp.',
-            'Vânzare Activă: Recomandă produse și prezintă ofertele speciale în mod inteligent.',
-            'Disponibilitate Totală: Răspunde instant, chiar și în mijlocul nopții.'
+            'Trimite poze și detalii din meniu',
+            'Upselling inteligent și oferte',
+            'Disponibil 24/7, chiar și noaptea'
           ]
         },
         reservations: {
-          title: 'Rezervări Automate',
+          title: 'Rezervări automate',
           tagline: 'Calendar Sync',
-          intro: 'Uită de agenda de hârtie și de erorile umane.',
+          intro: 'Fără agendă de hârtie, fără erori.',
           items: [
-            'Programare Directă: Verifică disponibilitatea și pune rezervarea direct în Google Calendar.',
-            'Confirmări și Reminder-uri: Trimite automat mesaje clienților ca să te asiguri că aceștia apar la programare.',
-            'Gestiune Simplă: Clienții pot anula sau muta rezervarea singuri, prin chat sau telefon.'
+            'Rezervă direct în Google Calendar',
+            'Trimite confirmări și reminder-uri',
+            'Clienții reprogramează prin chat'
           ]
         },
-        benefitsTitle: 'De ce ai nevoie de un Agent AI?',
+        benefitsTitle: 'De ce Agent IA?',
         benefitsList: [
           'Zero apeluri pierdute',
-          'Disponibilitate 24/7',
+          'Mereu disponibil',
           'Mai puțin stres pentru echipă'
         ]
       },
