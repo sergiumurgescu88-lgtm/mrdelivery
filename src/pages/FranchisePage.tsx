@@ -637,13 +637,13 @@ const FranchisePage: React.FC = () => {
             ))}
           </div>
 
-          {/* CTA to scroll to form */}
-          <Button 
-            onClick={() => document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-bold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all"
+          {/* CTA to Manual Franchise Page */}
+          <Link 
+            to="/franchise_manual"
+            className="inline-flex items-center justify-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-bold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all"
           >
-            {t.hero.cta}
-          </Button>
+            Manual Franciza MrDelivery
+          </Link>
         </div>
       </section>
 
