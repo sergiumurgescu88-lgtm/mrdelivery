@@ -1480,7 +1480,7 @@ export const translations = {
         price: '1.375 RON/lună',
         originalPrice: '2.500 RON/lună',
         discount: '-45%',
-        discountNote: 'Economisești 45% activând pachetele de Digitalizare și Marketing împreună',
+        discountNote: 'Economisești 45% activând pachetele 1 și 2 împreună',
         subtitle: 'Tot ce ai nevoie pentru a vinde online, într-o singură soluție completă.',
         badge: 'Pachet All-Inclusive',
         app: {
