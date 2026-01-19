@@ -30,7 +30,8 @@ const franchiseTranslations = {
       profit: '15.000+ € profit lunar',
       badges: ['100% remote', 'Bot auto-recrutare', 'ROI 30 zile', 'Piață exclusivă', 'Doar 9% redevență'],
       cta: 'Vreau să aleg piața mea',
-      secondaryCta: 'Vezi modelul financiar'
+      secondaryCta: 'Vezi modelul financiar',
+      manualCta: 'Manual Franciză MrDelivery'
     },
     form: {
       title: 'Aplică pentru Franciză',
@@ -202,7 +203,8 @@ const franchiseTranslations = {
       profit: '€15,000+ monthly profit',
       badges: ['100% remote', 'Auto-recruiting bot', '30-day ROI', 'Exclusive market', 'Only 9% royalty'],
       cta: 'I want to choose my market',
-      secondaryCta: 'See financial model'
+      secondaryCta: 'See financial model',
+      manualCta: 'MrDelivery Franchise Manual'
     },
     form: {
       title: 'Apply for Franchise',
@@ -374,7 +376,8 @@ const franchiseTranslations = {
       profit: '€15.000+ de ganancia mensual',
       badges: ['100% remoto', 'Bot auto-reclutamiento', 'ROI 30 días', 'Mercado exclusivo', 'Solo 9% regalías'],
       cta: 'Quiero elegir mi mercado',
-      secondaryCta: 'Ver modelo financiero'
+      secondaryCta: 'Ver modelo financiero',
+      manualCta: 'Manual Franquicia MrDelivery'
     },
     form: {
       title: 'Solicitar Franquicia',
@@ -637,12 +640,21 @@ const FranchisePage: React.FC = () => {
             ))}
           </div>
 
-          {/* CTA to Manual Franchise Page */}
+          {/* CTA to Manual Franchise Page - Premium Animated Golden Border */}
           <Link 
             to="/franchise_manual"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-bold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all"
+            className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-5 sm:py-6 text-lg sm:text-xl font-black rounded-2xl transition-all duration-300 hover:scale-[1.02]"
           >
-            Manual Franciza MrDelivery
+            {/* Animated gradient border */}
+            <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 p-[3px] animate-shimmer" style={{ backgroundSize: '200% 100%' }}>
+              <span className="absolute inset-[3px] rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-600 group-hover:to-amber-700 transition-all duration-300"></span>
+            </span>
+            {/* Glow effect */}
+            <span className="absolute inset-0 rounded-2xl bg-amber-400/30 blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-300"></span>
+            {/* Text content */}
+            <span className="relative z-10 text-black font-black tracking-wide drop-shadow-sm">
+              {t.hero.manualCta}
+            </span>
           </Link>
         </div>
       </section>
