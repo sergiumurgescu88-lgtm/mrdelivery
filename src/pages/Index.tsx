@@ -9,7 +9,7 @@ import { FullscreenVideo } from '@/components/FullscreenVideo';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
-import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake, FileText } from 'lucide-react';
+import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake, FileText, BarChart3, Rocket, ClipboardList } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -233,6 +233,54 @@ const Index = () => {
                         <span className="text-xs sm:text-sm text-foreground break-words leading-relaxed">{item}</span>
                       </div>)}
                   </div>
+                </div>
+              </div>
+
+              {/* Monthly Reports - Golden Section */}
+              <div className="bg-gradient-to-br from-amber-500/20 via-yellow-500/15 to-amber-600/20 p-4 sm:p-5 rounded-2xl border-2 border-amber-400/50 shadow-lg shadow-amber-500/10 mb-5">
+                <h5 className="font-bold text-lg sm:text-xl text-amber-300 mb-3 flex items-center gap-2">
+                  <div className="p-2 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg shadow-lg">
+                    <FileText className="w-5 h-5 text-black" />
+                  </div>
+                  {(t.services.standard as any).monthlyReports?.title || 'Ce primești lunar'}
+                </h5>
+                <p className="text-sm text-amber-100/80 mb-4 leading-relaxed">
+                  {(t.services.standard as any).monthlyReports?.intro || 'Pentru a ne asigura că business-ul tău crește constant pe platformele de delivery, îți oferim lunar un set de 5 rapoarte detaliate de performanță.'}
+                </p>
+                <div className="space-y-3">
+                  {((t.services.standard as any).monthlyReports?.items || [
+                    { icon: 'BarChart3', title: 'Analiză comparativă a încasărilor', desc: 'Evaluăm performanța financiară actuală în raport cu luna precedentă.' },
+                    { icon: 'Rocket', title: 'Raport de promovare și rezultate', desc: 'Analizăm campaniile active și măsurăm impactul real.' },
+                    { icon: 'TrendingUp', title: 'Situația vânzărilor prin aplicație', desc: 'Monitorizăm fluxul de comenzi și eficiența.' },
+                    { icon: 'Users', title: 'Raport achiziție clienți noi', desc: 'Câți utilizatori noi au descoperit brandul tău.' },
+                    { icon: 'ClipboardList', title: 'Centralizator meniu și oferte', desc: 'Structura meniului și ofertele speciale.' }
+                  ]).map((item: { icon: string; title: string; desc: string }, index: number) => {
+                    const IconComponent = item.icon === 'BarChart3' ? BarChart3 
+                      : item.icon === 'Rocket' ? Rocket 
+                      : item.icon === 'TrendingUp' ? TrendingUp 
+                      : item.icon === 'Users' ? Users 
+                      : ClipboardList;
+                    return (
+                      <div key={index} className="flex items-start gap-3 bg-black/30 p-3 rounded-xl border border-amber-400/30 hover:border-amber-400/50 transition-colors">
+                        <div className="p-2 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg flex-shrink-0">
+                          <IconComponent className="w-4 h-4 text-black" />
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-sm text-amber-200">{item.title}</h6>
+                          <p className="text-xs text-amber-100/60 mt-0.5">{item.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="mt-4 pt-4 border-t border-amber-400/30">
+                  <h6 className="font-semibold text-sm text-amber-300 mb-2 flex items-center gap-2">
+                    <Award className="w-4 h-4" />
+                    {(t.services.standard as any).monthlyReports?.whyImportant || 'De ce este important acest management?'}
+                  </h6>
+                  <p className="text-sm text-amber-100/70 leading-relaxed">
+                    {(t.services.standard as any).monthlyReports?.whyDesc || 'Nu doar listăm produsele, ci gestionăm activ prezența ta online. Ne ocupăm de integrarea logo-ului, fotografiile de brand și optimizarea viziunii locației tale.'}
+                  </p>
                 </div>
               </div>
 

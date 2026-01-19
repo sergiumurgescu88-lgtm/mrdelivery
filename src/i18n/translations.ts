@@ -67,6 +67,19 @@ export const translations = {
             'Continuous Support: The team has direct access to us on WhatsApp for any questions or issues.'
           ]
         },
+        monthlyReports: {
+          title: 'What you receive monthly',
+          intro: 'To ensure your business grows constantly on delivery platforms (Glovo, Wolt, Bolt, Tazz), we provide you monthly with a set of 5 detailed performance reports. These give you a clear vision of sales and help you make data-driven decisions.',
+          items: [
+            { icon: 'BarChart3', title: 'Comparative Revenue Analysis', desc: 'We evaluate current financial performance against the previous month to identify growth trends.' },
+            { icon: 'Rocket', title: 'Promotion & Results Report', desc: 'We analyze active campaigns and measure the real impact of promotions on order volume.' },
+            { icon: 'TrendingUp', title: 'App Sales Status', desc: 'We monitor order flow and digital sales channel efficiency.' },
+            { icon: 'Users', title: 'New Customer Acquisition Report', desc: 'See exactly how many new users discovered your brand last month.' },
+            { icon: 'ClipboardList', title: 'Menu & Offers Summary', desc: 'A clear overview of your menu structure and special offers implemented to stay competitive.' }
+          ],
+          whyImportant: 'Why is this management important?',
+          whyDesc: "We don't just list products, we actively manage your online presence. We handle logo integration, brand photos and location optimization, so you maximize every sales opportunity on Pocket, Glovo, Wolt or Bolt."
+        },
         whyTitle: 'Why do you need this management?',
         whyItems: [
           'Recover Investment: By simply negotiating commissions, our package can pay for itself from the first month.',
@@ -658,6 +671,19 @@ export const translations = {
             'Soporte Continuo: El equipo tiene acceso directo a nosotros por WhatsApp para cualquier pregunta o problema.'
           ]
         },
+        monthlyReports: {
+          title: 'Lo que recibes mensualmente',
+          intro: 'Para asegurarnos de que tu negocio crece constantemente en las plataformas de delivery (Glovo, Uber Eats, Just Eat), te ofrecemos mensualmente un conjunto de 5 informes detallados de rendimiento. Estos te dan una visión clara de las ventas y te ayudan a tomar decisiones basadas en datos reales.',
+          items: [
+            { icon: 'BarChart3', title: 'Análisis comparativo de ingresos', desc: 'Evaluamos el rendimiento financiero actual en comparación con el mes anterior para identificar tendencias de crecimiento.' },
+            { icon: 'Rocket', title: 'Informe de promoción y resultados', desc: 'Analizamos las campañas activas y medimos el impacto real de las promociones en el volumen de pedidos.' },
+            { icon: 'TrendingUp', title: 'Estado de ventas por aplicación', desc: 'Monitoreamos el flujo de pedidos y la eficiencia de los canales de venta digital.' },
+            { icon: 'Users', title: 'Informe de adquisición de nuevos clientes', desc: 'Ve exactamente cuántos nuevos usuarios descubrieron tu marca el mes pasado.' },
+            { icon: 'ClipboardList', title: 'Resumen de menú y ofertas', desc: 'Una visión clara de la estructura de tu menú y las ofertas especiales implementadas para mantenerte competitivo.' }
+          ],
+          whyImportant: '¿Por qué es importante esta gestión?',
+          whyDesc: 'No solo listamos productos, gestionamos activamente tu presencia online. Nos encargamos de la integración del logo, fotos de marca y optimización de la visibilidad de tu ubicación, para que maximices cada oportunidad de venta en Pocket, Glovo, Wolt o Bolt.'
+        },
         whyTitle: '¿Por qué necesitas esta gestión?',
         whyItems: [
           'Recupera la Inversión: Simplemente negociando comisiones, nuestro paquete puede pagarse solo desde el primer mes.',
@@ -1248,6 +1274,19 @@ export const translations = {
             'Best Practices: Sfaturi și trucuri pentru reducerea timpului de preparare, îmbunătățirea ambalajului și evitarea recenziilor negative.',
             'Suport Continuu: Echipa are acces direct la noi pe WhatsApp pentru orice întrebare sau problemă.'
           ]
+        },
+        monthlyReports: {
+          title: 'Ce primești lunar',
+          intro: 'Pentru a ne asigura că business-ul tău crește constant pe platformele de delivery (Glovo, Wolt, Bolt, Tazz), îți oferim lunar un set de 5 rapoarte detaliate de performanță. Acestea îți oferă o viziune clară asupra vânzărilor și te ajută să iei decizii bazate pe date reale.',
+          items: [
+            { icon: 'BarChart3', title: 'Analiză comparativă a încasărilor', desc: 'Evaluăm performanța financiară actuală în raport cu luna precedentă pentru a identifica tendințele de creștere.' },
+            { icon: 'Rocket', title: 'Raport de promovare și rezultate', desc: 'Analizăm campaniile active și măsurăm impactul real al promoțiilor asupra volumului de comenzi.' },
+            { icon: 'TrendingUp', title: 'Situația vânzărilor prin aplicație', desc: 'Monitorizăm fluxul de comenzi și eficiența canalelor de vânzare digitală.' },
+            { icon: 'Users', title: 'Raport achiziție clienți noi', desc: 'Vezi exact câți utilizatori noi au descoperit brandul tău în ultima lună.' },
+            { icon: 'ClipboardList', title: 'Centralizator meniu și oferte', desc: 'O situație clară a structurii meniului tău și a ofertelor speciale implementate pentru a rămâne competitiv.' }
+          ],
+          whyImportant: 'De ce este important acest management?',
+          whyDesc: 'Nu doar listăm produsele, ci gestionăm activ prezența ta online. Ne ocupăm de integrarea logo-ului, fotografiile de brand și optimizarea viziunii locației tale, astfel încât să maximizezi fiecare oportunitate de vânzare pe Pocket, Glovo, Wolt sau Bolt.'
         },
         whyTitle: 'De ce ai nevoie de acest management?',
         whyItems: [
