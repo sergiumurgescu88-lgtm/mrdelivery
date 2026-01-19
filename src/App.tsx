@@ -11,6 +11,9 @@ import AdminDashboard from "./pages/AdminDashboard";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import CookiePolicy from "./pages/CookiePolicy";
 import GalleryPage from "./pages/GalleryPage";
+import ServicesPage from "./pages/ServicesPage";
+import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
 
@@ -26,6 +29,9 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="/franchise" element={<FranchisePage />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
