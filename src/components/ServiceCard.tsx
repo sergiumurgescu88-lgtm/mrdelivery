@@ -57,19 +57,13 @@ export const ServiceCard = ({
     return () => window.clearTimeout(id);
   }, [isOpen]);
 
-  // Get frame color based on package number
-  const getFrameColor = () => {
-    switch(packageNumber) {
-      case 1: return { primary: 'cyan', glow: 'rgba(34, 211, 238, 0.6)', border: '#22d3ee', gradient: 'from-cyan-400 via-cyan-300 to-cyan-500' };
-      case 2: return { primary: 'fuchsia', glow: 'rgba(232, 121, 249, 0.6)', border: '#e879f9', gradient: 'from-fuchsia-400 via-fuchsia-300 to-fuchsia-500' };
-      case 3: return { primary: 'amber', glow: 'rgba(251, 191, 36, 0.6)', border: '#fbbf24', gradient: 'from-amber-400 via-yellow-300 to-amber-500' };
-      case 4: return { primary: 'emerald', glow: 'rgba(52, 211, 153, 0.6)', border: '#34d399', gradient: 'from-emerald-400 via-emerald-300 to-emerald-500' };
-      case 5: return { primary: 'rose', glow: 'rgba(251, 113, 133, 0.6)', border: '#fb7185', gradient: 'from-rose-400 via-rose-300 to-rose-500' };
-      default: return { primary: 'amber', glow: 'rgba(251, 191, 36, 0.6)', border: '#fbbf24', gradient: 'from-amber-400 via-yellow-300 to-amber-500' };
-    }
+  // Premium gold frame for all packages
+  const frameColor = {
+    primary: 'amber',
+    glow: 'rgba(251, 191, 36, 0.5)',
+    border: '#fbbf24',
+    gradient: 'from-amber-400 via-yellow-300 to-amber-500'
   };
-
-  const frameColor = getFrameColor();
 
   return (
     <div
@@ -78,14 +72,23 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Premium Animated Glowing Frame */}
+      {/* Premium Animated Golden Frame */}
       {packageNumber && (
         <>
-          {/* Animated gradient border (single layer) */}
+          {/* Outer glow effect */}
           <div 
-            className={`absolute -inset-[1px] rounded-[18px] bg-gradient-to-r ${frameColor.gradient} p-[1.5px] animate-shimmer opacity-55 group-hover:opacity-75 transition-opacity duration-300 pointer-events-none`}
+            className="absolute -inset-[4px] rounded-[22px] opacity-40 group-hover:opacity-70 transition-opacity duration-500 blur-md pointer-events-none"
+            style={{ background: 'linear-gradient(135deg, #fbbf24, #fcd34d, #fbbf24)' }}
+          />
+          
+          {/* Animated gradient border - BOLD */}
+          <div 
+            className="absolute -inset-[3px] rounded-[20px] bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 p-[3px] animate-shimmer opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
             style={{ backgroundSize: '200% 100%' }}
           />
+          
+          {/* Inner dark background to make border visible */}
+          <div className="absolute -inset-0 rounded-2xl bg-card pointer-events-none" />
         </>
       )}
 
