@@ -75,15 +75,15 @@ export const ServiceCard = ({
       {/* Premium Animated Golden Frame */}
       {packageNumber && (
         <>
-          {/* Outer glow effect - 80% transparent (20% opacity) */}
+          {/* Outer glow effect */}
           <div 
-            className="absolute -inset-[4px] rounded-[22px] opacity-20 group-hover:opacity-30 transition-opacity duration-500 blur-md pointer-events-none"
+            className="absolute -inset-[4px] rounded-[22px] opacity-40 group-hover:opacity-70 transition-opacity duration-500 blur-md pointer-events-none"
             style={{ background: 'linear-gradient(135deg, #fbbf24, #fcd34d, #fbbf24)' }}
           />
           
-          {/* Animated gradient border - BOLD, 80% transparent (20% opacity) */}
+          {/* Animated gradient border - BOLD */}
           <div 
-            className="absolute -inset-[3px] rounded-[20px] bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 p-[3px] animate-shimmer opacity-20 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none"
+            className="absolute -inset-[3px] rounded-[20px] bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 p-[3px] animate-shimmer opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
             style={{ backgroundSize: '200% 100%' }}
           />
           
@@ -107,16 +107,30 @@ export const ServiceCard = ({
             : undefined
         }
       >
-      {/* Large Package Number Background - GOLD for all packages */}
+      {/* Large Package Number Background - BOLD & VISIBLE on Desktop */}
       {packageNumber && (
         <div className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-[1] pointer-events-none select-none">
-          {/* Main solid number - gold color scheme for visual consistency */}
+          {/* Main solid number - more visible on desktop with increased opacity */}
           <span 
             className="text-[200px] sm:text-[260px] md:text-[320px] lg:text-[380px] font-black leading-none block opacity-25 md:opacity-50"
             style={{
-              color: '#fbbf24',
-              WebkitTextStroke: '6px #d97706',
-              textShadow: '0 4px 30px rgba(251, 191, 36, 0.5)',
+              color: packageNumber === 1 ? '#22d3ee' :
+                     packageNumber === 2 ? '#e879f9' :
+                     packageNumber === 3 ? '#fbbf24' :
+                     packageNumber === 4 ? '#34d399' :
+                     '#fb7185',
+              WebkitTextStroke: packageNumber === 1 ? '6px #0891b2' :
+                               packageNumber === 2 ? '6px #c026d3' :
+                               packageNumber === 3 ? '6px #d97706' :
+                               packageNumber === 4 ? '6px #059669' :
+                               '6px #e11d48',
+              textShadow: `0 4px 30px ${
+                packageNumber === 1 ? 'rgba(34, 211, 238, 0.5)' :
+                packageNumber === 2 ? 'rgba(232, 121, 249, 0.5)' :
+                packageNumber === 3 ? 'rgba(251, 191, 36, 0.5)' :
+                packageNumber === 4 ? 'rgba(52, 211, 153, 0.5)' :
+                'rgba(251, 113, 133, 0.5)'
+              }`,
             }}
             aria-hidden="true"
           >
