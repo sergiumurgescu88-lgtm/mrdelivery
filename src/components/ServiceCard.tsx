@@ -81,92 +81,28 @@ export const ServiceCard = ({
       {/* Premium Animated Glowing Frame */}
       {packageNumber && (
         <>
-          {/* Outer glow pulse */}
+          {/* Animated gradient border (single layer) */}
           <div 
-            className="absolute -inset-[3px] rounded-[20px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 blur-md animate-pulse"
-            style={{ background: `linear-gradient(135deg, ${frameColor.border}, transparent, ${frameColor.border})` }}
-          />
-          
-          {/* Animated gradient border */}
-          <div 
-            className={`absolute -inset-[2px] rounded-[18px] bg-gradient-to-r ${frameColor.gradient} p-[2px] animate-shimmer opacity-80 group-hover:opacity-100 transition-opacity duration-300`}
+            className={`absolute -inset-[1px] rounded-[18px] bg-gradient-to-r ${frameColor.gradient} p-[1.5px] animate-shimmer opacity-55 group-hover:opacity-75 transition-opacity duration-300 pointer-events-none`}
             style={{ backgroundSize: '200% 100%' }}
-          >
-            <div className="absolute inset-[2px] rounded-[16px] bg-card/95" />
-          </div>
-          
-          {/* Corner accents - animated */}
-          <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
-            <div 
-              className="absolute top-0 left-0 w-full h-[3px] rounded-tl-2xl animate-pulse"
-              style={{ background: `linear-gradient(90deg, ${frameColor.border}, transparent)` }}
-            />
-            <div 
-              className="absolute top-0 left-0 h-full w-[3px] rounded-tl-2xl animate-pulse"
-              style={{ background: `linear-gradient(180deg, ${frameColor.border}, transparent)` }}
-            />
-          </div>
-          <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
-            <div 
-              className="absolute top-0 right-0 w-full h-[3px] rounded-tr-2xl animate-pulse"
-              style={{ background: `linear-gradient(-90deg, ${frameColor.border}, transparent)` }}
-            />
-            <div 
-              className="absolute top-0 right-0 h-full w-[3px] rounded-tr-2xl animate-pulse"
-              style={{ background: `linear-gradient(180deg, ${frameColor.border}, transparent)` }}
-            />
-          </div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
-            <div 
-              className="absolute bottom-0 left-0 w-full h-[3px] rounded-bl-2xl animate-pulse"
-              style={{ background: `linear-gradient(90deg, ${frameColor.border}, transparent)` }}
-            />
-            <div 
-              className="absolute bottom-0 left-0 h-full w-[3px] rounded-bl-2xl animate-pulse"
-              style={{ background: `linear-gradient(0deg, ${frameColor.border}, transparent)` }}
-            />
-          </div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
-            <div 
-              className="absolute bottom-0 right-0 w-full h-[3px] rounded-br-2xl animate-pulse"
-              style={{ background: `linear-gradient(-90deg, ${frameColor.border}, transparent)` }}
-            />
-            <div 
-              className="absolute bottom-0 right-0 h-full w-[3px] rounded-br-2xl animate-pulse"
-              style={{ background: `linear-gradient(0deg, ${frameColor.border}, transparent)` }}
-            />
-          </div>
-          
-          {/* Sparkle particles */}
-          <div 
-            className="absolute top-2 left-4 w-1.5 h-1.5 rounded-full animate-ping opacity-70 z-10"
-            style={{ backgroundColor: frameColor.border }}
-          />
-          <div 
-            className="absolute top-4 right-8 w-1 h-1 rounded-full animate-pulse opacity-60 z-10"
-            style={{ backgroundColor: frameColor.border }}
-          />
-          <div 
-            className="absolute bottom-3 left-12 w-1 h-1 rounded-full animate-ping opacity-50 z-10"
-            style={{ backgroundColor: frameColor.border }}
-          />
-          <div 
-            className="absolute bottom-2 right-4 w-1.5 h-1.5 rounded-full animate-pulse opacity-70 z-10"
-            style={{ backgroundColor: frameColor.border }}
           />
         </>
       )}
 
       {/* Main Card Content */}
       <div
-        className={`relative z-[5] border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
+        className={`relative z-[5] rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
           packageNumber
-            ? 'border-transparent bg-card/95'
+            ? 'border-0 bg-card/95'
             : highlight
-            ? 'border-primary/30 shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
-            : 'border-border hover:shadow-xl bg-card/70'
+            ? 'border border-primary/30 shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
+            : 'border border-border hover:shadow-xl bg-card/70'
         }`}
-        style={packageNumber ? { boxShadow: `0 0 30px ${frameColor.glow}, inset 0 1px 0 ${frameColor.border}40` } : undefined}
+        style={
+          packageNumber
+            ? { boxShadow: `0 0 18px ${frameColor.glow}` }
+            : undefined
+        }
       >
       {/* Large Package Number Background - BOLD & VISIBLE on Desktop */}
       {packageNumber && (
