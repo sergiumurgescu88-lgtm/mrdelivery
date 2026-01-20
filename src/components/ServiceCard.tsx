@@ -160,10 +160,10 @@ export const ServiceCard = ({
       {/* Main Card Content */}
       <div
         className={`relative z-[5] border rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-sm ${
-          highlight
-            ? 'border-transparent shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10 animated-gradient-border'
-            : packageNumber
+          packageNumber
             ? 'border-transparent bg-card/95'
+            : highlight
+            ? 'border-primary/30 shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
             : 'border-border hover:shadow-xl bg-card/70'
         }`}
         style={packageNumber ? { boxShadow: `0 0 30px ${frameColor.glow}, inset 0 1px 0 ${frameColor.border}40` } : undefined}
