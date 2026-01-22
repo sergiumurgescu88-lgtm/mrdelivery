@@ -84,6 +84,9 @@ const Index = () => {
         {/* Hero Stats - Experience/Trust Statement */}
         <div className="flex flex-col items-center gap-1 sm:gap-1.5 mb-4 sm:mb-5 px-3 text-center">
           <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
+            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">7+</span> {language === 'ro' ? 'ani experiență în Marketing' : language === 'es' ? 'años de experiencia en Marketing' : 'Years of Marketing Experience'}
+          </p>
+          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
             <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">5+</span> {language === 'ro' ? 'ani de expertiză în livrări' : language === 'es' ? 'años de experiencia de élite en delivery' : 'Years of Elite Delivery Expertise'}
           </p>
           <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
