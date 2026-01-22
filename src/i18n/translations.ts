@@ -3,6 +3,7 @@ export type Language = 'en' | 'es' | 'ro';
 export const translations = {
   en: {
     siteName: 'MrDelivery',
+    heroSubtitle: '5+ Years of Elite Delivery Expertise. 4+ Years of Proven Partnerships. 90% of Our Clients Come via Referrals.',
     tagline: '🚀 Marketing management • AI chatbots & voice agents • Viral video content',
     taglineItems: [
       { emoji: '🚀', text: 'Staff training - management and marketing' },
@@ -607,6 +608,7 @@ export const translations = {
   },
   es: {
     siteName: 'MrDelivery',
+    heroSubtitle: 'Más de 5 años de experiencia de élite en delivery. Alianzas probadas por más de 4 años. El 90% de nuestros clientes llegan por recomendación.',
     tagline: '🚀 Gestión de marketing • Chatbots IA & agentes de voz • Contenido de vídeo viral',
     taglineItems: [
       { emoji: '🚀', text: 'Formación de personal - gestión y marketing' },
@@ -1211,6 +1213,7 @@ export const translations = {
   },
   ro: {
     siteName: 'MrDelivery',
+    heroSubtitle: 'Peste 5 ani de expertiză în livrări. Parteneriate de peste 4 ani. 90% dintre clienții noștri vin prin recomandări.',
     tagline: '🚀 Management marketing • Chatboți AI & agenți vocali • Conținut video viral',
     taglineItems: [
       { emoji: '🚀', text: 'Instruire personal - management și marketing' },

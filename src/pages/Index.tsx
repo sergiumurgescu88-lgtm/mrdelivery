@@ -51,12 +51,16 @@ const Index = () => {
         <header className="text-center mb-6 sm:mb-8 relative pt-2">
           <LanguageSwitcher />
           
-          <div className="inline-block relative mb-2 sm:mb-4">
+          <div className="inline-block relative mb-2 sm:mb-3">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gradient-primary drop-shadow-lg md:text-6xl">
               {t.siteName}
             </h1>
           </div>
           
+          {/* Hero Subtitle - Experience/Trust Statement */}
+          <p className="text-xs sm:text-sm md:text-base text-amber-200/90 font-medium max-w-xl mx-auto mb-3 sm:mb-4 px-4">
+            {t.heroSubtitle}
+          </p>
           
           {/* Gold Frame Container for Services */}
           <div className="relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-950/60 via-yellow-900/40 to-amber-950/60 border-2 border-amber-400/70 shadow-[0_0_30px_rgba(251,191,36,0.3),inset_0_1px_0_rgba(251,191,36,0.4)] backdrop-blur-sm max-w-2xl mx-auto">
