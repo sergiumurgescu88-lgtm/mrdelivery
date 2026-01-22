@@ -58,11 +58,17 @@ const Index = () => {
           </div>
           
           {/* Hero Subtitle - Experience/Trust Statement */}
-          <p className="text-sm sm:text-base md:text-lg text-amber-100/95 font-semibold max-w-2xl mx-auto mb-4 sm:mb-5 px-3 leading-relaxed">
-            <span className="text-amber-400 font-bold">5+</span> {language === 'ro' ? 'ani de expertiză în livrări.' : language === 'es' ? 'años de experiencia de élite en delivery.' : 'Years of Elite Delivery Expertise.'}{' '}
-            <span className="text-amber-400 font-bold">4+</span> {language === 'ro' ? 'ani de parteneriate.' : language === 'es' ? 'años de alianzas probadas.' : 'Years of Proven Partnerships.'}{' '}
-            <span className="text-amber-400 font-bold">90%</span> {language === 'ro' ? 'dintre clienții noștri vin prin recomandări.' : language === 'es' ? 'de nuestros clientes llegan por recomendación.' : 'of Our Clients Come via Referrals.'}
-          </p>
+          <div className="flex flex-col items-center gap-1 sm:gap-1.5 mb-4 sm:mb-5 px-3">
+            <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
+              <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">5+</span> {language === 'ro' ? 'ani de expertiză în livrări' : language === 'es' ? 'años de experiencia de élite en delivery' : 'Years of Elite Delivery Expertise'}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
+              <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">4+</span> {language === 'ro' ? 'ani de parteneriate de succes' : language === 'es' ? 'años de alianzas probadas' : 'Years of Proven Partnerships'}
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
+              <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">90%</span> {language === 'ro' ? 'dintre clienți vin prin recomandări' : language === 'es' ? 'de clientes llegan por recomendación' : 'of Clients Come via Referrals'}
+            </p>
+          </div>
           
           {/* Gold Frame Container for Services */}
           <div className="relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-950/60 via-yellow-900/40 to-amber-950/60 border-2 border-amber-400/70 shadow-[0_0_30px_rgba(251,191,36,0.3),inset_0_1px_0_rgba(251,191,36,0.4)] backdrop-blur-sm max-w-2xl mx-auto">
