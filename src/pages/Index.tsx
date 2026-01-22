@@ -58,8 +58,10 @@ const Index = () => {
           </div>
           
           {/* Hero Subtitle - Experience/Trust Statement */}
-          <p className="text-xs sm:text-sm md:text-base text-amber-200/90 font-medium max-w-xl mx-auto mb-3 sm:mb-4 px-4">
-            {t.heroSubtitle}
+          <p className="text-sm sm:text-base md:text-lg text-amber-100/95 font-semibold max-w-2xl mx-auto mb-4 sm:mb-5 px-3 leading-relaxed">
+            <span className="text-amber-400 font-bold">5+</span> {language === 'ro' ? 'ani de expertiză în livrări.' : language === 'es' ? 'años de experiencia de élite en delivery.' : 'Years of Elite Delivery Expertise.'}{' '}
+            <span className="text-amber-400 font-bold">4+</span> {language === 'ro' ? 'ani de parteneriate.' : language === 'es' ? 'años de alianzas probadas.' : 'Years of Proven Partnerships.'}{' '}
+            <span className="text-amber-400 font-bold">90%</span> {language === 'ro' ? 'dintre clienții noștri vin prin recomandări.' : language === 'es' ? 'de nuestros clientes llegan por recomendación.' : 'of Our Clients Come via Referrals.'}
           </p>
           
           {/* Gold Frame Container for Services */}
