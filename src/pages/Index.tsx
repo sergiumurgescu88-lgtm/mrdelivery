@@ -89,9 +89,7 @@ const Index = () => {
           <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
             <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">5+</span> {language === 'ro' ? 'ani de expertiză în livrări' : language === 'es' ? 'años de experiencia de élite en delivery' : 'Years of Elite Delivery Expertise'}
           </p>
-          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
-            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">4+</span> {language === 'ro' ? 'ani de parteneriate de succes' : language === 'es' ? 'años de alianzas probadas' : 'Years of Proven Partnerships'}
-          </p>
+          
           <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
             <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">90%</span> {language === 'ro' ? 'dintre clienți vin prin recomandări' : language === 'es' ? 'de clientes llegan por recomendación' : 'of Clients Come via Referrals'}
           </p>
@@ -129,7 +127,9 @@ const Index = () => {
             <Link to="/gallery" className="block group">
               <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-950/80 via-yellow-900/60 to-amber-950/80 border-2 border-amber-400/80 p-4 sm:p-5 shadow-[0_0_40px_rgba(251,191,36,0.4),inset_0_1px_0_rgba(251,191,36,0.5)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
                 {/* Animated glow background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 animate-[shimmer_3s_infinite] pointer-events-none" style={{backgroundSize: '200% 100%'}} />
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 animate-[shimmer_3s_infinite] pointer-events-none" style={{
+              backgroundSize: '200% 100%'
+            }} />
                 
                 {/* Gold corner accents */}
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-3 border-l-3 border-amber-400 rounded-tl-xl opacity-80"></div>
@@ -255,10 +255,7 @@ const Index = () => {
               {/* Monthly Reports - Premium Black & Gold Collapsible Section */}
               <div className="bg-black rounded-2xl border border-amber-400/30 shadow-2xl shadow-amber-500/10 mb-5 overflow-hidden">
                 {/* Toggle Header */}
-                <button 
-                  onClick={() => setIsReportsOpen(!isReportsOpen)}
-                  className="w-full bg-gradient-to-r from-amber-500/10 to-amber-600/5 px-5 py-4 flex items-center justify-between cursor-pointer hover:from-amber-500/15 hover:to-amber-600/10 transition-all duration-300 group"
-                >
+                <button onClick={() => setIsReportsOpen(!isReportsOpen)} className="w-full bg-gradient-to-r from-amber-500/10 to-amber-600/5 px-5 py-4 flex items-center justify-between cursor-pointer hover:from-amber-500/15 hover:to-amber-600/10 transition-all duration-300 group">
                   <h5 className="font-black text-xl sm:text-2xl text-amber-400 flex items-center gap-3">
                     <div className="p-2.5 bg-amber-400 rounded-xl shadow-lg shadow-amber-400/30 group-hover:shadow-amber-400/50 transition-shadow">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
@@ -279,31 +276,36 @@ const Index = () => {
 
                   {/* Reports List */}
                   <div className="px-5 py-4 space-y-3">
-                    {((t.services.standard as any).monthlyReports?.items || [
-                      { icon: 'BarChart3', title: 'Analiză comparativă a încasărilor', desc: 'Evaluăm performanța financiară actuală în raport cu luna precedentă pentru a identifica tendințele de creștere.' },
-                      { icon: 'Rocket', title: 'Raport de promovare și rezultate', desc: 'Analizăm campaniile active și măsurăm impactul real al promoțiilor asupra volumului de comenzi.' },
-                      { icon: 'TrendingUp', title: 'Situația vânzărilor prin aplicație', desc: 'Monitorizăm fluxul de comenzi și eficiența canalelor de vânzare digitală.' },
-                      { icon: 'Users', title: 'Raport achiziție clienți noi', desc: 'Vezi exact câți utilizatori noi au descoperit brandul tău în ultima lună.' },
-                      { icon: 'ClipboardList', title: 'Centralizator meniu și oferte', desc: 'O situație clară a structurii meniului tău și a ofertelor speciale implementate.' }
-                    ]).map((item: { icon: string; title: string; desc: string }, index: number) => {
-                      const IconComponent = item.icon === 'BarChart3' ? BarChart3 
-                        : item.icon === 'Rocket' ? Rocket 
-                        : item.icon === 'TrendingUp' ? TrendingUp 
-                        : item.icon === 'Users' ? Users 
-                        : ClipboardList;
-                      return (
-                        <div 
-                          key={index} 
-                          className={`flex items-start gap-4 bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/10 hover:border-amber-400/30 transition-all duration-300 ${
-                            isReportsOpen 
-                              ? 'opacity-100 translate-y-0' 
-                              : 'opacity-0 translate-y-4'
-                          }`}
-                          style={{ 
-                            transitionDelay: isReportsOpen ? `${index * 100}ms` : '0ms',
-                            transitionProperty: 'opacity, transform, background-color, border-color'
-                          }}
-                        >
+                    {((t.services.standard as any).monthlyReports?.items || [{
+                  icon: 'BarChart3',
+                  title: 'Analiză comparativă a încasărilor',
+                  desc: 'Evaluăm performanța financiară actuală în raport cu luna precedentă pentru a identifica tendințele de creștere.'
+                }, {
+                  icon: 'Rocket',
+                  title: 'Raport de promovare și rezultate',
+                  desc: 'Analizăm campaniile active și măsurăm impactul real al promoțiilor asupra volumului de comenzi.'
+                }, {
+                  icon: 'TrendingUp',
+                  title: 'Situația vânzărilor prin aplicație',
+                  desc: 'Monitorizăm fluxul de comenzi și eficiența canalelor de vânzare digitală.'
+                }, {
+                  icon: 'Users',
+                  title: 'Raport achiziție clienți noi',
+                  desc: 'Vezi exact câți utilizatori noi au descoperit brandul tău în ultima lună.'
+                }, {
+                  icon: 'ClipboardList',
+                  title: 'Centralizator meniu și oferte',
+                  desc: 'O situație clară a structurii meniului tău și a ofertelor speciale implementate.'
+                }]).map((item: {
+                  icon: string;
+                  title: string;
+                  desc: string;
+                }, index: number) => {
+                  const IconComponent = item.icon === 'BarChart3' ? BarChart3 : item.icon === 'Rocket' ? Rocket : item.icon === 'TrendingUp' ? TrendingUp : item.icon === 'Users' ? Users : ClipboardList;
+                  return <div key={index} className={`flex items-start gap-4 bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/10 hover:border-amber-400/30 transition-all duration-300 ${isReportsOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
+                    transitionDelay: isReportsOpen ? `${index * 100}ms` : '0ms',
+                    transitionProperty: 'opacity, transform, background-color, border-color'
+                  }}>
                           <div className="p-2.5 bg-amber-400 rounded-xl flex-shrink-0 shadow-lg shadow-amber-400/20">
                             <IconComponent className="w-5 h-5 text-black" />
                           </div>
@@ -311,9 +313,8 @@ const Index = () => {
                             <h6 className="font-bold text-base text-amber-400 mb-1">{item.title}</h6>
                             <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
                           </div>
-                        </div>
-                      );
-                    })}
+                        </div>;
+                })}
                   </div>
 
                   {/* Footer - Why Important */}
