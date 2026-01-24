@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { RestaurantAuditForm } from '@/components/RestaurantAuditForm';
+import FloatingSocialIcons from '@/components/FloatingSocialIcons';
 const Index = () => {
   const {
     language,
@@ -899,6 +900,9 @@ const Index = () => {
         </div>
 
       </div>
+      
+      {/* Floating Social Media Icons */}
+      <FloatingSocialIcons />
     </div>;
 };
 export default Index;
