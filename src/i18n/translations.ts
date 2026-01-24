@@ -1299,12 +1299,12 @@ export const translations = {
         ]
       },
       aiAgents: {
-        title: 'Asistent Virtual IA',
+        title: 'Asistent Virtual AI',
         price: '1.500 RON/lună',
         originalPrice: '2.000 RON/lună',
         discount: '-25%',
         subtitle: 'Nu doarme niciodată, răspunde instant oricărui client',
-        badge: 'Agent IA 24/7',
+        badge: 'Agent AI 24/7',
         phone: {
           title: 'Răspunde la telefon',
           tagline: 'Voice AI',
@@ -1335,7 +1335,7 @@ export const translations = {
             'Clienții reprogramează prin chat'
           ]
         },
-        benefitsTitle: 'De ce Agent IA?',
+        benefitsTitle: 'De ce Agent AI?',
         benefitsList: [
           'Zero apeluri pierdute',
           'Mereu disponibil',
