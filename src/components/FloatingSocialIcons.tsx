@@ -42,7 +42,7 @@ const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com',
+    url: 'https://www.linkedin.com/in/mrdeliveryaiagency/',
     icon: Linkedin,
     color: '#0A66C2',
     hoverBg: 'hover:bg-blue-700',
