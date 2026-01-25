@@ -17,8 +17,8 @@ export const translations = {
       marketing: '📈 Marketing'
     },
     tabs: {
-      current: 'Current Services',
-      ai: 'AI Services'
+      current: 'Restaurant Services',
+      ai: 'AI Automations'
     },
     services: {
       standard: {
@@ -622,8 +622,8 @@ export const translations = {
       marketing: '📈 Marketing'
     },
     tabs: {
-      current: 'Servicios Actuales',
-      ai: 'Servicios IA'
+      current: 'Servicios Restaurantes',
+      ai: 'Automatizaciones IA'
     },
     services: {
       standard: {
@@ -1227,8 +1227,8 @@ export const translations = {
       marketing: '📈 Marketing'
     },
     tabs: {
-      current: 'Servicii Existente',
-      ai: 'Servicii AI'
+      current: 'Servicii Restaurante',
+      ai: 'Automatizări AI'
     },
     services: {
       standard: {
