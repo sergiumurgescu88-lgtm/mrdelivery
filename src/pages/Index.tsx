@@ -761,8 +761,17 @@ const Index = () => {
             <div className="bg-gradient-primary text-primary-foreground p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-card/10 animate-pulse"></div>
               <div className="relative z-10">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-center mb-1 sm:mb-2">{t.aiServices.header}</h2>
-                <p className="text-sm sm:text-base opacity-95 text-center font-semibold">{t.aiServices.subtitle}</p>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-center mb-2 sm:mb-3">
+                  {language === 'ro' ? 'Servicii complete de automatizări AI pentru afaceri' : language === 'es' ? 'Servicios completos de automatización AI para negocios' : 'Complete AI automation services for businesses'}
+                </h2>
+                <p className="text-xs sm:text-sm opacity-90 text-center font-medium flex items-center justify-center gap-1.5 flex-wrap">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  {language === 'ro' 
+                    ? 'Salon Înfrumusețare • Cabinet Medical • Inteligență Artificială • Sector Public • Magazine Retail • Hotel & Pensiune • Chatboți WhatsApp & Telegram • Social Media AI • Agenții Imobiliare'
+                    : language === 'es'
+                    ? 'Salón de Belleza • Consultorio Médico • Inteligencia Artificial • Sector Público • Tiendas Retail • Hotel & Pensión • Chatbots WhatsApp & Telegram • Redes Sociales AI • Agencias Inmobiliarias'
+                    : 'Beauty Salon • Medical Office • Artificial Intelligence • Public Sector • Retail Stores • Hotel & Guesthouse • WhatsApp & Telegram Chatbots • AI Social Media • Real Estate Agencies'}
+                </p>
               </div>
             </div>
 
