@@ -16,6 +16,7 @@ import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
+import AutomationPage from "./pages/AutomationPage";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
               <Route path="/politica-cookies" element={<CookiePolicy />} />
               <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/automatizare/:slug" element={<AutomationPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <CookieConsentBanner />
