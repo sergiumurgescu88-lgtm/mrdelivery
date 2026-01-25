@@ -9,7 +9,7 @@ import { FullscreenVideo } from '@/components/FullscreenVideo';
 import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
-import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake, FileText, BarChart3, Rocket, ClipboardList } from 'lucide-react';
+import { Zap, Sparkles, TrendingUp, MessageSquare, Video, Clock, ShoppingBag, Calendar, Award, Megaphone, Globe, Phone, Users, Star, Heart, Upload, Image, Check, Send, Palette, ArrowRight, Bot, Eye, Truck, UtensilsCrossed, Headphones, DollarSign, Handshake, FileText, BarChart3, Rocket, ClipboardList, Building2, Stethoscope, Brain, Landmark, ShoppingCart, Hotel, Share2, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -766,37 +766,37 @@ const Index = () => {
               </div>
             </div>
 
-            <ServiceCard title={t.aiServices.pricing} icon={TrendingUp}>
-              {t.aiServices.pricingItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Zap, Star, Clock, TrendingUp][index]} />)}
-            </ServiceCard>
-
-            <ServiceCard title={t.aiServices.recommendations} icon={Users}>
-              {t.aiServices.recommendationsItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Heart, ShoppingBag, Sparkles, TrendingUp][index]} />)}
-            </ServiceCard>
-
-            <ServiceCard title={t.aiServices.chatbot} icon={MessageSquare}>
-              {t.aiServices.chatbotItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Globe, Clock, Zap, Users][index]} />)}
-            </ServiceCard>
-
-            <ServiceCard title={t.aiServices.stock} icon={Calendar}>
-              {t.aiServices.stockItems.map((item, index) => <ServiceItem key={index} text={item} icon={[TrendingUp, Globe, Award, Zap][index]} />)}
-            </ServiceCard>
-
-            <ServiceCard title={t.aiServices.routes} icon={Globe}>
-              {t.aiServices.routesItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Zap, Users, Clock, Star][index]} />)}
-            </ServiceCard>
-
-            <ServiceCard title={t.aiServices.sentiment} icon={MessageSquare}>
-              {t.aiServices.sentimentItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Globe, TrendingUp, MessageSquare, Star][index]} />)}
-            </ServiceCard>
-
-            <ServiceCard title={t.aiServices.content} icon={Sparkles}>
-              {t.aiServices.contentItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Megaphone, Globe, MessageSquare, Star][index]} />)}
-            </ServiceCard>
-
-            <ServiceCard title={t.aiServices.competitive} icon={TrendingUp}>
-              {t.aiServices.competitiveItems.map((item, index) => <ServiceItem key={index} text={item} icon={[Globe, Star, Award, Zap][index]} />)}
-            </ServiceCard>
+            {/* 9 Automation Services as Accordion Cards linking to pages */}
+            {[
+              { slug: 'salon-infrumusetare', icon: Building2, title: { ro: 'Automatizare Salon Înfrumusețare', en: 'Beauty Salon Automation', es: 'Automatización Salón de Belleza' }, color: 'from-pink-500 to-rose-600' },
+              { slug: 'cabinet-medical', icon: Stethoscope, title: { ro: 'Automatizare Cabinet Medical', en: 'Medical Office Automation', es: 'Automatización Consultorio Médico' }, color: 'from-blue-500 to-cyan-600' },
+              { slug: 'inteligenta-artificiala', icon: Brain, title: { ro: 'Automatizări Inteligență Artificială', en: 'AI Automation', es: 'Automatización con IA' }, color: 'from-violet-500 to-purple-600' },
+              { slug: 'sector-public', icon: Landmark, title: { ro: 'Automatizare Sector Public', en: 'Public Sector Automation', es: 'Automatización Sector Público' }, color: 'from-slate-500 to-gray-600' },
+              { slug: 'magazine-retail', icon: ShoppingCart, title: { ro: 'Automatizare Magazine Retail', en: 'Retail Store Automation', es: 'Automatización Tiendas Retail' }, color: 'from-emerald-500 to-teal-600' },
+              { slug: 'hotel-pensiune', icon: Hotel, title: { ro: 'Automatizare Hotel & Pensiune', en: 'Hotel & Guesthouse Automation', es: 'Automatización Hotel & Pensión' }, color: 'from-amber-500 to-orange-600' },
+              { slug: 'chatboti-whatsapp-telegram', icon: MessageSquare, title: { ro: 'Chatboți AI WhatsApp & Telegram', en: 'AI Chatbots WhatsApp & Telegram', es: 'Chatbots AI WhatsApp & Telegram' }, color: 'from-green-500 to-emerald-600' },
+              { slug: 'social-media-ai', icon: Share2, title: { ro: 'Automatizare Social Media AI', en: 'AI Social Media Automation', es: 'Automatización Redes Sociales AI' }, color: 'from-pink-500 to-purple-600' },
+              { slug: 'agentii-imobiliare', icon: Home, title: { ro: 'Automatizare Agenții Imobiliare', en: 'Real Estate Agency Automation', es: 'Automatización Agencias Inmobiliarias' }, color: 'from-indigo-500 to-blue-600' },
+            ].map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Link key={service.slug} to={`/automatizare/${service.slug}`} className="block">
+                  <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-4 sm:p-5 hover:border-primary/50 hover:shadow-xl transition-all duration-300 group cursor-pointer">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className={`p-2.5 sm:p-3 bg-gradient-to-br ${service.color} rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        </div>
+                        <h3 className="font-bold text-base sm:text-lg text-foreground group-hover:text-primary transition-colors">
+                          {service.title[language] || service.title.ro}
+                        </h3>
+                      </div>
+                      <ChevronDown className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors -rotate-90" />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
 
             {/* Modular Note */}
             <div className="bg-background/80 backdrop-blur-md p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-success/30 shadow-2xl">
