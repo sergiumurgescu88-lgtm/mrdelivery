@@ -74,7 +74,7 @@ const AutomationPage = () => {
             <Link to="/?tab=ai" className="flex items-center gap-2 text-amber-200/70 hover:text-amber-100 transition-colors">
               <ArrowLeft className="w-5 h-5" />
               <span className="text-sm font-medium">
-                {language === 'ro' ? 'Servicii AI' : language === 'es' ? 'Servicios IA' : 'AI Services'}
+                {language === 'ro' ? 'Automatizări AI' : language === 'es' ? 'Automatizaciones IA' : 'AI Automations'}
               </span>
             </Link>
             <LanguageSwitcher />
