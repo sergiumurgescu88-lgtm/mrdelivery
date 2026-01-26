@@ -114,22 +114,34 @@ export const ServiceCard = ({
           <span 
             className="text-[200px] sm:text-[260px] md:text-[320px] lg:text-[380px] font-black leading-none block opacity-25 md:opacity-50"
             style={{
-              color: packageNumber === 1 ? '#22d3ee' :
-                     packageNumber === 2 ? '#e879f9' :
-                     packageNumber === 3 ? '#fbbf24' :
-                     packageNumber === 4 ? '#34d399' :
-                     '#fb7185',
+              color: packageNumber === 1 ? '#22d3ee' :      // Cyan
+                     packageNumber === 2 ? '#e879f9' :      // Fuchsia
+                     packageNumber === 3 ? '#fbbf24' :      // Amber
+                     packageNumber === 4 ? '#34d399' :      // Emerald
+                     packageNumber === 5 ? '#f97316' :      // Orange
+                     packageNumber === 6 ? '#06b6d4' :      // Cyan-500
+                     packageNumber === 7 ? '#8b5cf6' :      // Violet
+                     packageNumber === 8 ? '#ec4899' :      // Pink
+                     '#6366f1',                             // Indigo (9)
               WebkitTextStroke: packageNumber === 1 ? '6px #0891b2' :
                                packageNumber === 2 ? '6px #c026d3' :
                                packageNumber === 3 ? '6px #d97706' :
                                packageNumber === 4 ? '6px #059669' :
-                               '6px #e11d48',
+                               packageNumber === 5 ? '6px #ea580c' :
+                               packageNumber === 6 ? '6px #0891b2' :
+                               packageNumber === 7 ? '6px #7c3aed' :
+                               packageNumber === 8 ? '6px #db2777' :
+                               '6px #4f46e5',
               textShadow: `0 4px 30px ${
                 packageNumber === 1 ? 'rgba(34, 211, 238, 0.5)' :
                 packageNumber === 2 ? 'rgba(232, 121, 249, 0.5)' :
                 packageNumber === 3 ? 'rgba(251, 191, 36, 0.5)' :
                 packageNumber === 4 ? 'rgba(52, 211, 153, 0.5)' :
-                'rgba(251, 113, 133, 0.5)'
+                packageNumber === 5 ? 'rgba(249, 115, 22, 0.5)' :
+                packageNumber === 6 ? 'rgba(6, 182, 212, 0.5)' :
+                packageNumber === 7 ? 'rgba(139, 92, 246, 0.5)' :
+                packageNumber === 8 ? 'rgba(236, 72, 153, 0.5)' :
+                'rgba(99, 102, 241, 0.5)'
               }`,
             }}
             aria-hidden="true"
