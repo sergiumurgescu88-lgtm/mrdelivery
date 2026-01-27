@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward, Minimize2, Maximize2 } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { useGeoLocation } from '@/hooks/useGeoLocation';
+import { useIsMobile } from '@/hooks/use-mobile';
 import podcastEnglish from '@/assets/podcast-english.wav';
 import podcastSpanish from '@/assets/podcast-spanish.wav';
 import podcastRomanian from '@/assets/podcast-romanian.wav';
@@ -15,6 +16,8 @@ interface PodcastBoxProps {
   onActivate: () => void;
   onDeactivate: () => void;
   autoPlay?: boolean;
+  isMinimized: boolean;
+  onToggleMinimize: () => void;
 }
 
 const colorClasses = {
@@ -50,7 +53,7 @@ const formatTime = (seconds: number) => {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
-const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeactivate, autoPlay = false }: PodcastBoxProps) => {
+const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeactivate, autoPlay = false, isMinimized, onToggleMinimize }: PodcastBoxProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -58,6 +61,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
   const hasAutoPlayed = useRef(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -166,6 +170,41 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
 
   const colors = colorClasses[color];
 
+  // Minimized view for desktop when playing
+  if (isActive && isPlaying && isMinimized && !isMobile) {
+    return (
+      <div
+        className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md rounded-full border ${colors.border} ${colors.glow} animate-flicker transition-all duration-300 ease-out fixed bottom-5 right-5 z-[9999] px-4 py-2 shadow-2xl`}
+        style={{ pointerEvents: 'auto' }}
+      >
+        <audio ref={audioRef} src={audioSrc} onEnded={handleEnded} />
+        <div className="flex items-center gap-3">
+          <span className="text-xl">{flag}</span>
+          <button
+            onClick={togglePlay}
+            className={`w-8 h-8 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+          >
+            {isPlaying ? (
+              <Pause className="w-4 h-4 text-white" />
+            ) : (
+              <Play className="w-4 h-4 text-white ml-0.5" />
+            )}
+          </button>
+          <div className="text-xs text-white/80 font-medium min-w-[70px]">
+            {formatTime(currentTime)} / {formatTime(duration)}
+          </div>
+          <button
+            onClick={onToggleMinimize}
+            className={`w-7 h-7 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+            aria-label="Maximize player"
+          >
+            <Maximize2 className="w-3.5 h-3.5 text-white" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
@@ -185,7 +224,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
               <span className="text-2xl">{flag}</span>
               <span className="text-white font-medium text-sm">{label}</span>
             </div>
-            {/* Volume control */}
+            {/* Volume control and minimize button */}
             <div className="flex items-center gap-2">
               <button onClick={toggleMute} className="p-1">
                 {isMuted || volume === 0 ? (
@@ -201,6 +240,15 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
                 onValueChange={handleVolumeChange}
                 className="w-16 [&_[data-slot=track]]:h-1 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-2.5 [&_[data-slot=thumb]]:h-2.5 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0"
               />
+              {!isMobile && (
+                <button
+                  onClick={onToggleMinimize}
+                  className={`w-7 h-7 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30 ml-1`}
+                  aria-label="Minimize player"
+                >
+                  <Minimize2 className="w-3.5 h-3.5 text-white" />
+                </button>
+              )}
             </div>
           </div>
           
@@ -321,7 +369,10 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
 
 export const PodcastPlayer = () => {
   const [activePlayer, setActivePlayer] = useState<string | null>(null);
+  const [isMinimized, setIsMinimized] = useState(false);
   const { countryCode, isLoading } = useGeoLocation();
+
+  const toggleMinimize = () => setIsMinimized(prev => !prev);
 
   return (
     <div className="sticky top-2 z-40 py-2 px-2 mb-4">
@@ -335,6 +386,8 @@ export const PodcastPlayer = () => {
           onActivate={() => setActivePlayer('ro')}
           onDeactivate={() => setActivePlayer(null)}
           autoPlay={!isLoading && countryCode === 'ro'}
+          isMinimized={isMinimized}
+          onToggleMinimize={toggleMinimize}
         />
         <PodcastBox
           label="Podcast con Sergiu"
@@ -345,6 +398,8 @@ export const PodcastPlayer = () => {
           onActivate={() => setActivePlayer('es')}
           onDeactivate={() => setActivePlayer(null)}
           autoPlay={!isLoading && countryCode === 'es'}
+          isMinimized={isMinimized}
+          onToggleMinimize={toggleMinimize}
         />
         <PodcastBox
           label="Podcast with Sergiu"
@@ -355,6 +410,8 @@ export const PodcastPlayer = () => {
           onActivate={() => setActivePlayer('en')}
           onDeactivate={() => setActivePlayer(null)}
           autoPlay={!isLoading && countryCode === 'en'}
+          isMinimized={isMinimized}
+          onToggleMinimize={toggleMinimize}
         />
       </div>
     </div>
