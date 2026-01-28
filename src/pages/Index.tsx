@@ -687,8 +687,8 @@ const Index = () => {
                     '⭐ Gestión de reseñas - Solicitud automática de feedback, mejora del rating'
                   ]
                 },
-                stats: { stat1: '80%', label1: { ro: 'Reducere No-Show', en: 'No-Show Reduction', es: 'Reducción No-Show' }, stat2: '2-3 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '40%', label3: { ro: 'Creștere Retenție', en: 'Retention Growth', es: 'Aumento Retención' } },
-                pricing: { setup: '700€', monthly: '129€/lună' },
+                stats: { stat1: '80%', label1: { ro: 'Reducere No-Show', en: 'No-Show Reduction', es: 'Reducción No-Show' }, stat2: { ro: '2-3 săpt', en: '2-3 weeks', es: '2-3 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '40%', label3: { ro: 'Creștere Retenție', en: 'Retention Growth', es: 'Aumento Retención' } },
+                pricing: { setup: { ro: '700€', en: '$750', es: '700€' }, monthly: { ro: '129€/lună', en: '$139/month', es: '129€/mes' } },
                 useCases: { ro: ['Saloane coafură', 'Saloane manichiură', 'Centre SPA', 'Studiouri makeup', 'Frizerii'], en: ['Hair salons', 'Nail salons', 'SPA centers', 'Makeup studios', 'Barbershops'], es: ['Peluquerías', 'Salones de manicura', 'Centros SPA', 'Estudios de maquillaje', 'Barberías'] }
               },
               { 
@@ -723,8 +723,8 @@ const Index = () => {
                     '📊 Informes estadísticos - Panel de pacientes, análisis de rendimiento'
                   ]
                 },
-                stats: { stat1: '60%', label1: { ro: 'Reducere Timp Admin', en: 'Admin Time Reduction', es: 'Reducción Tiempo Admin' }, stat2: '3-4 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '70%', label3: { ro: 'Reducere No-Show', en: 'No-Show Reduction', es: 'Reducción No-Show' } },
-                pricing: { setup: '900€', monthly: '149€/lună' },
+                stats: { stat1: '60%', label1: { ro: 'Reducere Timp Admin', en: 'Admin Time Reduction', es: 'Reducción Tiempo Admin' }, stat2: { ro: '3-4 săpt', en: '3-4 weeks', es: '3-4 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '70%', label3: { ro: 'Reducere No-Show', en: 'No-Show Reduction', es: 'Reducción No-Show' } },
+                pricing: { setup: { ro: '900€', en: '$970', es: '900€' }, monthly: { ro: '149€/lună', en: '$159/month', es: '149€/mes' } },
                 useCases: { ro: ['Cabinete stomatologie', 'Clinici recuperare', 'Cabinete psihologie', 'Medicină de familie', 'Oftalmologie'], en: ['Dental offices', 'Recovery clinics', 'Psychology offices', 'Family medicine', 'Ophthalmology'], es: ['Consultorios dentales', 'Clínicas de recuperación', 'Consultorios de psicología', 'Medicina familiar', 'Oftalmología'] }
               },
               { 
@@ -759,8 +759,8 @@ const Index = () => {
                     '🎯 Lead scoring IA - Identificación automática de clientes potenciales'
                   ]
                 },
-                stats: { stat1: '40%', label1: { ro: 'Reducere Costuri', en: 'Cost Reduction', es: 'Reducción de Costos' }, stat2: '3-6 luni', label2: { ro: 'ROI Garantat', en: 'Guaranteed ROI', es: 'ROI Garantizado' }, stat3: '60%', label3: { ro: 'Timp Economisit', en: 'Time Saved', es: 'Tiempo Ahorrado' } },
-                pricing: { setup: '800€', monthly: '199€/lună' },
+                stats: { stat1: '40%', label1: { ro: 'Reducere Costuri', en: 'Cost Reduction', es: 'Reducción de Costos' }, stat2: { ro: '3-6 luni', en: '3-6 months', es: '3-6 meses' }, label2: { ro: 'ROI Garantat', en: 'Guaranteed ROI', es: 'ROI Garantizado' }, stat3: '60%', label3: { ro: 'Timp Economisit', en: 'Time Saved', es: 'Tiempo Ahorrado' } },
+                pricing: { setup: { ro: '800€', en: '$860', es: '800€' }, monthly: { ro: '199€/lună', en: '$215/month', es: '199€/mes' } },
                 useCases: { ro: ['E-commerce', 'Companii servicii', 'Agenții marketing', 'Clinici', 'Firme consultanță'], en: ['E-commerce', 'Service companies', 'Marketing agencies', 'Clinics', 'Consulting firms'], es: ['E-commerce', 'Empresas de servicios', 'Agencias de marketing', 'Clínicas', 'Consultoras'] }
               },
               { 
@@ -795,8 +795,8 @@ const Index = () => {
                     '📱 App móvil para ciudadanos - Acceso rápido a servicios públicos'
                   ]
                 },
-                stats: { stat1: '70%', label1: { ro: 'Reducere Timp Așteptare', en: 'Wait Time Reduction', es: 'Reducción Tiempo Espera' }, stat2: '4-6 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '85%', label3: { ro: 'Satisfacție Cetățeni', en: 'Citizen Satisfaction', es: 'Satisfacción Ciudadana' } },
-                pricing: { setup: '1500€', monthly: '299€/lună' },
+                stats: { stat1: '70%', label1: { ro: 'Reducere Timp Așteptare', en: 'Wait Time Reduction', es: 'Reducción Tiempo Espera' }, stat2: { ro: '4-6 săpt', en: '4-6 weeks', es: '4-6 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '85%', label3: { ro: 'Satisfacție Cetățeni', en: 'Citizen Satisfaction', es: 'Satisfacción Ciudadana' } },
+                pricing: { setup: { ro: '1500€', en: '$1600', es: '1500€' }, monthly: { ro: '299€/lună', en: '$320/month', es: '299€/mes' } },
                 useCases: { ro: ['Primării', 'Consilii locale', 'Prefecturi', 'Instituții de stat', 'Agenții guvernamentale'], en: ['City halls', 'Local councils', 'Prefectures', 'State institutions', 'Government agencies'], es: ['Ayuntamientos', 'Consejos locales', 'Prefecturas', 'Instituciones estatales', 'Agencias gubernamentales'] }
               },
               { 
@@ -831,8 +831,8 @@ const Index = () => {
                     '📱 App para clientes - Pedidos online, notificaciones de promociones'
                   ]
                 },
-                stats: { stat1: '35%', label1: { ro: 'Creștere Retenție', en: 'Retention Increase', es: 'Aumento Retención' }, stat2: '3-4 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '20%', label3: { ro: 'Reducere Stocuri Moarte', en: 'Dead Stock Reduction', es: 'Reducción Stock Muerto' } },
-                pricing: { setup: '600€', monthly: '149€/lună' },
+                stats: { stat1: '35%', label1: { ro: 'Creștere Retenție', en: 'Retention Increase', es: 'Aumento Retención' }, stat2: { ro: '3-4 săpt', en: '3-4 weeks', es: '3-4 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '20%', label3: { ro: 'Reducere Stocuri Moarte', en: 'Dead Stock Reduction', es: 'Reducción Stock Muerto' } },
+                pricing: { setup: { ro: '600€', en: '$650', es: '600€' }, monthly: { ro: '149€/lună', en: '$159/month', es: '149€/mes' } },
                 useCases: { ro: ['Magazine alimentare', 'Farmacii', 'Magazine electro', 'Librării', 'Magazine cosmetice'], en: ['Grocery stores', 'Pharmacies', 'Electronics stores', 'Bookstores', 'Cosmetics shops'], es: ['Tiendas de alimentación', 'Farmacias', 'Tiendas de electrónica', 'Librerías', 'Tiendas de cosméticos'] }
               },
               { 
@@ -867,8 +867,8 @@ const Index = () => {
                     '🍽️ Upselling automático - Ofertas de desayuno, spa, tours al reservar'
                   ]
                 },
-                stats: { stat1: '25%', label1: { ro: 'Creștere Rezervări', en: 'Booking Increase', es: 'Aumento Reservas' }, stat2: '2-3 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '15%', label3: { ro: 'Economii Comisioane', en: 'Commission Savings', es: 'Ahorro Comisiones' } },
-                pricing: { setup: '800€', monthly: '179€/lună' },
+                stats: { stat1: '25%', label1: { ro: 'Creștere Rezervări', en: 'Booking Increase', es: 'Aumento Reservas' }, stat2: { ro: '2-3 săpt', en: '2-3 weeks', es: '2-3 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '15%', label3: { ro: 'Economii Comisioane', en: 'Commission Savings', es: 'Ahorro Comisiones' } },
+                pricing: { setup: { ro: '800€', en: '$860', es: '800€' }, monthly: { ro: '179€/lună', en: '$190/month', es: '179€/mes' } },
                 useCases: { ro: ['Hoteluri boutique', 'Pensiuni', 'Apartamente de închiriat', 'Vile de vacanță', 'Hosteluri'], en: ['Boutique hotels', 'Guesthouses', 'Rental apartments', 'Vacation villas', 'Hostels'], es: ['Hoteles boutique', 'Pensiones', 'Apartamentos de alquiler', 'Villas de vacaciones', 'Hostales'] }
               },
               { 
@@ -903,8 +903,8 @@ const Index = () => {
                     '📊 Análisis de conversaciones - Insights sobre preguntas frecuentes'
                   ]
                 },
-                stats: { stat1: '80%', label1: { ro: 'Răspunsuri Automate', en: 'Automated Responses', es: 'Respuestas Automatizadas' }, stat2: '1-2 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '3x', label3: { ro: 'Mai Multe Conversii', en: 'More Conversions', es: 'Más Conversiones' } },
-                pricing: { setup: '500€', monthly: '99€/lună' },
+                stats: { stat1: '80%', label1: { ro: 'Răspunsuri Automate', en: 'Automated Responses', es: 'Respuestas Automatizadas' }, stat2: { ro: '1-2 săpt', en: '1-2 weeks', es: '1-2 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '3x', label3: { ro: 'Mai Multe Conversii', en: 'More Conversions', es: 'Más Conversiones' } },
+                pricing: { setup: { ro: '500€', en: '$540', es: '500€' }, monthly: { ro: '99€/lună', en: '$109/month', es: '99€/mes' } },
                 useCases: { ro: ['E-commerce', 'Servicii locale', 'Agenții', 'Clinici', 'Restaurante'], en: ['E-commerce', 'Local services', 'Agencies', 'Clinics', 'Restaurants'], es: ['E-commerce', 'Servicios locales', 'Agencias', 'Clínicas', 'Restaurantes'] }
               },
               { 
@@ -939,8 +939,8 @@ const Index = () => {
                     '📊 Informes mensuales - Estadísticas completas y ROI redes sociales'
                   ]
                 },
-                stats: { stat1: '5x', label1: { ro: 'Mai Mult Conținut', en: 'More Content', es: 'Más Contenido' }, stat2: '1-2 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '300%', label3: { ro: 'Creștere Engagement', en: 'Engagement Growth', es: 'Aumento Engagement' } },
-                pricing: { setup: '400€', monthly: '129€/lună' },
+                stats: { stat1: '5x', label1: { ro: 'Mai Mult Conținut', en: 'More Content', es: 'Más Contenido' }, stat2: { ro: '1-2 săpt', en: '1-2 weeks', es: '1-2 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '300%', label3: { ro: 'Creștere Engagement', en: 'Engagement Growth', es: 'Aumento Engagement' } },
+                pricing: { setup: { ro: '400€', en: '$430', es: '400€' }, monthly: { ro: '129€/lună', en: '$139/month', es: '129€/mes' } },
                 useCases: { ro: ['Restaurante', 'Magazine', 'Saloane', 'Agenții', 'Freelanceri'], en: ['Restaurants', 'Stores', 'Salons', 'Agencies', 'Freelancers'], es: ['Restaurantes', 'Tiendas', 'Salones', 'Agencias', 'Freelancers'] }
               },
               { 
@@ -975,8 +975,8 @@ const Index = () => {
                     '📊 Análisis de mercado - Precios comparables, tendencias de zona'
                   ]
                 },
-                stats: { stat1: '40%', label1: { ro: 'Mai Multe Lead-uri', en: 'More Leads', es: 'Más Leads' }, stat2: '2-3 săpt', label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '50%', label3: { ro: 'Timp Economisit', en: 'Time Saved', es: 'Tiempo Ahorrado' } },
-                pricing: { setup: '700€', monthly: '149€/lună' },
+                stats: { stat1: '40%', label1: { ro: 'Mai Multe Lead-uri', en: 'More Leads', es: 'Más Leads' }, stat2: { ro: '2-3 săpt', en: '2-3 weeks', es: '2-3 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '50%', label3: { ro: 'Timp Economisit', en: 'Time Saved', es: 'Tiempo Ahorrado' } },
+                pricing: { setup: { ro: '700€', en: '$750', es: '700€' }, monthly: { ro: '149€/lună', en: '$159/month', es: '149€/mes' } },
                 useCases: { ro: ['Agenții imobiliare', 'Dezvoltatori', 'Brokeri independenți', 'Manageri proprietăți', 'Notari'], en: ['Real estate agencies', 'Developers', 'Independent brokers', 'Property managers', 'Notaries'], es: ['Agencias inmobiliarias', 'Desarrolladores', 'Brokers independientes', 'Gestores de propiedades', 'Notarios'] }
               }
             ].map((service, index) => {
@@ -987,7 +987,7 @@ const Index = () => {
                   title={service.title[language] || service.title.ro}
                   icon={Icon}
                   subtitle={service.subtitle[language] || service.subtitle.ro}
-                  price={service.pricing.monthly}
+                  price={typeof service.pricing.monthly === 'object' ? (service.pricing.monthly[language] || service.pricing.monthly.ro) : service.pricing.monthly}
                   packageNumber={index + 1}
                 >
                   {/* Stats Row - Enhanced with 3 stats */}
@@ -997,7 +997,7 @@ const Index = () => {
                       <span className="text-xs sm:text-sm text-muted-foreground">{service.stats.label1[language] || service.stats.label1.ro}</span>
                     </div>
                     <div className="flex items-center gap-2 bg-gradient-to-r from-success/10 to-emerald-500/10 px-3 py-2 rounded-xl border border-success/20">
-                      <span className="text-lg sm:text-xl font-black text-success">{service.stats.stat2}</span>
+                      <span className="text-lg sm:text-xl font-black text-success">{typeof service.stats.stat2 === 'object' ? (service.stats.stat2[language] || service.stats.stat2.ro) : service.stats.stat2}</span>
                       <span className="text-xs sm:text-sm text-muted-foreground">{service.stats.label2[language] || service.stats.label2.ro}</span>
                     </div>
                     {service.stats.stat3 && (
@@ -1039,11 +1039,11 @@ const Index = () => {
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div className="text-center">
                         <p className="text-xs text-muted-foreground">{language === 'ro' ? 'Setup inițial' : language === 'es' ? 'Configuración inicial' : 'Initial setup'}</p>
-                        <p className="text-xl sm:text-2xl font-bold text-foreground">{service.pricing.setup}</p>
+                        <p className="text-xl sm:text-2xl font-bold text-foreground">{typeof service.pricing.setup === 'object' ? (service.pricing.setup[language] || service.pricing.setup.ro) : service.pricing.setup}</p>
                       </div>
                       <div className="text-center flex-1">
                         <p className="text-xs text-muted-foreground">{language === 'ro' ? 'Abonament lunar' : language === 'es' ? 'Suscripción mensual' : 'Monthly subscription'}</p>
-                        <p className="text-xl sm:text-2xl font-bold text-primary">{service.pricing.monthly}</p>
+                        <p className="text-xl sm:text-2xl font-bold text-primary">{typeof service.pricing.monthly === 'object' ? (service.pricing.monthly[language] || service.pricing.monthly.ro) : service.pricing.monthly}</p>
                       </div>
                     </div>
                   </div>
