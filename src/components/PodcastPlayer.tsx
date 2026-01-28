@@ -206,9 +206,8 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
   }
 
   const handlePlayerClick = (e: React.MouseEvent) => {
-    // Only minimize if clicking on the expanded player (not compact view)
-    // and not clicking on interactive elements
-    if (isActive && isPlaying && !isMinimized) {
+    // On desktop, minimize immediately when clicking the expanded player
+    if (isActive && isPlaying && !isMinimized && !isMobile) {
       const target = e.target as HTMLElement;
       const isInteractiveElement = target.closest('button') || target.closest('[role="slider"]');
       if (!isInteractiveElement) {
@@ -221,7 +220,7 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
     <div
       className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
         isActive && isPlaying
-          ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[9999] p-4 opacity-90 shadow-2xl cursor-pointer'
+          ? `fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[9999] p-4 opacity-90 shadow-2xl ${!isMobile ? 'cursor-pointer' : ''}`
           : 'relative p-2 sm:p-3 hover:scale-105'
       }`}
       style={isActive && isPlaying ? { pointerEvents: 'auto' } : {}}
@@ -233,11 +232,21 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
         // Expanded player view
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
+            {/* Minimize button on the left */}
             <div className="flex items-center gap-2">
+              {!isMobile && (
+                <button
+                  onClick={onToggleMinimize}
+                  className={`w-7 h-7 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30`}
+                  aria-label="Minimize player"
+                >
+                  <Minimize2 className="w-3.5 h-3.5 text-white" />
+                </button>
+              )}
               <span className="text-2xl">{flag}</span>
               <span className="text-white font-medium text-sm">{label}</span>
             </div>
-            {/* Volume control and minimize button */}
+            {/* Volume control on the right */}
             <div className="flex items-center gap-2">
               <button onClick={toggleMute} className="p-1">
                 {isMuted || volume === 0 ? (
@@ -253,15 +262,6 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
                 onValueChange={handleVolumeChange}
                 className="w-16 [&_[data-slot=track]]:h-1 [&_[data-slot=track]]:bg-white/30 [&_[data-slot=range]]:bg-white [&_[data-slot=thumb]]:w-2.5 [&_[data-slot=thumb]]:h-2.5 [&_[data-slot=thumb]]:bg-white [&_[data-slot=thumb]]:border-0"
               />
-              {!isMobile && (
-                <button
-                  onClick={onToggleMinimize}
-                  className={`w-7 h-7 rounded-full ${colors.button} backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-md border border-white/30 ml-1`}
-                  aria-label="Minimize player"
-                >
-                  <Minimize2 className="w-3.5 h-3.5 text-white" />
-                </button>
-              )}
             </div>
           </div>
           
