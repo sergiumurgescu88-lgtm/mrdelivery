@@ -205,14 +205,27 @@ const PodcastBox = ({ label, flag, audioSrc, color, isActive, onActivate, onDeac
     );
   }
 
+  const handlePlayerClick = (e: React.MouseEvent) => {
+    // Only minimize if clicking on the expanded player (not compact view)
+    // and not clicking on interactive elements
+    if (isActive && isPlaying && !isMinimized) {
+      const target = e.target as HTMLElement;
+      const isInteractiveElement = target.closest('button') || target.closest('[role="slider"]');
+      if (!isInteractiveElement) {
+        onToggleMinimize();
+      }
+    }
+  };
+
   return (
     <div
       className={`bg-gradient-to-br ${colors.bg} backdrop-blur-md rounded-lg border ${colors.border} ${colors.glow} animate-flicker transition-all duration-500 ease-out ${
         isActive && isPlaying
-          ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[9999] p-4 opacity-90 shadow-2xl'
+          ? 'fixed left-1/2 -translate-x-1/2 top-4 w-[calc(100%-2rem)] max-w-md z-[9999] p-4 opacity-90 shadow-2xl cursor-pointer'
           : 'relative p-2 sm:p-3 hover:scale-105'
       }`}
       style={isActive && isPlaying ? { pointerEvents: 'auto' } : {}}
+      onClick={handlePlayerClick}
     >
       <audio ref={audioRef} src={audioSrc} onEnded={handleEnded} />
       
