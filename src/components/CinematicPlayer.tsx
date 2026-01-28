@@ -360,8 +360,8 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
     onClearPackage?.();
   };
   
-  // Determine if player should be minimized (mobile and not expanded)
-  const isMinimized = isMobile && !isMobileExpanded;
+  // Determine if player should be minimized (on both mobile and desktop)
+  const isMinimized = !isMobileExpanded;
 
   const isPodcast = audioSource.type === 'podcast';
 
@@ -420,23 +420,15 @@ export const CinematicPlayer = ({ activePackage, onClearPackage }: CinematicPlay
             }}
           />
 
-          {/* Expand/Minimize button */}
-          <button
-            onClick={handleExpandToggle}
-            className={`
-              absolute top-2.5 right-2.5 bg-white/10 border-none text-white
-              w-[30px] h-[30px] rounded-full items-center justify-center
-              cursor-pointer z-10 transition-opacity duration-300
-              hover:bg-white/20
-              ${isMobile ? 'flex' : 'opacity-0 group-hover:opacity-100 hidden md:flex'}
-            `}
-          >
-            {isMobileExpanded ? (
+          {/* Expand/Minimize button - always visible when not minimized */}
+          {!isMinimized && (
+            <button
+              onClick={handleExpandToggle}
+              className="absolute top-2.5 left-2.5 bg-white/10 border-none text-white w-[30px] h-[30px] rounded-full flex items-center justify-center cursor-pointer z-10 transition-opacity duration-300 hover:bg-white/20"
+            >
               <Minimize2 className="w-4 h-4" />
-            ) : (
-              <Maximize2 className="w-4 h-4" />
-            )}
-          </button>
+            </button>
+          )}
 
           {/* Minimized state - only show play/pause icon */}
           {isMinimized && (
