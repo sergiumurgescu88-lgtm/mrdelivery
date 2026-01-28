@@ -377,7 +377,7 @@ export const translations = {
       modularDesc: 'AI services can be integrated modularly, allowing restaurants to choose solutions suitable for their needs and budget.'
     },
     footer: {
-      title: 'Ready to transform your restaurant?',
+      title: 'Ready to transform your business?',
       subtitle: 'Contact us for a free consultation',
       whatsapp: 'WhatsApp',
       call: 'Call Now'
@@ -982,7 +982,7 @@ export const translations = {
       modularDesc: 'Los servicios de IA se pueden integrar de forma modular, permitiendo a los restaurantes elegir las soluciones adecuadas a sus necesidades y presupuesto.'
     },
     footer: {
-      title: '¿Listo para transformar tu restaurante?',
+      title: '¿Listo para transformar tu negocio?',
       subtitle: 'Contáctanos para una consulta gratuita',
       whatsapp: 'WhatsApp',
       call: 'Llámanos'
@@ -1587,7 +1587,7 @@ export const translations = {
       modularDesc: 'Serviciile AI pot fi integrate modular, permițând restaurantelor să aleagă soluțiile potrivite nevoilor și bugetului lor.'
     },
     footer: {
-      title: 'Gata să îți transformi restaurantul?',
+      title: 'Gata să îți transformi afacerea?',
       subtitle: 'Contactează-ne pentru o consultație gratuită',
       whatsapp: 'WhatsApp',
       call: 'Sună Acum'
