@@ -76,7 +76,7 @@ const Index = () => {
             </div>
             <div className="flex justify-center gap-1.5 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2 relative z-10">
               <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
-              <PulsingBadge color="purple">{t.badges.apps}</PulsingBadge>
+              <PulsingBadge color="gold">{t.badges.apps}</PulsingBadge>
               <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
             </div>
           </div>
