@@ -15,20 +15,21 @@ export const PulsingBadge = ({ children, color = 'blue' }: PulsingBadgeProps) =>
   };
 
   const glowClasses = {
-    blue: 'shadow-sky-500/50',
-    purple: 'shadow-violet-500/50',
-    green: 'shadow-emerald-500/50',
-    yellow: 'shadow-yellow-500/50',
-    gold: 'shadow-amber-500/50',
+    blue: 'shadow-[0_0_12px_rgba(56,189,248,0.6)]',
+    purple: 'shadow-[0_0_12px_rgba(167,139,250,0.6)]',
+    green: 'shadow-[0_0_12px_rgba(52,211,153,0.6)]',
+    yellow: 'shadow-[0_0_12px_rgba(250,204,21,0.6)]',
+    gold: 'shadow-[0_0_12px_rgba(251,191,36,0.6)]',
   };
 
   return (
     <div className="relative inline-block">
       <div
-        className={`absolute inset-0 bg-gradient-to-r ${colorClasses[color]} rounded-full blur-md opacity-60 animate-pulse`}
+        className={`absolute inset-0 bg-gradient-to-r ${colorClasses[color]} rounded-full blur-md opacity-50 animate-pulse`}
       ></div>
       <div
-        className={`relative bg-gradient-to-r ${colorClasses[color]} text-gray-950 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-black shadow-lg ${glowClasses[color]}`}
+        className={`relative bg-gradient-to-r ${colorClasses[color]} px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-sm sm:text-base font-semibold tracking-wide ${glowClasses[color]}`}
+        style={{ color: 'rgba(0, 0, 0, 0.85)' }}
       >
         {children}
       </div>
