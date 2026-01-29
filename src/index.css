@@ -317,4 +317,32 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Premium slow-moving border light animation */
+  @property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes border-rotate {
+    0% {
+      --border-angle: 0deg;
+    }
+    100% {
+      --border-angle: 360deg;
+    }
+  }
+
+  /* Fallback for browsers that don't support @property */
+  @supports not (background: paint(something)) {
+    @keyframes border-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
 }
