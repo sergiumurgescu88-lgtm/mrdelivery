@@ -7,23 +7,28 @@ interface PulsingBadgeProps {
 
 export const PulsingBadge = ({ children, color = 'blue' }: PulsingBadgeProps) => {
   const colorClasses = {
-    blue: 'from-primary to-primary/80',
-    purple: 'from-accent to-accent/80',
-    green: 'from-success to-success/80',
-    yellow: 'from-warning to-warning/80',
-    gold: 'from-amber-500 to-amber-600',
+    blue: 'from-sky-400 to-blue-500',
+    purple: 'from-violet-400 to-purple-500',
+    green: 'from-emerald-400 to-green-500',
+    yellow: 'from-yellow-400 to-amber-500',
+    gold: 'from-amber-400 to-amber-500',
   };
 
-  // Gold gets special premium styling with dark text
-  const isGold = color === 'gold';
+  const glowClasses = {
+    blue: 'shadow-sky-500/50',
+    purple: 'shadow-violet-500/50',
+    green: 'shadow-emerald-500/50',
+    yellow: 'shadow-yellow-500/50',
+    gold: 'shadow-amber-500/50',
+  };
 
   return (
     <div className="relative inline-block">
       <div
-        className={`absolute inset-0 bg-gradient-to-r ${colorClasses[color]} rounded-full blur-md ${isGold ? 'opacity-70' : 'opacity-50'} animate-pulse`}
+        className={`absolute inset-0 bg-gradient-to-r ${colorClasses[color]} rounded-full blur-md opacity-60 animate-pulse`}
       ></div>
       <div
-        className={`relative bg-gradient-to-r ${colorClasses[color]} ${isGold ? 'text-amber-950 font-black' : 'text-primary-foreground'} px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg ${isGold ? 'shadow-amber-500/50' : ''}`}
+        className={`relative bg-gradient-to-r ${colorClasses[color]} text-gray-950 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-black shadow-lg ${glowClasses[color]}`}
       >
         {children}
       </div>
