@@ -72,19 +72,37 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Premium Animated Golden Frame */}
+      {/* Premium Animated Golden Frame - Slow Moving Light */}
       {packageNumber && (
         <>
-          {/* Outer glow effect */}
+          {/* Soft outer glow */}
           <div 
-            className="absolute -inset-[4px] rounded-[22px] opacity-40 group-hover:opacity-70 transition-opacity duration-500 blur-md pointer-events-none"
+            className="absolute -inset-[6px] rounded-[24px] opacity-30 group-hover:opacity-50 transition-opacity duration-700 blur-lg pointer-events-none"
             style={{ background: 'linear-gradient(135deg, #fbbf24, #fcd34d, #fbbf24)' }}
           />
           
-          {/* Animated gradient border - BOLD */}
+          {/* Traveling light border effect */}
           <div 
-            className="absolute -inset-[3px] rounded-[20px] bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 p-[3px] animate-shimmer opacity-80 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-            style={{ backgroundSize: '200% 100%' }}
+            className="absolute -inset-[2px] rounded-[20px] pointer-events-none overflow-hidden"
+            style={{
+              background: `conic-gradient(from var(--border-angle, 0deg), 
+                transparent 0deg, 
+                transparent 60deg, 
+                #fbbf24 120deg, 
+                #fef08a 180deg, 
+                #fbbf24 240deg, 
+                transparent 300deg, 
+                transparent 360deg)`,
+              animation: 'border-rotate 6s linear infinite',
+            }}
+          />
+          
+          {/* Static subtle gold border underneath */}
+          <div 
+            className="absolute -inset-[2px] rounded-[20px] pointer-events-none opacity-40"
+            style={{ 
+              border: '2px solid #fbbf24',
+            }}
           />
           
           {/* Inner dark background to make border visible */}
