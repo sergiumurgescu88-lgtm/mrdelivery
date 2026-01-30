@@ -116,8 +116,8 @@ export const ServiceCard = ({
           packageNumber
             ? 'border-0 bg-card/95'
             : highlight
-            ? 'border border-primary/30 shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
-            : 'border border-border hover:shadow-xl bg-card/70'
+            ? 'border-0 shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
+            : 'border-0 hover:shadow-xl bg-card/70'
         }`}
         style={
           packageNumber
