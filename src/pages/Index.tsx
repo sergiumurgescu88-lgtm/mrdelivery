@@ -78,10 +78,10 @@ const Index = () => {
               }}
             />
             
-            {/* Inner content container */}
-            <div className="relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-950/80 via-yellow-900/50 to-amber-950/80 backdrop-blur-sm">
+            {/* Inner content container - transparent black */}
+            <div className="relative p-4 sm:p-6 rounded-2xl bg-black/40 backdrop-blur-sm">
               <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-2 relative z-10">
-                {t.taglineItems.map((item, index) => <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
+                {t.taglineItems.map((item, index) => <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-semibold drop-shadow-md" style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.01em' }}>
                     {item.emoji} {item.text}
                   </p>)}
               </div>
