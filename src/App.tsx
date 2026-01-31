@@ -17,6 +17,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import AutomationPage from "./pages/AutomationPage";
+import AIAutomationsPage from "./pages/AIAutomationsPage";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
               <Route path="/politica-cookies" element={<CookiePolicy />} />
               <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/automatizari-ai" element={<AIAutomationsPage />} />
               <Route path="/automatizare/:slug" element={<AutomationPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

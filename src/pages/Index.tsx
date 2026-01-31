@@ -125,13 +125,12 @@ const Index = () => {
               {t.tabs.current}
             </span>
           </button>
-          <button onClick={() => setActiveTab('ai')} className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden ${activeTab === 'ai' ? 'bg-gradient-primary text-primary-foreground shadow-2xl' : 'bg-card text-muted-foreground hover:shadow-lg border border-border'}`}>
-            {activeTab === 'ai' && <div className="absolute inset-0 bg-card/20 animate-pulse"></div>}
+          <Link to="/automatizari-ai" className={`flex-1 px-3 sm:px-6 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 relative overflow-hidden bg-card text-muted-foreground hover:shadow-lg border border-border hover:border-amber-500/50`}>
             <span className="relative flex items-center justify-center gap-1.5 sm:gap-2">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               {t.tabs.ai}
             </span>
-          </button>
+          </Link>
         </nav>
 
         {/* Current Services Tab */}
