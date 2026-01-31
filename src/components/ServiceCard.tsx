@@ -57,13 +57,6 @@ export const ServiceCard = ({
     return () => window.clearTimeout(id);
   }, [isOpen]);
 
-  // Premium gold frame for all packages
-  const frameColor = {
-    primary: 'amber',
-    glow: 'rgba(251, 191, 36, 0.5)',
-    border: '#fbbf24',
-    gradient: 'from-amber-400 via-yellow-300 to-amber-500'
-  };
 
   return (
     <div
@@ -72,41 +65,29 @@ export const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Premium Animated Golden Frame - Slow Moving Light */}
+      {/* Premium Animated Border - Traveling Light */}
       {packageNumber && (
         <>
-          {/* Soft outer glow */}
+          {/* Traveling light border effect - no glow, just clean animation */}
           <div 
-            className="absolute -inset-[6px] rounded-[24px] opacity-30 group-hover:opacity-50 transition-opacity duration-700 blur-lg pointer-events-none"
-            style={{ background: 'linear-gradient(135deg, #fbbf24, #fcd34d, #fbbf24)' }}
-          />
-          
-          {/* Traveling light border effect */}
-          <div 
-            className="absolute -inset-[2px] rounded-[20px] pointer-events-none overflow-hidden"
+            className="absolute -inset-[2px] rounded-[20px] pointer-events-none"
             style={{
               background: `conic-gradient(from var(--border-angle, 0deg), 
                 transparent 0deg, 
-                transparent 60deg, 
+                transparent 45deg, 
+                rgba(251, 191, 36, 0.3) 80deg, 
                 #fbbf24 120deg, 
-                #fef08a 180deg, 
-                #fbbf24 240deg, 
-                transparent 300deg, 
+                #fef08a 150deg, 
+                #fbbf24 180deg, 
+                rgba(251, 191, 36, 0.3) 220deg, 
+                transparent 255deg, 
                 transparent 360deg)`,
-              animation: 'border-rotate 6s linear infinite',
-            }}
-          />
-          
-          {/* Static subtle gold border underneath */}
-          <div 
-            className="absolute -inset-[2px] rounded-[20px] pointer-events-none opacity-40"
-            style={{ 
-              border: '2px solid #fbbf24',
+              animation: 'border-rotate 4s linear infinite',
             }}
           />
           
           {/* Inner dark background to make border visible */}
-          <div className="absolute -inset-0 rounded-2xl bg-card pointer-events-none" />
+          <div className="absolute inset-[2px] rounded-[18px] bg-card pointer-events-none" />
         </>
       )}
 
@@ -119,11 +100,6 @@ export const ServiceCard = ({
             ? 'border-0 shadow-2xl bg-gradient-to-br from-primary/5 via-card/70 to-accent/10'
             : 'border-0 hover:shadow-xl bg-card/70'
         }`}
-        style={
-          packageNumber
-            ? { boxShadow: `0 0 18px ${frameColor.glow}` }
-            : undefined
-        }
       >
       {/* Large Package Number Background - BOLD & VISIBLE on Desktop */}
       {packageNumber && (
