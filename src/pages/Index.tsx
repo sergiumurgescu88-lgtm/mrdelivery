@@ -58,26 +58,38 @@ const Index = () => {
             </h1>
           </div>
           
-          {/* Gold Frame Container for Services */}
-          <div className="relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-950/60 via-yellow-900/40 to-amber-950/60 border-2 border-amber-400/70 shadow-[0_0_30px_rgba(251,191,36,0.3),inset_0_1px_0_rgba(251,191,36,0.4)] backdrop-blur-sm max-w-2xl mx-auto">
-            {/* Gold corner accents */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t-3 border-l-3 border-amber-400 rounded-tl-xl"></div>
-            <div className="absolute top-0 right-0 w-6 h-6 border-t-3 border-r-3 border-amber-400 rounded-tr-xl"></div>
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-3 border-l-3 border-amber-400 rounded-bl-xl"></div>
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-3 border-r-3 border-amber-400 rounded-br-xl"></div>
+          {/* Animated Border Container for Services */}
+          <div className="relative max-w-2xl mx-auto">
+            {/* Traveling light border effect */}
+            <div 
+              className="absolute -inset-[2px] rounded-2xl pointer-events-none"
+              style={{
+                background: `conic-gradient(from var(--border-angle, 0deg), 
+                  transparent 0deg, 
+                  transparent 45deg, 
+                  rgba(251, 191, 36, 0.3) 80deg, 
+                  #fbbf24 120deg, 
+                  #fef08a 150deg, 
+                  #fbbf24 180deg, 
+                  rgba(251, 191, 36, 0.3) 220deg, 
+                  transparent 255deg, 
+                  transparent 360deg)`,
+                animation: 'border-rotate 4s linear infinite',
+              }}
+            />
             
-            {/* Inner glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-400/5 via-yellow-300/10 to-amber-400/5 rounded-2xl pointer-events-none" />
-            
-            <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-2 relative z-10">
-              {t.taglineItems.map((item, index) => <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
-                  {item.emoji} {item.text}
-                </p>)}
-            </div>
-            <div className="flex justify-center gap-1.5 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2 relative z-10">
-              <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
-              <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
-              <PulsingBadge color="gold">{t.badges.apps}</PulsingBadge>
+            {/* Inner content container */}
+            <div className="relative p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-950/80 via-yellow-900/50 to-amber-950/80 backdrop-blur-sm">
+              <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-2 relative z-10">
+                {t.taglineItems.map((item, index) => <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-extrabold drop-shadow-md">
+                    {item.emoji} {item.text}
+                  </p>)}
+              </div>
+              <div className="flex justify-center gap-1.5 sm:gap-3 mt-3 sm:mt-4 flex-wrap px-2 relative z-10">
+                <PulsingBadge color="blue">{t.badges.ai}</PulsingBadge>
+                <PulsingBadge color="green">{t.badges.marketing}</PulsingBadge>
+                <PulsingBadge color="gold">{t.badges.apps}</PulsingBadge>
+              </div>
             </div>
           </div>
         </header>
