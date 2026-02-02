@@ -129,7 +129,7 @@ const Index = () => {
               <div className="absolute bottom-3 left-12 w-1 h-1 bg-amber-200 rounded-full animate-pulse opacity-50" />
               <div className="absolute bottom-2 right-4 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-ping opacity-70" />
               
-              <div className="relative z-10 flex-row gap-[6px] flex items-start justify-start">
+              <div className="relative z-10 flex-row gap-[6px] flex items-center justify-start">
                 <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Image className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
                 </div>
