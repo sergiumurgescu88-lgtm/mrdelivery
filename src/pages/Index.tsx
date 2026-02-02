@@ -94,7 +94,21 @@ const Index = () => {
           </div>
         </header>
 
-        {/* Instant Menu Photos Premium Button - Above Stats */}
+        {/* Hero Stats - Experience/Trust Statement */}
+        <div className="flex flex-col items-center gap-1 sm:gap-1.5 mb-4 sm:mb-5 px-3 text-center">
+          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
+            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">7+</span> {language === 'ro' ? 'ani experiență în Marketing' : language === 'es' ? 'años de experiencia en Marketing' : 'Years of Marketing Experience'}
+          </p>
+          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
+            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">5+</span> {language === 'ro' ? 'ani de expertiză în livrări' : language === 'es' ? 'años de experiencia de élite en delivery' : 'Years of Elite Delivery Expertise'}
+          </p>
+          
+          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
+            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">90%</span> {language === 'ro' ? 'dintre clienți vin prin recomandări' : language === 'es' ? 'de clientes llegan por recomendación' : 'of Clients Come via Referrals'}
+          </p>
+        </div>
+
+        {/* Instant Menu Photos Premium Button - Below Stats */}
         <div className="px-2 mb-4 sm:mb-5">
           <a href="https://instant-menu-pictures-499463360194.us-west1.run.app/" target="_blank" rel="noopener noreferrer" className="block group">
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-950/80 via-yellow-900/60 to-amber-950/80 border-2 border-amber-400/80 p-4 sm:p-5 shadow-[0_0_40px_rgba(251,191,36,0.4),inset_0_1px_0_rgba(251,191,36,0.5)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
@@ -135,20 +149,6 @@ const Index = () => {
               </div>
             </div>
           </a>
-        </div>
-
-        {/* Hero Stats - Experience/Trust Statement */}
-        <div className="flex flex-col items-center gap-1 sm:gap-1.5 mb-4 sm:mb-5 px-3 text-center">
-          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
-            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">7+</span> {language === 'ro' ? 'ani experiență în Marketing' : language === 'es' ? 'años de experiencia en Marketing' : 'Years of Marketing Experience'}
-          </p>
-          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
-            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">5+</span> {language === 'ro' ? 'ani de expertiză în livrări' : language === 'es' ? 'años de experiencia de élite en delivery' : 'Years of Elite Delivery Expertise'}
-          </p>
-          
-          <p className="text-base sm:text-lg md:text-xl text-amber-100/95 font-semibold">
-            <span className="text-xl sm:text-2xl md:text-3xl text-amber-400 font-extrabold drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">90%</span> {language === 'ro' ? 'dintre clienți vin prin recomandări' : language === 'es' ? 'de clientes llegan por recomendación' : 'of Clients Come via Referrals'}
-          </p>
         </div>
 
         {/* Unified Audio Player - Podcast + Packages */}
