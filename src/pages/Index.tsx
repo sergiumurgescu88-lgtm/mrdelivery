@@ -61,10 +61,8 @@ const Index = () => {
           {/* Animated Border Container for Services */}
           <div className="relative max-w-2xl mx-auto">
             {/* Traveling light border effect */}
-            <div 
-              className="absolute -inset-[2px] rounded-2xl pointer-events-none"
-              style={{
-                background: `conic-gradient(from var(--border-angle, 0deg), 
+            <div className="absolute -inset-[2px] rounded-2xl pointer-events-none" style={{
+            background: `conic-gradient(from var(--border-angle, 0deg), 
                   transparent 0deg, 
                   transparent 45deg, 
                   rgba(251, 191, 36, 0.3) 80deg, 
@@ -74,14 +72,16 @@ const Index = () => {
                   rgba(251, 191, 36, 0.3) 220deg, 
                   transparent 255deg, 
                   transparent 360deg)`,
-                animation: 'border-rotate 4s linear infinite',
-              }}
-            />
+            animation: 'border-rotate 4s linear infinite'
+          }} />
             
             {/* Inner content container - transparent black */}
             <div className="relative p-4 sm:p-6 rounded-2xl bg-black/40 backdrop-blur-sm">
               <div className="flex flex-col items-center gap-1.5 sm:gap-2 px-2 relative z-10">
-                {t.taglineItems.map((item, index) => <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-semibold drop-shadow-md" style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.01em' }}>
+                {t.taglineItems.map((item, index) => <p key={index} className="text-base sm:text-xl md:text-2xl text-white font-semibold drop-shadow-md" style={{
+                fontFamily: "'DM Sans', sans-serif",
+                letterSpacing: '0.01em'
+              }}>
                     {item.emoji} {item.text}
                   </p>)}
               </div>
@@ -114,8 +114,8 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-950/80 via-yellow-900/60 to-amber-950/80 border-2 border-amber-400/80 p-4 sm:p-5 shadow-[0_0_40px_rgba(251,191,36,0.4),inset_0_1px_0_rgba(251,191,36,0.5)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
               {/* Animated glow background */}
               <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 animate-[shimmer_3s_infinite] pointer-events-none" style={{
-                backgroundSize: '200% 100%'
-              }} />
+              backgroundSize: '200% 100%'
+            }} />
               
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-3 border-l-3 border-amber-400 rounded-tl-xl opacity-80"></div>
@@ -129,20 +129,16 @@ const Index = () => {
               <div className="absolute bottom-3 left-12 w-1 h-1 bg-amber-200 rounded-full animate-pulse opacity-50" />
               <div className="absolute bottom-2 right-4 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-ping opacity-70" />
               
-              <div className="relative z-10 flex items-center justify-center gap-3">
+              <div className="relative z-10 flex-row gap-[6px] flex items-start justify-start">
                 <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Image className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
                 </div>
                 <div className="flex flex-col items-start flex-1">
-                  <span className="text-lg sm:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-md">
+                  <span className="text-lg sm:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-md text-center">
                     📸 {language === 'ro' ? 'POZE MENIU INSTANT' : language === 'es' ? 'FOTOS MENÚ INSTANTÁNEAS' : 'INSTANT MENU PHOTOS'}
                   </span>
                   <span className="text-xs sm:text-sm text-amber-200/80 font-medium leading-tight">
-                    {language === 'ro' 
-                      ? 'Creează instant poze în stil Michelin pentru tot meniul tău, împreună cu alergeni, logo și poză din locație reală.' 
-                      : language === 'es' 
-                      ? 'Crea al instante fotos estilo Michelin para todo tu menú, con alérgenos, logo y foto de ubicación real.' 
-                      : 'Instantly create Michelin-style photos for your entire menu, with allergens, logo, and real location photo.'}
+                    {language === 'ro' ? 'Creează instant poze în stil Michelin pentru tot meniul tău, împreună cu alergeni, logo și poză din locație reală.' : language === 'es' ? 'Crea al instante fotos estilo Michelin para todo tu menú, con alérgenos, logo y foto de ubicación real.' : 'Instantly create Michelin-style photos for your entire menu, with allergens, logo, and real location photo.'}
                   </span>
                 </div>
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 group-hover:translate-x-2 transition-transform duration-300 flex-shrink-0" />
@@ -661,352 +657,555 @@ const Index = () => {
                 </h2>
                 <p className="text-xs sm:text-sm opacity-90 text-center font-medium flex items-center justify-center gap-1.5 flex-wrap">
                   <Sparkles className="w-3.5 h-3.5" />
-                  {language === 'ro' 
-                    ? 'Salon Înfrumusețare • Cabinet Medical • Inteligență Artificială • Sector Public • Magazine Retail • Hotel & Pensiune • Chatboți WhatsApp & Telegram • Social Media AI • Agenții Imobiliare'
-                    : language === 'es'
-                    ? 'Salón de Belleza • Consultorio Médico • Inteligencia Artificial • Sector Público • Tiendas Retail • Hotel & Pensión • Chatbots WhatsApp & Telegram • Redes Sociales AI • Agencias Inmobiliarias'
-                    : 'Beauty Salon • Medical Office • Artificial Intelligence • Public Sector • Retail Stores • Hotel & Guesthouse • WhatsApp & Telegram Chatbots • AI Social Media • Real Estate Agencies'}
+                  {language === 'ro' ? 'Salon Înfrumusețare • Cabinet Medical • Inteligență Artificială • Sector Public • Magazine Retail • Hotel & Pensiune • Chatboți WhatsApp & Telegram • Social Media AI • Agenții Imobiliare' : language === 'es' ? 'Salón de Belleza • Consultorio Médico • Inteligencia Artificial • Sector Público • Tiendas Retail • Hotel & Pensión • Chatbots WhatsApp & Telegram • Redes Sociales AI • Agencias Inmobiliarias' : 'Beauty Salon • Medical Office • Artificial Intelligence • Public Sector • Retail Stores • Hotel & Guesthouse • WhatsApp & Telegram Chatbots • AI Social Media • Real Estate Agencies'}
                 </p>
               </div>
             </div>
 
             {/* 9 Automation Services as Expandable ServiceCard Components */}
-            {[
-              { 
-                slug: 'salon-infrumusetare', 
-                icon: Building2, 
-                title: { ro: 'Automatizare Salon Înfrumusețare', en: 'Beauty Salon Automation', es: 'Automatización Salón de Belleza' },
-                subtitle: { ro: 'Programări online 24/7, reminder-uri automate, marketing personalizat', en: 'Online bookings 24/7, automatic reminders, personalized marketing', es: 'Reservas online 24/7, recordatorios automáticos, marketing personalizado' },
-                color: 'from-pink-500 to-rose-600',
-                features: {
-                  ro: [
-                    '📅 Programări online 24/7 - Clienții își programează singuri oricând, fără apeluri',
-                    '📱 Reminder-uri automate SMS/Email - Reducere no-show de la 30% la doar 5%',
-                    '👥 Gestiune clienți avansată - Istoric complet, preferințe, alergii, zile de naștere',
-                    '📊 Marketing automat - Campanii de reactivare și oferte aniversare personalizate',
-                    '💳 Plăți online integrate - Depozite pentru rezervări, pachete de servicii',
-                    '⭐ Gestiune recenzii - Solicitare automată feedback, îmbunătățire rating'
-                  ],
-                  en: [
-                    '📅 Online bookings 24/7 - Clients book themselves anytime, no phone calls',
-                    '📱 Automatic SMS/Email reminders - Reduce no-shows from 30% to just 5%',
-                    '👥 Advanced client management - Complete history, preferences, allergies, birthdays',
-                    '📊 Automated marketing - Reactivation campaigns and personalized anniversary offers',
-                    '💳 Integrated online payments - Booking deposits, service packages',
-                    '⭐ Review management - Automatic feedback requests, rating improvement'
-                  ],
-                  es: [
-                    '📅 Reservas online 24/7 - Los clientes reservan cuando quieran, sin llamadas',
-                    '📱 Recordatorios automáticos SMS/Email - Reduce no-shows del 30% al 5%',
-                    '👥 Gestión avanzada de clientes - Historial completo, preferencias, alergias, cumpleaños',
-                    '📊 Marketing automatizado - Campañas de reactivación y ofertas de aniversario',
-                    '💳 Pagos online integrados - Depósitos para reservas, paquetes de servicios',
-                    '⭐ Gestión de reseñas - Solicitud automática de feedback, mejora del rating'
-                  ]
-                },
-                stats: { stat1: '80%', label1: { ro: 'Reducere No-Show', en: 'No-Show Reduction', es: 'Reducción No-Show' }, stat2: { ro: '2-3 săpt', en: '2-3 weeks', es: '2-3 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '40%', label3: { ro: 'Creștere Retenție', en: 'Retention Growth', es: 'Aumento Retención' } },
-                pricing: { setup: { ro: '700€', en: '$750', es: '700€' }, monthly: { ro: '129€/lună', en: '$139/month', es: '129€/mes' } },
-                useCases: { ro: ['Saloane coafură', 'Saloane manichiură', 'Centre SPA', 'Studiouri makeup', 'Frizerii'], en: ['Hair salons', 'Nail salons', 'SPA centers', 'Makeup studios', 'Barbershops'], es: ['Peluquerías', 'Salones de manicura', 'Centros SPA', 'Estudios de maquillaje', 'Barberías'] }
-              },
-              { 
-                slug: 'cabinet-medical', 
-                icon: Stethoscope, 
-                title: { ro: 'Automatizare Cabinet Medical', en: 'Medical Office Automation', es: 'Automatización Consultorio Médico' },
-                subtitle: { ro: 'Programări online GDPR compliant, dosare digitale securizate, reminder-uri pacienți', en: 'GDPR compliant online appointments, secure digital records, patient reminders', es: 'Citas online conformes con GDPR, expedientes digitales seguros, recordatorios' },
-                color: 'from-blue-500 to-cyan-600',
-                features: {
-                  ro: [
-                    '🏥 Programări online 24/7 - Fără întreruperi în timpul consultațiilor',
-                    '🔐 Conformitate GDPR completă - Criptare date, audit trail, zero riscuri legale',
-                    '📱 Reminder-uri automate - SMS/Email cu 24h și 2h înainte, reducere no-show 70%',
-                    '📋 Dosare medicale digitale - Istoric complet, rezultate analize, prescripții',
-                    '💊 Gestiune tratamente - Alerte medicație, programări control',
-                    '📊 Rapoarte statistice - Dashboard pacienți, analize performanță cabinet'
-                  ],
-                  en: [
-                    '🏥 Online appointments 24/7 - No interruptions during consultations',
-                    '🔐 Complete GDPR compliance - Data encryption, audit trail, zero legal risks',
-                    '📱 Automatic reminders - SMS/Email 24h and 2h before, 70% no-show reduction',
-                    '📋 Digital medical records - Complete history, test results, prescriptions',
-                    '💊 Treatment management - Medication alerts, follow-up appointments',
-                    '📊 Statistical reports - Patient dashboard, cabinet performance analysis'
-                  ],
-                  es: [
-                    '🏥 Citas online 24/7 - Sin interrupciones durante consultas',
-                    '🔐 Cumplimiento GDPR completo - Cifrado de datos, registro de auditoría',
-                    '📱 Recordatorios automáticos - SMS/Email 24h y 2h antes, reducción no-show 70%',
-                    '📋 Expedientes médicos digitales - Historial completo, resultados, recetas',
-                    '💊 Gestión de tratamientos - Alertas de medicación, citas de control',
-                    '📊 Informes estadísticos - Panel de pacientes, análisis de rendimiento'
-                  ]
-                },
-                stats: { stat1: '60%', label1: { ro: 'Reducere Timp Admin', en: 'Admin Time Reduction', es: 'Reducción Tiempo Admin' }, stat2: { ro: '3-4 săpt', en: '3-4 weeks', es: '3-4 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '70%', label3: { ro: 'Reducere No-Show', en: 'No-Show Reduction', es: 'Reducción No-Show' } },
-                pricing: { setup: { ro: '900€', en: '$970', es: '900€' }, monthly: { ro: '149€/lună', en: '$159/month', es: '149€/mes' } },
-                useCases: { ro: ['Cabinete stomatologie', 'Clinici recuperare', 'Cabinete psihologie', 'Medicină de familie', 'Oftalmologie'], en: ['Dental offices', 'Recovery clinics', 'Psychology offices', 'Family medicine', 'Ophthalmology'], es: ['Consultorios dentales', 'Clínicas de recuperación', 'Consultorios de psicología', 'Medicina familiar', 'Oftalmología'] }
-              },
-              { 
-                slug: 'inteligenta-artificiala', 
-                icon: Brain, 
-                title: { ro: 'Automatizări Inteligență Artificială', en: 'AI Automation', es: 'Automatización con IA' },
-                subtitle: { ro: 'Chatboți AI custom, analiză predictivă, automatizare procese complexe', en: 'Custom AI chatbots, predictive analysis, complex process automation', es: 'Chatbots IA personalizados, análisis predictivo, automatización de procesos' },
-                color: 'from-violet-500 to-purple-600',
-                features: {
-                  ro: [
-                    '🤖 Chatbot AI personalizat - Antrenat pe datele tale, răspunde la 80% întrebări',
-                    '📊 Analiză AI automată - Insights din date, predicții vânzări, tendințe',
-                    '⚙️ Automatizare procese - Reduce munca repetitivă cu 60%, zero erori',
-                    '💬 Suport clienți 24/7 - Disponibil non-stop în română, engleză, spaniolă',
-                    '📧 Email marketing AI - Texte generate automat, segmentare inteligentă',
-                    '🎯 Lead scoring AI - Identificare automată clienți cu potențial mare'
-                  ],
-                  en: [
-                    '🤖 Custom AI chatbot - Trained on your data, answers 80% of questions',
-                    '📊 Automatic AI analysis - Data insights, sales predictions, trends',
-                    '⚙️ Process automation - Reduce repetitive work by 60%, zero errors',
-                    '💬 24/7 Customer support - Available non-stop in multiple languages',
-                    '📧 AI email marketing - Auto-generated texts, intelligent segmentation',
-                    '🎯 AI lead scoring - Automatic identification of high-potential clients'
-                  ],
-                  es: [
-                    '🤖 Chatbot IA personalizado - Entrenado con tus datos, responde 80% preguntas',
-                    '📊 Análisis automático IA - Insights de datos, predicciones, tendencias',
-                    '⚙️ Automatización de procesos - Reduce trabajo repetitivo 60%, cero errores',
-                    '💬 Soporte al cliente 24/7 - Disponible sin parar en múltiples idiomas',
-                    '📧 Email marketing IA - Textos generados automáticamente, segmentación',
-                    '🎯 Lead scoring IA - Identificación automática de clientes potenciales'
-                  ]
-                },
-                stats: { stat1: '40%', label1: { ro: 'Reducere Costuri', en: 'Cost Reduction', es: 'Reducción de Costos' }, stat2: { ro: '3-6 luni', en: '3-6 months', es: '3-6 meses' }, label2: { ro: 'ROI Garantat', en: 'Guaranteed ROI', es: 'ROI Garantizado' }, stat3: '60%', label3: { ro: 'Timp Economisit', en: 'Time Saved', es: 'Tiempo Ahorrado' } },
-                pricing: { setup: { ro: '800€', en: '$860', es: '800€' }, monthly: { ro: '199€/lună', en: '$215/month', es: '199€/mes' } },
-                useCases: { ro: ['E-commerce', 'Companii servicii', 'Agenții marketing', 'Clinici', 'Firme consultanță'], en: ['E-commerce', 'Service companies', 'Marketing agencies', 'Clinics', 'Consulting firms'], es: ['E-commerce', 'Empresas de servicios', 'Agencias de marketing', 'Clínicas', 'Consultoras'] }
-              },
-              { 
-                slug: 'sector-public', 
-                icon: Landmark, 
-                title: { ro: 'Automatizare Sector Public', en: 'Public Sector Automation', es: 'Automatización Sector Público' },
-                subtitle: { ro: 'Portal cetățean digital, documente automate, transparență și eficiență', en: 'Digital citizen portal, automated documents, transparency and efficiency', es: 'Portal ciudadano digital, documentos automáticos, transparencia y eficiencia' },
-                color: 'from-slate-500 to-gray-600',
-                features: {
-                  ro: [
-                    '🏛️ Portal cetățean 24/7 - Cereri online fără cozi, tracking status',
-                    '📄 Automatizare documente - Eliberare automată certificate, adeverințe',
-                    '🔔 Notificări automate - Status cereri în timp real, SMS și email',
-                    '📊 Dashboard management - Statistici, rapoarte, analize performanță',
-                    '🔐 Securitate avansată - Conformitate GDPR, semnătură electronică',
-                    '📱 Aplicație mobilă cetățeni - Acces rapid la servicii publice'
-                  ],
-                  en: [
-                    '🏛️ Citizen portal 24/7 - Online requests without queues, status tracking',
-                    '📄 Document automation - Automatic certificate and attestation issuance',
-                    '🔔 Automatic notifications - Real-time request status, SMS and email',
-                    '📊 Management dashboard - Statistics, reports, performance analysis',
-                    '🔐 Advanced security - GDPR compliance, electronic signature',
-                    '📱 Citizen mobile app - Quick access to public services'
-                  ],
-                  es: [
-                    '🏛️ Portal ciudadano 24/7 - Solicitudes online sin colas, seguimiento',
-                    '📄 Automatización de documentos - Emisión automática de certificados',
-                    '🔔 Notificaciones automáticas - Estado en tiempo real, SMS y email',
-                    '📊 Panel de gestión - Estadísticas, informes, análisis de rendimiento',
-                    '🔐 Seguridad avanzada - Cumplimiento GDPR, firma electrónica',
-                    '📱 App móvil para ciudadanos - Acceso rápido a servicios públicos'
-                  ]
-                },
-                stats: { stat1: '70%', label1: { ro: 'Reducere Timp Așteptare', en: 'Wait Time Reduction', es: 'Reducción Tiempo Espera' }, stat2: { ro: '4-6 săpt', en: '4-6 weeks', es: '4-6 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '85%', label3: { ro: 'Satisfacție Cetățeni', en: 'Citizen Satisfaction', es: 'Satisfacción Ciudadana' } },
-                pricing: { setup: { ro: '1500€', en: '$1600', es: '1500€' }, monthly: { ro: '299€/lună', en: '$320/month', es: '299€/mes' } },
-                useCases: { ro: ['Primării', 'Consilii locale', 'Prefecturi', 'Instituții de stat', 'Agenții guvernamentale'], en: ['City halls', 'Local councils', 'Prefectures', 'State institutions', 'Government agencies'], es: ['Ayuntamientos', 'Consejos locales', 'Prefecturas', 'Instituciones estatales', 'Agencias gubernamentales'] }
-              },
-              { 
-                slug: 'magazine-retail', 
-                icon: ShoppingCart, 
-                title: { ro: 'Automatizare Magazine Retail', en: 'Retail Store Automation', es: 'Automatización Tiendas Retail' },
-                subtitle: { ro: 'Gestiune stocuri inteligentă, comenzi automate furnizori, program fidelizare digital', en: 'Smart inventory management, auto supplier orders, digital loyalty program', es: 'Gestión inteligente de inventario, pedidos automáticos a proveedores, programa de fidelización digital' },
-                color: 'from-orange-500 to-amber-600',
-                features: {
-                  ro: [
-                    '📦 Gestiune stocuri AI - Alerte automate reaprovizionare, predicții vânzări',
-                    '🚚 Comenzi automate furnizori - Zero rupturi de stoc, optimizare costuri',
-                    '💳 Program fidelizare digital - Puncte, reduceri, oferte personalizate',
-                    '📊 Rapoarte vânzări real-time - Dashboard complet, decizii bazate pe date',
-                    '🏷️ Prețuri dinamice - Ajustare automată în funcție de cerere și stoc',
-                    '📱 Aplicație clienți - Comenzi online, notificări promoții'
-                  ],
-                  en: [
-                    '📦 AI inventory management - Automatic restock alerts, sales predictions',
-                    '🚚 Automatic supplier orders - Zero stockouts, cost optimization',
-                    '💳 Digital loyalty program - Points, discounts, personalized offers',
-                    '📊 Real-time sales reports - Complete dashboard, data-driven decisions',
-                    '🏷️ Dynamic pricing - Automatic adjustment based on demand and stock',
-                    '📱 Customer app - Online orders, promotion notifications'
-                  ],
-                  es: [
-                    '📦 Gestión de inventario IA - Alertas automáticas de reabastecimiento, predicciones de ventas',
-                    '🚚 Pedidos automáticos a proveedores - Cero roturas de stock, optimización de costos',
-                    '💳 Programa de fidelización digital - Puntos, descuentos, ofertas personalizadas',
-                    '📊 Informes de ventas en tiempo real - Panel completo, decisiones basadas en datos',
-                    '🏷️ Precios dinámicos - Ajuste automático según demanda y stock',
-                    '📱 App para clientes - Pedidos online, notificaciones de promociones'
-                  ]
-                },
-                stats: { stat1: '35%', label1: { ro: 'Creștere Retenție', en: 'Retention Increase', es: 'Aumento Retención' }, stat2: { ro: '3-4 săpt', en: '3-4 weeks', es: '3-4 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '20%', label3: { ro: 'Reducere Stocuri Moarte', en: 'Dead Stock Reduction', es: 'Reducción Stock Muerto' } },
-                pricing: { setup: { ro: '600€', en: '$650', es: '600€' }, monthly: { ro: '149€/lună', en: '$159/month', es: '149€/mes' } },
-                useCases: { ro: ['Magazine alimentare', 'Farmacii', 'Magazine electro', 'Librării', 'Magazine cosmetice'], en: ['Grocery stores', 'Pharmacies', 'Electronics stores', 'Bookstores', 'Cosmetics shops'], es: ['Tiendas de alimentación', 'Farmacias', 'Tiendas de electrónica', 'Librerías', 'Tiendas de cosméticos'] }
-              },
-              { 
-                slug: 'hotel-pensiune', 
-                icon: Hotel, 
-                title: { ro: 'Automatizare Hotel & Pensiune', en: 'Hotel & Guesthouse Automation', es: 'Automatización Hotel & Pensión' },
-                subtitle: { ro: 'Rezervări directe fără comisioane, check-in/out digital, concierge AI non-stop', en: 'Direct bookings without commissions, digital check-in/out, 24/7 AI concierge', es: 'Reservas directas sin comisiones, check-in/out digital, conserje IA 24/7' },
-                color: 'from-cyan-500 to-teal-600',
-                features: {
-                  ro: [
-                    '🏨 Rezervări online 24/7 - Direct pe site-ul tău, fără comisioane OTA',
-                    '📱 Check-in/out digital - Self-service complet, fără cozi la recepție',
-                    '🤖 Concierge AI - Răspunsuri instant la întrebări, recomandări locale',
-                    '📅 Sincronizare calendare - Booking, Airbnb, Expedia într-un singur loc',
-                    '⭐ Gestiune recenzii - Răspunsuri automate, îmbunătățire rating',
-                    '🍽️ Upselling automat - Oferte mic dejun, spa, ture la rezervare'
-                  ],
-                  en: [
-                    '🏨 Online bookings 24/7 - Direct on your site, no OTA commissions',
-                    '📱 Digital check-in/out - Complete self-service, no reception queues',
-                    '🤖 AI Concierge - Instant answers to questions, local recommendations',
-                    '📅 Calendar sync - Booking, Airbnb, Expedia in one place',
-                    '⭐ Review management - Automatic responses, rating improvement',
-                    '🍽️ Automatic upselling - Breakfast, spa, tour offers at booking'
-                  ],
-                  es: [
-                    '🏨 Reservas online 24/7 - Directo en tu sitio, sin comisiones OTA',
-                    '📱 Check-in/out digital - Autoservicio completo, sin colas en recepción',
-                    '🤖 Conserje IA - Respuestas instantáneas, recomendaciones locales',
-                    '📅 Sincronización de calendarios - Booking, Airbnb, Expedia en un lugar',
-                    '⭐ Gestión de reseñas - Respuestas automáticas, mejora del rating',
-                    '🍽️ Upselling automático - Ofertas de desayuno, spa, tours al reservar'
-                  ]
-                },
-                stats: { stat1: '25%', label1: { ro: 'Creștere Rezervări', en: 'Booking Increase', es: 'Aumento Reservas' }, stat2: { ro: '2-3 săpt', en: '2-3 weeks', es: '2-3 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '15%', label3: { ro: 'Economii Comisioane', en: 'Commission Savings', es: 'Ahorro Comisiones' } },
-                pricing: { setup: { ro: '800€', en: '$860', es: '800€' }, monthly: { ro: '179€/lună', en: '$190/month', es: '179€/mes' } },
-                useCases: { ro: ['Hoteluri boutique', 'Pensiuni', 'Apartamente de închiriat', 'Vile de vacanță', 'Hosteluri'], en: ['Boutique hotels', 'Guesthouses', 'Rental apartments', 'Vacation villas', 'Hostels'], es: ['Hoteles boutique', 'Pensiones', 'Apartamentos de alquiler', 'Villas de vacaciones', 'Hostales'] }
-              },
-              { 
-                slug: 'chatboti-whatsapp-telegram', 
-                icon: MessageSquare, 
-                title: { ro: 'Chatboți AI WhatsApp & Telegram', en: 'AI Chatbots WhatsApp & Telegram', es: 'Chatbots AI WhatsApp & Telegram' },
-                subtitle: { ro: 'Asistent virtual inteligent care răspunde, vinde și programează non-stop', en: 'Smart virtual assistant that responds, sells and schedules 24/7', es: 'Asistente virtual inteligente que responde, vende y programa 24/7' },
-                color: 'from-violet-500 to-purple-600',
-                features: {
-                  ro: [
-                    '💬 Răspunsuri instant 24/7 - Fără timp de așteptare pentru clienți',
-                    '🛒 Vânzări automate - Chatbot care prezintă produse și convertește',
-                    '📅 Programări prin chat - Rezervări complete fără apeluri telefonice',
-                    '📋 Integrare CRM - Toate conversațiile și lead-urile într-un dashboard',
-                    '🌐 Multilingv - Răspunde automat în limba clientului',
-                    '📊 Analiză conversații - Insights despre întrebări frecvente și nevoi'
-                  ],
-                  en: [
-                    '💬 Instant 24/7 responses - No waiting time for customers',
-                    '🛒 Automated sales - Chatbot that presents products and converts',
-                    '📅 Chat bookings - Complete reservations without phone calls',
-                    '📋 CRM integration - All conversations and leads in one dashboard',
-                    '🌐 Multilingual - Automatic responses in customer language',
-                    '📊 Conversation analytics - Insights on frequent questions and needs'
-                  ],
-                  es: [
-                    '💬 Respuestas instantáneas 24/7 - Sin tiempo de espera para clientes',
-                    '🛒 Ventas automatizadas - Chatbot que presenta productos y convierte',
-                    '📅 Reservas por chat - Reservas completas sin llamadas telefónicas',
-                    '📋 Integración CRM - Todas las conversaciones y leads en un panel',
-                    '🌐 Multilingüe - Respuestas automáticas en el idioma del cliente',
-                    '📊 Análisis de conversaciones - Insights sobre preguntas frecuentes'
-                  ]
-                },
-                stats: { stat1: '80%', label1: { ro: 'Răspunsuri Automate', en: 'Automated Responses', es: 'Respuestas Automatizadas' }, stat2: { ro: '1-2 săpt', en: '1-2 weeks', es: '1-2 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '3x', label3: { ro: 'Mai Multe Conversii', en: 'More Conversions', es: 'Más Conversiones' } },
-                pricing: { setup: { ro: '500€', en: '$540', es: '500€' }, monthly: { ro: '99€/lună', en: '$109/month', es: '99€/mes' } },
-                useCases: { ro: ['E-commerce', 'Servicii locale', 'Agenții', 'Clinici', 'Restaurante'], en: ['E-commerce', 'Local services', 'Agencies', 'Clinics', 'Restaurants'], es: ['E-commerce', 'Servicios locales', 'Agencias', 'Clínicas', 'Restaurantes'] }
-              },
-              { 
-                slug: 'social-media-ai', 
-                icon: Share2, 
-                title: { ro: 'Automatizare Social Media AI', en: 'AI Social Media Automation', es: 'Automatización Redes Sociales AI' },
-                subtitle: { ro: 'Conținut generat AI, postări programate, engagement automat pe toate platformele', en: 'AI-generated content, scheduled posts, automatic engagement on all platforms', es: 'Contenido generado por IA, publicaciones programadas, engagement automático' },
-                color: 'from-pink-500 to-rose-600',
-                features: {
-                  ro: [
-                    '🎨 Generare conținut AI - Texte, imagini și video create automat',
-                    '📅 Programare postări - Calendar editorial automatizat multi-platformă',
-                    '📈 Analiză performanță - Insights detaliate și recomandări optimizare',
-                    '💬 Răspunsuri automate comentarii - Engagement non-stop cu followerii',
-                    '🎯 Targetare audiență - Identificare și atragere public relevant',
-                    '📊 Rapoarte lunare - Statistici complete și ROI social media'
-                  ],
-                  en: [
-                    '🎨 AI content generation - Automatic text, images and video creation',
-                    '📅 Post scheduling - Multi-platform automated editorial calendar',
-                    '📈 Performance analysis - Detailed insights and optimization tips',
-                    '💬 Auto comment responses - Non-stop engagement with followers',
-                    '🎯 Audience targeting - Identify and attract relevant public',
-                    '📊 Monthly reports - Complete statistics and social media ROI'
-                  ],
-                  es: [
-                    '🎨 Generación de contenido IA - Textos, imágenes y videos automáticos',
-                    '📅 Programación de publicaciones - Calendario editorial multi-plataforma',
-                    '📈 Análisis de rendimiento - Insights detallados y optimizaciones',
-                    '💬 Respuestas automáticas a comentarios - Engagement sin parar',
-                    '🎯 Segmentación de audiencia - Identificar y atraer público relevante',
-                    '📊 Informes mensuales - Estadísticas completas y ROI redes sociales'
-                  ]
-                },
-                stats: { stat1: '5x', label1: { ro: 'Mai Mult Conținut', en: 'More Content', es: 'Más Contenido' }, stat2: { ro: '1-2 săpt', en: '1-2 weeks', es: '1-2 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '300%', label3: { ro: 'Creștere Engagement', en: 'Engagement Growth', es: 'Aumento Engagement' } },
-                pricing: { setup: { ro: '400€', en: '$430', es: '400€' }, monthly: { ro: '129€/lună', en: '$139/month', es: '129€/mes' } },
-                useCases: { ro: ['Restaurante', 'Magazine', 'Saloane', 'Agenții', 'Freelanceri'], en: ['Restaurants', 'Stores', 'Salons', 'Agencies', 'Freelancers'], es: ['Restaurantes', 'Tiendas', 'Salones', 'Agencias', 'Freelancers'] }
-              },
-              { 
-                slug: 'agentii-imobiliare', 
-                icon: Home, 
-                title: { ro: 'Automatizare Agenții Imobiliare', en: 'Real Estate Agency Automation', es: 'Automatización Agencias Inmobiliarias' },
-                subtitle: { ro: 'Listări automate pe toate platformele, calificare lead-uri AI, CRM imobiliar complet', en: 'Auto listings on all platforms, AI lead qualification, complete real estate CRM', es: 'Listados automáticos en todas las plataformas, calificación de leads IA, CRM inmobiliario' },
-                color: 'from-indigo-500 to-blue-600',
-                features: {
-                  ro: [
-                    '🏠 Listări automate multiplatformă - OLX, Storia, Imobiliare.ro, Facebook',
-                    '🎯 Calificare lead-uri AI - Focus doar pe clienții serioși și calificați',
-                    '📋 CRM imobiliar complet - Toate proprietățile, clienții și tranzacțiile',
-                    '🎥 Tururi virtuale automate - Vizionări 360° fără deplasare fizică',
-                    '📄 Generare contracte - Documente pre-completate automat',
-                    '📊 Analiză piață - Prețuri comparabile, tendințe zone'
-                  ],
-                  en: [
-                    '🏠 Multi-platform auto listings - Zillow, Realtor, Redfin, Facebook',
-                    '🎯 AI lead qualification - Focus only on serious, qualified clients',
-                    '📋 Complete real estate CRM - All properties, clients and transactions',
-                    '🎥 Automatic virtual tours - 360° viewings without physical travel',
-                    '📄 Contract generation - Automatically pre-filled documents',
-                    '📊 Market analysis - Comparable prices, area trends'
-                  ],
-                  es: [
-                    '🏠 Listados automáticos multiplataforma - Idealista, Fotocasa, Habitaclia',
-                    '🎯 Calificación de leads IA - Enfoque solo en clientes serios',
-                    '📋 CRM inmobiliario completo - Propiedades, clientes y transacciones',
-                    '🎥 Tours virtuales automáticos - Visitas 360° sin desplazamiento',
-                    '📄 Generación de contratos - Documentos pre-completados automáticamente',
-                    '📊 Análisis de mercado - Precios comparables, tendencias de zona'
-                  ]
-                },
-                stats: { stat1: '40%', label1: { ro: 'Mai Multe Lead-uri', en: 'More Leads', es: 'Más Leads' }, stat2: { ro: '2-3 săpt', en: '2-3 weeks', es: '2-3 sem' }, label2: { ro: 'Implementare', en: 'Implementation', es: 'Implementación' }, stat3: '50%', label3: { ro: 'Timp Economisit', en: 'Time Saved', es: 'Tiempo Ahorrado' } },
-                pricing: { setup: { ro: '700€', en: '$750', es: '700€' }, monthly: { ro: '149€/lună', en: '$159/month', es: '149€/mes' } },
-                useCases: { ro: ['Agenții imobiliare', 'Dezvoltatori', 'Brokeri independenți', 'Manageri proprietăți', 'Notari'], en: ['Real estate agencies', 'Developers', 'Independent brokers', 'Property managers', 'Notaries'], es: ['Agencias inmobiliarias', 'Desarrolladores', 'Brokers independientes', 'Gestores de propiedades', 'Notarios'] }
-              }
-            ].map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <ServiceCard 
-                  key={service.slug}
-                  title={service.title[language] || service.title.ro}
-                  icon={Icon}
-                  subtitle={service.subtitle[language] || service.subtitle.ro}
-                  price={typeof service.pricing.monthly === 'object' ? (service.pricing.monthly[language] || service.pricing.monthly.ro) : service.pricing.monthly}
-                  packageNumber={index + 1}
-                >
+            {[{
+          slug: 'salon-infrumusetare',
+          icon: Building2,
+          title: {
+            ro: 'Automatizare Salon Înfrumusețare',
+            en: 'Beauty Salon Automation',
+            es: 'Automatización Salón de Belleza'
+          },
+          subtitle: {
+            ro: 'Programări online 24/7, reminder-uri automate, marketing personalizat',
+            en: 'Online bookings 24/7, automatic reminders, personalized marketing',
+            es: 'Reservas online 24/7, recordatorios automáticos, marketing personalizado'
+          },
+          color: 'from-pink-500 to-rose-600',
+          features: {
+            ro: ['📅 Programări online 24/7 - Clienții își programează singuri oricând, fără apeluri', '📱 Reminder-uri automate SMS/Email - Reducere no-show de la 30% la doar 5%', '👥 Gestiune clienți avansată - Istoric complet, preferințe, alergii, zile de naștere', '📊 Marketing automat - Campanii de reactivare și oferte aniversare personalizate', '💳 Plăți online integrate - Depozite pentru rezervări, pachete de servicii', '⭐ Gestiune recenzii - Solicitare automată feedback, îmbunătățire rating'],
+            en: ['📅 Online bookings 24/7 - Clients book themselves anytime, no phone calls', '📱 Automatic SMS/Email reminders - Reduce no-shows from 30% to just 5%', '👥 Advanced client management - Complete history, preferences, allergies, birthdays', '📊 Automated marketing - Reactivation campaigns and personalized anniversary offers', '💳 Integrated online payments - Booking deposits, service packages', '⭐ Review management - Automatic feedback requests, rating improvement'],
+            es: ['📅 Reservas online 24/7 - Los clientes reservan cuando quieran, sin llamadas', '📱 Recordatorios automáticos SMS/Email - Reduce no-shows del 30% al 5%', '👥 Gestión avanzada de clientes - Historial completo, preferencias, alergias, cumpleaños', '📊 Marketing automatizado - Campañas de reactivación y ofertas de aniversario', '💳 Pagos online integrados - Depósitos para reservas, paquetes de servicios', '⭐ Gestión de reseñas - Solicitud automática de feedback, mejora del rating']
+          },
+          stats: {
+            stat1: '80%',
+            label1: {
+              ro: 'Reducere No-Show',
+              en: 'No-Show Reduction',
+              es: 'Reducción No-Show'
+            },
+            stat2: {
+              ro: '2-3 săpt',
+              en: '2-3 weeks',
+              es: '2-3 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '40%',
+            label3: {
+              ro: 'Creștere Retenție',
+              en: 'Retention Growth',
+              es: 'Aumento Retención'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '700€',
+              en: '$750',
+              es: '700€'
+            },
+            monthly: {
+              ro: '129€/lună',
+              en: '$139/month',
+              es: '129€/mes'
+            }
+          },
+          useCases: {
+            ro: ['Saloane coafură', 'Saloane manichiură', 'Centre SPA', 'Studiouri makeup', 'Frizerii'],
+            en: ['Hair salons', 'Nail salons', 'SPA centers', 'Makeup studios', 'Barbershops'],
+            es: ['Peluquerías', 'Salones de manicura', 'Centros SPA', 'Estudios de maquillaje', 'Barberías']
+          }
+        }, {
+          slug: 'cabinet-medical',
+          icon: Stethoscope,
+          title: {
+            ro: 'Automatizare Cabinet Medical',
+            en: 'Medical Office Automation',
+            es: 'Automatización Consultorio Médico'
+          },
+          subtitle: {
+            ro: 'Programări online GDPR compliant, dosare digitale securizate, reminder-uri pacienți',
+            en: 'GDPR compliant online appointments, secure digital records, patient reminders',
+            es: 'Citas online conformes con GDPR, expedientes digitales seguros, recordatorios'
+          },
+          color: 'from-blue-500 to-cyan-600',
+          features: {
+            ro: ['🏥 Programări online 24/7 - Fără întreruperi în timpul consultațiilor', '🔐 Conformitate GDPR completă - Criptare date, audit trail, zero riscuri legale', '📱 Reminder-uri automate - SMS/Email cu 24h și 2h înainte, reducere no-show 70%', '📋 Dosare medicale digitale - Istoric complet, rezultate analize, prescripții', '💊 Gestiune tratamente - Alerte medicație, programări control', '📊 Rapoarte statistice - Dashboard pacienți, analize performanță cabinet'],
+            en: ['🏥 Online appointments 24/7 - No interruptions during consultations', '🔐 Complete GDPR compliance - Data encryption, audit trail, zero legal risks', '📱 Automatic reminders - SMS/Email 24h and 2h before, 70% no-show reduction', '📋 Digital medical records - Complete history, test results, prescriptions', '💊 Treatment management - Medication alerts, follow-up appointments', '📊 Statistical reports - Patient dashboard, cabinet performance analysis'],
+            es: ['🏥 Citas online 24/7 - Sin interrupciones durante consultas', '🔐 Cumplimiento GDPR completo - Cifrado de datos, registro de auditoría', '📱 Recordatorios automáticos - SMS/Email 24h y 2h antes, reducción no-show 70%', '📋 Expedientes médicos digitales - Historial completo, resultados, recetas', '💊 Gestión de tratamientos - Alertas de medicación, citas de control', '📊 Informes estadísticos - Panel de pacientes, análisis de rendimiento']
+          },
+          stats: {
+            stat1: '60%',
+            label1: {
+              ro: 'Reducere Timp Admin',
+              en: 'Admin Time Reduction',
+              es: 'Reducción Tiempo Admin'
+            },
+            stat2: {
+              ro: '3-4 săpt',
+              en: '3-4 weeks',
+              es: '3-4 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '70%',
+            label3: {
+              ro: 'Reducere No-Show',
+              en: 'No-Show Reduction',
+              es: 'Reducción No-Show'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '900€',
+              en: '$970',
+              es: '900€'
+            },
+            monthly: {
+              ro: '149€/lună',
+              en: '$159/month',
+              es: '149€/mes'
+            }
+          },
+          useCases: {
+            ro: ['Cabinete stomatologie', 'Clinici recuperare', 'Cabinete psihologie', 'Medicină de familie', 'Oftalmologie'],
+            en: ['Dental offices', 'Recovery clinics', 'Psychology offices', 'Family medicine', 'Ophthalmology'],
+            es: ['Consultorios dentales', 'Clínicas de recuperación', 'Consultorios de psicología', 'Medicina familiar', 'Oftalmología']
+          }
+        }, {
+          slug: 'inteligenta-artificiala',
+          icon: Brain,
+          title: {
+            ro: 'Automatizări Inteligență Artificială',
+            en: 'AI Automation',
+            es: 'Automatización con IA'
+          },
+          subtitle: {
+            ro: 'Chatboți AI custom, analiză predictivă, automatizare procese complexe',
+            en: 'Custom AI chatbots, predictive analysis, complex process automation',
+            es: 'Chatbots IA personalizados, análisis predictivo, automatización de procesos'
+          },
+          color: 'from-violet-500 to-purple-600',
+          features: {
+            ro: ['🤖 Chatbot AI personalizat - Antrenat pe datele tale, răspunde la 80% întrebări', '📊 Analiză AI automată - Insights din date, predicții vânzări, tendințe', '⚙️ Automatizare procese - Reduce munca repetitivă cu 60%, zero erori', '💬 Suport clienți 24/7 - Disponibil non-stop în română, engleză, spaniolă', '📧 Email marketing AI - Texte generate automat, segmentare inteligentă', '🎯 Lead scoring AI - Identificare automată clienți cu potențial mare'],
+            en: ['🤖 Custom AI chatbot - Trained on your data, answers 80% of questions', '📊 Automatic AI analysis - Data insights, sales predictions, trends', '⚙️ Process automation - Reduce repetitive work by 60%, zero errors', '💬 24/7 Customer support - Available non-stop in multiple languages', '📧 AI email marketing - Auto-generated texts, intelligent segmentation', '🎯 AI lead scoring - Automatic identification of high-potential clients'],
+            es: ['🤖 Chatbot IA personalizado - Entrenado con tus datos, responde 80% preguntas', '📊 Análisis automático IA - Insights de datos, predicciones, tendencias', '⚙️ Automatización de procesos - Reduce trabajo repetitivo 60%, cero errores', '💬 Soporte al cliente 24/7 - Disponible sin parar en múltiples idiomas', '📧 Email marketing IA - Textos generados automáticamente, segmentación', '🎯 Lead scoring IA - Identificación automática de clientes potenciales']
+          },
+          stats: {
+            stat1: '40%',
+            label1: {
+              ro: 'Reducere Costuri',
+              en: 'Cost Reduction',
+              es: 'Reducción de Costos'
+            },
+            stat2: {
+              ro: '3-6 luni',
+              en: '3-6 months',
+              es: '3-6 meses'
+            },
+            label2: {
+              ro: 'ROI Garantat',
+              en: 'Guaranteed ROI',
+              es: 'ROI Garantizado'
+            },
+            stat3: '60%',
+            label3: {
+              ro: 'Timp Economisit',
+              en: 'Time Saved',
+              es: 'Tiempo Ahorrado'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '800€',
+              en: '$860',
+              es: '800€'
+            },
+            monthly: {
+              ro: '199€/lună',
+              en: '$215/month',
+              es: '199€/mes'
+            }
+          },
+          useCases: {
+            ro: ['E-commerce', 'Companii servicii', 'Agenții marketing', 'Clinici', 'Firme consultanță'],
+            en: ['E-commerce', 'Service companies', 'Marketing agencies', 'Clinics', 'Consulting firms'],
+            es: ['E-commerce', 'Empresas de servicios', 'Agencias de marketing', 'Clínicas', 'Consultoras']
+          }
+        }, {
+          slug: 'sector-public',
+          icon: Landmark,
+          title: {
+            ro: 'Automatizare Sector Public',
+            en: 'Public Sector Automation',
+            es: 'Automatización Sector Público'
+          },
+          subtitle: {
+            ro: 'Portal cetățean digital, documente automate, transparență și eficiență',
+            en: 'Digital citizen portal, automated documents, transparency and efficiency',
+            es: 'Portal ciudadano digital, documentos automáticos, transparencia y eficiencia'
+          },
+          color: 'from-slate-500 to-gray-600',
+          features: {
+            ro: ['🏛️ Portal cetățean 24/7 - Cereri online fără cozi, tracking status', '📄 Automatizare documente - Eliberare automată certificate, adeverințe', '🔔 Notificări automate - Status cereri în timp real, SMS și email', '📊 Dashboard management - Statistici, rapoarte, analize performanță', '🔐 Securitate avansată - Conformitate GDPR, semnătură electronică', '📱 Aplicație mobilă cetățeni - Acces rapid la servicii publice'],
+            en: ['🏛️ Citizen portal 24/7 - Online requests without queues, status tracking', '📄 Document automation - Automatic certificate and attestation issuance', '🔔 Automatic notifications - Real-time request status, SMS and email', '📊 Management dashboard - Statistics, reports, performance analysis', '🔐 Advanced security - GDPR compliance, electronic signature', '📱 Citizen mobile app - Quick access to public services'],
+            es: ['🏛️ Portal ciudadano 24/7 - Solicitudes online sin colas, seguimiento', '📄 Automatización de documentos - Emisión automática de certificados', '🔔 Notificaciones automáticas - Estado en tiempo real, SMS y email', '📊 Panel de gestión - Estadísticas, informes, análisis de rendimiento', '🔐 Seguridad avanzada - Cumplimiento GDPR, firma electrónica', '📱 App móvil para ciudadanos - Acceso rápido a servicios públicos']
+          },
+          stats: {
+            stat1: '70%',
+            label1: {
+              ro: 'Reducere Timp Așteptare',
+              en: 'Wait Time Reduction',
+              es: 'Reducción Tiempo Espera'
+            },
+            stat2: {
+              ro: '4-6 săpt',
+              en: '4-6 weeks',
+              es: '4-6 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '85%',
+            label3: {
+              ro: 'Satisfacție Cetățeni',
+              en: 'Citizen Satisfaction',
+              es: 'Satisfacción Ciudadana'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '1500€',
+              en: '$1600',
+              es: '1500€'
+            },
+            monthly: {
+              ro: '299€/lună',
+              en: '$320/month',
+              es: '299€/mes'
+            }
+          },
+          useCases: {
+            ro: ['Primării', 'Consilii locale', 'Prefecturi', 'Instituții de stat', 'Agenții guvernamentale'],
+            en: ['City halls', 'Local councils', 'Prefectures', 'State institutions', 'Government agencies'],
+            es: ['Ayuntamientos', 'Consejos locales', 'Prefecturas', 'Instituciones estatales', 'Agencias gubernamentales']
+          }
+        }, {
+          slug: 'magazine-retail',
+          icon: ShoppingCart,
+          title: {
+            ro: 'Automatizare Magazine Retail',
+            en: 'Retail Store Automation',
+            es: 'Automatización Tiendas Retail'
+          },
+          subtitle: {
+            ro: 'Gestiune stocuri inteligentă, comenzi automate furnizori, program fidelizare digital',
+            en: 'Smart inventory management, auto supplier orders, digital loyalty program',
+            es: 'Gestión inteligente de inventario, pedidos automáticos a proveedores, programa de fidelización digital'
+          },
+          color: 'from-orange-500 to-amber-600',
+          features: {
+            ro: ['📦 Gestiune stocuri AI - Alerte automate reaprovizionare, predicții vânzări', '🚚 Comenzi automate furnizori - Zero rupturi de stoc, optimizare costuri', '💳 Program fidelizare digital - Puncte, reduceri, oferte personalizate', '📊 Rapoarte vânzări real-time - Dashboard complet, decizii bazate pe date', '🏷️ Prețuri dinamice - Ajustare automată în funcție de cerere și stoc', '📱 Aplicație clienți - Comenzi online, notificări promoții'],
+            en: ['📦 AI inventory management - Automatic restock alerts, sales predictions', '🚚 Automatic supplier orders - Zero stockouts, cost optimization', '💳 Digital loyalty program - Points, discounts, personalized offers', '📊 Real-time sales reports - Complete dashboard, data-driven decisions', '🏷️ Dynamic pricing - Automatic adjustment based on demand and stock', '📱 Customer app - Online orders, promotion notifications'],
+            es: ['📦 Gestión de inventario IA - Alertas automáticas de reabastecimiento, predicciones de ventas', '🚚 Pedidos automáticos a proveedores - Cero roturas de stock, optimización de costos', '💳 Programa de fidelización digital - Puntos, descuentos, ofertas personalizadas', '📊 Informes de ventas en tiempo real - Panel completo, decisiones basadas en datos', '🏷️ Precios dinámicos - Ajuste automático según demanda y stock', '📱 App para clientes - Pedidos online, notificaciones de promociones']
+          },
+          stats: {
+            stat1: '35%',
+            label1: {
+              ro: 'Creștere Retenție',
+              en: 'Retention Increase',
+              es: 'Aumento Retención'
+            },
+            stat2: {
+              ro: '3-4 săpt',
+              en: '3-4 weeks',
+              es: '3-4 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '20%',
+            label3: {
+              ro: 'Reducere Stocuri Moarte',
+              en: 'Dead Stock Reduction',
+              es: 'Reducción Stock Muerto'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '600€',
+              en: '$650',
+              es: '600€'
+            },
+            monthly: {
+              ro: '149€/lună',
+              en: '$159/month',
+              es: '149€/mes'
+            }
+          },
+          useCases: {
+            ro: ['Magazine alimentare', 'Farmacii', 'Magazine electro', 'Librării', 'Magazine cosmetice'],
+            en: ['Grocery stores', 'Pharmacies', 'Electronics stores', 'Bookstores', 'Cosmetics shops'],
+            es: ['Tiendas de alimentación', 'Farmacias', 'Tiendas de electrónica', 'Librerías', 'Tiendas de cosméticos']
+          }
+        }, {
+          slug: 'hotel-pensiune',
+          icon: Hotel,
+          title: {
+            ro: 'Automatizare Hotel & Pensiune',
+            en: 'Hotel & Guesthouse Automation',
+            es: 'Automatización Hotel & Pensión'
+          },
+          subtitle: {
+            ro: 'Rezervări directe fără comisioane, check-in/out digital, concierge AI non-stop',
+            en: 'Direct bookings without commissions, digital check-in/out, 24/7 AI concierge',
+            es: 'Reservas directas sin comisiones, check-in/out digital, conserje IA 24/7'
+          },
+          color: 'from-cyan-500 to-teal-600',
+          features: {
+            ro: ['🏨 Rezervări online 24/7 - Direct pe site-ul tău, fără comisioane OTA', '📱 Check-in/out digital - Self-service complet, fără cozi la recepție', '🤖 Concierge AI - Răspunsuri instant la întrebări, recomandări locale', '📅 Sincronizare calendare - Booking, Airbnb, Expedia într-un singur loc', '⭐ Gestiune recenzii - Răspunsuri automate, îmbunătățire rating', '🍽️ Upselling automat - Oferte mic dejun, spa, ture la rezervare'],
+            en: ['🏨 Online bookings 24/7 - Direct on your site, no OTA commissions', '📱 Digital check-in/out - Complete self-service, no reception queues', '🤖 AI Concierge - Instant answers to questions, local recommendations', '📅 Calendar sync - Booking, Airbnb, Expedia in one place', '⭐ Review management - Automatic responses, rating improvement', '🍽️ Automatic upselling - Breakfast, spa, tour offers at booking'],
+            es: ['🏨 Reservas online 24/7 - Directo en tu sitio, sin comisiones OTA', '📱 Check-in/out digital - Autoservicio completo, sin colas en recepción', '🤖 Conserje IA - Respuestas instantáneas, recomendaciones locales', '📅 Sincronización de calendarios - Booking, Airbnb, Expedia en un lugar', '⭐ Gestión de reseñas - Respuestas automáticas, mejora del rating', '🍽️ Upselling automático - Ofertas de desayuno, spa, tours al reservar']
+          },
+          stats: {
+            stat1: '25%',
+            label1: {
+              ro: 'Creștere Rezervări',
+              en: 'Booking Increase',
+              es: 'Aumento Reservas'
+            },
+            stat2: {
+              ro: '2-3 săpt',
+              en: '2-3 weeks',
+              es: '2-3 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '15%',
+            label3: {
+              ro: 'Economii Comisioane',
+              en: 'Commission Savings',
+              es: 'Ahorro Comisiones'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '800€',
+              en: '$860',
+              es: '800€'
+            },
+            monthly: {
+              ro: '179€/lună',
+              en: '$190/month',
+              es: '179€/mes'
+            }
+          },
+          useCases: {
+            ro: ['Hoteluri boutique', 'Pensiuni', 'Apartamente de închiriat', 'Vile de vacanță', 'Hosteluri'],
+            en: ['Boutique hotels', 'Guesthouses', 'Rental apartments', 'Vacation villas', 'Hostels'],
+            es: ['Hoteles boutique', 'Pensiones', 'Apartamentos de alquiler', 'Villas de vacaciones', 'Hostales']
+          }
+        }, {
+          slug: 'chatboti-whatsapp-telegram',
+          icon: MessageSquare,
+          title: {
+            ro: 'Chatboți AI WhatsApp & Telegram',
+            en: 'AI Chatbots WhatsApp & Telegram',
+            es: 'Chatbots AI WhatsApp & Telegram'
+          },
+          subtitle: {
+            ro: 'Asistent virtual inteligent care răspunde, vinde și programează non-stop',
+            en: 'Smart virtual assistant that responds, sells and schedules 24/7',
+            es: 'Asistente virtual inteligente que responde, vende y programa 24/7'
+          },
+          color: 'from-violet-500 to-purple-600',
+          features: {
+            ro: ['💬 Răspunsuri instant 24/7 - Fără timp de așteptare pentru clienți', '🛒 Vânzări automate - Chatbot care prezintă produse și convertește', '📅 Programări prin chat - Rezervări complete fără apeluri telefonice', '📋 Integrare CRM - Toate conversațiile și lead-urile într-un dashboard', '🌐 Multilingv - Răspunde automat în limba clientului', '📊 Analiză conversații - Insights despre întrebări frecvente și nevoi'],
+            en: ['💬 Instant 24/7 responses - No waiting time for customers', '🛒 Automated sales - Chatbot that presents products and converts', '📅 Chat bookings - Complete reservations without phone calls', '📋 CRM integration - All conversations and leads in one dashboard', '🌐 Multilingual - Automatic responses in customer language', '📊 Conversation analytics - Insights on frequent questions and needs'],
+            es: ['💬 Respuestas instantáneas 24/7 - Sin tiempo de espera para clientes', '🛒 Ventas automatizadas - Chatbot que presenta productos y convierte', '📅 Reservas por chat - Reservas completas sin llamadas telefónicas', '📋 Integración CRM - Todas las conversaciones y leads en un panel', '🌐 Multilingüe - Respuestas automáticas en el idioma del cliente', '📊 Análisis de conversaciones - Insights sobre preguntas frecuentes']
+          },
+          stats: {
+            stat1: '80%',
+            label1: {
+              ro: 'Răspunsuri Automate',
+              en: 'Automated Responses',
+              es: 'Respuestas Automatizadas'
+            },
+            stat2: {
+              ro: '1-2 săpt',
+              en: '1-2 weeks',
+              es: '1-2 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '3x',
+            label3: {
+              ro: 'Mai Multe Conversii',
+              en: 'More Conversions',
+              es: 'Más Conversiones'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '500€',
+              en: '$540',
+              es: '500€'
+            },
+            monthly: {
+              ro: '99€/lună',
+              en: '$109/month',
+              es: '99€/mes'
+            }
+          },
+          useCases: {
+            ro: ['E-commerce', 'Servicii locale', 'Agenții', 'Clinici', 'Restaurante'],
+            en: ['E-commerce', 'Local services', 'Agencies', 'Clinics', 'Restaurants'],
+            es: ['E-commerce', 'Servicios locales', 'Agencias', 'Clínicas', 'Restaurantes']
+          }
+        }, {
+          slug: 'social-media-ai',
+          icon: Share2,
+          title: {
+            ro: 'Automatizare Social Media AI',
+            en: 'AI Social Media Automation',
+            es: 'Automatización Redes Sociales AI'
+          },
+          subtitle: {
+            ro: 'Conținut generat AI, postări programate, engagement automat pe toate platformele',
+            en: 'AI-generated content, scheduled posts, automatic engagement on all platforms',
+            es: 'Contenido generado por IA, publicaciones programadas, engagement automático'
+          },
+          color: 'from-pink-500 to-rose-600',
+          features: {
+            ro: ['🎨 Generare conținut AI - Texte, imagini și video create automat', '📅 Programare postări - Calendar editorial automatizat multi-platformă', '📈 Analiză performanță - Insights detaliate și recomandări optimizare', '💬 Răspunsuri automate comentarii - Engagement non-stop cu followerii', '🎯 Targetare audiență - Identificare și atragere public relevant', '📊 Rapoarte lunare - Statistici complete și ROI social media'],
+            en: ['🎨 AI content generation - Automatic text, images and video creation', '📅 Post scheduling - Multi-platform automated editorial calendar', '📈 Performance analysis - Detailed insights and optimization tips', '💬 Auto comment responses - Non-stop engagement with followers', '🎯 Audience targeting - Identify and attract relevant public', '📊 Monthly reports - Complete statistics and social media ROI'],
+            es: ['🎨 Generación de contenido IA - Textos, imágenes y videos automáticos', '📅 Programación de publicaciones - Calendario editorial multi-plataforma', '📈 Análisis de rendimiento - Insights detallados y optimizaciones', '💬 Respuestas automáticas a comentarios - Engagement sin parar', '🎯 Segmentación de audiencia - Identificar y atraer público relevante', '📊 Informes mensuales - Estadísticas completas y ROI redes sociales']
+          },
+          stats: {
+            stat1: '5x',
+            label1: {
+              ro: 'Mai Mult Conținut',
+              en: 'More Content',
+              es: 'Más Contenido'
+            },
+            stat2: {
+              ro: '1-2 săpt',
+              en: '1-2 weeks',
+              es: '1-2 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '300%',
+            label3: {
+              ro: 'Creștere Engagement',
+              en: 'Engagement Growth',
+              es: 'Aumento Engagement'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '400€',
+              en: '$430',
+              es: '400€'
+            },
+            monthly: {
+              ro: '129€/lună',
+              en: '$139/month',
+              es: '129€/mes'
+            }
+          },
+          useCases: {
+            ro: ['Restaurante', 'Magazine', 'Saloane', 'Agenții', 'Freelanceri'],
+            en: ['Restaurants', 'Stores', 'Salons', 'Agencies', 'Freelancers'],
+            es: ['Restaurantes', 'Tiendas', 'Salones', 'Agencias', 'Freelancers']
+          }
+        }, {
+          slug: 'agentii-imobiliare',
+          icon: Home,
+          title: {
+            ro: 'Automatizare Agenții Imobiliare',
+            en: 'Real Estate Agency Automation',
+            es: 'Automatización Agencias Inmobiliarias'
+          },
+          subtitle: {
+            ro: 'Listări automate pe toate platformele, calificare lead-uri AI, CRM imobiliar complet',
+            en: 'Auto listings on all platforms, AI lead qualification, complete real estate CRM',
+            es: 'Listados automáticos en todas las plataformas, calificación de leads IA, CRM inmobiliario'
+          },
+          color: 'from-indigo-500 to-blue-600',
+          features: {
+            ro: ['🏠 Listări automate multiplatformă - OLX, Storia, Imobiliare.ro, Facebook', '🎯 Calificare lead-uri AI - Focus doar pe clienții serioși și calificați', '📋 CRM imobiliar complet - Toate proprietățile, clienții și tranzacțiile', '🎥 Tururi virtuale automate - Vizionări 360° fără deplasare fizică', '📄 Generare contracte - Documente pre-completate automat', '📊 Analiză piață - Prețuri comparabile, tendințe zone'],
+            en: ['🏠 Multi-platform auto listings - Zillow, Realtor, Redfin, Facebook', '🎯 AI lead qualification - Focus only on serious, qualified clients', '📋 Complete real estate CRM - All properties, clients and transactions', '🎥 Automatic virtual tours - 360° viewings without physical travel', '📄 Contract generation - Automatically pre-filled documents', '📊 Market analysis - Comparable prices, area trends'],
+            es: ['🏠 Listados automáticos multiplataforma - Idealista, Fotocasa, Habitaclia', '🎯 Calificación de leads IA - Enfoque solo en clientes serios', '📋 CRM inmobiliario completo - Propiedades, clientes y transacciones', '🎥 Tours virtuales automáticos - Visitas 360° sin desplazamiento', '📄 Generación de contratos - Documentos pre-completados automáticamente', '📊 Análisis de mercado - Precios comparables, tendencias de zona']
+          },
+          stats: {
+            stat1: '40%',
+            label1: {
+              ro: 'Mai Multe Lead-uri',
+              en: 'More Leads',
+              es: 'Más Leads'
+            },
+            stat2: {
+              ro: '2-3 săpt',
+              en: '2-3 weeks',
+              es: '2-3 sem'
+            },
+            label2: {
+              ro: 'Implementare',
+              en: 'Implementation',
+              es: 'Implementación'
+            },
+            stat3: '50%',
+            label3: {
+              ro: 'Timp Economisit',
+              en: 'Time Saved',
+              es: 'Tiempo Ahorrado'
+            }
+          },
+          pricing: {
+            setup: {
+              ro: '700€',
+              en: '$750',
+              es: '700€'
+            },
+            monthly: {
+              ro: '149€/lună',
+              en: '$159/month',
+              es: '149€/mes'
+            }
+          },
+          useCases: {
+            ro: ['Agenții imobiliare', 'Dezvoltatori', 'Brokeri independenți', 'Manageri proprietăți', 'Notari'],
+            en: ['Real estate agencies', 'Developers', 'Independent brokers', 'Property managers', 'Notaries'],
+            es: ['Agencias inmobiliarias', 'Desarrolladores', 'Brokers independientes', 'Gestores de propiedades', 'Notarios']
+          }
+        }].map((service, index) => {
+          const Icon = service.icon;
+          return <ServiceCard key={service.slug} title={service.title[language] || service.title.ro} icon={Icon} subtitle={service.subtitle[language] || service.subtitle.ro} price={typeof service.pricing.monthly === 'object' ? service.pricing.monthly[language] || service.pricing.monthly.ro : service.pricing.monthly} packageNumber={index + 1}>
                   {/* Stats Row - Enhanced with 3 stats */}
                   <div className="flex flex-wrap gap-2 sm:gap-3 mb-5">
                     <div className="flex items-center gap-2 bg-gradient-to-r from-primary/10 to-accent/10 px-3 py-2 rounded-xl border border-primary/20">
@@ -1014,53 +1213,45 @@ const Index = () => {
                       <span className="text-xs sm:text-sm text-muted-foreground">{service.stats.label1[language] || service.stats.label1.ro}</span>
                     </div>
                     <div className="flex items-center gap-2 bg-gradient-to-r from-success/10 to-emerald-500/10 px-3 py-2 rounded-xl border border-success/20">
-                      <span className="text-lg sm:text-xl font-black text-success">{typeof service.stats.stat2 === 'object' ? (service.stats.stat2[language] || service.stats.stat2.ro) : service.stats.stat2}</span>
+                      <span className="text-lg sm:text-xl font-black text-success">{typeof service.stats.stat2 === 'object' ? service.stats.stat2[language] || service.stats.stat2.ro : service.stats.stat2}</span>
                       <span className="text-xs sm:text-sm text-muted-foreground">{service.stats.label2[language] || service.stats.label2.ro}</span>
                     </div>
-                    {service.stats.stat3 && (
-                      <div className="flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-orange-500/10 px-3 py-2 rounded-xl border border-amber-400/20">
+                    {service.stats.stat3 && <div className="flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-orange-500/10 px-3 py-2 rounded-xl border border-amber-400/20">
                         <span className="text-lg sm:text-xl font-black text-amber-500">{service.stats.stat3}</span>
                         <span className="text-xs sm:text-sm text-muted-foreground">{service.stats.label3?.[language] || service.stats.label3?.ro}</span>
-                      </div>
-                    )}
+                      </div>}
                   </div>
 
                   {/* Features List - Enhanced */}
                   <div className="space-y-2 sm:space-y-3 mb-5">
-                    {(service.features[language] || service.features.ro).map((feature: string, idx: number) => (
-                      <div key={idx} className="flex items-start gap-2 sm:gap-3 bg-card/60 p-2.5 sm:p-3 rounded-lg border border-border/50 hover:border-primary/30 transition-colors">
+                    {(service.features[language] || service.features.ro).map((feature: string, idx: number) => <div key={idx} className="flex items-start gap-2 sm:gap-3 bg-card/60 p-2.5 sm:p-3 rounded-lg border border-border/50 hover:border-primary/30 transition-colors">
                         <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                         <span className="text-xs sm:text-sm text-foreground leading-relaxed">{feature}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
 
                   {/* Use Cases - New Section */}
-                  {service.useCases && (
-                    <div className="mb-5">
+                  {service.useCases && <div className="mb-5">
                       <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-2">
                         {language === 'ro' ? '✨ Ideal pentru:' : language === 'es' ? '✨ Ideal para:' : '✨ Perfect for:'}
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {(service.useCases[language] || service.useCases.ro).map((useCase: string, idx: number) => (
-                          <span key={idx} className="px-2.5 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
+                        {(service.useCases[language] || service.useCases.ro).map((useCase: string, idx: number) => <span key={idx} className="px-2.5 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
                             {useCase}
-                          </span>
-                        ))}
+                          </span>)}
                       </div>
-                    </div>
-                  )}
+                    </div>}
 
                   {/* Pricing & CTA - Enhanced */}
                   <div className="bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-amber-500/10 p-4 rounded-xl border border-amber-400/30 mb-4">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div className="text-center">
                         <p className="text-xs text-muted-foreground">{language === 'ro' ? 'Setup inițial' : language === 'es' ? 'Configuración inicial' : 'Initial setup'}</p>
-                        <p className="text-xl sm:text-2xl font-bold text-foreground">{typeof service.pricing.setup === 'object' ? (service.pricing.setup[language] || service.pricing.setup.ro) : service.pricing.setup}</p>
+                        <p className="text-xl sm:text-2xl font-bold text-foreground">{typeof service.pricing.setup === 'object' ? service.pricing.setup[language] || service.pricing.setup.ro : service.pricing.setup}</p>
                       </div>
                       <div className="text-center flex-1">
                         <p className="text-xs text-muted-foreground">{language === 'ro' ? 'Abonament lunar' : language === 'es' ? 'Suscripción mensual' : 'Monthly subscription'}</p>
-                        <p className="text-xl sm:text-2xl font-bold text-primary">{typeof service.pricing.monthly === 'object' ? (service.pricing.monthly[language] || service.pricing.monthly.ro) : service.pricing.monthly}</p>
+                        <p className="text-xl sm:text-2xl font-bold text-primary">{typeof service.pricing.monthly === 'object' ? service.pricing.monthly[language] || service.pricing.monthly.ro : service.pricing.monthly}</p>
                       </div>
                     </div>
                   </div>
@@ -1080,9 +1271,8 @@ const Index = () => {
                       </Button>
                     </a>
                   </div>
-                </ServiceCard>
-              );
-            })}
+                </ServiceCard>;
+        })}
 
             {/* AI Video Generator - Digital Avatar Package - Package 10 */}
             <ServiceCard title={t.services.ugc.title} icon={Video} discount={t.services.ugc.discount} price={t.services.ugc.price} originalPrice={t.services.ugc.originalPrice} subtitle={t.services.ugc.heroSubtitle} highlight packageNumber={10} audioPackage="brandul-tau" onPlayAudio={setActiveAudioPackage}>
@@ -1219,8 +1409,8 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-950/80 via-yellow-900/60 to-amber-950/80 border-2 border-amber-400/80 p-4 sm:p-5 shadow-[0_0_40px_rgba(251,191,36,0.4),inset_0_1px_0_rgba(251,191,36,0.5)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
               {/* Animated glow background */}
               <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 animate-[shimmer_3s_infinite] pointer-events-none" style={{
-                backgroundSize: '200% 100%'
-              }} />
+              backgroundSize: '200% 100%'
+            }} />
               
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-3 border-l-3 border-amber-400 rounded-tl-xl opacity-80"></div>
