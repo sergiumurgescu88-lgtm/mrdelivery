@@ -178,44 +178,6 @@ const Index = () => {
 
         {/* Current Services Tab */}
         {activeTab === 'existente' && <main className="space-y-5 px-2">
-            {/* Premium Gallery Button */}
-            <Link to="/gallery" className="block group">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-950/80 via-yellow-900/60 to-amber-950/80 border-2 border-amber-400/80 p-4 sm:p-5 shadow-[0_0_40px_rgba(251,191,36,0.4),inset_0_1px_0_rgba(251,191,36,0.5)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
-                {/* Animated glow background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 animate-[shimmer_3s_infinite] pointer-events-none" style={{
-              backgroundSize: '200% 100%'
-            }} />
-                
-                {/* Gold corner accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-3 border-l-3 border-amber-400 rounded-tl-xl opacity-80"></div>
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-3 border-r-3 border-amber-400 rounded-tr-xl opacity-80"></div>
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-3 border-l-3 border-amber-400 rounded-bl-xl opacity-80"></div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-3 border-r-3 border-amber-400 rounded-br-xl opacity-80"></div>
-                
-                {/* Sparkle particles */}
-                <div className="absolute top-2 left-4 w-1.5 h-1.5 bg-amber-300 rounded-full animate-pulse opacity-70" />
-                <div className="absolute top-4 right-8 w-1 h-1 bg-yellow-200 rounded-full animate-ping opacity-60" />
-                <div className="absolute bottom-3 left-12 w-1 h-1 bg-amber-200 rounded-full animate-pulse opacity-50" />
-                <div className="absolute bottom-2 right-4 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-ping opacity-70" />
-                
-                <div className="relative z-10 flex items-center justify-center gap-3">
-                  <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <span className="text-lg sm:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-md">
-                      🎬 {language === 'ro' ? 'GALERIE VIDEO PREMIUM' : language === 'es' ? 'GALERÍA DE VIDEO PREMIUM' : 'PREMIUM VIDEO GALLERY'}
-                    </span>
-                    <span className="text-xs sm:text-sm text-amber-200/80 font-medium">
-                      {language === 'ro' ? 'Vezi exemple de conținut creat pentru clienți' : language === 'es' ? 'Ver ejemplos de contenido creado' : 'See content examples created for clients'}
-                    </span>
-                  </div>
-                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 group-hover:translate-x-2 transition-transform duration-300 ml-auto" />
-                </div>
-              </div>
-            </Link>
-
-            
             {/* Standard Package - Delivery Platform Management */}
             <ServiceCard title={t.services.standard.title} icon={Truck} price={t.services.standard.price} subtitle={t.services.standard.subtitle} packageNumber={1} audioPackage="management-platforme" onPlayAudio={setActiveAudioPackage}>
               <div className="mb-4">
@@ -1250,6 +1212,45 @@ const Index = () => {
               <p className="text-sm sm:text-base text-foreground font-medium drop-shadow-sm">{t.aiServices.modularDesc}</p>
             </div>
           </main>}
+
+        {/* Premium Gallery Button - Above Footer CTA */}
+        <div className="px-2 mt-6 sm:mt-8">
+          <Link to="/gallery" className="block group">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-950/80 via-yellow-900/60 to-amber-950/80 border-2 border-amber-400/80 p-4 sm:p-5 shadow-[0_0_40px_rgba(251,191,36,0.4),inset_0_1px_0_rgba(251,191,36,0.5)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+              {/* Animated glow background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 animate-[shimmer_3s_infinite] pointer-events-none" style={{
+                backgroundSize: '200% 100%'
+              }} />
+              
+              {/* Gold corner accents */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-3 border-l-3 border-amber-400 rounded-tl-xl opacity-80"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-3 border-r-3 border-amber-400 rounded-tr-xl opacity-80"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-3 border-l-3 border-amber-400 rounded-bl-xl opacity-80"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-3 border-r-3 border-amber-400 rounded-br-xl opacity-80"></div>
+              
+              {/* Sparkle particles */}
+              <div className="absolute top-2 left-4 w-1.5 h-1.5 bg-amber-300 rounded-full animate-pulse opacity-70" />
+              <div className="absolute top-4 right-8 w-1 h-1 bg-yellow-200 rounded-full animate-ping opacity-60" />
+              <div className="absolute bottom-3 left-12 w-1 h-1 bg-amber-200 rounded-full animate-pulse opacity-50" />
+              <div className="absolute bottom-2 right-4 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-ping opacity-70" />
+              
+              <div className="relative z-10 flex items-center justify-center gap-3">
+                <div className="p-2 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Video className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className="text-lg sm:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-md">
+                    🎬 {language === 'ro' ? 'GALERIE VIDEO PREMIUM' : language === 'es' ? 'GALERÍA DE VIDEO PREMIUM' : 'PREMIUM VIDEO GALLERY'}
+                  </span>
+                  <span className="text-xs sm:text-sm text-amber-200/80 font-medium">
+                    {language === 'ro' ? 'Vezi exemple de conținut creat pentru clienți' : language === 'es' ? 'Ver ejemplos de contenido creado' : 'See content examples created for clients'}
+                  </span>
+                </div>
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 group-hover:translate-x-2 transition-transform duration-300 ml-auto" />
+              </div>
+            </div>
+          </Link>
+        </div>
 
         {/* Footer CTA */}
         <footer className="mt-6 sm:mt-8 bg-gradient-primary text-primary-foreground p-4 sm:p-6 rounded-xl text-center mx-2">
