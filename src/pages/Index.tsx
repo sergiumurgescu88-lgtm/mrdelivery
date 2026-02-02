@@ -134,7 +134,7 @@ const Index = () => {
                   <Image className="w-5 h-5 sm:w-6 sm:h-6 text-amber-950" />
                 </div>
                 <div className="flex flex-col items-start flex-1">
-                  <span className="text-lg sm:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-md text-center">
+                  <span className="sm:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-md text-left text-base">
                     📸 {language === 'ro' ? 'POZE MENIU INSTANT' : language === 'es' ? 'FOTOS MENÚ INSTANTÁNEAS' : 'INSTANT MENU PHOTOS'}
                   </span>
                   <span className="text-xs sm:text-sm text-amber-200/80 font-medium leading-tight">
