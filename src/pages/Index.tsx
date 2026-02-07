@@ -110,7 +110,7 @@ const Index = () => {
 
         {/* Instant Menu Photos Premium Button - Below Stats */}
         <div className="px-2 mb-4 sm:mb-5">
-          <a href="https://instant-menu-pictures-968474198722.us-west1.run.app" target="_blank" rel="noopener noreferrer" className="block group">
+          <a href="https://mrdelivery.online" target="_blank" rel="noopener noreferrer" className="block group">
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-950/80 via-yellow-900/60 to-amber-950/80 border-2 border-amber-400/80 p-4 sm:p-5 shadow-[0_0_40px_rgba(251,191,36,0.4),inset_0_1px_0_rgba(251,191,36,0.5)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 hover:scale-[1.02] cursor-pointer">
               {/* Animated glow background */}
               <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 animate-[shimmer_3s_infinite] pointer-events-none" style={{
