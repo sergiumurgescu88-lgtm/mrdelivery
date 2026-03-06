@@ -7,13 +7,69 @@ const PoweredBySSociety = () => {
         href="https://ssociety.eu"
         target="_blank"
         rel="noopener noreferrer"
-        className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card/80 border border-border hover:border-primary/50 backdrop-blur-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.15)]"
+        className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full overflow-hidden transition-all duration-500 hover:scale-105"
       >
-        <span className="text-xs text-muted-foreground">Powered by</span>
-        <span className="text-sm font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent group-hover:from-amber-200 group-hover:via-yellow-300 group-hover:to-amber-200 transition-all">
-          SSocietyHUB
+        {/* Animated gradient border */}
+        <div 
+          className="absolute inset-0 rounded-full p-[1.5px]"
+          style={{
+            background: 'conic-gradient(from var(--border-angle, 0deg), #7c3aed, #6366f1, #8b5cf6, #a855f7, #6366f1, #7c3aed)',
+            animation: 'spin-border 4s linear infinite',
+          }}
+        >
+          <div className="w-full h-full rounded-full bg-background/95 backdrop-blur-sm" />
+        </div>
+
+        {/* Hover glow */}
+        <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-violet-500/10 via-indigo-500/15 to-purple-500/10 blur-sm" />
+
+        {/* Content */}
+        <span className="relative text-xs text-muted-foreground group-hover:text-violet-300 transition-colors duration-300">
+          Powered by
         </span>
-        <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-colors" />
+        
+        {/* SSociety text with animated gradient */}
+        <span 
+          className="relative text-sm font-extrabold tracking-wide"
+          style={{
+            background: 'linear-gradient(135deg, #818cf8, #a78bfa, #c084fc, #818cf8)',
+            backgroundSize: '200% 200%',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            animation: 'gradient-shift 3s ease infinite',
+          }}
+        >
+          SSociety
+        </span>
+
+        {/* Sparkle dot */}
+        <div 
+          className="relative w-1.5 h-1.5 rounded-full bg-violet-400"
+          style={{ animation: 'pulse-glow 2s ease-in-out infinite' }}
+        />
+
+        <ExternalLink className="relative w-3.5 h-3.5 text-violet-400/60 group-hover:text-violet-300 transition-colors duration-300" />
+
+        <style>{`
+          @keyframes spin-border {
+            from { --border-angle: 0deg; }
+            to { --border-angle: 360deg; }
+          }
+          @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+          }
+          @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px 2px rgba(139, 92, 246, 0.4); }
+          }
+          @property --border-angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+          }
+        `}</style>
       </a>
     </div>
   );
