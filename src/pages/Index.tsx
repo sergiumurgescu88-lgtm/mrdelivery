@@ -15,6 +15,7 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { RestaurantAuditForm } from '@/components/RestaurantAuditForm';
 import FloatingSocialIcons from '@/components/FloatingSocialIcons';
+import PoweredBySSociety from '@/components/PoweredBySSociety';
 const Index = () => {
   const {
     language,
@@ -1538,6 +1539,11 @@ const Index = () => {
 
       </div>
       
+      {/* Powered by SSociety */}
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 relative z-10">
+        <PoweredBySSociety />
+      </div>
+
       {/* Floating Social Media Icons */}
       <FloatingSocialIcons />
     </div>;

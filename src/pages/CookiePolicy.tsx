@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
 import { ArrowLeft, Cookie, Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import PoweredBySSociety from '@/components/PoweredBySSociety';
 
 const CookiePolicy = () => {
   const { language } = useLanguage();
@@ -174,6 +175,7 @@ const CookiePolicy = () => {
               {language === 'ro' ? 'Pagina principală' : language === 'es' ? 'Página principal' : 'Home page'}
             </Link>
           </div>
+          <PoweredBySSociety />
         </footer>
       </div>
     </div>
