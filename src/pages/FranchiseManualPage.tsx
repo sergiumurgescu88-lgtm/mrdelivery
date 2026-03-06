@@ -11,6 +11,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import SEO from '@/components/SEO';
 import PoweredBySSociety from '@/components/PoweredBySSociety';
+import Footer from '@/components/Footer';
 
 const formTranslations = {
   en: {
@@ -494,9 +495,9 @@ const FranchiseManualPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Powered by SSociety */}
+      {/* Footer */}
       <div className="pb-20">
-        <PoweredBySSociety />
+        <Footer />
       </div>
 
       {/* Bottom Sticky CTA for Mobile - WhatsApp */}

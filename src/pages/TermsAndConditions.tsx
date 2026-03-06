@@ -6,6 +6,7 @@ import SEO from '@/components/SEO';
 import { ArrowLeft, FileText, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PoweredBySSociety from '@/components/PoweredBySSociety';
+import Footer from '@/components/Footer';
 
 const TermsAndConditions = () => {
   const { language } = useLanguage();
@@ -188,12 +189,7 @@ const TermsAndConditions = () => {
         </main>
 
         {/* Footer */}
-        <footer className="mt-12 pt-8 border-t border-border text-center">
-          <Link to="/" className="text-primary hover:underline">
-            ← {language === 'ro' ? 'Înapoi la pagina principală' : language === 'es' ? 'Volver a la página principal' : 'Back to home page'}
-          </Link>
-          <PoweredBySSociety />
-        </footer>
+        <Footer />
       </div>
     </div>
   );
