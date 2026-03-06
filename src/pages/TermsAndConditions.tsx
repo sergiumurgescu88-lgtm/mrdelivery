@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
 import { ArrowLeft, FileText, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import PoweredBySSociety from '@/components/PoweredBySSociety';
 
 const TermsAndConditions = () => {
   const { language } = useLanguage();
@@ -191,6 +192,7 @@ const TermsAndConditions = () => {
           <Link to="/" className="text-primary hover:underline">
             ← {language === 'ro' ? 'Înapoi la pagina principală' : language === 'es' ? 'Volver a la página principal' : 'Back to home page'}
           </Link>
+          <PoweredBySSociety />
         </footer>
       </div>
     </div>

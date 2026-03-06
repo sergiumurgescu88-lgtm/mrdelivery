@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import SEO from '@/components/SEO';
+import PoweredBySSociety from '@/components/PoweredBySSociety';
 
 const formTranslations = {
   en: {
@@ -492,6 +493,11 @@ const FranchiseManualPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Powered by SSociety */}
+      <div className="pb-20">
+        <PoweredBySSociety />
+      </div>
 
       {/* Bottom Sticky CTA for Mobile - WhatsApp */}
       <div className="fixed bottom-0 left-0 w-full p-4 bg-black/80 backdrop-blur border-t border-white/10 z-40">
