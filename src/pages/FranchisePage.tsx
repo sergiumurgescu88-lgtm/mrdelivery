@@ -10,6 +10,7 @@ import { ArrowLeft, Check, X, Bot, Search, Mail, Calendar, MapPin, Zap, Loader2,
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import PoweredBySSociety from '@/components/PoweredBySSociety';
+import Footer from '@/components/Footer';
 
 const franchiseTranslations = {
   ro: {
@@ -1010,9 +1011,7 @@ const FranchisePage: React.FC = () => {
           </div>
         </div>
       </section>
-      <div className="py-4">
-        <PoweredBySSociety />
-      </div>
+      <Footer />
     </div>
   );
 };

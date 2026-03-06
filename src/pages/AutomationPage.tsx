@@ -16,6 +16,7 @@ import { getWhatsAppUrl, getPhoneUrl } from '@/i18n/translations';
 import FloatingSocialIcons from '@/components/FloatingSocialIcons';
 import { RestaurantAuditForm } from '@/components/RestaurantAuditForm';
 import PoweredBySSociety from '@/components/PoweredBySSociety';
+import Footer from '@/components/Footer';
 
 const iconMap: { [key: string]: any } = {
   Calendar, Bell, Smartphone, BarChart, Users, Package, Star, TrendingUp,
@@ -287,10 +288,7 @@ const AutomationPage = () => {
         </section>
 
         {/* Footer */}
-        <footer className="mt-8 text-center text-sm text-amber-200/50">
-          <p>© 2025 MrDelivery. {language === 'ro' ? 'Toate drepturile rezervate.' : language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}</p>
-          <PoweredBySSociety />
-        </footer>
+        <Footer />
       </div>
     </div>
   );

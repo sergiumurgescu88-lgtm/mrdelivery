@@ -6,6 +6,7 @@ import SEO from '@/components/SEO';
 import { ArrowLeft, Cookie, Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PoweredBySSociety from '@/components/PoweredBySSociety';
+import Footer from '@/components/Footer';
 
 const CookiePolicy = () => {
   const { language } = useLanguage();
@@ -165,18 +166,7 @@ const CookiePolicy = () => {
         </main>
 
         {/* Footer */}
-        <footer className="mt-12 pt-8 border-t border-border text-center space-y-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/termeni-si-conditii" className="text-primary hover:underline">
-              {language === 'ro' ? 'Termeni și Condiții' : language === 'es' ? 'Términos y Condiciones' : 'Terms and Conditions'}
-            </Link>
-            <span className="text-muted-foreground">•</span>
-            <Link to="/" className="text-primary hover:underline">
-              {language === 'ro' ? 'Pagina principală' : language === 'es' ? 'Página principal' : 'Home page'}
-            </Link>
-          </div>
-          <PoweredBySSociety />
-        </footer>
+        <Footer />
       </div>
     </div>
   );

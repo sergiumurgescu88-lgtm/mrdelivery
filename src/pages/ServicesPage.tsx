@@ -5,6 +5,7 @@ import SEO from '@/components/SEO';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ArrowLeft, Rocket, Video, Bot, Smartphone, Zap } from 'lucide-react';
 import PoweredBySSociety from '@/components/PoweredBySSociety';
+import Footer from '@/components/Footer';
 
 const seoData = {
   ro: {
@@ -112,12 +113,7 @@ const ServicesPage = () => {
         </div>
       </main>
 
-      <footer className="border-t border-border py-8 mt-12">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2025 MrDelivery AI Agency. {language === 'ro' ? 'Toate drepturile rezervate.' : language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}</p>
-          <PoweredBySSociety />
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
