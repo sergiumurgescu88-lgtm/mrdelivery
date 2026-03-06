@@ -54,6 +54,29 @@ const Index = () => {
         <header className="text-center mb-6 sm:mb-8 relative pt-2">
           <LanguageSwitcher />
           
+          {/* Powered by SSociety - inline mini badge */}
+          <div className="flex justify-center mb-2">
+            <a
+              href="https://ssociety.eu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-violet-500/20 bg-violet-950/30 backdrop-blur-sm hover:border-violet-400/40 hover:bg-violet-900/30 transition-all duration-400 hover:scale-105"
+            >
+              <span className="text-[10px] text-violet-300/60 group-hover:text-violet-200/80 transition-colors">Powered by</span>
+              <span 
+                className="text-[11px] font-bold tracking-wide"
+                style={{
+                  background: 'linear-gradient(135deg, #818cf8, #a78bfa, #c084fc)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                SSociety
+              </span>
+              <div className="w-1 h-1 rounded-full bg-violet-400/60 group-hover:bg-violet-300 transition-colors" style={{ animation: 'pulse-glow 2s ease-in-out infinite' }} />
+            </a>
+          </div>
           <div className="inline-block relative mb-2 sm:mb-3">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gradient-primary drop-shadow-lg md:text-6xl">
               {t.siteName}
