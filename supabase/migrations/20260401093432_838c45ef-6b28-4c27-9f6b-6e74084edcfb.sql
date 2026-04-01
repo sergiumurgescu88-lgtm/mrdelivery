@@ -1,0 +1,1 @@
+DROP POLICY "Authenticated users can create their own transactions" ON public.credit_transactions;

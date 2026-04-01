@@ -1,0 +1,1 @@
+DROP POLICY "Users can upload their content" ON storage.objects;
