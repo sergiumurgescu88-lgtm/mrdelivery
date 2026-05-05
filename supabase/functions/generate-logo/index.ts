@@ -8,7 +8,6 @@ const getAllowedOrigins = () => {
     'https://lovable.dev',
     'https://www.lovable.dev',
     allowedOrigin,
-    // Allow localhost for development
     'http://localhost:5173',
     'http://localhost:3000',
   ].filter(Boolean);
@@ -17,7 +16,12 @@ const getAllowedOrigins = () => {
 const getCorsHeaders = (req: Request) => {
   const origin = req.headers.get('Origin') || '';
   const allowedOrigins = getAllowedOrigins();
-  const isAllowed = allowedOrigins.some(allowed => origin.startsWith(allowed) || allowed === '*');
+  const isAllowed = allowedOrigins.some(allowed => {
+    if (allowed === '*') return true;
+    try {
+      return new URL(origin).hostname === new URL(allowed).hostname;
+    } catch { return false; }
+  });
   
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : '',
@@ -31,7 +35,6 @@ const MAX_PROMPT_LENGTH = 500;
 const MAX_COMPANY_NAME_LENGTH = 100;
 const MAX_STYLE_LENGTH = 50;
 
-// Validate and sanitize string input
 const validateStringInput = (
   value: unknown, 
   fieldName: string, 
@@ -64,7 +67,6 @@ serve(async (req) => {
   try {
     const body = await req.json();
     
-    // Validate prompt
     const promptValidation = validateStringInput(body.prompt, 'Prompt', MAX_PROMPT_LENGTH);
     if (!promptValidation.valid) {
       return new Response(JSON.stringify({ error: promptValidation.error }), {
@@ -73,7 +75,6 @@ serve(async (req) => {
       });
     }
     
-    // Validate company name
     const companyValidation = validateStringInput(body.companyName, 'Company name', MAX_COMPANY_NAME_LENGTH);
     if (!companyValidation.valid) {
       return new Response(JSON.stringify({ error: companyValidation.error }), {
@@ -82,7 +83,6 @@ serve(async (req) => {
       });
     }
     
-    // Validate style (optional)
     const styleValidation = validateStringInput(body.style, 'Style', MAX_STYLE_LENGTH, false);
     if (!styleValidation.valid) {
       return new Response(JSON.stringify({ error: styleValidation.error }), {
@@ -119,7 +119,7 @@ serve(async (req) => {
       });
     }
 
-    // Atomic credit deduction - logo costs 2 credits - prevents race conditions
+    // Atomic credit deduction - logo costs 2 credits
     const { data: creditResult, error: creditError } = await supabase.rpc('deduct_credits', {
       p_user_id: user.id,
       p_amount: 2
@@ -159,10 +159,8 @@ serve(async (req) => {
       const errorText = await response.text();
       console.error("AI gateway error:", response.status, errorText);
       
-      // Refund credits on AI failure
-      await supabase.from('profiles')
-        .update({ credits: (creditResult?.[0]?.remaining_credits ?? 0) + 2 })
-        .eq('user_id', user.id);
+      // Atomic credit refund on AI failure
+      await supabase.rpc('refund_credits', { p_user_id: user.id, p_amount: 2 });
       
       if (response.status === 429) {
         return new Response(JSON.stringify({ error: "Rate limits exceeded, please try again later." }), {
@@ -187,10 +185,8 @@ serve(async (req) => {
     const imageUrl = data.choices?.[0]?.message?.images?.[0]?.image_url?.url;
 
     if (!imageUrl) {
-      // Refund credits if no image generated
-      await supabase.from('profiles')
-        .update({ credits: (creditResult?.[0]?.remaining_credits ?? 0) + 2 })
-        .eq('user_id', user.id);
+      // Atomic credit refund if no image generated
+      await supabase.rpc('refund_credits', { p_user_id: user.id, p_amount: 2 });
       
       return new Response(JSON.stringify({ error: 'Unable to generate content. Please try again.' }), {
         status: 500,
@@ -224,7 +220,7 @@ serve(async (req) => {
     console.error('Error in generate-logo function:', error);
     return new Response(JSON.stringify({ error: 'Unable to generate content. Please try again.' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
     });
   }
 });

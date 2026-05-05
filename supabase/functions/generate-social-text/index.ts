@@ -8,7 +8,6 @@ const getAllowedOrigins = () => {
     'https://lovable.dev',
     'https://www.lovable.dev',
     allowedOrigin,
-    // Allow localhost for development
     'http://localhost:5173',
     'http://localhost:3000',
   ].filter(Boolean);
@@ -17,7 +16,12 @@ const getAllowedOrigins = () => {
 const getCorsHeaders = (req: Request) => {
   const origin = req.headers.get('Origin') || '';
   const allowedOrigins = getAllowedOrigins();
-  const isAllowed = allowedOrigins.some(allowed => origin.startsWith(allowed) || allowed === '*');
+  const isAllowed = allowedOrigins.some(allowed => {
+    if (allowed === '*') return true;
+    try {
+      return new URL(origin).hostname === new URL(allowed).hostname;
+    } catch { return false; }
+  });
   
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : '',
@@ -30,10 +34,9 @@ const getCorsHeaders = (req: Request) => {
 const ALLOWED_PLATFORMS = ['instagram', 'facebook', 'linkedin'] as const;
 type Platform = typeof ALLOWED_PLATFORMS[number];
 
-// Validate platform against allowed list
 const validatePlatform = (platform: unknown): { valid: boolean; error?: string; sanitized?: Platform } => {
   if (!platform || typeof platform !== 'string') {
-    return { valid: true, sanitized: 'instagram' }; // Default to instagram
+    return { valid: true, sanitized: 'instagram' };
   }
   const normalized = platform.toLowerCase().trim() as Platform;
   if (!ALLOWED_PLATFORMS.includes(normalized)) {
@@ -52,7 +55,6 @@ serve(async (req) => {
   try {
     const body = await req.json();
     
-    // Validate platform against whitelist
     const platformValidation = validatePlatform(body.platform);
     if (!platformValidation.valid) {
       return new Response(JSON.stringify({ error: platformValidation.error }), {
@@ -86,7 +88,7 @@ serve(async (req) => {
       });
     }
 
-    // Atomic credit deduction - prevents race conditions
+    // Atomic credit deduction
     const { data: creditResult, error: creditError } = await supabase.rpc('deduct_credits', {
       p_user_id: user.id,
       p_amount: 1
@@ -135,10 +137,8 @@ serve(async (req) => {
       const errorText = await response.text();
       console.error("AI gateway error:", response.status, errorText);
       
-      // Refund credit on AI failure
-      await supabase.from('profiles')
-        .update({ credits: (creditResult?.[0]?.remaining_credits ?? 0) + 1 })
-        .eq('user_id', user.id);
+      // Atomic credit refund on AI failure
+      await supabase.rpc('refund_credits', { p_user_id: user.id, p_amount: 1 });
       
       if (response.status === 429) {
         return new Response(JSON.stringify({ error: "Rate limits exceeded, please try again later." }), {
@@ -163,10 +163,8 @@ serve(async (req) => {
     const text = data.choices?.[0]?.message?.content;
 
     if (!text) {
-      // Refund credit if no text generated
-      await supabase.from('profiles')
-        .update({ credits: (creditResult?.[0]?.remaining_credits ?? 0) + 1 })
-        .eq('user_id', user.id);
+      // Atomic credit refund if no text generated
+      await supabase.rpc('refund_credits', { p_user_id: user.id, p_amount: 1 });
       
       return new Response(JSON.stringify({ error: 'Unable to generate content. Please try again.' }), {
         status: 500,
@@ -192,7 +190,7 @@ serve(async (req) => {
     console.error('Error in generate-social-text function:', error);
     return new Response(JSON.stringify({ error: 'Unable to generate content. Please try again.' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
     });
   }
 });

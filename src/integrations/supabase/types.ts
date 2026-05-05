@@ -341,6 +341,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      refund_credits: {
+        Args: { p_amount: number; p_user_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
