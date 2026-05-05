@@ -8,7 +8,6 @@ const getAllowedOrigins = () => {
     'https://lovable.dev',
     'https://www.lovable.dev',
     allowedOrigin,
-    // Allow localhost for development
     'http://localhost:5173',
     'http://localhost:3000',
   ].filter(Boolean);
@@ -17,7 +16,12 @@ const getAllowedOrigins = () => {
 const getCorsHeaders = (req: Request) => {
   const origin = req.headers.get('Origin') || '';
   const allowedOrigins = getAllowedOrigins();
-  const isAllowed = allowedOrigins.some(allowed => origin.startsWith(allowed) || allowed === '*');
+  const isAllowed = allowedOrigins.some(allowed => {
+    if (allowed === '*') return true;
+    try {
+      return new URL(origin).hostname === new URL(allowed).hostname;
+    } catch { return false; }
+  });
   
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : '',
@@ -31,7 +35,6 @@ const MAX_PROMPT_LENGTH = 500;
 const MIN_DIMENSION = 256;
 const MAX_DIMENSION = 2048;
 
-// Validate and sanitize prompt
 const validatePrompt = (prompt: unknown): { valid: boolean; error?: string; sanitized?: string } => {
   if (!prompt || typeof prompt !== 'string') {
     return { valid: false, error: 'Prompt is required and must be a string' };
@@ -46,7 +49,6 @@ const validatePrompt = (prompt: unknown): { valid: boolean; error?: string; sani
   return { valid: true, sanitized: trimmed };
 };
 
-// Validate dimensions
 const validateDimension = (value: unknown, name: string): { valid: boolean; error?: string; sanitized?: number } => {
   const num = typeof value === 'number' ? value : parseInt(String(value), 10);
   if (isNaN(num) || num < MIN_DIMENSION || num > MAX_DIMENSION) {
@@ -65,7 +67,6 @@ serve(async (req) => {
   try {
     const body = await req.json();
     
-    // Validate prompt
     const promptValidation = validatePrompt(body.prompt);
     if (!promptValidation.valid) {
       return new Response(JSON.stringify({ error: promptValidation.error }), {
@@ -75,7 +76,6 @@ serve(async (req) => {
     }
     const prompt = promptValidation.sanitized!;
     
-    // Validate dimensions
     const widthValidation = validateDimension(body.width ?? 1024, 'Width');
     const heightValidation = validateDimension(body.height ?? 1024, 'Height');
     
@@ -104,13 +104,11 @@ serve(async (req) => {
       });
     }
 
-    // Get the user from the auth header
     const authHeader = req.headers.get('Authorization');
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Extract user token
     const token = authHeader?.replace('Bearer ', '');
     const { data: { user }, error: authError } = await supabase.auth.getUser(token);
     
@@ -121,7 +119,7 @@ serve(async (req) => {
       });
     }
 
-    // Atomic credit deduction - prevents race conditions
+    // Atomic credit deduction
     const { data: creditResult, error: creditError } = await supabase.rpc('deduct_credits', {
       p_user_id: user.id,
       p_amount: 1
@@ -135,7 +133,6 @@ serve(async (req) => {
       });
     }
 
-    // Determine aspect ratio for the prompt
     const aspectRatio = width > height ? 'landscape' : width < height ? 'portrait' : 'square';
     const enhancedPrompt = `Create a professional marketing banner image. ${prompt}. The image should be in ${aspectRatio} format (${width}x${height}). Ultra high resolution, professional quality, suitable for advertising.`;
 
@@ -163,10 +160,8 @@ serve(async (req) => {
       const errorText = await response.text();
       console.error("AI gateway error:", response.status, errorText);
       
-      // Refund credit on AI failure
-      await supabase.from('profiles')
-        .update({ credits: (creditResult?.[0]?.remaining_credits ?? 0) + 1 })
-        .eq('user_id', user.id);
+      // Atomic credit refund on AI failure
+      await supabase.rpc('refund_credits', { p_user_id: user.id, p_amount: 1 });
       
       if (response.status === 429) {
         return new Response(JSON.stringify({ error: "Rate limits exceeded, please try again later." }), {
@@ -191,10 +186,8 @@ serve(async (req) => {
     const imageUrl = data.choices?.[0]?.message?.images?.[0]?.image_url?.url;
 
     if (!imageUrl) {
-      // Refund credit if no image generated
-      await supabase.from('profiles')
-        .update({ credits: (creditResult?.[0]?.remaining_credits ?? 0) + 1 })
-        .eq('user_id', user.id);
+      // Atomic credit refund if no image generated
+      await supabase.rpc('refund_credits', { p_user_id: user.id, p_amount: 1 });
       
       return new Response(JSON.stringify({ error: 'Unable to generate content. Please try again.' }), {
         status: 500,
@@ -210,7 +203,6 @@ serve(async (req) => {
       description: 'Banner generation'
     });
 
-    // Save the banner to database
     await supabase.from('generated_banners').insert({
       user_id: user.id,
       prompt: prompt,
@@ -229,7 +221,7 @@ serve(async (req) => {
     console.error('Error in generate-banner function:', error);
     return new Response(JSON.stringify({ error: 'Unable to generate content. Please try again.' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      headers: { ...getCorsHeaders(req), 'Content-Type': 'application/json' },
     });
   }
 });
