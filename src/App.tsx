@@ -18,6 +18,7 @@ import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import AutomationPage from "./pages/AutomationPage";
 import AIAutomationsPage from "./pages/AIAutomationsPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -39,7 +40,7 @@ const App = () => (
               <Route path="/about" element={<AboutPage />} />
               <Route path="/franchise" element={<FranchisePage />} />
               <Route path="/franchise_manual" element={<FranchiseManualPage />} />
-              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
               <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
               <Route path="/politica-cookies" element={<CookiePolicy />} />
               <Route path="/gallery" element={<GalleryPage />} />

@@ -102,14 +102,20 @@ const FranchiseManualPage: React.FC = () => {
     setLoading(true);
 
     try {
+      const sanitized = {
+        name: formData.name.trim().slice(0, 200),
+        email: formData.email.trim().slice(0, 254),
+        phone: formData.phone.trim().slice(0, 30),
+        country: formData.country.trim().slice(0, 100),
+      };
+
+      if (!sanitized.name || !sanitized.email || !sanitized.phone || !sanitized.country) {
+        throw new Error('All fields are required');
+      }
+
       const { error } = await supabase
         .from('franchise_applications')
-        .insert([{
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          country: formData.country
-        }]);
+        .insert([sanitized]);
 
       if (error) throw error;
 
